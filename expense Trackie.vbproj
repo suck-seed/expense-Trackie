@@ -49,8 +49,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -73,11 +75,39 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Baseform.vb">
-      <SubType>Form</SubType>
+    <Compile Include="Application\CategoryManager.vb" />
+    <Compile Include="Application\SessionManager.vb" />
+    <Compile Include="Application\UserManager.vb" />
+    <Compile Include="DataLayer\CategoryRepository.vb" />
+    <Compile Include="DataLayer\ExpenseRepository.vb" />
+    <Compile Include="DataLayer\UserRepository.vb" />
+    <Compile Include="expenseTrackieDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>expenseTrackieDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Baseform.Designer.vb">
-      <DependentUpon>Baseform.vb</DependentUpon>
+    <Compile Include="Presentation\dayView.Designer.vb">
+      <DependentUpon>dayView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\dayView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\expenseDetailDisplay.Designer.vb">
+      <DependentUpon>expenseDetailDisplay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\expenseDetailDisplay.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\monthView.Designer.vb">
+      <DependentUpon>monthView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\monthView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\monthViewtext.Designer.vb">
+      <DependentUpon>monthViewtext.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\monthViewtext.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -96,22 +126,54 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="New Expense.Designer.vb">
+    <Compile Include="Presentation\New Expense.Designer.vb">
       <DependentUpon>New Expense.vb</DependentUpon>
     </Compile>
-    <Compile Include="New Expense.vb">
+    <Compile Include="Presentation\New Expense.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="New_Category.Designer.vb">
+    <Compile Include="Presentation\New_Category.Designer.vb">
       <DependentUpon>New_Category.vb</DependentUpon>
     </Compile>
-    <Compile Include="New_Category.vb">
+    <Compile Include="Presentation\New_Category.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\SIgnIn.Designer.vb">
+      <DependentUpon>SIgnIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\SIgnIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\SignUp.Designer.vb">
+      <DependentUpon>SignUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\SignUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resource1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\mainWindow.Designer.vb">
+      <DependentUpon>mainWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\mainWindow.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Baseform.resx">
-      <DependentUpon>Baseform.vb</DependentUpon>
+    <EmbeddedResource Include="Presentation\dayView.resx">
+      <DependentUpon>dayView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\expenseDetailDisplay.resx">
+      <DependentUpon>expenseDetailDisplay.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\monthView.resx">
+      <DependentUpon>monthView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\monthViewtext.resx">
+      <DependentUpon>monthViewtext.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -119,14 +181,39 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="New Expense.resx">
+    <EmbeddedResource Include="Presentation\New Expense.resx">
       <DependentUpon>New Expense.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="New_Category.resx">
+    <EmbeddedResource Include="Presentation\New_Category.resx">
       <DependentUpon>New_Category.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\SIgnIn.resx">
+      <DependentUpon>SIgnIn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\SignUp.resx">
+      <DependentUpon>SignUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\mainWindow.resx">
+      <DependentUpon>mainWindow.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="expenseTrackieDataSet.xsc">
+      <DependentUpon>expenseTrackieDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="expenseTrackieDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>expenseTrackieDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="expenseTrackieDataSet.xss">
+      <DependentUpon>expenseTrackieDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -138,5 +225,114 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_button.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\surendra-rajawat-img-0669.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-144 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-windows-11-outline-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-windows-11-outline-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-windows-11-outline-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-chart-bar-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-database-export-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-day-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-month-view-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-month-view-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-setting-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-day-70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-day-57.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-bar-chart-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-send-file-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-export-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-minimize-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-maximize-button-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-horizontal-line-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-maximize-button-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-horizontal-line-16 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-forward-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-back-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-tick-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-tick-16 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restore down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-export-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-bar-chart-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-tick-161.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
