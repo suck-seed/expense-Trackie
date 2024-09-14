@@ -35,15 +35,15 @@ Partial Public Class expenseTrackieDataSet
     
     Private tableverification As verificationDataTable
     
-    Private relationFK__category__userId__6FE99F9F As Global.System.Data.DataRelation
+    Private relationFK__category__userId__59FA5E80 As Global.System.Data.DataRelation
     
-    Private relationFK__expense__catId__09A971A2 As Global.System.Data.DataRelation
+    Private relationFK__expense__catId__5EBF139D As Global.System.Data.DataRelation
     
-    Private relationFK__expense__userId__08B54D69 As Global.System.Data.DataRelation
+    Private relationFK__expense__userId__5DCAEF64 As Global.System.Data.DataRelation
     
-    Private relationFK__userAttribut__id__5165187F As Global.System.Data.DataRelation
+    Private relationFK__userAttribut__id__5441852A As Global.System.Data.DataRelation
     
-    Private relationFK__verification__id__5629CD9C As Global.System.Data.DataRelation
+    Private relationFK__verification__id__571DF1D5 As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -300,11 +300,11 @@ Partial Public Class expenseTrackieDataSet
                 Me.tableverification.InitVars
             End If
         End If
-        Me.relationFK__category__userId__6FE99F9F = Me.Relations("FK__category__userId__6FE99F9F")
-        Me.relationFK__expense__catId__09A971A2 = Me.Relations("FK__expense__catId__09A971A2")
-        Me.relationFK__expense__userId__08B54D69 = Me.Relations("FK__expense__userId__08B54D69")
-        Me.relationFK__userAttribut__id__5165187F = Me.Relations("FK__userAttribut__id__5165187F")
-        Me.relationFK__verification__id__5629CD9C = Me.Relations("FK__verification__id__5629CD9C")
+        Me.relationFK__category__userId__59FA5E80 = Me.Relations("FK__category__userId__59FA5E80")
+        Me.relationFK__expense__catId__5EBF139D = Me.Relations("FK__expense__catId__5EBF139D")
+        Me.relationFK__expense__userId__5DCAEF64 = Me.Relations("FK__expense__userId__5DCAEF64")
+        Me.relationFK__userAttribut__id__5441852A = Me.Relations("FK__userAttribut__id__5441852A")
+        Me.relationFK__verification__id__571DF1D5 = Me.Relations("FK__verification__id__571DF1D5")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -325,16 +325,16 @@ Partial Public Class expenseTrackieDataSet
         MyBase.Tables.Add(Me.tableuserInfo)
         Me.tableverification = New verificationDataTable()
         MyBase.Tables.Add(Me.tableverification)
-        Me.relationFK__category__userId__6FE99F9F = New Global.System.Data.DataRelation("FK__category__userId__6FE99F9F", New Global.System.Data.DataColumn() {Me.tableuserInfo.idColumn}, New Global.System.Data.DataColumn() {Me.tablecategory.userIdColumn}, false)
-        Me.Relations.Add(Me.relationFK__category__userId__6FE99F9F)
-        Me.relationFK__expense__catId__09A971A2 = New Global.System.Data.DataRelation("FK__expense__catId__09A971A2", New Global.System.Data.DataColumn() {Me.tablecategory.catIdColumn}, New Global.System.Data.DataColumn() {Me.tableexpense.catIdColumn}, false)
-        Me.Relations.Add(Me.relationFK__expense__catId__09A971A2)
-        Me.relationFK__expense__userId__08B54D69 = New Global.System.Data.DataRelation("FK__expense__userId__08B54D69", New Global.System.Data.DataColumn() {Me.tableuserInfo.idColumn}, New Global.System.Data.DataColumn() {Me.tableexpense.userIdColumn}, false)
-        Me.Relations.Add(Me.relationFK__expense__userId__08B54D69)
-        Me.relationFK__userAttribut__id__5165187F = New Global.System.Data.DataRelation("FK__userAttribut__id__5165187F", New Global.System.Data.DataColumn() {Me.tableuserInfo.idColumn}, New Global.System.Data.DataColumn() {Me.tableuserAttributes.idColumn}, false)
-        Me.Relations.Add(Me.relationFK__userAttribut__id__5165187F)
-        Me.relationFK__verification__id__5629CD9C = New Global.System.Data.DataRelation("FK__verification__id__5629CD9C", New Global.System.Data.DataColumn() {Me.tableuserInfo.idColumn}, New Global.System.Data.DataColumn() {Me.tableverification.idColumn}, false)
-        Me.Relations.Add(Me.relationFK__verification__id__5629CD9C)
+        Me.relationFK__category__userId__59FA5E80 = New Global.System.Data.DataRelation("FK__category__userId__59FA5E80", New Global.System.Data.DataColumn() {Me.tableuserInfo.idColumn}, New Global.System.Data.DataColumn() {Me.tablecategory.userIdColumn}, false)
+        Me.Relations.Add(Me.relationFK__category__userId__59FA5E80)
+        Me.relationFK__expense__catId__5EBF139D = New Global.System.Data.DataRelation("FK__expense__catId__5EBF139D", New Global.System.Data.DataColumn() {Me.tablecategory.catIdColumn}, New Global.System.Data.DataColumn() {Me.tableexpense.catIdColumn}, false)
+        Me.Relations.Add(Me.relationFK__expense__catId__5EBF139D)
+        Me.relationFK__expense__userId__5DCAEF64 = New Global.System.Data.DataRelation("FK__expense__userId__5DCAEF64", New Global.System.Data.DataColumn() {Me.tableuserInfo.idColumn}, New Global.System.Data.DataColumn() {Me.tableexpense.userIdColumn}, false)
+        Me.Relations.Add(Me.relationFK__expense__userId__5DCAEF64)
+        Me.relationFK__userAttribut__id__5441852A = New Global.System.Data.DataRelation("FK__userAttribut__id__5441852A", New Global.System.Data.DataColumn() {Me.tableuserInfo.idColumn}, New Global.System.Data.DataColumn() {Me.tableuserAttributes.idColumn}, false)
+        Me.Relations.Add(Me.relationFK__userAttribut__id__5441852A)
+        Me.relationFK__verification__id__571DF1D5 = New Global.System.Data.DataRelation("FK__verification__id__571DF1D5", New Global.System.Data.DataColumn() {Me.tableuserInfo.idColumn}, New Global.System.Data.DataColumn() {Me.tableverification.idColumn}, false)
+        Me.Relations.Add(Me.relationFK__verification__id__571DF1D5)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -570,11 +570,11 @@ Partial Public Class expenseTrackieDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddcategoryRow(ByVal parentuserInfoRowByFK__category__userId__6FE99F9F As userInfoRow, ByVal catName As String, ByVal description As String, ByVal color As String) As categoryRow
+        Public Overloads Function AddcategoryRow(ByVal parentuserInfoRowByFK__category__userId__59FA5E80 As userInfoRow, ByVal catName As String, ByVal description As String, ByVal color As String) As categoryRow
             Dim rowcategoryRow As categoryRow = CType(Me.NewRow,categoryRow)
             Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, catName, description, color}
-            If (Not (parentuserInfoRowByFK__category__userId__6FE99F9F) Is Nothing) Then
-                columnValuesArray(1) = parentuserInfoRowByFK__category__userId__6FE99F9F(0)
+            If (Not (parentuserInfoRowByFK__category__userId__59FA5E80) Is Nothing) Then
+                columnValuesArray(1) = parentuserInfoRowByFK__category__userId__59FA5E80(0)
             End If
             rowcategoryRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowcategoryRow)
@@ -634,9 +634,10 @@ Partial Public Class expenseTrackieDataSet
             Me.columnuserId.AllowDBNull = false
             Me.columncatName.AllowDBNull = false
             Me.columncatName.MaxLength = 100
-            Me.columndescription.MaxLength = 2147483647
+            Me.columndescription.AllowDBNull = false
+            Me.columndescription.MaxLength = 250
             Me.columncolor.AllowDBNull = false
-            Me.columncolor.MaxLength = 7
+            Me.columncolor.MaxLength = 100
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -782,9 +783,9 @@ Partial Public Class expenseTrackieDataSet
         
         Private columnamount As Global.System.Data.DataColumn
         
-        Private columndateAdded As Global.System.Data.DataColumn
-        
         Private columnremarks As Global.System.Data.DataColumn
+        
+        Private columndateAdded As Global.System.Data.DataColumn
         
         Private columntimeAdded As Global.System.Data.DataColumn
         
@@ -857,17 +858,17 @@ Partial Public Class expenseTrackieDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property dateAddedColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property remarksColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columndateAdded
+                Return Me.columnremarks
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property remarksColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property dateAddedColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnremarks
+                Return Me.columndateAdded
             End Get
         End Property
         
@@ -916,14 +917,14 @@ Partial Public Class expenseTrackieDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddexpenseRow(ByVal parentuserInfoRowByFK__expense__userId__08B54D69 As userInfoRow, ByVal parentcategoryRowByFK__expense__catId__09A971A2 As categoryRow, ByVal amount As Decimal, ByVal dateAdded As Date, ByVal remarks As String, ByVal timeAdded As System.TimeSpan) As expenseRow
+        Public Overloads Function AddexpenseRow(ByVal parentuserInfoRowByFK__expense__userId__5DCAEF64 As userInfoRow, ByVal parentcategoryRowByFK__expense__catId__5EBF139D As categoryRow, ByVal amount As Decimal, ByVal remarks As String, ByVal dateAdded As Date, ByVal timeAdded As System.TimeSpan) As expenseRow
             Dim rowexpenseRow As expenseRow = CType(Me.NewRow,expenseRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Nothing, amount, dateAdded, remarks, timeAdded}
-            If (Not (parentuserInfoRowByFK__expense__userId__08B54D69) Is Nothing) Then
-                columnValuesArray(1) = parentuserInfoRowByFK__expense__userId__08B54D69(0)
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Nothing, amount, remarks, dateAdded, timeAdded}
+            If (Not (parentuserInfoRowByFK__expense__userId__5DCAEF64) Is Nothing) Then
+                columnValuesArray(1) = parentuserInfoRowByFK__expense__userId__5DCAEF64(0)
             End If
-            If (Not (parentcategoryRowByFK__expense__catId__09A971A2) Is Nothing) Then
-                columnValuesArray(2) = parentcategoryRowByFK__expense__catId__09A971A2(0)
+            If (Not (parentcategoryRowByFK__expense__catId__5EBF139D) Is Nothing) Then
+                columnValuesArray(2) = parentcategoryRowByFK__expense__catId__5EBF139D(0)
             End If
             rowexpenseRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowexpenseRow)
@@ -957,8 +958,8 @@ Partial Public Class expenseTrackieDataSet
             Me.columnuserId = MyBase.Columns("userId")
             Me.columncatId = MyBase.Columns("catId")
             Me.columnamount = MyBase.Columns("amount")
-            Me.columndateAdded = MyBase.Columns("dateAdded")
             Me.columnremarks = MyBase.Columns("remarks")
+            Me.columndateAdded = MyBase.Columns("dateAdded")
             Me.columntimeAdded = MyBase.Columns("timeAdded")
         End Sub
         
@@ -973,10 +974,10 @@ Partial Public Class expenseTrackieDataSet
             MyBase.Columns.Add(Me.columncatId)
             Me.columnamount = New Global.System.Data.DataColumn("amount", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnamount)
-            Me.columndateAdded = New Global.System.Data.DataColumn("dateAdded", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndateAdded)
             Me.columnremarks = New Global.System.Data.DataColumn("remarks", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnremarks)
+            Me.columndateAdded = New Global.System.Data.DataColumn("dateAdded", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndateAdded)
             Me.columntimeAdded = New Global.System.Data.DataColumn("timeAdded", GetType(Global.System.TimeSpan), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntimeAdded)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columneId}, true))
@@ -989,9 +990,9 @@ Partial Public Class expenseTrackieDataSet
             Me.columnuserId.AllowDBNull = false
             Me.columncatId.AllowDBNull = false
             Me.columnamount.AllowDBNull = false
-            Me.columndateAdded.AllowDBNull = false
             Me.columnremarks.AllowDBNull = false
             Me.columnremarks.MaxLength = 255
+            Me.columndateAdded.AllowDBNull = false
             Me.columntimeAdded.AllowDBNull = false
         End Sub
         
@@ -1222,11 +1223,11 @@ Partial Public Class expenseTrackieDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AdduserAttributesRow(ByVal parentuserInfoRowByFK__userAttribut__id__5165187F As userInfoRow, ByVal dailyLimit As Decimal) As userAttributesRow
+        Public Overloads Function AdduserAttributesRow(ByVal parentuserInfoRowByFK__userAttribut__id__5441852A As userInfoRow, ByVal dailyLimit As Decimal) As userAttributesRow
             Dim rowuserAttributesRow As userAttributesRow = CType(Me.NewRow,userAttributesRow)
             Dim columnValuesArray() As Object = New Object() {Nothing, dailyLimit}
-            If (Not (parentuserInfoRowByFK__userAttribut__id__5165187F) Is Nothing) Then
-                columnValuesArray(0) = parentuserInfoRowByFK__userAttribut__id__5165187F(0)
+            If (Not (parentuserInfoRowByFK__userAttribut__id__5441852A) Is Nothing) Then
+                columnValuesArray(0) = parentuserInfoRowByFK__userAttribut__id__5441852A(0)
             End If
             rowuserAttributesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowuserAttributesRow)
@@ -1411,15 +1412,13 @@ Partial Public Class expenseTrackieDataSet
         
         Private columnusername As Global.System.Data.DataColumn
         
-        Private columnemail As Global.System.Data.DataColumn
+        Private columnpassword As Global.System.Data.DataColumn
         
         Private columnnumber As Global.System.Data.DataColumn
         
         Private columndateJoined As Global.System.Data.DataColumn
         
         Private columnenabled As Global.System.Data.DataColumn
-        
-        Private columnpassword As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
@@ -1474,9 +1473,9 @@ Partial Public Class expenseTrackieDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property emailColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property passwordColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnemail
+                Return Me.columnpassword
             End Get
         End Property
         
@@ -1501,14 +1500,6 @@ Partial Public Class expenseTrackieDataSet
         Public ReadOnly Property enabledColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnenabled
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property passwordColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnpassword
             End Get
         End Property
         
@@ -1549,9 +1540,9 @@ Partial Public Class expenseTrackieDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AdduserInfoRow(ByVal username As String, ByVal email As String, ByVal number As String, ByVal dateJoined As Date, ByVal enabled As Boolean, ByVal password As String) As userInfoRow
+        Public Overloads Function AdduserInfoRow(ByVal username As String, ByVal password As String, ByVal number As String, ByVal dateJoined As Date, ByVal enabled As Boolean) As userInfoRow
             Dim rowuserInfoRow As userInfoRow = CType(Me.NewRow,userInfoRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, username, email, number, dateJoined, enabled, password}
+            Dim columnValuesArray() As Object = New Object() {Nothing, username, password, number, dateJoined, enabled}
             rowuserInfoRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowuserInfoRow)
             Return rowuserInfoRow
@@ -1582,11 +1573,10 @@ Partial Public Class expenseTrackieDataSet
         Friend Sub InitVars()
             Me.columnid = MyBase.Columns("id")
             Me.columnusername = MyBase.Columns("username")
-            Me.columnemail = MyBase.Columns("email")
+            Me.columnpassword = MyBase.Columns("password")
             Me.columnnumber = MyBase.Columns("number")
             Me.columndateJoined = MyBase.Columns("dateJoined")
             Me.columnenabled = MyBase.Columns("enabled")
-            Me.columnpassword = MyBase.Columns("password")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1596,16 +1586,14 @@ Partial Public Class expenseTrackieDataSet
             MyBase.Columns.Add(Me.columnid)
             Me.columnusername = New Global.System.Data.DataColumn("username", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnusername)
-            Me.columnemail = New Global.System.Data.DataColumn("email", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnemail)
+            Me.columnpassword = New Global.System.Data.DataColumn("password", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpassword)
             Me.columnnumber = New Global.System.Data.DataColumn("number", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnumber)
             Me.columndateJoined = New Global.System.Data.DataColumn("dateJoined", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndateJoined)
             Me.columnenabled = New Global.System.Data.DataColumn("enabled", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnenabled)
-            Me.columnpassword = New Global.System.Data.DataColumn("password", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnpassword)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
             Me.columnid.AutoIncrement = true
             Me.columnid.AutoIncrementSeed = -1
@@ -1615,13 +1603,12 @@ Partial Public Class expenseTrackieDataSet
             Me.columnid.Unique = true
             Me.columnusername.AllowDBNull = false
             Me.columnusername.MaxLength = 255
-            Me.columnemail.AllowDBNull = false
-            Me.columnemail.MaxLength = 255
+            Me.columnpassword.AllowDBNull = false
+            Me.columnpassword.MaxLength = 255
             Me.columnnumber.AllowDBNull = false
             Me.columnnumber.MaxLength = 10
             Me.columndateJoined.AllowDBNull = false
             Me.columnenabled.AllowDBNull = false
-            Me.columnpassword.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1841,11 +1828,11 @@ Partial Public Class expenseTrackieDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddverificationRow(ByVal parentuserInfoRowByFK__verification__id__5629CD9C As userInfoRow) As verificationRow
+        Public Overloads Function AddverificationRow(ByVal parentuserInfoRowByFK__verification__id__571DF1D5 As userInfoRow) As verificationRow
             Dim rowverificationRow As verificationRow = CType(Me.NewRow,verificationRow)
             Dim columnValuesArray() As Object = New Object() {Nothing}
-            If (Not (parentuserInfoRowByFK__verification__id__5629CD9C) Is Nothing) Then
-                columnValuesArray(0) = parentuserInfoRowByFK__verification__id__5629CD9C(0)
+            If (Not (parentuserInfoRowByFK__verification__id__571DF1D5) Is Nothing) Then
+                columnValuesArray(0) = parentuserInfoRowByFK__verification__id__571DF1D5(0)
             End If
             rowverificationRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowverificationRow)
@@ -2067,11 +2054,7 @@ Partial Public Class expenseTrackieDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property description() As String
             Get
-                Try 
-                    Return CType(Me(Me.tablecategory.descriptionColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'description' in table 'category' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tablecategory.descriptionColumn),String)
             End Get
             Set
                 Me(Me.tablecategory.descriptionColumn) = value
@@ -2093,32 +2076,20 @@ Partial Public Class expenseTrackieDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property userInfoRow() As userInfoRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__category__userId__6FE99F9F")),userInfoRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__category__userId__59FA5E80")),userInfoRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK__category__userId__6FE99F9F"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK__category__userId__59FA5E80"))
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsdescriptionNull() As Boolean
-            Return Me.IsNull(Me.tablecategory.descriptionColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetdescriptionNull()
-            Me(Me.tablecategory.descriptionColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function GetexpenseRows() As expenseRow()
-            If (Me.Table.ChildRelations("FK__expense__catId__09A971A2") Is Nothing) Then
+            If (Me.Table.ChildRelations("FK__expense__catId__5EBF139D") Is Nothing) Then
                 Return New expenseRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__expense__catId__09A971A2")),expenseRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__expense__catId__5EBF139D")),expenseRow())
             End If
         End Function
     End Class
@@ -2184,23 +2155,23 @@ Partial Public Class expenseTrackieDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property dateAdded() As Date
-            Get
-                Return CType(Me(Me.tableexpense.dateAddedColumn),Date)
-            End Get
-            Set
-                Me(Me.tableexpense.dateAddedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property remarks() As String
             Get
                 Return CType(Me(Me.tableexpense.remarksColumn),String)
             End Get
             Set
                 Me(Me.tableexpense.remarksColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property dateAdded() As Date
+            Get
+                Return CType(Me(Me.tableexpense.dateAddedColumn),Date)
+            End Get
+            Set
+                Me(Me.tableexpense.dateAddedColumn) = value
             End Set
         End Property
         
@@ -2219,10 +2190,10 @@ Partial Public Class expenseTrackieDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property categoryRow() As categoryRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__expense__catId__09A971A2")),categoryRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__expense__catId__5EBF139D")),categoryRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK__expense__catId__09A971A2"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK__expense__catId__5EBF139D"))
             End Set
         End Property
         
@@ -2230,10 +2201,10 @@ Partial Public Class expenseTrackieDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property userInfoRow() As userInfoRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__expense__userId__08B54D69")),userInfoRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__expense__userId__5DCAEF64")),userInfoRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK__expense__userId__08B54D69"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK__expense__userId__5DCAEF64"))
             End Set
         End Property
     End Class
@@ -2283,10 +2254,10 @@ Partial Public Class expenseTrackieDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property userInfoRow() As userInfoRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__userAttribut__id__5165187F")),userInfoRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__userAttribut__id__5441852A")),userInfoRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK__userAttribut__id__5165187F"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK__userAttribut__id__5441852A"))
             End Set
         End Property
         
@@ -2342,12 +2313,12 @@ Partial Public Class expenseTrackieDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property email() As String
+        Public Property password() As String
             Get
-                Return CType(Me(Me.tableuserInfo.emailColumn),String)
+                Return CType(Me(Me.tableuserInfo.passwordColumn),String)
             End Get
             Set
-                Me(Me.tableuserInfo.emailColumn) = value
+                Me(Me.tableuserInfo.passwordColumn) = value
             End Set
         End Property
         
@@ -2386,68 +2357,41 @@ Partial Public Class expenseTrackieDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property password() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableuserInfo.passwordColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'password' in table 'userInfo' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableuserInfo.passwordColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IspasswordNull() As Boolean
-            Return Me.IsNull(Me.tableuserInfo.passwordColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetpasswordNull()
-            Me(Me.tableuserInfo.passwordColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function GetcategoryRows() As categoryRow()
-            If (Me.Table.ChildRelations("FK__category__userId__6FE99F9F") Is Nothing) Then
+            If (Me.Table.ChildRelations("FK__category__userId__59FA5E80") Is Nothing) Then
                 Return New categoryRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__category__userId__6FE99F9F")),categoryRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__category__userId__59FA5E80")),categoryRow())
             End If
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function GetexpenseRows() As expenseRow()
-            If (Me.Table.ChildRelations("FK__expense__userId__08B54D69") Is Nothing) Then
+            If (Me.Table.ChildRelations("FK__expense__userId__5DCAEF64") Is Nothing) Then
                 Return New expenseRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__expense__userId__08B54D69")),expenseRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__expense__userId__5DCAEF64")),expenseRow())
             End If
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function GetuserAttributesRows() As userAttributesRow()
-            If (Me.Table.ChildRelations("FK__userAttribut__id__5165187F") Is Nothing) Then
+            If (Me.Table.ChildRelations("FK__userAttribut__id__5441852A") Is Nothing) Then
                 Return New userAttributesRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__userAttribut__id__5165187F")),userAttributesRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__userAttribut__id__5441852A")),userAttributesRow())
             End If
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function GetverificationRows() As verificationRow()
-            If (Me.Table.ChildRelations("FK__verification__id__5629CD9C") Is Nothing) Then
+            If (Me.Table.ChildRelations("FK__verification__id__571DF1D5") Is Nothing) Then
                 Return New verificationRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__verification__id__5629CD9C")),verificationRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__verification__id__571DF1D5")),verificationRow())
             End If
         End Function
     End Class
@@ -2482,10 +2426,10 @@ Partial Public Class expenseTrackieDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property userInfoRow() As userInfoRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__verification__id__5629CD9C")),userInfoRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__verification__id__571DF1D5")),userInfoRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK__verification__id__5629CD9C"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK__verification__id__571DF1D5"))
             End Set
         End Property
     End Class
@@ -2809,13 +2753,14 @@ Namespace expenseTrackieDataSetTableAdapters
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[category] WHERE (([catId] = @Original_catId) AND ([userId] = @"& _ 
-                "Original_userId) AND ([catName] = @Original_catName) AND ([color] = @Original_co"& _ 
-                "lor))"
+                "Original_userId) AND ([catName] = @Original_catName) AND ([description] = @Origi"& _ 
+                "nal_description) AND ([color] = @Original_color))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_catId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_userId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "userId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_catName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_color", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "color", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_catName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_description", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "description", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_color", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "color", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[category] ([userId], [catName], [description], [color]) VALUES"& _ 
@@ -2823,25 +2768,26 @@ Namespace expenseTrackieDataSetTableAdapters
                 "ription, color FROM category WHERE (catId = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@userId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "userId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@catName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@description", Global.System.Data.SqlDbType.Text, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@color", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "color", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@catName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@description", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@color", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "color", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[category] SET [userId] = @userId, [catName] = @catName, [descriptio"& _ 
                 "n] = @description, [color] = @color WHERE (([catId] = @Original_catId) AND ([use"& _ 
-                "rId] = @Original_userId) AND ([catName] = @Original_catName) AND ([color] = @Ori"& _ 
-                "ginal_color));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT catId, userId, catName, description, color FROM category "& _ 
-                "WHERE (catId = @catId)"
+                "rId] = @Original_userId) AND ([catName] = @Original_catName) AND ([description] "& _ 
+                "= @Original_description) AND ([color] = @Original_color));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT catId, userId"& _ 
+                ", catName, description, color FROM category WHERE (catId = @catId)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@userId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "userId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@catName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@description", Global.System.Data.SqlDbType.Text, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@color", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "color", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@catName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@description", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@color", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "color", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_catId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_userId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "userId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_catName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_color", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "color", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_catName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_description", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "description", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_color", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "color", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@catId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "catId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -2918,7 +2864,7 @@ Namespace expenseTrackieDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_catId As Integer, ByVal Original_userId As Integer, ByVal Original_catName As String, ByVal Original_color As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_catId As Integer, ByVal Original_userId As Integer, ByVal Original_catName As String, ByVal Original_description As String, ByVal Original_color As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_catId,Integer)
             Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_userId,Integer)
             If (Original_catName Is Nothing) Then
@@ -2926,10 +2872,15 @@ Namespace expenseTrackieDataSetTableAdapters
             Else
                 Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_catName,String)
             End If
+            If (Original_description Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_description")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_description,String)
+            End If
             If (Original_color Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_color")
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_color,String)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_color,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -2958,7 +2909,7 @@ Namespace expenseTrackieDataSetTableAdapters
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(catName,String)
             End If
             If (description Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("description")
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = CType(description,String)
             End If
@@ -2986,7 +2937,7 @@ Namespace expenseTrackieDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal userId As Integer, ByVal catName As String, ByVal description As String, ByVal color As String, ByVal Original_catId As Integer, ByVal Original_userId As Integer, ByVal Original_catName As String, ByVal Original_color As String, ByVal catId As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal userId As Integer, ByVal catName As String, ByVal description As String, ByVal color As String, ByVal Original_catId As Integer, ByVal Original_userId As Integer, ByVal Original_catName As String, ByVal Original_description As String, ByVal Original_color As String, ByVal catId As Integer) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(userId,Integer)
             If (catName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("catName")
@@ -2994,7 +2945,7 @@ Namespace expenseTrackieDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(catName,String)
             End If
             If (description Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("description")
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = CType(description,String)
             End If
@@ -3010,12 +2961,17 @@ Namespace expenseTrackieDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_catName,String)
             End If
+            If (Original_description Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_description")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_description,String)
+            End If
             If (Original_color Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_color")
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_color,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_color,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(catId,Integer)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(catId,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -3035,8 +2991,8 @@ Namespace expenseTrackieDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal userId As Integer, ByVal catName As String, ByVal description As String, ByVal color As String, ByVal Original_catId As Integer, ByVal Original_userId As Integer, ByVal Original_catName As String, ByVal Original_color As String) As Integer
-            Return Me.Update(userId, catName, description, color, Original_catId, Original_userId, Original_catName, Original_color, Original_catId)
+        Public Overloads Overridable Function Update(ByVal userId As Integer, ByVal catName As String, ByVal description As String, ByVal color As String, ByVal Original_catId As Integer, ByVal Original_userId As Integer, ByVal Original_catName As String, ByVal Original_description As String, ByVal Original_color As String) As Integer
+            Return Me.Update(userId, catName, description, color, Original_catId, Original_userId, Original_catName, Original_description, Original_color, Original_catId)
         End Function
     End Class
     
@@ -3171,59 +3127,59 @@ Namespace expenseTrackieDataSetTableAdapters
             tableMapping.ColumnMappings.Add("userId", "userId")
             tableMapping.ColumnMappings.Add("catId", "catId")
             tableMapping.ColumnMappings.Add("amount", "amount")
-            tableMapping.ColumnMappings.Add("dateAdded", "dateAdded")
             tableMapping.ColumnMappings.Add("remarks", "remarks")
+            tableMapping.ColumnMappings.Add("dateAdded", "dateAdded")
             tableMapping.ColumnMappings.Add("timeAdded", "timeAdded")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[expense] WHERE (([eId] = @Original_eId) AND ([userId] = @Origi"& _ 
                 "nal_userId) AND ([catId] = @Original_catId) AND ([amount] = @Original_amount) AN"& _ 
-                "D ([dateAdded] = @Original_dateAdded) AND ([remarks] = @Original_remarks) AND (["& _ 
+                "D ([remarks] = @Original_remarks) AND ([dateAdded] = @Original_dateAdded) AND (["& _ 
                 "timeAdded] = @Original_timeAdded))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_eId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "eId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_userId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "userId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_catId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_amount", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 10, 2, "amount", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dateAdded", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateAdded", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_remarks", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "remarks", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dateAdded", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateAdded", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_timeAdded", Global.System.Data.SqlDbType.Time, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "timeAdded", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[expense] ([userId], [catId], [amount], [dateAdded], [remarks],"& _ 
-                " [timeAdded]) VALUES (@userId, @catId, @amount, @dateAdded, @remarks, @timeAdded"& _ 
-                ");"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT eId, userId, catId, amount, dateAdded, remarks, timeAdded FROM expens"& _ 
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[expense] ([userId], [catId], [amount], [remarks], [dateAdded],"& _ 
+                " [timeAdded]) VALUES (@userId, @catId, @amount, @remarks, @dateAdded, @timeAdded"& _ 
+                ");"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT eId, userId, catId, amount, remarks, dateAdded, timeAdded FROM expens"& _ 
                 "e WHERE (eId = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@userId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "userId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@catId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@amount", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 10, 2, "amount", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dateAdded", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateAdded", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@remarks", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "remarks", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dateAdded", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateAdded", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@timeAdded", Global.System.Data.SqlDbType.Time, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "timeAdded", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[expense] SET [userId] = @userId, [catId] = @catId, [amount] = @amou"& _ 
-                "nt, [dateAdded] = @dateAdded, [remarks] = @remarks, [timeAdded] = @timeAdded WHE"& _ 
+                "nt, [remarks] = @remarks, [dateAdded] = @dateAdded, [timeAdded] = @timeAdded WHE"& _ 
                 "RE (([eId] = @Original_eId) AND ([userId] = @Original_userId) AND ([catId] = @Or"& _ 
-                "iginal_catId) AND ([amount] = @Original_amount) AND ([dateAdded] = @Original_dat"& _ 
-                "eAdded) AND ([remarks] = @Original_remarks) AND ([timeAdded] = @Original_timeAdd"& _ 
-                "ed));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT eId, userId, catId, amount, dateAdded, remarks, timeAdded FROM exp"& _ 
+                "iginal_catId) AND ([amount] = @Original_amount) AND ([remarks] = @Original_remar"& _ 
+                "ks) AND ([dateAdded] = @Original_dateAdded) AND ([timeAdded] = @Original_timeAdd"& _ 
+                "ed));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT eId, userId, catId, amount, remarks, dateAdded, timeAdded FROM exp"& _ 
                 "ense WHERE (eId = @eId)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@userId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "userId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@catId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@amount", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 10, 2, "amount", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dateAdded", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateAdded", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@remarks", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "remarks", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dateAdded", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateAdded", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@timeAdded", Global.System.Data.SqlDbType.Time, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "timeAdded", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_eId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "eId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_userId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "userId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_catId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "catId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_amount", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 10, 2, "amount", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dateAdded", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateAdded", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_remarks", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "remarks", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dateAdded", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateAdded", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_timeAdded", Global.System.Data.SqlDbType.Time, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "timeAdded", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@eId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "eId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -3241,7 +3197,7 @@ Namespace expenseTrackieDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT eId, userId, catId, amount, dateAdded, remarks, timeAdded FROM dbo.expense"& _ 
+            Me._commandCollection(0).CommandText = "SELECT eId, userId, catId, amount, remarks, dateAdded, timeAdded FROM dbo.expense"& _ 
                 ""
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
@@ -3302,17 +3258,17 @@ Namespace expenseTrackieDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_eId As Integer, ByVal Original_userId As Integer, ByVal Original_catId As Integer, ByVal Original_amount As Decimal, ByVal Original_dateAdded As Date, ByVal Original_remarks As String, ByVal Original_timeAdded As System.TimeSpan) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_eId As Integer, ByVal Original_userId As Integer, ByVal Original_catId As Integer, ByVal Original_amount As Decimal, ByVal Original_remarks As String, ByVal Original_dateAdded As Date, ByVal Original_timeAdded As System.TimeSpan) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_eId,Integer)
             Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_userId,Integer)
             Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_catId,Integer)
             Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_amount,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_dateAdded,Date)
             If (Original_remarks Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_remarks")
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_remarks,String)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_remarks,String)
             End If
+            Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_dateAdded,Date)
             Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_timeAdded,System.TimeSpan)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -3333,16 +3289,16 @@ Namespace expenseTrackieDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal userId As Integer, ByVal catId As Integer, ByVal amount As Decimal, ByVal dateAdded As Date, ByVal remarks As String, ByVal timeAdded As System.TimeSpan) As Integer
+        Public Overloads Overridable Function Insert(ByVal userId As Integer, ByVal catId As Integer, ByVal amount As Decimal, ByVal remarks As String, ByVal dateAdded As Date, ByVal timeAdded As System.TimeSpan) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(userId,Integer)
             Me.Adapter.InsertCommand.Parameters(1).Value = CType(catId,Integer)
             Me.Adapter.InsertCommand.Parameters(2).Value = CType(amount,Decimal)
-            Me.Adapter.InsertCommand.Parameters(3).Value = CType(dateAdded,Date)
             If (remarks Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("remarks")
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(remarks,String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(remarks,String)
             End If
+            Me.Adapter.InsertCommand.Parameters(4).Value = CType(dateAdded,Date)
             Me.Adapter.InsertCommand.Parameters(5).Value = CType(timeAdded,System.TimeSpan)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -3363,27 +3319,27 @@ Namespace expenseTrackieDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal userId As Integer, ByVal catId As Integer, ByVal amount As Decimal, ByVal dateAdded As Date, ByVal remarks As String, ByVal timeAdded As System.TimeSpan, ByVal Original_eId As Integer, ByVal Original_userId As Integer, ByVal Original_catId As Integer, ByVal Original_amount As Decimal, ByVal Original_dateAdded As Date, ByVal Original_remarks As String, ByVal Original_timeAdded As System.TimeSpan, ByVal eId As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal userId As Integer, ByVal catId As Integer, ByVal amount As Decimal, ByVal remarks As String, ByVal dateAdded As Date, ByVal timeAdded As System.TimeSpan, ByVal Original_eId As Integer, ByVal Original_userId As Integer, ByVal Original_catId As Integer, ByVal Original_amount As Decimal, ByVal Original_remarks As String, ByVal Original_dateAdded As Date, ByVal Original_timeAdded As System.TimeSpan, ByVal eId As Integer) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(userId,Integer)
             Me.Adapter.UpdateCommand.Parameters(1).Value = CType(catId,Integer)
             Me.Adapter.UpdateCommand.Parameters(2).Value = CType(amount,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(dateAdded,Date)
             If (remarks Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("remarks")
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(remarks,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(remarks,String)
             End If
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(dateAdded,Date)
             Me.Adapter.UpdateCommand.Parameters(5).Value = CType(timeAdded,System.TimeSpan)
             Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_eId,Integer)
             Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_userId,Integer)
             Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_catId,Integer)
             Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_amount,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_dateAdded,Date)
             If (Original_remarks Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_remarks")
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_remarks,String)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_remarks,String)
             End If
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_dateAdded,Date)
             Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_timeAdded,System.TimeSpan)
             Me.Adapter.UpdateCommand.Parameters(13).Value = CType(eId,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
@@ -3405,8 +3361,8 @@ Namespace expenseTrackieDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal userId As Integer, ByVal catId As Integer, ByVal amount As Decimal, ByVal dateAdded As Date, ByVal remarks As String, ByVal timeAdded As System.TimeSpan, ByVal Original_eId As Integer, ByVal Original_userId As Integer, ByVal Original_catId As Integer, ByVal Original_amount As Decimal, ByVal Original_dateAdded As Date, ByVal Original_remarks As String, ByVal Original_timeAdded As System.TimeSpan) As Integer
-            Return Me.Update(userId, catId, amount, dateAdded, remarks, timeAdded, Original_eId, Original_userId, Original_catId, Original_amount, Original_dateAdded, Original_remarks, Original_timeAdded, Original_eId)
+        Public Overloads Overridable Function Update(ByVal userId As Integer, ByVal catId As Integer, ByVal amount As Decimal, ByVal remarks As String, ByVal dateAdded As Date, ByVal timeAdded As System.TimeSpan, ByVal Original_eId As Integer, ByVal Original_userId As Integer, ByVal Original_catId As Integer, ByVal Original_amount As Decimal, ByVal Original_remarks As String, ByVal Original_dateAdded As Date, ByVal Original_timeAdded As System.TimeSpan) As Integer
+            Return Me.Update(userId, catId, amount, remarks, dateAdded, timeAdded, Original_eId, Original_userId, Original_catId, Original_amount, Original_remarks, Original_dateAdded, Original_timeAdded, Original_eId)
         End Function
     End Class
     
@@ -3865,66 +3821,56 @@ Namespace expenseTrackieDataSetTableAdapters
             tableMapping.DataSetTable = "userInfo"
             tableMapping.ColumnMappings.Add("id", "id")
             tableMapping.ColumnMappings.Add("username", "username")
-            tableMapping.ColumnMappings.Add("email", "email")
+            tableMapping.ColumnMappings.Add("password", "password")
             tableMapping.ColumnMappings.Add("number", "number")
             tableMapping.ColumnMappings.Add("dateJoined", "dateJoined")
             tableMapping.ColumnMappings.Add("enabled", "enabled")
-            tableMapping.ColumnMappings.Add("password", "password")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[userInfo] WHERE (([id] = @Original_id) AND ([username] = @Orig"& _ 
-                "inal_username) AND ([email] = @Original_email) AND ([number] = @Original_number)"& _ 
-                " AND ([dateJoined] = @Original_dateJoined) AND ([enabled] = @Original_enabled) A"& _ 
-                "ND ((@IsNull_password = 1 AND [password] IS NULL) OR ([password] = @Original_pas"& _ 
-                "sword)))"
+                "inal_username) AND ([password] = @Original_password) AND ([number] = @Original_n"& _ 
+                "umber) AND ([dateJoined] = @Original_dateJoined) AND ([enabled] = @Original_enab"& _ 
+                "led))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_username", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "username", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_email", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "email", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_username", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "username", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_password", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "password", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_number", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "number", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dateJoined", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateJoined", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_enabled", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "enabled", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_password", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "password", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_password", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "password", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[userInfo] ([username], [email], [number], [dateJoined], [enabl"& _ 
-                "ed], [password]) VALUES (@username, @email, @number, @dateJoined, @enabled, @pas"& _ 
-                "sword);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, username, email, number, dateJoined, enabled, password FROM "& _ 
-                "userInfo WHERE (id = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[userInfo] ([username], [password], [number], [dateJoined], [en"& _ 
+                "abled]) VALUES (@username, @password, @number, @dateJoined, @enabled);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT i"& _ 
+                "d, username, password, number, dateJoined, enabled FROM userInfo WHERE (id = SCO"& _ 
+                "PE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@username", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@email", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@username", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@password", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "password", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@number", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "number", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dateJoined", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateJoined", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@enabled", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "enabled", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@password", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "password", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[userInfo] SET [username] = @username, [email] = @email, [number] = "& _ 
-                "@number, [dateJoined] = @dateJoined, [enabled] = @enabled, [password] = @passwor"& _ 
-                "d WHERE (([id] = @Original_id) AND ([username] = @Original_username) AND ([email"& _ 
-                "] = @Original_email) AND ([number] = @Original_number) AND ([dateJoined] = @Orig"& _ 
-                "inal_dateJoined) AND ([enabled] = @Original_enabled) AND ((@IsNull_password = 1 "& _ 
-                "AND [password] IS NULL) OR ([password] = @Original_password)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, user"& _ 
-                "name, email, number, dateJoined, enabled, password FROM userInfo WHERE (id = @id"& _ 
-                ")"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[userInfo] SET [username] = @username, [password] = @password, [numb"& _ 
+                "er] = @number, [dateJoined] = @dateJoined, [enabled] = @enabled WHERE (([id] = @"& _ 
+                "Original_id) AND ([username] = @Original_username) AND ([password] = @Original_p"& _ 
+                "assword) AND ([number] = @Original_number) AND ([dateJoined] = @Original_dateJoi"& _ 
+                "ned) AND ([enabled] = @Original_enabled));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, username, password, numbe"& _ 
+                "r, dateJoined, enabled FROM userInfo WHERE (id = @id)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@username", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@email", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@username", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@password", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "password", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@number", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "number", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dateJoined", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateJoined", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@enabled", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "enabled", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@password", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "password", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_username", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "username", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_email", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "email", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_username", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "username", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_password", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "password", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_number", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "number", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dateJoined", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateJoined", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_enabled", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "enabled", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_password", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "password", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_password", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "password", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -3941,8 +3887,7 @@ Namespace expenseTrackieDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT id, username, email, number, dateJoined, enabled, password FROM dbo.userIn"& _ 
-                "fo"
+            Me._commandCollection(0).CommandText = "SELECT id, username, password, number, dateJoined, enabled FROM dbo.userInfo"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -4002,17 +3947,17 @@ Namespace expenseTrackieDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_id As Integer, ByVal Original_username As String, ByVal Original_email As String, ByVal Original_number As String, ByVal Original_dateJoined As Date, ByVal Original_enabled As Boolean, ByVal Original_password As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_id As Integer, ByVal Original_username As String, ByVal Original_password As String, ByVal Original_number As String, ByVal Original_dateJoined As Date, ByVal Original_enabled As Boolean) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id,Integer)
             If (Original_username Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_username")
             Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_username,String)
             End If
-            If (Original_email Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_email")
+            If (Original_password Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_password")
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_email,String)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_password,String)
             End If
             If (Original_number Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_number")
@@ -4021,13 +3966,6 @@ Namespace expenseTrackieDataSetTableAdapters
             End If
             Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_dateJoined,Date)
             Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_enabled,Boolean)
-            If (Original_password Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_password,String)
-            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -4047,16 +3985,16 @@ Namespace expenseTrackieDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal username As String, ByVal email As String, ByVal number As String, ByVal dateJoined As Date, ByVal enabled As Boolean, ByVal password As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal username As String, ByVal password As String, ByVal number As String, ByVal dateJoined As Date, ByVal enabled As Boolean) As Integer
             If (username Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("username")
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(username,String)
             End If
-            If (email Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("email")
+            If (password Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("password")
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(email,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(password,String)
             End If
             If (number Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("number")
@@ -4065,11 +4003,6 @@ Namespace expenseTrackieDataSetTableAdapters
             End If
             Me.Adapter.InsertCommand.Parameters(3).Value = CType(dateJoined,Date)
             Me.Adapter.InsertCommand.Parameters(4).Value = CType(enabled,Boolean)
-            If (password Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(password,String)
-            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -4089,16 +4022,16 @@ Namespace expenseTrackieDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal username As String, ByVal email As String, ByVal number As String, ByVal dateJoined As Date, ByVal enabled As Boolean, ByVal password As String, ByVal Original_id As Integer, ByVal Original_username As String, ByVal Original_email As String, ByVal Original_number As String, ByVal Original_dateJoined As Date, ByVal Original_enabled As Boolean, ByVal Original_password As String, ByVal id As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal username As String, ByVal password As String, ByVal number As String, ByVal dateJoined As Date, ByVal enabled As Boolean, ByVal Original_id As Integer, ByVal Original_username As String, ByVal Original_password As String, ByVal Original_number As String, ByVal Original_dateJoined As Date, ByVal Original_enabled As Boolean, ByVal id As Integer) As Integer
             If (username Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("username")
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(username,String)
             End If
-            If (email Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("email")
+            If (password Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("password")
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(email,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(password,String)
             End If
             If (number Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("number")
@@ -4107,37 +4040,25 @@ Namespace expenseTrackieDataSetTableAdapters
             End If
             Me.Adapter.UpdateCommand.Parameters(3).Value = CType(dateJoined,Date)
             Me.Adapter.UpdateCommand.Parameters(4).Value = CType(enabled,Boolean)
-            If (password Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(password,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_id,Integer)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_id,Integer)
             If (Original_username Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_username")
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_username,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_username,String)
             End If
-            If (Original_email Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_email")
+            If (Original_password Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_password")
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_email,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_password,String)
             End If
             If (Original_number Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_number")
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_number,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_number,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_dateJoined,Date)
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_enabled,Boolean)
-            If (Original_password Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_password,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(id,Integer)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_dateJoined,Date)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_enabled,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(id,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -4157,8 +4078,8 @@ Namespace expenseTrackieDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal username As String, ByVal email As String, ByVal number As String, ByVal dateJoined As Date, ByVal enabled As Boolean, ByVal password As String, ByVal Original_id As Integer, ByVal Original_username As String, ByVal Original_email As String, ByVal Original_number As String, ByVal Original_dateJoined As Date, ByVal Original_enabled As Boolean, ByVal Original_password As String) As Integer
-            Return Me.Update(username, email, number, dateJoined, enabled, password, Original_id, Original_username, Original_email, Original_number, Original_dateJoined, Original_enabled, Original_password, Original_id)
+        Public Overloads Overridable Function Update(ByVal username As String, ByVal password As String, ByVal number As String, ByVal dateJoined As Date, ByVal enabled As Boolean, ByVal Original_id As Integer, ByVal Original_username As String, ByVal Original_password As String, ByVal Original_number As String, ByVal Original_dateJoined As Date, ByVal Original_enabled As Boolean) As Integer
+            Return Me.Update(username, password, number, dateJoined, enabled, Original_id, Original_username, Original_password, Original_number, Original_dateJoined, Original_enabled, Original_id)
         End Function
     End Class
     

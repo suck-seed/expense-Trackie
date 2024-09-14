@@ -28,8 +28,8 @@ Partial Class SIgnIn
         Me.PromptL = New System.Windows.Forms.Label()
         Me.SignUpLL = New System.Windows.Forms.LinkLabel()
         Me.SignInBtn = New System.Windows.Forms.Button()
-        Me.PassTxt = New System.Windows.Forms.TextBox()
-        Me.UnameTxt = New System.Windows.Forms.TextBox()
+        Me.txt_password = New System.Windows.Forms.TextBox()
+        Me.txt_username = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Password = New System.Windows.Forms.Label()
         Me.Email = New System.Windows.Forms.Label()
@@ -99,23 +99,23 @@ Partial Class SIgnIn
         Me.SignInBtn.Text = "Sign In"
         Me.SignInBtn.UseVisualStyleBackColor = False
         '
-        'PassTxt
+        'txt_password
         '
-        Me.PassTxt.Font = New System.Drawing.Font("Century Gothic", 11.25!)
-        Me.PassTxt.Location = New System.Drawing.Point(541, 343)
-        Me.PassTxt.Name = "PassTxt"
-        Me.PassTxt.Size = New System.Drawing.Size(248, 26)
-        Me.PassTxt.TabIndex = 32
+        Me.txt_password.Font = New System.Drawing.Font("Century Gothic", 11.25!)
+        Me.txt_password.Location = New System.Drawing.Point(541, 343)
+        Me.txt_password.Name = "txt_password"
+        Me.txt_password.Size = New System.Drawing.Size(248, 26)
+        Me.txt_password.TabIndex = 32
         '
-        'UnameTxt
+        'txt_username
         '
-        Me.UnameTxt.Font = New System.Drawing.Font("Century Gothic", 11.25!)
-        Me.UnameTxt.Location = New System.Drawing.Point(542, 245)
-        Me.UnameTxt.MaximumSize = New System.Drawing.Size(3000, 3000)
-        Me.UnameTxt.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.UnameTxt.Name = "UnameTxt"
-        Me.UnameTxt.Size = New System.Drawing.Size(247, 26)
-        Me.UnameTxt.TabIndex = 31
+        Me.txt_username.Font = New System.Drawing.Font("Century Gothic", 11.25!)
+        Me.txt_username.Location = New System.Drawing.Point(542, 245)
+        Me.txt_username.MaximumSize = New System.Drawing.Size(3000, 3000)
+        Me.txt_username.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.txt_username.Name = "txt_username"
+        Me.txt_username.Size = New System.Drawing.Size(247, 26)
+        Me.txt_username.TabIndex = 31
         '
         'Label3
         '
@@ -195,13 +195,14 @@ Partial Class SIgnIn
         Me.Controls.Add(Me.PromptL)
         Me.Controls.Add(Me.SignUpLL)
         Me.Controls.Add(Me.SignInBtn)
-        Me.Controls.Add(Me.PassTxt)
-        Me.Controls.Add(Me.UnameTxt)
+        Me.Controls.Add(Me.txt_password)
+        Me.Controls.Add(Me.txt_username)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Password)
         Me.Controls.Add(Me.Email)
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "SIgnIn"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SIgnIn"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -216,8 +217,8 @@ Partial Class SIgnIn
     Friend WithEvents PromptL As Label
     Friend WithEvents SignUpLL As LinkLabel
     Friend WithEvents SignInBtn As Button
-    Friend WithEvents PassTxt As TextBox
-    Friend WithEvents UnameTxt As TextBox
+    Friend WithEvents txt_password As TextBox
+    Friend WithEvents txt_username As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Password As Label
     Friend WithEvents Email As Label

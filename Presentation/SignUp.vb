@@ -3,6 +3,56 @@
 Public Class SignUp
 
 
+    Dim number As String
+    Dim username As String
+    Dim password As String
+    Dim dateJoined As DateTime = DateTime.Now.ToString("yyyy-MM-dd")
+
+    Private Sub btn_signup_Click(sender As Object, e As EventArgs) Handles btn_signup.Click
+
+        number = txt_number.Text
+        username = txt_username.Text
+        password = txt_password.Text
+
+        Dim usermanager As New UserManager
+
+        Dim userId As Integer = usermanager.registerUser(username, number, password, dateJoined)
+
+
+        If userId > 0 Then
+            MsgBox("User registered sucessfully")
+
+        Else
+            'MsgBox("User registration failed. Please try again.")
+        End If
+
+    End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -17,13 +67,13 @@ Public Class SignUp
         Me.Hide()
     End Sub
 
-    Private Sub PassTxt_Enter(sender As Object, e As EventArgs) Handles PassTxt.Enter
+    Private Sub PassTxt_Enter(sender As Object, e As EventArgs) Handles txt_password.Enter
         UpdatePasswordVisibility()
     End Sub
 
-    Private Sub PassTxt_Leave(sender As Object, e As EventArgs) Handles PassTxt.Leave
-        If String.IsNullOrWhiteSpace(PassTxt.Text) Then
-            PassTxt.PasswordChar = ControlChars.NullChar ' Remove PasswordChar to show default text
+    Private Sub PassTxt_Leave(sender As Object, e As EventArgs) Handles txt_password.Leave
+        If String.IsNullOrWhiteSpace(txt_password.Text) Then
+            txt_password.PasswordChar = ControlChars.NullChar ' Remove PasswordChar to show default text
         End If
     End Sub
 
@@ -34,13 +84,13 @@ Public Class SignUp
     Private Sub UpdatePasswordVisibility()
         If ShowPassCB.Checked Then
             ' Show the password
-            PassTxt.PasswordChar = ControlChars.NullChar
+            txt_password.PasswordChar = ControlChars.NullChar
         Else
             ' Hide the password, unless the TextBox is empty and showing default text
-            If PassTxt.Text <> "Enter Password" Then
-                PassTxt.PasswordChar = "*"c
+            If txt_password.Text <> "Enter Password" Then
+                txt_password.PasswordChar = "*"c
             Else
-                PassTxt.PasswordChar = ControlChars.NullChar
+                txt_password.PasswordChar = ControlChars.NullChar
             End If
         End If
     End Sub

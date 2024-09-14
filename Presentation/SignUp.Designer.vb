@@ -30,10 +30,10 @@ Partial Class SignUp
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.ShowPassCB = New System.Windows.Forms.CheckBox()
-        Me.SignUpBtn = New System.Windows.Forms.Button()
-        Me.PassTxt = New System.Windows.Forms.TextBox()
-        Me.UnameTxt = New System.Windows.Forms.TextBox()
-        Me.FnameTxt = New System.Windows.Forms.TextBox()
+        Me.btn_signup = New System.Windows.Forms.Button()
+        Me.txt_password = New System.Windows.Forms.TextBox()
+        Me.txt_username = New System.Windows.Forms.TextBox()
+        Me.txt_number = New System.Windows.Forms.TextBox()
         Me.SignInLL = New System.Windows.Forms.LinkLabel()
         Me.PromptL = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -70,9 +70,9 @@ Partial Class SignUp
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 10.18868!)
         Me.Label1.Location = New System.Drawing.Point(612, 165)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(77, 19)
+        Me.Label1.Size = New System.Drawing.Size(64, 19)
         Me.Label1.TabIndex = 34
-        Me.Label1.Text = "Full Name"
+        Me.Label1.Text = "Number"
         '
         'Label9
         '
@@ -115,44 +115,44 @@ Partial Class SignUp
         Me.ShowPassCB.Text = "Show Password"
         Me.ShowPassCB.UseVisualStyleBackColor = True
         '
-        'SignUpBtn
+        'btn_signup
         '
-        Me.SignUpBtn.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.SignUpBtn.Font = New System.Drawing.Font("Century Gothic", 14.26415!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SignUpBtn.ForeColor = System.Drawing.Color.Transparent
-        Me.SignUpBtn.Location = New System.Drawing.Point(563, 509)
-        Me.SignUpBtn.Name = "SignUpBtn"
-        Me.SignUpBtn.Size = New System.Drawing.Size(247, 48)
-        Me.SignUpBtn.TabIndex = 27
-        Me.SignUpBtn.Text = "Sign Up"
-        Me.SignUpBtn.UseVisualStyleBackColor = False
+        Me.btn_signup.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.btn_signup.Font = New System.Drawing.Font("Century Gothic", 14.26415!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_signup.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_signup.Location = New System.Drawing.Point(563, 509)
+        Me.btn_signup.Name = "btn_signup"
+        Me.btn_signup.Size = New System.Drawing.Size(247, 48)
+        Me.btn_signup.TabIndex = 27
+        Me.btn_signup.Text = "Sign Up"
+        Me.btn_signup.UseVisualStyleBackColor = False
         '
-        'PassTxt
+        'txt_password
         '
-        Me.PassTxt.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PassTxt.Location = New System.Drawing.Point(563, 399)
-        Me.PassTxt.MaximumSize = New System.Drawing.Size(500, 500)
-        Me.PassTxt.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.PassTxt.Name = "PassTxt"
-        Me.PassTxt.Size = New System.Drawing.Size(247, 26)
-        Me.PassTxt.TabIndex = 26
+        Me.txt_password.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_password.Location = New System.Drawing.Point(563, 399)
+        Me.txt_password.MaximumSize = New System.Drawing.Size(500, 500)
+        Me.txt_password.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.txt_password.Name = "txt_password"
+        Me.txt_password.Size = New System.Drawing.Size(247, 26)
+        Me.txt_password.TabIndex = 26
         '
-        'UnameTxt
+        'txt_username
         '
-        Me.UnameTxt.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UnameTxt.Location = New System.Drawing.Point(563, 301)
-        Me.UnameTxt.Name = "UnameTxt"
-        Me.UnameTxt.Size = New System.Drawing.Size(247, 26)
-        Me.UnameTxt.TabIndex = 25
+        Me.txt_username.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_username.Location = New System.Drawing.Point(563, 301)
+        Me.txt_username.Name = "txt_username"
+        Me.txt_username.Size = New System.Drawing.Size(247, 26)
+        Me.txt_username.TabIndex = 25
         '
-        'FnameTxt
+        'txt_number
         '
-        Me.FnameTxt.BackColor = System.Drawing.SystemColors.Window
-        Me.FnameTxt.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FnameTxt.Location = New System.Drawing.Point(563, 198)
-        Me.FnameTxt.Name = "FnameTxt"
-        Me.FnameTxt.Size = New System.Drawing.Size(247, 26)
-        Me.FnameTxt.TabIndex = 24
+        Me.txt_number.BackColor = System.Drawing.SystemColors.Window
+        Me.txt_number.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_number.Location = New System.Drawing.Point(563, 198)
+        Me.txt_number.Name = "txt_number"
+        Me.txt_number.Size = New System.Drawing.Size(247, 26)
+        Me.txt_number.TabIndex = 24
         '
         'SignInLL
         '
@@ -209,10 +209,10 @@ Partial Class SignUp
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.ShowPassCB)
-        Me.Controls.Add(Me.SignUpBtn)
-        Me.Controls.Add(Me.PassTxt)
-        Me.Controls.Add(Me.UnameTxt)
-        Me.Controls.Add(Me.FnameTxt)
+        Me.Controls.Add(Me.btn_signup)
+        Me.Controls.Add(Me.txt_password)
+        Me.Controls.Add(Me.txt_username)
+        Me.Controls.Add(Me.txt_number)
         Me.Controls.Add(Me.SignInLL)
         Me.Controls.Add(Me.PromptL)
         Me.Controls.Add(Me.Label2)
@@ -232,10 +232,10 @@ Partial Class SignUp
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents ShowPassCB As CheckBox
-    Friend WithEvents SignUpBtn As Button
-    Friend WithEvents PassTxt As TextBox
-    Friend WithEvents UnameTxt As TextBox
-    Friend WithEvents FnameTxt As TextBox
+    Friend WithEvents btn_signup As Button
+    Friend WithEvents txt_password As TextBox
+    Friend WithEvents txt_username As TextBox
+    Friend WithEvents txt_number As TextBox
     Friend WithEvents SignInLL As LinkLabel
     Friend WithEvents PromptL As Label
     Friend WithEvents Label2 As Label
