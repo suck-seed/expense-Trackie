@@ -22,6 +22,12 @@ Public Class SignUp
         If userId > 0 Then
             MsgBox("User registered sucessfully")
 
+            Me.Hide()
+
+            mainWindow.Show()
+
+            Me.Close()
+
         Else
             'MsgBox("User registration failed. Please try again.")
         End If
@@ -119,6 +125,10 @@ Public Class SignUp
     Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         ' Redraw the form when it is resized to update the gradient
         Me.Invalidate()
+    End Sub
+
+    Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
+        Me.Close()
     End Sub
 
 

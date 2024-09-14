@@ -4,7 +4,29 @@ Public Class SIgnIn
 
     ' SIGN IN SYSTEM
     Dim username As String
+    Dim password As String
     Private Sub SignInBtn_Click(sender As Object, e As EventArgs) Handles SignInBtn.Click
+
+        username = txt_username.Text
+        password = txt_password.Text
+
+        Dim usermanager As New UserManager()
+
+        Dim userId As Integer = usermanager.logUserIn(username, password)
+
+        If userId > 0 Then
+
+            MsgBox("Login sucessful")
+
+            MsgBox(SessionManager.Instance.currentUserId)
+            Me.Hide()
+
+            mainWindow.Show()
+
+
+        Else
+            MsgBox("User login failed. Please try again.")
+        End If
 
 
 
@@ -16,6 +38,11 @@ Public Class SIgnIn
 
 
     ' other kura
+    Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
+        Me.Close()
+    End Sub
+
+
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles SignUpLL.LinkClicked
         Dim form1 As New SignUp
         form1.Show()

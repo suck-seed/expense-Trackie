@@ -107,5 +107,48 @@ Public Class UserRepository
     End Function
 
 
+    Public Function signIn(ByVal username As String, ByVal password As String) As Integer
 
+        Dim userId As Integer = 0
+
+        Using connection As New SqlConnection(connectionString)
+
+            connection.Open()
+
+            Using command As New SqlCommand("logUserIn", connection)
+                command.CommandType = CommandType.StoredProcedure
+
+
+                ' input paremeter linking
+                command.Parameters.AddWithValue("@username", username)
+                command.Parameters.AddWithValue("@password", password)
+
+
+                ' output paremeter creating
+                Dim userIdParemeter As New SqlParameter("@userId", SqlDbType.Int)
+                userIdParemeter.Direction = ParameterDirection.Output
+
+                command.Parameters.Add(userIdParemeter)
+
+
+
+                'executing procedure
+                command.ExecuteNonQuery()
+
+                ' if tyo output paremeter isnt null, we retrive the value
+                ' convert it to vb integer and assign to userId and return
+                If Not IsDBNull(userIdParemeter.Value) Then
+                    userId = Convert.ToInt32(userIdParemeter.Value)
+                End If
+
+
+            End Using
+
+            connection.Close()
+        End Using
+
+        ' if no match returns 0, if match returns userId
+        Return userId
+
+    End Function
 End Class
