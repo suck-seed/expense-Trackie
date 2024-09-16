@@ -22,11 +22,13 @@ Public Class SignUp
         If userId > 0 Then
             MsgBox("User registered sucessfully")
 
+
             Me.Hide()
 
             mainWindow.Show()
 
-            Me.Close()
+
+
 
         Else
             'MsgBox("User registration failed. Please try again.")

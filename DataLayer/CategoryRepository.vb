@@ -5,7 +5,7 @@ Public Class CategoryRepository
     Dim connectionString As String = ConfigurationManager.ConnectionStrings("expenseTrackie").ConnectionString
     Dim userId As Integer = SessionManager.Instance.currentUserId
 
-    Public Function isDuplicateCategory(ByRef catName As String) As Integer
+    Public Function isDuplicateCategory(ByRef catName As String) As Boolean
 
     End Function
 

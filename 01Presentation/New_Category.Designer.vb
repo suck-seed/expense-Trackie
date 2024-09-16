@@ -28,7 +28,7 @@ Partial Class New_Category
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tabelPanel_color = New System.Windows.Forms.TableLayoutPanel()
         Me.Radio_Color7 = New System.Windows.Forms.RadioButton()
         Me.Radio_Color6 = New System.Windows.Forms.RadioButton()
         Me.Radio_Color9 = New System.Windows.Forms.RadioButton()
@@ -42,9 +42,8 @@ Partial Class New_Category
         Me.button_close = New System.Windows.Forms.Button()
         Me.button_create = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
+        Me.tabelPanel_color.SuspendLayout()
         Me.panel_topbar.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -60,7 +59,7 @@ Partial Class New_Category
         Me.TableLayoutPanel1.Controls.Add(Me.Label3, 0, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.tabelPanel_color, 0, 5)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(34, 73)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 6
@@ -124,34 +123,34 @@ Partial Class New_Category
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Name"
         '
-        'TableLayoutPanel2
+        'tabelPanel_color
         '
-        Me.TableLayoutPanel2.ColumnCount = 9
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Radio_Color7, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Radio_Color6, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Radio_Color9, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Radio_Color8, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Radio_Color5, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Radio_Color2, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Radio_Color1, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Radio_Color4, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Radio_Color3, 0, 0)
-        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 213)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 1
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(410, 38)
-        Me.TableLayoutPanel2.TabIndex = 5
+        Me.tabelPanel_color.ColumnCount = 9
+        Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+        Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+        Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+        Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+        Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+        Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+        Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+        Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+        Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+        Me.tabelPanel_color.Controls.Add(Me.Radio_Color7, 0, 0)
+        Me.tabelPanel_color.Controls.Add(Me.Radio_Color6, 0, 0)
+        Me.tabelPanel_color.Controls.Add(Me.Radio_Color9, 0, 0)
+        Me.tabelPanel_color.Controls.Add(Me.Radio_Color8, 0, 0)
+        Me.tabelPanel_color.Controls.Add(Me.Radio_Color5, 0, 0)
+        Me.tabelPanel_color.Controls.Add(Me.Radio_Color2, 0, 0)
+        Me.tabelPanel_color.Controls.Add(Me.Radio_Color1, 0, 0)
+        Me.tabelPanel_color.Controls.Add(Me.Radio_Color4, 0, 0)
+        Me.tabelPanel_color.Controls.Add(Me.Radio_Color3, 0, 0)
+        Me.tabelPanel_color.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tabelPanel_color.Location = New System.Drawing.Point(3, 213)
+        Me.tabelPanel_color.Name = "tabelPanel_color"
+        Me.tabelPanel_color.RowCount = 1
+        Me.tabelPanel_color.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tabelPanel_color.Size = New System.Drawing.Size(410, 38)
+        Me.tabelPanel_color.TabIndex = 5
         '
         'Radio_Color7
         '
@@ -346,8 +345,8 @@ Partial Class New_Category
         Me.Text = "New_Category"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
-        Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.TableLayoutPanel2.PerformLayout()
+        Me.tabelPanel_color.ResumeLayout(False)
+        Me.tabelPanel_color.PerformLayout()
         Me.panel_topbar.ResumeLayout(False)
         Me.panel_topbar.PerformLayout()
         Me.ResumeLayout(False)
@@ -358,7 +357,7 @@ Partial Class New_Category
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents tabelPanel_color As TableLayoutPanel
     Friend WithEvents Radio_Color3 As RadioButton
     Friend WithEvents txt_name As TextBox
     Friend WithEvents txt_description As TextBox
@@ -374,5 +373,4 @@ Partial Class New_Category
     Friend WithEvents Label4 As Label
     Friend WithEvents button_close As Button
     Friend WithEvents button_create As Button
-    Friend WithEvents ColorDialog1 As ColorDialog
 End Class

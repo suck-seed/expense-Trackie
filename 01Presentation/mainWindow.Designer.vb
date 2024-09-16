@@ -26,6 +26,8 @@ Partial Class mainWindow
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.button_add_expense = New System.Windows.Forms.Button()
         Me.panel_sidebar = New System.Windows.Forms.Panel()
+        Me.lbl_username = New System.Windows.Forms.Label()
+        Me.btn_profile = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -109,6 +111,8 @@ Partial Class mainWindow
         'panel_sidebar
         '
         Me.panel_sidebar.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.panel_sidebar.Controls.Add(Me.lbl_username)
+        Me.panel_sidebar.Controls.Add(Me.btn_profile)
         Me.panel_sidebar.Controls.Add(Me.TableLayoutPanel1)
         Me.panel_sidebar.Controls.Add(Me.home_analysis_export_radio)
         Me.panel_sidebar.Controls.Add(Me.TableLayoutPanel8)
@@ -122,6 +126,31 @@ Partial Class mainWindow
         Me.panel_sidebar.Size = New System.Drawing.Size(272, 1000)
         Me.panel_sidebar.TabIndex = 0
         '
+        'lbl_username
+        '
+        Me.lbl_username.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lbl_username.AutoSize = True
+        Me.lbl_username.Font = New System.Drawing.Font("SF Mono", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_username.Location = New System.Drawing.Point(61, 963)
+        Me.lbl_username.Name = "lbl_username"
+        Me.lbl_username.Size = New System.Drawing.Size(71, 16)
+        Me.lbl_username.TabIndex = 11
+        Me.lbl_username.Text = "username"
+        '
+        'btn_profile
+        '
+        Me.btn_profile.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btn_profile.FlatAppearance.BorderSize = 0
+        Me.btn_profile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_profile.Image = Global.expense_Trackie.My.Resources.Resources.icons8_user_32
+        Me.btn_profile.Location = New System.Drawing.Point(12, 943)
+        Me.btn_profile.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_profile.Name = "btn_profile"
+        Me.btn_profile.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btn_profile.Size = New System.Drawing.Size(50, 48)
+        Me.btn_profile.TabIndex = 10
+        Me.btn_profile.UseVisualStyleBackColor = True
+        '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.AutoScroll = True
@@ -131,7 +160,6 @@ Partial Class mainWindow
         Me.TableLayoutPanel1.Controls.Add(Me.CheckBox1, 0, 1)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 555)
         Me.TableLayoutPanel1.MaximumSize = New System.Drawing.Size(247, 650)
-        Me.TableLayoutPanel1.MinimumSize = New System.Drawing.Size(247, 433)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 10
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
@@ -144,7 +172,7 @@ Partial Class mainWindow
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(247, 433)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(247, 372)
         Me.TableLayoutPanel1.TabIndex = 8
         '
         'RadioButton1
@@ -158,7 +186,7 @@ Partial Class mainWindow
         Me.RadioButton1.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RadioButton1.Location = New System.Drawing.Point(3, 3)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(56, 37)
+        Me.RadioButton1.Size = New System.Drawing.Size(56, 31)
         Me.RadioButton1.TabIndex = 8
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "All"
@@ -172,9 +200,9 @@ Partial Class mainWindow
         Me.CheckBox1.Dock = System.Windows.Forms.DockStyle.Left
         Me.CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.CheckBox1.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(3, 46)
+        Me.CheckBox1.Location = New System.Drawing.Point(3, 40)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(50, 37)
+        Me.CheckBox1.Size = New System.Drawing.Size(50, 31)
         Me.CheckBox1.TabIndex = 9
         Me.CheckBox1.Text = "Food"
         Me.CheckBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -564,6 +592,7 @@ Partial Class mainWindow
         Me.Text = "temp"
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.panel_sidebar.ResumeLayout(False)
+        Me.panel_sidebar.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.home_analysis_export_radio.ResumeLayout(False)
@@ -611,4 +640,6 @@ Partial Class mainWindow
     Friend WithEvents button_close As Button
     Friend WithEvents btn_day_view As Button
     Friend WithEvents btn_month_view As Button
+    Friend WithEvents lbl_username As Label
+    Friend WithEvents btn_profile As Button
 End Class

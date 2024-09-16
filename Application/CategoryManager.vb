@@ -14,12 +14,8 @@
 
 
         'proceeding with adding category
-
-        categoryrepository.addCategory(catName, catDescription, catColor)
-
-
-
-
+        Dim added As Integer = categoryrepository.addCategory(catName, catDescription, catColor)
+        Return added
 
 
     End Function

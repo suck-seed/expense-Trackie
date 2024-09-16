@@ -15,36 +15,22 @@ Public Class New_Category
         catName = txt_name.Text
         catDescription = txt_description.Text
 
-        If Radio_Color1.Checked Then
-            catColor = Radio_Color1.BackColor.Name
 
-        ElseIf Radio_Color2.Checked Then
-            catColor = Radio_Color2.BackColor.Name
+        ' selecting the color
+        For Each control As Control In tabelPanel_color.Controls
 
-        ElseIf Radio_Color3.Checked Then
-            catColor = Radio_Color3.BackColor.Name
+            If TypeOf control Is RadioButton Then
 
-        ElseIf Radio_Color4.Checked Then
-            catColor = Radio_Color4.BackColor.Name
+                Dim rb As RadioButton = DirectCast(control, RadioButton)
 
-        ElseIf Radio_Color5.Checked Then
-            catColor = Radio_Color5.BackColor.Name
+                If rb.Checked Then
+                    catColor = rb.BackColor.Name
+                End If
 
-        ElseIf Radio_Color6.Checked Then
-            catColor = Radio_Color6.BackColor.Name
+            End If
 
-        ElseIf Radio_Color7.Checked Then
-            catColor = Radio_Color7.BackColor.Name
+        Next
 
-        ElseIf Radio_Color8.Checked Then
-            catColor = Radio_Color8.BackColor.Name
-
-        ElseIf Radio_Color9.Checked Then
-            catColor = Radio_Color9.BackColor.Name
-
-        Else
-            MsgBox("Provide all information")
-        End If
 
 
         ' adding category functionality
@@ -123,35 +109,5 @@ Public Class New_Category
         End Using
     End Sub
 
-    Private Sub Radio_Color3_CheckedChanged(sender As Object, e As EventArgs) Handles Radio_Color3.CheckedChanged
 
-    End Sub
-
-    Private Sub Radio_Color4_CheckedChanged(sender As Object, e As EventArgs) Handles Radio_Color4.CheckedChanged
-
-    End Sub
-
-    Private Sub Radio_Color5_CheckedChanged(sender As Object, e As EventArgs) Handles Radio_Color5.CheckedChanged
-
-    End Sub
-
-    Private Sub Radio_Color6_CheckedChanged(sender As Object, e As EventArgs) Handles Radio_Color6.CheckedChanged
-
-    End Sub
-
-    Private Sub Radio_Color7_CheckedChanged(sender As Object, e As EventArgs) Handles Radio_Color7.CheckedChanged
-
-    End Sub
-
-    Private Sub Radio_Color8_CheckedChanged(sender As Object, e As EventArgs) Handles Radio_Color8.CheckedChanged
-
-    End Sub
-
-    Private Sub Radio_Color9_CheckedChanged(sender As Object, e As EventArgs) Handles Radio_Color9.CheckedChanged
-
-    End Sub
-
-    Private Sub Radio_Color1_CheckedChanged(sender As Object, e As EventArgs) Handles Radio_Color1.CheckedChanged
-
-    End Sub
 End Class

@@ -8,6 +8,8 @@
 
     Public Property currentUserId As Integer
     Public Property currentUsername As String
+    Public Property currentNumber As String
+    Public Property currentPassword As String
 
 
     Public Shared ReadOnly Property Instance() As SessionManager

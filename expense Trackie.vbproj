@@ -86,28 +86,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>expenseTrackieDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\dayView.Designer.vb">
+    <Compile Include="01Presentation\dayView.Designer.vb">
       <DependentUpon>dayView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\dayView.vb">
+    <Compile Include="01Presentation\dayView.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\expenseDetailDisplay.Designer.vb">
+    <Compile Include="01Presentation\expenseDetailDisplay.Designer.vb">
       <DependentUpon>expenseDetailDisplay.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\expenseDetailDisplay.vb">
+    <Compile Include="01Presentation\expenseDetailDisplay.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\monthView.Designer.vb">
+    <Compile Include="01Presentation\monthView.Designer.vb">
       <DependentUpon>monthView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\monthView.vb">
+    <Compile Include="01Presentation\monthView.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\monthViewtext.Designer.vb">
+    <Compile Include="01Presentation\monthViewtext.Designer.vb">
       <DependentUpon>monthViewtext.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\monthViewtext.vb">
+    <Compile Include="01Presentation\monthViewtext.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -126,28 +126,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Presentation\New Expense.Designer.vb">
+    <Compile Include="01Presentation\New Expense.Designer.vb">
       <DependentUpon>New Expense.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\New Expense.vb">
+    <Compile Include="01Presentation\New Expense.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\New_Category.Designer.vb">
+    <Compile Include="01Presentation\New_Category.Designer.vb">
       <DependentUpon>New_Category.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\New_Category.vb">
+    <Compile Include="01Presentation\New_Category.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\SIgnIn.Designer.vb">
+    <Compile Include="01Presentation\SIgnIn.Designer.vb">
       <DependentUpon>SIgnIn.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\SIgnIn.vb">
+    <Compile Include="01Presentation\SIgnIn.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\SignUp.Designer.vb">
+    <Compile Include="01Presentation\SignUp.Designer.vb">
       <DependentUpon>SignUp.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\SignUp.vb">
+    <Compile Include="01Presentation\SignUp.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Resource1.Designer.vb">
@@ -155,24 +155,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\mainWindow.Designer.vb">
+    <Compile Include="01Presentation\mainWindow.Designer.vb">
       <DependentUpon>mainWindow.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\mainWindow.vb">
+    <Compile Include="01Presentation\mainWindow.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Presentation\dayView.resx">
+    <EmbeddedResource Include="01Presentation\dayView.resx">
       <DependentUpon>dayView.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\expenseDetailDisplay.resx">
+    <EmbeddedResource Include="01Presentation\expenseDetailDisplay.resx">
       <DependentUpon>expenseDetailDisplay.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\monthView.resx">
+    <EmbeddedResource Include="01Presentation\monthView.resx">
       <DependentUpon>monthView.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\monthViewtext.resx">
+    <EmbeddedResource Include="01Presentation\monthViewtext.resx">
       <DependentUpon>monthViewtext.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -181,16 +181,16 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\New Expense.resx">
+    <EmbeddedResource Include="01Presentation\New Expense.resx">
       <DependentUpon>New Expense.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\New_Category.resx">
+    <EmbeddedResource Include="01Presentation\New_Category.resx">
       <DependentUpon>New_Category.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\SIgnIn.resx">
+    <EmbeddedResource Include="01Presentation\SIgnIn.resx">
       <DependentUpon>SIgnIn.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\SignUp.resx">
+    <EmbeddedResource Include="01Presentation\SignUp.resx">
       <DependentUpon>SignUp.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource1.resx">
@@ -198,7 +198,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\mainWindow.resx">
+    <EmbeddedResource Include="01Presentation\mainWindow.resx">
       <DependentUpon>mainWindow.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

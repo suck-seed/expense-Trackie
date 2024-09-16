@@ -1,7 +1,24 @@
 ﻿Public Class mainWindow
 
     ' VARIABLES REQUIRED
-    Dim currentUser As Integer = 1
+
+
+
+
+
+
+
+
+
+
+
+    ' MYBASE.LOAD
+    Private Sub mybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'setting the username at profile
+        Me.lbl_username.Text = SessionManager.Instance.currentUsername
+
+    End Sub
 
 
 
@@ -128,10 +145,6 @@
     Private Sub Line_below_top_bar(graphics As Graphics)
         'graphics.DrawLine(pen, topbar.Location.X, topbar.Height, topbar.Width, topbar.Height)
         graphics.DrawLine(pen, 0, panel_topbar.Height, Me.Width, panel_topbar.Height)
-    End Sub
-
-    Private Sub mainWindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 
 

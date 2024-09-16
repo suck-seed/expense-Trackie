@@ -18,7 +18,7 @@ Public Class SIgnIn
 
             MsgBox("Login sucessful")
 
-            MsgBox(SessionManager.Instance.currentUserId)
+
             Me.Hide()
 
             mainWindow.Show()

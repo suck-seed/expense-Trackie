@@ -13,7 +13,7 @@ Public Class UserRepository
     End Sub
 
 
-    Public Function isDuplicateUser(ByVal username As String, ByVal number As String) As Integer
+    Public Function isDuplicateUser(ByVal username As String, ByVal number As String) As Boolean
 
         Using connection As New SqlConnection(connectionString)
 
@@ -28,7 +28,7 @@ Public Class UserRepository
 
 
                 ' adding output paremeter
-                Dim existsParemeter As New SqlParameter("@exists", SqlDbType.Int)
+                Dim existsParemeter As New SqlParameter("@exists", SqlDbType.Bit)
                 existsParemeter.Direction = ParameterDirection.Output
 
                 command.Parameters.Add(existsParemeter)
@@ -38,18 +38,19 @@ Public Class UserRepository
                 command.ExecuteNonQuery()
 
 
+
                 ' fetching and converting the output to VBinteger
-                Dim exists As Integer = Convert.ToInt32(existsParemeter.Value)
+
+                Dim exists As Boolean = Convert.ToBoolean(existsParemeter.Value)
 
 
-                ' returns 1 if its duplicate
+                ' returns true if its duplicate
                 Return exists
 
 
             End Using
 
 
-            connection.Close()
         End Using
 
     End Function
