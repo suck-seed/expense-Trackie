@@ -22,6 +22,7 @@ Public Class UserRepository
             Using command As New SqlCommand("checkDuplicateUser", connection)
                 command.CommandType = CommandType.StoredProcedure
 
+
                 ' adding input paremeters
                 command.Parameters.AddWithValue("@username", username)
                 command.Parameters.AddWithValue("@number", number)
@@ -39,8 +40,7 @@ Public Class UserRepository
 
 
 
-                ' fetching and converting the output to VBinteger
-
+                ' fetching and converting output to boolean
                 Dim exists As Boolean = Convert.ToBoolean(existsParemeter.Value)
 
 
