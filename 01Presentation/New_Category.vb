@@ -14,40 +14,32 @@ Public Class New_Category
     ' button create
     Private Sub button_create_Click(sender As Object, e As EventArgs) Handles button_create.Click
 
-        catName = txt_name.Text
-        catDescription = txt_description.Text
+        getDefaultColor()
 
+        ' Error proffing
 
-
-        ' default color selection
-        For Each control As Control In tabelPanel_color.Controls
-
-            If TypeOf control Is RadioButton Then
-
-                Dim rb As RadioButton = DirectCast(control, RadioButton)
-
-                If rb.Checked Then
-                    catColor = ColorTranslator.ToHtml(rb.BackColor)
-                End If
-
-            End If
-
-        Next
-
-        MsgBox("current userId :" & SessionManager.Instance.currentUserId)
-        MsgBox("Default color : " & catColor)
-
-
-
-        ' checking for empty input
-        If String.IsNullOrEmpty(catName) Or String.IsNullOrEmpty(catDescription) Or String.IsNullOrEmpty(catColor) Then
+        If String.IsNullOrEmpty(txt_name.Text) Or String.IsNullOrEmpty(txt_description.Text) Or String.IsNullOrEmpty(catColor) Then
             MsgBox("Please fill all the information.")
             Return
         End If
 
 
 
-        ' adding into db
+        ' Retriving Information
+        catName = txt_name.Text
+        catDescription = txt_description.Text
+
+
+
+        'MsgBox("current userId :" & SessionManager.Instance.currentUserId)
+        MsgBox("Default color : " & catColor)
+        MsgBox(catName)
+        MsgBox(catDescription)
+
+
+
+
+        'adding into db
         Dim categorymanager As New CategoryManager()
 
         Dim added As Integer = categorymanager.registerCategory(catName, catDescription, catColor)
@@ -61,6 +53,27 @@ Public Class New_Category
 
 
 
+
+    End Sub
+
+
+    ' Default color selection
+    Private Sub getDefaultColor()
+
+        For Each control As Control In tabelPanel_color.Controls
+
+            If TypeOf control Is RadioButton Then
+
+                Dim rb As RadioButton = DirectCast(control, RadioButton)
+
+                If rb.Checked Then
+                    catColor = ColorTranslator.ToHtml(rb.BackColor)
+                    btn_custom_color.BackColor = SystemColors.ButtonFace
+                End If
+
+            End If
+
+        Next
 
     End Sub
 
@@ -113,7 +126,7 @@ Public Class New_Category
 
         End If
 
-        'MsgBox("Custom color :" & catColor)
+        MsgBox("Custom color :" & catColor)
 
     End Sub
 

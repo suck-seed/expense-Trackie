@@ -2,31 +2,103 @@
 
 Public Class New_Expense
 
-    'variable aight
+    ' DATA MEMBERS
     Dim amount As Decimal
     Dim remarks As String
     Dim dateAdded As DateTime
-    Dim dateJoined As DateTime = DateTime.Now.ToString("yyyy-MM-dd")
+    Dim timeAdded As DateTime = DateTime.Now.ToString("HH:mm:ss")
+    Dim selectedCategoryId As Integer
 
 
 
 
-    ' CREATE
     Private Sub button_create_Click(sender As Object, e As EventArgs) Handles button_create.Click
 
+
+        ' Error proffing
+
+        If String.IsNullOrEmpty(txt_Amount.Text) Or String.IsNullOrEmpty(txt_Remarks.Text) Or getSelectedCategoryId() = 0 Then
+            MsgBox("Provide all the required information ")
+            Return
+        End If
+
+        If Not Decimal.TryParse(txt_Amount.Text, amount) Then
+            MsgBox("Amount should be Decimal ")
+            Return
+        End If
+
+
+
+        ' Retriving Information
         amount = CDec(txt_Amount.Text)
         remarks = txt_Remarks.Text
         dateAdded = txt_date_picker.Value.ToString("yyyy-MM-dd")
+        selectedCategoryId = getSelectedCategoryId()
 
 
+
+
+        ' Debug
         MsgBox(amount)
         MsgBox(remarks)
         MsgBox(dateAdded)
-
+        MsgBox(selectedCategoryId)
 
 
 
     End Sub
+
+
+
+    ' Loading custom categories
+    Private Sub New_Expense_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Dim categorymanager As New CategoryManager()
+
+        'generating category on panel
+        categorymanager.generateCategoryRadioButtons(flowPanel_category)
+
+    End Sub
+
+
+    ' Fetching categoryId
+    Private Function getSelectedCategoryId() As Integer
+
+        Dim id As Integer = 0
+
+        For Each control In flowPanel_category.Controls
+
+            If TypeOf (control) Is RadioButton Then
+
+                Dim radioButton As RadioButton = DirectCast(control, RadioButton)
+
+                If radioButton.Checked Then
+                    id = CInt(radioButton.Tag)
+                End If
+
+            End If
+
+        Next
+
+        Return id
+
+    End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

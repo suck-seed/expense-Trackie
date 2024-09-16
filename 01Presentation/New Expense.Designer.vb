@@ -22,7 +22,7 @@ Partial Class New_Expense
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.table_inputs = New System.Windows.Forms.TableLayoutPanel()
         Me.txt_Remarks = New System.Windows.Forms.TextBox()
         Me.txt_Amount = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -34,37 +34,39 @@ Partial Class New_Expense
         Me.button_close = New System.Windows.Forms.Button()
         Me.button_create = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.flowPanel_category = New System.Windows.Forms.FlowLayoutPanel()
+        Me.table_inputs.SuspendLayout()
         Me.panel_topbar.SuspendLayout()
         Me.SuspendLayout()
         '
-        'TableLayoutPanel1
+        'table_inputs
         '
-        Me.TableLayoutPanel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.table_inputs.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.TableLayoutPanel1.ColumnCount = 1
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.txt_Remarks, 0, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.txt_Amount, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label2, 0, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label3, 0, 6)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label5, 0, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.txt_date_picker, 0, 5)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(38, 73)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 8
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50187!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50187!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(416, 318)
-        Me.TableLayoutPanel1.TabIndex = 0
+        Me.table_inputs.BackColor = System.Drawing.Color.Transparent
+        Me.table_inputs.ColumnCount = 1
+        Me.table_inputs.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.table_inputs.Controls.Add(Me.txt_Remarks, 0, 3)
+        Me.table_inputs.Controls.Add(Me.txt_Amount, 0, 1)
+        Me.table_inputs.Controls.Add(Me.Label2, 0, 2)
+        Me.table_inputs.Controls.Add(Me.Label1, 0, 0)
+        Me.table_inputs.Controls.Add(Me.Label3, 0, 6)
+        Me.table_inputs.Controls.Add(Me.Label5, 0, 4)
+        Me.table_inputs.Controls.Add(Me.txt_date_picker, 0, 5)
+        Me.table_inputs.Controls.Add(Me.flowPanel_category, 0, 7)
+        Me.table_inputs.Location = New System.Drawing.Point(38, 73)
+        Me.table_inputs.Name = "table_inputs"
+        Me.table_inputs.RowCount = 8
+        Me.table_inputs.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.237326!))
+        Me.table_inputs.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.237329!))
+        Me.table_inputs.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.237329!))
+        Me.table_inputs.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.237329!))
+        Me.table_inputs.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.237329!))
+        Me.table_inputs.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.237329!))
+        Me.table_inputs.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.237329!))
+        Me.table_inputs.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.3387!))
+        Me.table_inputs.Size = New System.Drawing.Size(416, 424)
+        Me.table_inputs.TabIndex = 0
         '
         'txt_Remarks
         '
@@ -188,28 +190,37 @@ Partial Class New_Expense
         Me.Label4.Text = "New Expense" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'flowPanel_category
+        '
+        Me.flowPanel_category.AutoScroll = True
+        Me.flowPanel_category.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.flowPanel_category.Location = New System.Drawing.Point(3, 276)
+        Me.flowPanel_category.Name = "flowPanel_category"
+        Me.flowPanel_category.Size = New System.Drawing.Size(410, 145)
+        Me.flowPanel_category.TabIndex = 9
+        '
         'New_Expense
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
-        Me.ClientSize = New System.Drawing.Size(496, 522)
+        Me.ClientSize = New System.Drawing.Size(496, 536)
         Me.Controls.Add(Me.panel_topbar)
-        Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Controls.Add(Me.table_inputs)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximumSize = New System.Drawing.Size(1920, 1200)
         Me.Name = "New_Expense"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "New_Expense"
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
+        Me.table_inputs.ResumeLayout(False)
+        Me.table_inputs.PerformLayout()
         Me.panel_topbar.ResumeLayout(False)
         Me.panel_topbar.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents table_inputs As TableLayoutPanel
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
@@ -221,4 +232,5 @@ Partial Class New_Expense
     Friend WithEvents button_close As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents txt_date_picker As DateTimePicker
+    Friend WithEvents flowPanel_category As FlowLayoutPanel
 End Class

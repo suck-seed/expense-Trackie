@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.expense_Trackie.SIgnIn
+            Me.MainForm = Global.expense_Trackie.New_Category
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _

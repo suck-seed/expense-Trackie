@@ -195,6 +195,7 @@ Partial Class New_Category
         Me.Radio_Color9.Size = New System.Drawing.Size(41, 30)
         Me.Radio_Color9.TabIndex = 6
         Me.Radio_Color9.TabStop = True
+        Me.Radio_Color9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.Radio_Color9.UseVisualStyleBackColor = False
         '
         'Radio_Color8
