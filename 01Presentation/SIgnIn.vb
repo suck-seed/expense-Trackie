@@ -10,6 +10,19 @@ Public Class SIgnIn
         username = txt_username.Text
         password = txt_password.Text
 
+
+        ' 
+        If String.IsNullOrEmpty(username) Or String.IsNullOrEmpty(password) Then
+            MsgBox("Please fill all details")
+            Return
+
+        End If
+
+
+
+
+
+        ' application and backend referal
         Dim usermanager As New UserManager()
 
         Dim userId As Integer = usermanager.logUserIn(username, password)

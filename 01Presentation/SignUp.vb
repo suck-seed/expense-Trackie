@@ -14,24 +14,30 @@ Public Class SignUp
         username = txt_username.Text
         password = txt_password.Text
 
+
+        ' if data arent filled
+        If String.IsNullOrEmpty(number) Or String.IsNullOrEmpty(username) Or String.IsNullOrEmpty(password) Then
+            MsgBox("Fill all the required information.")
+            Return
+        End If
+
+
+
+        ' backend handling
         Dim usermanager As New UserManager
 
         Dim userId As Integer = usermanager.registerUser(username, number, password, dateJoined)
 
 
         If userId > 0 Then
+
             MsgBox("User registered sucessfully")
 
-
             Me.Hide()
-
             mainWindow.Show()
 
-
-
-
         Else
-            'MsgBox("User registration failed. Please try again.")
+            MsgBox("User registration failed. Please try again.")
         End If
 
     End Sub

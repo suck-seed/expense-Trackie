@@ -20,4 +20,10 @@
 
     End Function
 
+
+    Public Function loadCategory()
+
+    End Function
+
+
 End Class

@@ -6,6 +6,7 @@
     'register if no duplicate exists
     Public Function registerUser(ByVal username As String, ByVal number As String, ByVal password As String, ByVal dateJoined As DateTime) As Integer
 
+
         If userRepository.isDuplicateUser(username, number) Then
             MsgBox("A user with above information already exists ")
 
@@ -22,6 +23,7 @@
             SessionManager.Instance.currentUsername = username
             SessionManager.Instance.currentNumber = number
             SessionManager.Instance.currentPassword = password
+            SessionManager.Instance.currentLoginTime = DateTime.Now
 
             MsgBox(SessionManager.Instance.currentUserId)
 
@@ -45,9 +47,11 @@
             userId = userRepository.signIn(username, password)
 
             If userId > 0 Then
+
                 SessionManager.Instance.currentUserId = userId
                 SessionManager.Instance.currentUsername = username
                 SessionManager.Instance.currentPassword = password
+                SessionManager.Instance.currentLoginTime = DateTime.Now
 
             End If
 
@@ -60,13 +64,6 @@
 
 
         End If
-
-
-
-
-
-
-
 
 
     End Function

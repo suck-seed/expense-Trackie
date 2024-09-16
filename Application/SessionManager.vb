@@ -10,7 +10,7 @@
     Public Property currentUsername As String
     Public Property currentNumber As String
     Public Property currentPassword As String
-
+    Public Property currentLoginTime As DateTime
 
     Public Shared ReadOnly Property Instance() As SessionManager
         Get

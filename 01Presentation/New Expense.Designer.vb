@@ -25,15 +25,15 @@ Partial Class New_Expense
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.txt_Remarks = New System.Windows.Forms.TextBox()
         Me.txt_Amount = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txt_date_picker = New System.Windows.Forms.DateTimePicker()
         Me.panel_topbar = New System.Windows.Forms.Panel()
         Me.button_close = New System.Windows.Forms.Button()
         Me.button_create = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.panel_topbar.SuspendLayout()
         Me.SuspendLayout()
@@ -51,8 +51,8 @@ Partial Class New_Expense
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label3, 0, 6)
         Me.TableLayoutPanel1.Controls.Add(Me.Label5, 0, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateTimePicker1, 0, 5)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(33, 87)
+        Me.TableLayoutPanel1.Controls.Add(Me.txt_date_picker, 0, 5)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(38, 73)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 8
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938!))
@@ -84,17 +84,6 @@ Partial Class New_Expense
         Me.txt_Amount.Size = New System.Drawing.Size(410, 25)
         Me.txt_Amount.TabIndex = 3
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Label3.Font = New System.Drawing.Font("Cascadia Mono", 10.0!)
-        Me.Label3.Location = New System.Drawing.Point(3, 255)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(410, 18)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Group"
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -117,6 +106,36 @@ Partial Class New_Expense
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Amount"
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Label3.Font = New System.Drawing.Font("Cascadia Mono", 10.0!)
+        Me.Label3.Location = New System.Drawing.Point(3, 255)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(410, 18)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Category"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Label5.Font = New System.Drawing.Font("Cascadia Mono", 10.0!)
+        Me.Label5.Location = New System.Drawing.Point(3, 177)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(410, 18)
+        Me.Label5.TabIndex = 7
+        Me.Label5.Text = "Date"
+        '
+        'txt_date_picker
+        '
+        Me.txt_date_picker.Font = New System.Drawing.Font("Cascadia Code", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_date_picker.Location = New System.Drawing.Point(3, 198)
+        Me.txt_date_picker.Name = "txt_date_picker"
+        Me.txt_date_picker.Size = New System.Drawing.Size(203, 20)
+        Me.txt_date_picker.TabIndex = 8
+        '
         'panel_topbar
         '
         Me.panel_topbar.Controls.Add(Me.button_close)
@@ -130,7 +149,7 @@ Partial Class New_Expense
         '
         'button_close
         '
-        Me.button_close.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.button_close.Dock = System.Windows.Forms.DockStyle.Left
         Me.button_close.FlatAppearance.BorderSize = 0
         Me.button_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -145,7 +164,7 @@ Partial Class New_Expense
         '
         'button_create
         '
-        Me.button_create.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.button_create.Dock = System.Windows.Forms.DockStyle.Right
         Me.button_create.FlatAppearance.BorderSize = 0
         Me.button_create.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(125, Byte), Integer))
         Me.button_create.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -162,37 +181,19 @@ Partial Class New_Expense
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Cascadia Mono", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(189, 11)
+        Me.Label4.Location = New System.Drawing.Point(193, 11)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(109, 21)
         Me.Label4.TabIndex = 2
         Me.Label4.Text = "New Expense" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Label5.Font = New System.Drawing.Font("Cascadia Mono", 10.0!)
-        Me.Label5.Location = New System.Drawing.Point(3, 177)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(410, 18)
-        Me.Label5.TabIndex = 7
-        Me.Label5.Text = "Date"
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Cascadia Code", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Location = New System.Drawing.Point(3, 198)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(203, 20)
-        Me.DateTimePicker1.TabIndex = 8
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'New_Expense
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
-        Me.ClientSize = New System.Drawing.Size(496, 475)
+        Me.ClientSize = New System.Drawing.Size(496, 522)
         Me.Controls.Add(Me.panel_topbar)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -219,5 +220,5 @@ Partial Class New_Expense
     Friend WithEvents button_create As Button
     Friend WithEvents button_close As Button
     Friend WithEvents Label5 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents txt_date_picker As DateTimePicker
 End Class

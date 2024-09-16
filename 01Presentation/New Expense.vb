@@ -3,30 +3,35 @@
 Public Class New_Expense
 
     'variable aight
-    Dim _amount As Double = 0
-    Dim _remarks As String
-    Dim _group As String
-    Private _categories As List(Of String)
+    Dim amount As Decimal
+    Dim remarks As String
+    Dim dateAdded As DateTime
+    Dim dateJoined As DateTime = DateTime.Now.ToString("yyyy-MM-dd")
 
 
-    Dim mouse_move As System.Drawing.Point
+
 
     ' CREATE
     Private Sub button_create_Click(sender As Object, e As EventArgs) Handles button_create.Click
-        _remarks = txt_Remarks.Text.ToString()
-        'group = cmb_Group.SelectedValue
 
-        If Double.TryParse(txt_Amount.Text, _amount) Then
-            _amount = CDbl(txt_Amount.Text())
-        Else
-            Const message As String = "Amount should be in Numeric Form"
-            MessageBox.Show(message)
-        End If
+        amount = CDec(txt_Amount.Text)
+        remarks = txt_Remarks.Text
+        dateAdded = txt_date_picker.Value.ToString("yyyy-MM-dd")
 
-        'Insert this info to the database
-        insert_to_db()
+
+        MsgBox(amount)
+        MsgBox(remarks)
+        MsgBox(dateAdded)
+
+
+
 
     End Sub
+
+
+
+
+
 
     ' CLOSE
     Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
@@ -36,16 +41,6 @@ Public Class New_Expense
 
 
 
-
-    Private Sub insert_to_db()
-
-    End Sub
-
-    Private Sub New_Expense_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-
     Protected Overrides Sub Finalize()
         MyBase.Finalize()
     End Sub
@@ -53,6 +48,10 @@ Public Class New_Expense
 
 
 
+
+
+    ' TOPBAR MOVEMENT
+    Dim mouse_move As System.Drawing.Point
 
     Private Sub topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseDown
         mouse_move = New Point(-e.X, -e.Y)

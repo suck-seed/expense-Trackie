@@ -38,11 +38,11 @@ Partial Class New_Category
         Me.Radio_Color1 = New System.Windows.Forms.RadioButton()
         Me.Radio_Color4 = New System.Windows.Forms.RadioButton()
         Me.Radio_Color3 = New System.Windows.Forms.RadioButton()
+        Me.btn_custom_color = New System.Windows.Forms.Button()
         Me.panel_topbar = New System.Windows.Forms.Panel()
         Me.button_close = New System.Windows.Forms.Button()
         Me.button_create = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.btn_custom_color = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.tabelPanel_color.SuspendLayout()
         Me.panel_topbar.SuspendLayout()
@@ -281,6 +281,21 @@ Partial Class New_Category
         Me.Radio_Color3.TabStop = True
         Me.Radio_Color3.UseVisualStyleBackColor = False
         '
+        'btn_custom_color
+        '
+        Me.btn_custom_color.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btn_custom_color.AutoSize = True
+        Me.btn_custom_color.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.btn_custom_color.FlatAppearance.BorderSize = 0
+        Me.btn_custom_color.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn_custom_color.Font = New System.Drawing.Font("Cascadia Mono", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_custom_color.Location = New System.Drawing.Point(146, 261)
+        Me.btn_custom_color.Name = "btn_custom_color"
+        Me.btn_custom_color.Size = New System.Drawing.Size(115, 30)
+        Me.btn_custom_color.TabIndex = 7
+        Me.btn_custom_color.Text = "Custom Color"
+        Me.btn_custom_color.UseVisualStyleBackColor = False
+        '
         'panel_topbar
         '
         Me.panel_topbar.Controls.Add(Me.button_close)
@@ -332,21 +347,6 @@ Partial Class New_Category
         Me.Label4.Size = New System.Drawing.Size(118, 21)
         Me.Label4.TabIndex = 2
         Me.Label4.Text = "New Category"
-        '
-        'btn_custom_color
-        '
-        Me.btn_custom_color.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btn_custom_color.AutoSize = True
-        Me.btn_custom_color.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.btn_custom_color.FlatAppearance.BorderSize = 0
-        Me.btn_custom_color.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn_custom_color.Font = New System.Drawing.Font("Cascadia Mono", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_custom_color.Location = New System.Drawing.Point(146, 261)
-        Me.btn_custom_color.Name = "btn_custom_color"
-        Me.btn_custom_color.Size = New System.Drawing.Size(115, 30)
-        Me.btn_custom_color.TabIndex = 7
-        Me.btn_custom_color.Text = "Custom Color"
-        Me.btn_custom_color.UseVisualStyleBackColor = False
         '
         'New_Category
         '
