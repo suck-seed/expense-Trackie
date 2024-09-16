@@ -19,14 +19,6 @@ Public Class New_Category
 
 
 
-        ' checking for empty input
-        If String.IsNullOrEmpty(catName) Or String.IsNullOrEmpty(catDescription) Or String.IsNullOrEmpty(catColor) Then
-            MsgBox("Please fill all the information.")
-            Return
-        End If
-
-
-
         ' default color selection
         For Each control As Control In tabelPanel_color.Controls
 
@@ -42,7 +34,16 @@ Public Class New_Category
 
         Next
 
+        MsgBox("current userId :" & SessionManager.Instance.currentUserId)
         MsgBox("Default color : " & catColor)
+
+
+
+        ' checking for empty input
+        If String.IsNullOrEmpty(catName) Or String.IsNullOrEmpty(catDescription) Or String.IsNullOrEmpty(catColor) Then
+            MsgBox("Please fill all the information.")
+            Return
+        End If
 
 
 

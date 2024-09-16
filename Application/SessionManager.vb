@@ -6,7 +6,7 @@
 
     Private Shared _instance As SessionManager
 
-    Public Property currentUserId As Integer
+    Public Property currentUserId As Integer = 1
     Public Property currentUsername As String
     Public Property currentNumber As String
     Public Property currentPassword As String
