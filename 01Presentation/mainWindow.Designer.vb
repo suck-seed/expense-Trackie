@@ -30,7 +30,6 @@ Partial Class mainWindow
         Me.lbl_username = New System.Windows.Forms.Label()
         Me.btn_profile = New System.Windows.Forms.Button()
         Me.tableLayoutCategorySelector = New System.Windows.Forms.TableLayoutPanel()
-        Me.check_all = New System.Windows.Forms.CheckBox()
         Me.home_analysis_export_radio = New System.Windows.Forms.TableLayoutPanel()
         Me.radio_export = New System.Windows.Forms.RadioButton()
         Me.radio_analytical = New System.Windows.Forms.RadioButton()
@@ -58,6 +57,9 @@ Partial Class mainWindow
         Me.button_min = New System.Windows.Forms.Button()
         Me.button_max = New System.Windows.Forms.Button()
         Me.button_close = New System.Windows.Forms.Button()
+        Me.btn_debug = New System.Windows.Forms.Button()
+        Me.radio_all = New System.Windows.Forms.RadioButton()
+        Me.radio_custom = New System.Windows.Forms.RadioButton()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.panel_sidebar.SuspendLayout()
         Me.tableLayoutCategorySelector.SuspendLayout()
@@ -175,30 +177,16 @@ Partial Class mainWindow
         Me.tableLayoutCategorySelector.ColumnCount = 2
         Me.tableLayoutCategorySelector.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.tableLayoutCategorySelector.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tableLayoutCategorySelector.Controls.Add(Me.check_all, 0, 0)
+        Me.tableLayoutCategorySelector.Controls.Add(Me.radio_custom, 1, 0)
+        Me.tableLayoutCategorySelector.Controls.Add(Me.radio_all, 0, 0)
         Me.tableLayoutCategorySelector.Location = New System.Drawing.Point(22, 555)
         Me.tableLayoutCategorySelector.Margin = New System.Windows.Forms.Padding(0)
         Me.tableLayoutCategorySelector.MaximumSize = New System.Drawing.Size(247, 650)
         Me.tableLayoutCategorySelector.Name = "tableLayoutCategorySelector"
         Me.tableLayoutCategorySelector.RowCount = 1
         Me.tableLayoutCategorySelector.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tableLayoutCategorySelector.Size = New System.Drawing.Size(247, 39)
+        Me.tableLayoutCategorySelector.Size = New System.Drawing.Size(169, 39)
         Me.tableLayoutCategorySelector.TabIndex = 8
-        '
-        'check_all
-        '
-        Me.check_all.Appearance = System.Windows.Forms.Appearance.Button
-        Me.check_all.AutoSize = True
-        Me.check_all.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver
-        Me.check_all.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.check_all.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.check_all.Location = New System.Drawing.Point(5, 5)
-        Me.check_all.Margin = New System.Windows.Forms.Padding(5)
-        Me.check_all.Name = "check_all"
-        Me.check_all.Size = New System.Drawing.Size(42, 27)
-        Me.check_all.TabIndex = 0
-        Me.check_all.Text = "All"
-        Me.check_all.UseVisualStyleBackColor = True
         '
         'home_analysis_export_radio
         '
@@ -489,6 +477,7 @@ Partial Class mainWindow
         'panel_topbar
         '
         Me.panel_topbar.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.panel_topbar.Controls.Add(Me.btn_debug)
         Me.panel_topbar.Controls.Add(Me.TableLayoutPanel5)
         Me.panel_topbar.Controls.Add(Me.button_min)
         Me.panel_topbar.Controls.Add(Me.button_max)
@@ -593,6 +582,45 @@ Partial Class mainWindow
         Me.button_close.TabIndex = 7
         Me.button_close.UseVisualStyleBackColor = True
         '
+        'btn_debug
+        '
+        Me.btn_debug.Location = New System.Drawing.Point(776, 13)
+        Me.btn_debug.Name = "btn_debug"
+        Me.btn_debug.Size = New System.Drawing.Size(75, 23)
+        Me.btn_debug.TabIndex = 11
+        Me.btn_debug.Text = "Debug"
+        Me.btn_debug.UseVisualStyleBackColor = True
+        '
+        'radio_all
+        '
+        Me.radio_all.Appearance = System.Windows.Forms.Appearance.Button
+        Me.radio_all.AutoSize = True
+        Me.radio_all.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.radio_all.Font = New System.Drawing.Font("Cascadia Mono", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radio_all.Location = New System.Drawing.Point(3, 3)
+        Me.radio_all.Name = "radio_all"
+        Me.radio_all.Size = New System.Drawing.Size(78, 33)
+        Me.radio_all.TabIndex = 0
+        Me.radio_all.TabStop = True
+        Me.radio_all.Text = "All"
+        Me.radio_all.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.radio_all.UseVisualStyleBackColor = True
+        '
+        'radio_custom
+        '
+        Me.radio_custom.Appearance = System.Windows.Forms.Appearance.Button
+        Me.radio_custom.AutoSize = True
+        Me.radio_custom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.radio_custom.Font = New System.Drawing.Font("Cascadia Mono", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radio_custom.Location = New System.Drawing.Point(87, 3)
+        Me.radio_custom.Name = "radio_custom"
+        Me.radio_custom.Size = New System.Drawing.Size(79, 33)
+        Me.radio_custom.TabIndex = 1
+        Me.radio_custom.TabStop = True
+        Me.radio_custom.Text = "Custom"
+        Me.radio_custom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.radio_custom.UseVisualStyleBackColor = True
+        '
         'mainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -661,5 +689,7 @@ Partial Class mainWindow
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
     Friend WithEvents radio_day_view As RadioButton
     Friend WithEvents radio_month_view As RadioButton
-    Friend WithEvents check_all As CheckBox
+    Friend WithEvents btn_debug As Button
+    Friend WithEvents radio_all As RadioButton
+    Friend WithEvents radio_custom As RadioButton
 End Class

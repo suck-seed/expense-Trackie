@@ -99,23 +99,19 @@ Public Class mainWindow
 
 
     ' retriving categoryId
-    Private Sub check_all_CheckedChanged(sender As Object, e As EventArgs) Handles check_all.CheckedChanged
-
-        getSelectedCategory()
-
-    End Sub
-
-
-    Public Sub getSelectedCategory()
+    Private Sub All_or_Custom_selection(sender As Object, e As EventArgs) Handles radio_all.CheckedChanged, radio_custom.CheckedChanged
 
         Dim selectedCategoryIds As New List(Of Integer)
 
         ' if all is selected
-        If check_all.Checked() Then
+        If radio_all.Checked() Then
 
             selectedCategoryIds.Clear()
 
-        Else
+        End If
+
+        ' if custom is selected
+        If radio_custom.Checked Then
 
             For Each control As Control In flowPanelCategory.Controls
 
@@ -131,10 +127,19 @@ Public Class mainWindow
 
             Next
 
+
+
         End If
 
         ' setting session manager ko ma value
         SessionManager.SelectedCategoryIds = selectedCategoryIds
+        panel_main.Refresh()
+    End Sub
+
+
+    Public Sub getSelectedCategory()
+
+
 
     End Sub
 
@@ -245,7 +250,50 @@ Public Class mainWindow
         End Using
     End Sub
 
-    Private Sub radio_month_view_CheckedChanged(sender As Object, e As EventArgs) Handles radio_month_view.CheckedChanged
+
+
+    Private Sub btn_debug_Click(sender As Object, e As EventArgs) Handles btn_debug.Click
+
+        'Dim selectedCategoryIds As New List(Of Integer)
+
+        '' if all is selected
+        'If radio_all.Checked() Then
+
+        '    selectedCategoryIds.Clear()
+
+        'End If
+
+
+        'If radio_custom.Checked Then
+        '    For Each control As Control In flowPanelCategory.Controls
+
+        '        If TypeOf control Is CheckBox Then
+        '            Dim checkBox As CheckBox = DirectCast(control, CheckBox)
+
+        '            If checkBox.Checked Then
+        '                Dim categoryId As Integer = CInt(checkBox.Tag)
+        '                selectedCategoryIds.Add(categoryId)
+        '            End If
+
+        '        End If
+
+        '    Next
+
+        'End If
+
+        '' setting session manager ko ma value
+        'SessionManager.SelectedCategoryIds = selectedCategoryIds
+
+
+
+        ' Display the selected category IDs
+        If SessionManager.SelectedCategoryIds.Count > 0 Then
+            ' Convert list of integers to a comma-separated string
+            Dim categoryIdString As String = String.Join(", ", SessionManager.SelectedCategoryIds)
+            MessageBox.Show("Selected Categories: " & categoryIdString)
+        Else
+            MessageBox.Show("No categories selected.")
+        End If
 
     End Sub
 End Class

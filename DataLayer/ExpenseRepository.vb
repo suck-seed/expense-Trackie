@@ -215,7 +215,7 @@ Public Class ExpenseRepository
         If selectedCategory.Count > 0 Then
 
             'adding catogery filter
-            query &= "AND catId IN ( " & String.Join(",", selectedCategory) & " ) "
+            query &= "AND c.catId IN ( " & String.Join(",", selectedCategory) & " ) "
 
         End If
 

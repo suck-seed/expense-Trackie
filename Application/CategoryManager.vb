@@ -113,7 +113,7 @@
             checkButton.Font = New Font("Cascadia Mono SemiLight", 11, FontStyle.Regular)
 
 
-            checkButton.FlatStyle = FlatStyle.Popup
+            checkButton.FlatStyle = FlatStyle.Flat
 
             checkButton.FlatAppearance.BorderSize = 1
             checkButton.Margin = New Padding(5, 8, 5, 8)
