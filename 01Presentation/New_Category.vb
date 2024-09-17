@@ -10,6 +10,9 @@ Public Class New_Category
     Dim catDescription As String
     Dim catColor As String
 
+    'custom event
+    Public Event CategoryCreated()
+
 
     ' button create
     Private Sub button_create_Click(sender As Object, e As EventArgs) Handles button_create.Click
@@ -39,6 +42,7 @@ Public Class New_Category
         If added > 0 Then
             MsgBox("Category added sucessfully")
 
+            RaiseEvent CategoryCreated()
             ' reloading the categories in mainWindow after adding a category to reflect the added category
             categorymanager.generateCategoryCheckButtons(mainWindow.mainWindowCategory)
 

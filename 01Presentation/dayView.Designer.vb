@@ -29,6 +29,7 @@ Partial Class dayView
         Me.lbl_day = New System.Windows.Forms.Label()
         Me.lbl_month = New System.Windows.Forms.Label()
         Me.btn_next = New System.Windows.Forms.Button()
+        Me.panel_expenseDisplay = New System.Windows.Forms.FlowLayoutPanel()
         Me.generalTable.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -137,10 +138,22 @@ Partial Class dayView
         Me.btn_next.TabIndex = 19
         Me.btn_next.UseVisualStyleBackColor = True
         '
+        'panel_expenseDisplay
+        '
+        Me.panel_expenseDisplay.AutoScroll = True
+        Me.panel_expenseDisplay.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.panel_expenseDisplay.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
+        Me.panel_expenseDisplay.Location = New System.Drawing.Point(0, 86)
+        Me.panel_expenseDisplay.Margin = New System.Windows.Forms.Padding(0)
+        Me.panel_expenseDisplay.Name = "panel_expenseDisplay"
+        Me.panel_expenseDisplay.Size = New System.Drawing.Size(1111, 808)
+        Me.panel_expenseDisplay.TabIndex = 7
+        '
         'dayView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.panel_expenseDisplay)
         Me.Controls.Add(Me.generalTable)
         Me.Name = "dayView"
         Me.Size = New System.Drawing.Size(1111, 894)
@@ -157,4 +170,5 @@ Partial Class dayView
     Friend WithEvents lbl_day As Label
     Friend WithEvents lbl_month As Label
     Friend WithEvents btn_next As Button
+    Friend WithEvents panel_expenseDisplay As FlowLayoutPanel
 End Class

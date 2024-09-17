@@ -23,10 +23,10 @@ Partial Class expenseDetailDisplay
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.generalTable = New System.Windows.Forms.TableLayoutPanel()
+        Me.txt_time = New System.Windows.Forms.Label()
+        Me.txt_remarks = New System.Windows.Forms.Label()
         Me.txt_amount = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.txt_remarks = New System.Windows.Forms.Label()
-        Me.txt_time = New System.Windows.Forms.Label()
         Me.generalTable.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
@@ -46,8 +46,32 @@ Partial Class expenseDetailDisplay
         Me.generalTable.RowCount = 2
         Me.generalTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.generalTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.generalTable.Size = New System.Drawing.Size(772, 87)
+        Me.generalTable.Size = New System.Drawing.Size(772, 84)
         Me.generalTable.TabIndex = 7
+        '
+        'txt_time
+        '
+        Me.txt_time.AutoSize = True
+        Me.txt_time.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txt_time.Font = New System.Drawing.Font("Cascadia Mono", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_time.Location = New System.Drawing.Point(3, 42)
+        Me.txt_time.Name = "txt_time"
+        Me.txt_time.Size = New System.Drawing.Size(766, 42)
+        Me.txt_time.TabIndex = 20
+        Me.txt_time.Text = "Time"
+        Me.txt_time.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txt_remarks
+        '
+        Me.txt_remarks.AutoSize = True
+        Me.txt_remarks.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txt_remarks.Font = New System.Drawing.Font("Cascadia Mono", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_remarks.Location = New System.Drawing.Point(3, 0)
+        Me.txt_remarks.Name = "txt_remarks"
+        Me.txt_remarks.Size = New System.Drawing.Size(766, 42)
+        Me.txt_remarks.TabIndex = 19
+        Me.txt_remarks.Text = "Remarks"
+        Me.txt_remarks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txt_amount
         '
@@ -56,7 +80,7 @@ Partial Class expenseDetailDisplay
         Me.txt_amount.Font = New System.Drawing.Font("Cascadia Mono", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_amount.Location = New System.Drawing.Point(3, 0)
         Me.txt_amount.Name = "txt_amount"
-        Me.txt_amount.Size = New System.Drawing.Size(150, 87)
+        Me.txt_amount.Size = New System.Drawing.Size(150, 84)
         Me.txt_amount.TabIndex = 18
         Me.txt_amount.Text = "Amount"
         Me.txt_amount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -72,41 +96,18 @@ Partial Class expenseDetailDisplay
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(156, 87)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(156, 84)
         Me.TableLayoutPanel2.TabIndex = 0
-        '
-        'txt_remarks
-        '
-        Me.txt_remarks.AutoSize = True
-        Me.txt_remarks.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txt_remarks.Font = New System.Drawing.Font("Cascadia Mono", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_remarks.Location = New System.Drawing.Point(3, 0)
-        Me.txt_remarks.Name = "txt_remarks"
-        Me.txt_remarks.Size = New System.Drawing.Size(766, 43)
-        Me.txt_remarks.TabIndex = 19
-        Me.txt_remarks.Text = "Remarks"
-        Me.txt_remarks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txt_time
-        '
-        Me.txt_time.AutoSize = True
-        Me.txt_time.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txt_time.Font = New System.Drawing.Font("Cascadia Mono", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_time.Location = New System.Drawing.Point(3, 43)
-        Me.txt_time.Name = "txt_time"
-        Me.txt_time.Size = New System.Drawing.Size(766, 44)
-        Me.txt_time.TabIndex = 20
-        Me.txt_time.Text = "Time"
-        Me.txt_time.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'expenseDetailDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.generalTable)
         Me.Name = "expenseDetailDisplay"
-        Me.Size = New System.Drawing.Size(928, 87)
+        Me.Size = New System.Drawing.Size(928, 84)
         Me.generalTable.ResumeLayout(False)
         Me.generalTable.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)

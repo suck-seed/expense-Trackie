@@ -3,7 +3,6 @@
     Dim currentDate As DateTime = DateTime.Now
     Dim expenseManager As New ExpenseManager()
 
-
     Private Sub monthView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ' setting display date
@@ -26,6 +25,7 @@
 
     ' db ko kam
     Private Function getTotal() As Decimal
+        Return expenseManager.getTotalOfMonth(currentDate)
 
     End Function
 

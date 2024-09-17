@@ -1,12 +1,9 @@
 ﻿Public Class mainWindow
 
-    ' VARIABLES REQUIRED
+    Private categoryManager As New CategoryManager
+    Private expenseManager As New ExpenseManager
 
-
-
-
-
-    ' MYBASE.LOAD
+    ' loading resources at startup
     Private Sub mybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'setting the username 
@@ -14,11 +11,17 @@
 
 
         'loading categoriesss 
-        Dim categoryManager As New CategoryManager
-
-        categoryManager.generateCategoryCheckButtons(mainWindowCategory)
 
 
+        CategoryManager.generateCategoryCheckButtons(mainWindowCategory)
+
+
+
+    End Sub
+
+
+    ' loading expenses
+    Private Sub check_all_CheckedChanged(sender As Object, e As EventArgs) Handles check_all.CheckedChanged
 
     End Sub
 
@@ -78,6 +81,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     ' ADD CATEGORY AND EXPENSE
     Private Sub addExpenseClicked(sender As Object, e As EventArgs) Handles button_add_expense.Click
         New_Expense.Show()
@@ -87,11 +107,39 @@
         New_Category.Show()
     End Sub
 
-
-
     ' close
     Private Sub buttonCloseClick(sender As Object, e As EventArgs) Handles button_close.Click
         Me.Close()
+    End Sub
+
+
+
+    ' checked visual cues
+    Private Sub radioCheckedChanged(sender As Object, e As EventArgs) Handles radio_home.CheckedChanged, radio_analytical.CheckedChanged, radio_export.CheckedChanged
+
+        ' for home button
+        If radio_home.Checked Then
+            radio_home.Image = My.Resources.homeDark
+        Else
+            radio_home.Image = My.Resources.homeLight
+        End If
+
+
+        ' for analytical button
+        If radio_analytical.Checked Then
+            radio_analytical.Image = My.Resources.barDark
+        Else
+            radio_analytical.Image = My.Resources.barLight
+        End If
+
+
+        ' for export button
+        If radio_export.Checked Then
+            radio_export.Image = My.Resources.exportDark
+        Else
+            radio_export.Image = My.Resources.exportLight
+        End If
+
     End Sub
 
 
@@ -138,65 +186,6 @@
             Me.Location = mouse_position
         End If
     End Sub
-
-
-
-
-
-    ' line drawing
-
-    Dim pen As New Pen(Color.LightGray, 0.5)
-
-    Private Sub sidebar_Paint(sender As Object, e As PaintEventArgs) Handles panel_sidebar.Paint
-
-        Line_below_main_buttons(e.Graphics)
-
-    End Sub
-
-    Private Sub topbar_Paint(sender As Object, e As PaintEventArgs) Handles panel_topbar.Paint
-        Line_below_top_bar(e.Graphics)
-    End Sub
-
-    Private Sub Line_below_main_buttons(graphics As Graphics)
-        graphics.DrawLine(pen, 0, panel_topbar.Height, panel_sidebar.Width, panel_topbar.Height)
-    End Sub
-
-    Private Sub Line_below_top_bar(graphics As Graphics)
-        'graphics.DrawLine(pen, topbar.Location.X, topbar.Height, topbar.Width, topbar.Height)
-        graphics.DrawLine(pen, 0, panel_topbar.Height, Me.Width, panel_topbar.Height)
-    End Sub
-
-
-
-    ' checked visual cues
-    Private Sub radioCheckedChanged(sender As Object, e As EventArgs) Handles radio_home.CheckedChanged, radio_analytical.CheckedChanged, radio_export.CheckedChanged
-
-        ' for home button
-        If radio_home.Checked Then
-            radio_home.Image = My.Resources.homeDark
-        Else
-            radio_home.Image = My.Resources.homeLight
-        End If
-
-
-        ' for analytical button
-        If radio_analytical.Checked Then
-            radio_analytical.Image = My.Resources.barDark
-        Else
-            radio_analytical.Image = My.Resources.barLight
-        End If
-
-
-        ' for export button
-        If radio_export.Checked Then
-            radio_export.Image = My.Resources.exportDark
-        Else
-            radio_export.Image = My.Resources.exportLight
-        End If
-
-    End Sub
-
-
 
 
 End Class

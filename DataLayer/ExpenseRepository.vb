@@ -57,4 +57,104 @@ Public Class ExpenseRepository
     End Function
 
 
+
+    Public Function getTotalOfDayAllCategory(ByVal currentDate As DateTime) As Decimal
+        ' datetime format = "yyyy-MM-dd"
+
+        Dim total As Decimal = 0
+
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
+
+            Using command As New SqlCommand("getTotalOfDayAllCategory", connection)
+                command.CommandType = CommandType.StoredProcedure
+
+
+                'linking input paremeter
+                command.Parameters.AddWithValue("@userId", userId)
+                command.Parameters.AddWithValue("@dateAdded", currentDate)
+
+
+
+                ' creating output paremeter
+                Dim totalParemeter As New SqlParameter("@total", SqlDbType.Decimal)
+                totalParemeter.Direction = ParameterDirection.Output
+
+                command.Parameters.Add(totalParemeter)
+
+
+                'executing query
+                command.ExecuteNonQuery()
+
+
+
+                'fetching total and assigning to total variable
+                If Not IsDBNull(totalParemeter.Value) Then
+                    total = Convert.ToDecimal(totalParemeter.Value)
+                End If
+
+
+                'returning 
+                Return total
+
+            End Using
+
+
+        End Using
+
+
+    End Function
+
+
+
+
+    Public Function getTotalOfMonthAllCategory(ByVal startingDate As DateTime, ByVal endingDate As DateTime) As Decimal
+        ' datetime format = "yyyy-MM-dd"
+
+        Dim total As Decimal = 0
+
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
+
+            Using command As New SqlCommand("getTotalOfMonth", connection)
+                command.CommandType = CommandType.StoredProcedure
+
+
+                'linking input paremeter
+                command.Parameters.AddWithValue("@userId", userId)
+                command.Parameters.AddWithValue("@startingDate", startingDate)
+                command.Parameters.AddWithValue("@endingDate", endingDate)
+
+
+
+                ' creating output paremeter
+                Dim totalParemeter As New SqlParameter("@total", SqlDbType.Decimal)
+                totalParemeter.Direction = ParameterDirection.Output
+
+                command.Parameters.Add(totalParemeter)
+
+
+                'executing query
+                command.ExecuteNonQuery()
+
+
+
+                'fetching total and assigning to total variable
+                If Not IsDBNull(totalParemeter.Value) Then
+                    total = Convert.ToDecimal(totalParemeter.Value)
+                End If
+
+
+                'returning 
+                Return total
+
+            End Using
+
+
+        End Using
+
+
+    End Function
+
+
 End Class

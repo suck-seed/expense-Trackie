@@ -4,21 +4,22 @@
     Dim expenseManager As New ExpenseManager()
 
 
-
     ' setting default month,date, amount and view
     Private Sub dayView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        updateDisplayInformation()
 
+        updateDisplayInformation()
 
     End Sub
 
+
     ' reflecting changes in frontend
-    Private Sub updateDisplayInformation()
+    Public Sub updateDisplayInformation()
 
 
         lbl_month.Text = currentDate.ToString("MMM")
         lbl_day.Text = currentDate.ToString("dd")
         lbl_total_amount.Text = getTotal()
+
 
     End Sub
 
@@ -27,6 +28,8 @@
     ' db backend ko kam
     Private Function getTotal() As Decimal
 
+        Dim total As Decimal = expenseManager.getTotalOfDay(currentDate.ToString("yyyy-MM-dd"))
+        Return total
 
     End Function
 
@@ -56,4 +59,6 @@
         updateDisplayInformation()
 
     End Sub
+
+
 End Class
