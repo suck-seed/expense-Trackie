@@ -4,7 +4,8 @@ Public Class mainWindow
 
     Private categoryManager As New CategoryManager
     Private expenseManager As New ExpenseManager
-    Private expenseQuery As String = "all"
+
+
 
     ' loading resources at startup
     Private Sub mybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -14,20 +15,29 @@ Public Class mainWindow
 
 
         'loading categoriesss 
-
-
-        categoryManager.generateCategoryCheckButtons(mainWindowCategory)
+        categoryManager.generateCategoryCheckButtons(flowPanelCategory)
 
 
 
     End Sub
 
 
-    ' loading expenses
-    Private Sub check_all_CheckedChanged(sender As Object, e As EventArgs) Handles check_all.CheckedChanged
+    ' day view selected
+    Private Sub radio_day_view_CheckedChanged(sender As Object, e As EventArgs) Handles radio_day_view.CheckedChanged
 
-        ' disselecting all the checkbox in the 
-        expenseQuery = "all"
+        If radio_month_view.Checked Then
+
+            If radio_home.Checked Then
+                displayForm(New monthView())
+            End If
+            radio_month_view.Image = My.Resources.monthDark
+
+        Else
+
+            radio_month_view.Image = My.Resources.monthLight
+
+        End If
+
     End Sub
 
 
@@ -35,6 +45,20 @@ Public Class mainWindow
     ' calnder and day view switch
     Private Sub switch_Day_Calander_View(sender As Object, e As EventArgs) Handles radio_month_view.CheckedChanged, radio_day_view.CheckedChanged
 
+
+        'checking day
+        If radio_day_view.Checked Then
+
+            If radio_home.Checked Then
+                displayForm(New dayView())
+            End If
+            radio_day_view.Image = My.Resources.dayDark
+
+        Else
+
+            radio_day_view.Image = My.Resources.dayLight
+
+        End If
 
         'checking month
         If radio_month_view.Checked Then
@@ -50,20 +74,9 @@ Public Class mainWindow
 
         End If
 
+        'debug
 
-        'checking day
-        If radio_day_view.Checked Then
 
-            If radio_home.Checked Then
-                displayForm(New dayView(expenseQuery))
-            End If
-            radio_day_view.Image = My.Resources.dayDark
-
-        Else
-
-            radio_day_view.Image = My.Resources.dayLight
-
-        End If
 
     End Sub
 
@@ -85,20 +98,45 @@ Public Class mainWindow
 
 
 
+    ' retriving categoryId
+    Private Sub check_all_CheckedChanged(sender As Object, e As EventArgs) Handles check_all.CheckedChanged
+
+        getSelectedCategory()
+
+    End Sub
 
 
+    Public Sub getSelectedCategory()
 
+        Dim selectedCategoryIds As New List(Of Integer)
 
+        ' if all is selected
+        If check_all.Checked() Then
 
+            selectedCategoryIds.Clear()
 
+        Else
 
+            For Each control As Control In flowPanelCategory.Controls
 
+                If TypeOf control Is CheckBox Then
+                    Dim checkBox As CheckBox = DirectCast(control, CheckBox)
 
+                    If checkBox.Checked Then
+                        Dim categoryId As Integer = CInt(checkBox.Tag)
+                        selectedCategoryIds.Add(categoryId)
+                    End If
 
+                End If
 
+            Next
 
+        End If
 
+        ' setting session manager ko ma value
+        SessionManager.SelectedCategoryIds = selectedCategoryIds
 
+    End Sub
 
 
 
@@ -205,5 +243,9 @@ Public Class mainWindow
             ' Fill the rectangle with the gradient
             e.Graphics.FillRectangle(brush, rect)
         End Using
+    End Sub
+
+    Private Sub radio_month_view_CheckedChanged(sender As Object, e As EventArgs) Handles radio_month_view.CheckedChanged
+
     End Sub
 End Class

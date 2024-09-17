@@ -44,7 +44,7 @@ Public Class New_Category
 
             RaiseEvent CategoryCreated()
             ' reloading the categories in mainWindow after adding a category to reflect the added category
-            categorymanager.generateCategoryCheckButtons(mainWindow.mainWindowCategory)
+            categorymanager.generateCategoryCheckButtons(mainWindow.flowPanelCategory)
 
         Else
             MsgBox("Category insertion failed. Please try again.")

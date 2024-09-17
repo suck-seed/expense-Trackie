@@ -29,7 +29,7 @@ Partial Class dayView
         Me.lbl_day = New System.Windows.Forms.Label()
         Me.lbl_month = New System.Windows.Forms.Label()
         Me.btn_next = New System.Windows.Forms.Button()
-        Me.panel_expenseDisplay = New System.Windows.Forms.FlowLayoutPanel()
+        Me.panel_expenses = New System.Windows.Forms.FlowLayoutPanel()
         Me.generalTable.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -138,24 +138,24 @@ Partial Class dayView
         Me.btn_next.TabIndex = 19
         Me.btn_next.UseVisualStyleBackColor = True
         '
-        'panel_expenseDisplay
+        'panel_expenses
         '
-        Me.panel_expenseDisplay.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.panel_expenses.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.panel_expenseDisplay.AutoScroll = True
-        Me.panel_expenseDisplay.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.panel_expenseDisplay.Location = New System.Drawing.Point(0, 86)
-        Me.panel_expenseDisplay.Margin = New System.Windows.Forms.Padding(0)
-        Me.panel_expenseDisplay.Name = "panel_expenseDisplay"
-        Me.panel_expenseDisplay.Size = New System.Drawing.Size(1111, 808)
-        Me.panel_expenseDisplay.TabIndex = 7
+        Me.panel_expenses.AutoScroll = True
+        Me.panel_expenses.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
+        Me.panel_expenses.Location = New System.Drawing.Point(0, 86)
+        Me.panel_expenses.Margin = New System.Windows.Forms.Padding(0)
+        Me.panel_expenses.Name = "panel_expenses"
+        Me.panel_expenses.Size = New System.Drawing.Size(1111, 808)
+        Me.panel_expenses.TabIndex = 7
         '
         'dayView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.panel_expenseDisplay)
+        Me.Controls.Add(Me.panel_expenses)
         Me.Controls.Add(Me.generalTable)
         Me.Name = "dayView"
         Me.Size = New System.Drawing.Size(1111, 894)
@@ -172,5 +172,5 @@ Partial Class dayView
     Friend WithEvents lbl_day As Label
     Friend WithEvents lbl_month As Label
     Friend WithEvents btn_next As Button
-    Friend WithEvents panel_expenseDisplay As FlowLayoutPanel
+    Friend WithEvents panel_expenses As FlowLayoutPanel
 End Class

@@ -1,6 +1,7 @@
 ﻿Public Class ExpenseManager
 
     Dim expenseRepository As New ExpenseRepository()
+    Dim currentTime As DateTime = SessionManager.Instance.currentDate
 
     Public Function addNewExpense(ByVal amount As Decimal, ByVal remarks As String, ByVal dateAdded As DateTime, ByVal timeAdded As DateTime, ByVal categoryId As Integer) As Integer
 
@@ -20,11 +21,16 @@
     End Function
 
 
+
+
     Public Function getTotalOfDay(ByRef currentDate As DateTime) As Decimal
 
         Return expenseRepository.getTotalOfDayAllCategory(currentDate)
 
     End Function
+
+
+
 
 
     Public Function getTotalOfMonth(ByVal currentDate As DateTime) As Decimal
@@ -38,64 +44,51 @@
 
 
 
-    Public Sub generateExpenseDisplay(ByVal panel As Panel, ByVal query As String, ByVal currentDate As DateTime)
 
-        Dim expenseTable As New DataTable
+    ' load expense into panel
+    Public Sub loadExpenstions(ByRef panel As Panel, ByRef currentDate As DateTime)
 
-        If query = "all" Then
-            expenseTable = expenseRepository.getUserExpenseAllCategory(currentDate)
-        End If
-
+        Dim expenseTable As DataTable = expenseRepository.getExpensesDynamically(currentDate.ToString("yyyy-MM-dd"))
 
         panel.Controls.Clear()
 
 
         For Each row As DataRow In expenseTable.Rows
 
-            Dim expenseId As Integer = row("eId")
-            Dim remarks As String = row("remarks").ToString
+
 
             Dim timeAdded As String = row("timeAdded").ToString
             Dim time As DateTime = DateTime.Parse(timeAdded)
             Dim formattedTime As String = time.ToString("hh:mm tt")
-
             Dim amount As Decimal = row("amount")
-
-            Dim colorHex As String = row("color").ToString()
-            Dim backColor As Color = ColorTranslator.FromHtml(colorHex)
-
-
 
 
             ' creating instance of the expense Detailed display
-            Dim expenseContainer As New expenseDetailDisplay()
+            Dim expenseDisplay As New expenseDetailDisplay()
 
 
-            expenseContainer.lbl_amount.Text = amount.ToString()
-            expenseContainer.lbl_remarks.Text = remarks
-            expenseContainer.lbl_time.Text = formattedTime
-            expenseContainer.BackColor = backColor
-            expenseContainer.Tag = expenseId
+            expenseDisplay.lbl_amount.Text = amount.ToString()
+            expenseDisplay.lbl_remarks.Text = row("remarks").ToString
+            expenseDisplay.lbl_time.Text = formattedTime
+            expenseDisplay.BackColor = ColorTranslator.FromHtml(row("color").ToString())
+            expenseDisplay.Tag = row("eId")
 
-            expenseContainer.Margin = New Padding(200, 20, 200, 10)
-            expenseContainer.Width = panel.Width - 400
-            expenseContainer.Height = 90
+            expenseDisplay.Margin = New Padding(10)
+            'expenseDisplay.Width = panel_expenses.Width - 400
+            'expenseDisplay.Height = 90
 
-            expenseContainer.AutoSize = False
+            expenseDisplay.AutoSize = False
+            expenseDisplay.Visible = True
+            'expenseDisplay.Anchor = AnchorStyles.Top And AnchorStyles.Right
+            expenseDisplay.Anchor = AnchorStyles.None
 
+            panel.Controls.Add(expenseDisplay)
 
-            expenseContainer.Visible = True
-
-
-
-
-
-            panel.Controls.Add(expenseContainer)
-            expenseContainer.Anchor = AnchorStyles.Top And AnchorStyles.Right
 
         Next
-
-
     End Sub
+
+
+
 
 End Class

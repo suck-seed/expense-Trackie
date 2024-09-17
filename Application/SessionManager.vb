@@ -22,7 +22,6 @@
 
 
 
-
     Public Shared ReadOnly Property Instance() As SessionManager
         Get
             If _instance Is Nothing Then
@@ -30,6 +29,23 @@
             End If
             Return _instance
         End Get
+    End Property
+
+
+
+    ' selcted category
+    Private Shared _selectedCategoryIds As List(Of Integer)
+
+    Public Shared Property SelectedCategoryIds As List(Of Integer)
+        Get
+            If _selectedCategoryIds Is Nothing Then
+                _selectedCategoryIds = New List(Of Integer)
+            End If
+            Return _selectedCategoryIds
+        End Get
+        Set(value As List(Of Integer))
+            _selectedCategoryIds = value
+        End Set
     End Property
 
 

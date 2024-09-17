@@ -26,10 +26,10 @@ Partial Class mainWindow
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.button_add_expense = New System.Windows.Forms.Button()
         Me.panel_sidebar = New System.Windows.Forms.Panel()
-        Me.mainWindowCategory = New System.Windows.Forms.FlowLayoutPanel()
+        Me.flowPanelCategory = New System.Windows.Forms.FlowLayoutPanel()
         Me.lbl_username = New System.Windows.Forms.Label()
         Me.btn_profile = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tableLayoutCategorySelector = New System.Windows.Forms.TableLayoutPanel()
         Me.check_all = New System.Windows.Forms.CheckBox()
         Me.home_analysis_export_radio = New System.Windows.Forms.TableLayoutPanel()
         Me.radio_export = New System.Windows.Forms.RadioButton()
@@ -60,7 +60,7 @@ Partial Class mainWindow
         Me.button_close = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.panel_sidebar.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.tableLayoutCategorySelector.SuspendLayout()
         Me.home_analysis_export_radio.SuspendLayout()
         Me.TableLayoutPanel8.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -114,10 +114,10 @@ Partial Class mainWindow
         'panel_sidebar
         '
         Me.panel_sidebar.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(247, Byte), Integer))
-        Me.panel_sidebar.Controls.Add(Me.mainWindowCategory)
+        Me.panel_sidebar.Controls.Add(Me.flowPanelCategory)
         Me.panel_sidebar.Controls.Add(Me.lbl_username)
         Me.panel_sidebar.Controls.Add(Me.btn_profile)
-        Me.panel_sidebar.Controls.Add(Me.TableLayoutPanel1)
+        Me.panel_sidebar.Controls.Add(Me.tableLayoutCategorySelector)
         Me.panel_sidebar.Controls.Add(Me.home_analysis_export_radio)
         Me.panel_sidebar.Controls.Add(Me.TableLayoutPanel8)
         Me.panel_sidebar.Controls.Add(Me.TableLayoutPanel4)
@@ -130,18 +130,18 @@ Partial Class mainWindow
         Me.panel_sidebar.Size = New System.Drawing.Size(292, 1000)
         Me.panel_sidebar.TabIndex = 0
         '
-        'mainWindowCategory
+        'flowPanelCategory
         '
-        Me.mainWindowCategory.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.flowPanelCategory.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.mainWindowCategory.AutoScroll = True
-        Me.mainWindowCategory.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.mainWindowCategory.Location = New System.Drawing.Point(22, 594)
-        Me.mainWindowCategory.Margin = New System.Windows.Forms.Padding(0)
-        Me.mainWindowCategory.Name = "mainWindowCategory"
-        Me.mainWindowCategory.Size = New System.Drawing.Size(247, 336)
-        Me.mainWindowCategory.TabIndex = 12
-        Me.mainWindowCategory.WrapContents = False
+        Me.flowPanelCategory.AutoScroll = True
+        Me.flowPanelCategory.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
+        Me.flowPanelCategory.Location = New System.Drawing.Point(22, 594)
+        Me.flowPanelCategory.Margin = New System.Windows.Forms.Padding(0)
+        Me.flowPanelCategory.Name = "flowPanelCategory"
+        Me.flowPanelCategory.Size = New System.Drawing.Size(247, 336)
+        Me.flowPanelCategory.TabIndex = 12
+        Me.flowPanelCategory.WrapContents = False
         '
         'lbl_username
         '
@@ -168,38 +168,37 @@ Partial Class mainWindow
         Me.btn_profile.TabIndex = 10
         Me.btn_profile.UseVisualStyleBackColor = True
         '
-        'TableLayoutPanel1
+        'tableLayoutCategorySelector
         '
-        Me.TableLayoutPanel1.AutoScroll = True
-        Me.TableLayoutPanel1.ColumnCount = 1
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.check_all, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(22, 555)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.TableLayoutPanel1.MaximumSize = New System.Drawing.Size(247, 650)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(247, 39)
-        Me.TableLayoutPanel1.TabIndex = 8
+        Me.tableLayoutCategorySelector.AutoScroll = True
+        Me.tableLayoutCategorySelector.BackColor = System.Drawing.Color.Transparent
+        Me.tableLayoutCategorySelector.ColumnCount = 2
+        Me.tableLayoutCategorySelector.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tableLayoutCategorySelector.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tableLayoutCategorySelector.Controls.Add(Me.check_all, 0, 0)
+        Me.tableLayoutCategorySelector.Location = New System.Drawing.Point(22, 555)
+        Me.tableLayoutCategorySelector.Margin = New System.Windows.Forms.Padding(0)
+        Me.tableLayoutCategorySelector.MaximumSize = New System.Drawing.Size(247, 650)
+        Me.tableLayoutCategorySelector.Name = "tableLayoutCategorySelector"
+        Me.tableLayoutCategorySelector.RowCount = 1
+        Me.tableLayoutCategorySelector.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tableLayoutCategorySelector.Size = New System.Drawing.Size(247, 39)
+        Me.tableLayoutCategorySelector.TabIndex = 8
         '
         'check_all
         '
         Me.check_all.Appearance = System.Windows.Forms.Appearance.Button
         Me.check_all.AutoSize = True
-        Me.check_all.BackColor = System.Drawing.Color.Gray
-        Me.check_all.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.check_all.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray
+        Me.check_all.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver
         Me.check_all.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.check_all.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.check_all.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.check_all.Location = New System.Drawing.Point(5, 5)
         Me.check_all.Margin = New System.Windows.Forms.Padding(5)
         Me.check_all.Name = "check_all"
-        Me.check_all.Size = New System.Drawing.Size(46, 29)
+        Me.check_all.Size = New System.Drawing.Size(42, 27)
         Me.check_all.TabIndex = 0
         Me.check_all.Text = "All"
-        Me.check_all.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.check_all.UseVisualStyleBackColor = False
+        Me.check_all.UseVisualStyleBackColor = True
         '
         'home_analysis_export_radio
         '
@@ -611,8 +610,8 @@ Partial Class mainWindow
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.panel_sidebar.ResumeLayout(False)
         Me.panel_sidebar.PerformLayout()
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
+        Me.tableLayoutCategorySelector.ResumeLayout(False)
+        Me.tableLayoutCategorySelector.PerformLayout()
         Me.home_analysis_export_radio.ResumeLayout(False)
         Me.home_analysis_export_radio.PerformLayout()
         Me.TableLayoutPanel8.ResumeLayout(False)
@@ -654,13 +653,13 @@ Partial Class mainWindow
     Friend WithEvents button_close As Button
     Friend WithEvents lbl_username As Label
     Friend WithEvents btn_profile As Button
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents mainWindowCategory As FlowLayoutPanel
-    Friend WithEvents check_all As CheckBox
+    Friend WithEvents tableLayoutCategorySelector As TableLayoutPanel
+    Friend WithEvents flowPanelCategory As FlowLayoutPanel
     Friend WithEvents radio_export As RadioButton
     Friend WithEvents radio_analytical As RadioButton
     Friend WithEvents radio_home As RadioButton
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
     Friend WithEvents radio_day_view As RadioButton
     Friend WithEvents radio_month_view As RadioButton
+    Friend WithEvents check_all As CheckBox
 End Class
