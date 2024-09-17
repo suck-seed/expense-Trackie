@@ -41,7 +41,7 @@
             Dim catId As Integer = row("catId")
             Dim catName As String = row("catName").ToString
 
-            Dim colorHex As String = row("Color").ToString()
+            Dim colorHex As String = row("color").ToString()
             Dim backColor As Color = ColorTranslator.FromHtml(colorHex)
 
 

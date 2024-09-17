@@ -1,7 +1,10 @@
-﻿Public Class mainWindow
+﻿Imports System.Drawing.Drawing2D
+
+Public Class mainWindow
 
     Private categoryManager As New CategoryManager
     Private expenseManager As New ExpenseManager
+    Private expenseQuery As String = "all"
 
     ' loading resources at startup
     Private Sub mybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -13,7 +16,7 @@
         'loading categoriesss 
 
 
-        CategoryManager.generateCategoryCheckButtons(mainWindowCategory)
+        categoryManager.generateCategoryCheckButtons(mainWindowCategory)
 
 
 
@@ -23,6 +26,8 @@
     ' loading expenses
     Private Sub check_all_CheckedChanged(sender As Object, e As EventArgs) Handles check_all.CheckedChanged
 
+        ' disselecting all the checkbox in the 
+        expenseQuery = "all"
     End Sub
 
 
@@ -50,7 +55,7 @@
         If radio_day_view.Checked Then
 
             If radio_home.Checked Then
-                displayForm(New dayView())
+                displayForm(New dayView(expenseQuery))
             End If
             radio_day_view.Image = My.Resources.dayDark
 
@@ -187,5 +192,18 @@
         End If
     End Sub
 
+    Private Sub mainWindow_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
+        ' Get the client area of the form
+        Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
 
+        ' Define the start and end colors for the gradient
+        Dim startColor As Color = Color.Beige
+        Dim endColor As Color = Color.AliceBlue
+
+        ' Create a LinearGradientBrush
+        Using brush As New LinearGradientBrush(rect, startColor, endColor, LinearGradientMode.Horizontal)
+            ' Fill the rectangle with the gradient
+            e.Graphics.FillRectangle(brush, rect)
+        End Using
+    End Sub
 End Class

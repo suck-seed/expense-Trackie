@@ -71,7 +71,7 @@ Partial Class mainWindow
         '
         'panel_main
         '
-        Me.panel_main.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.panel_main.BackColor = System.Drawing.Color.LightGray
         Me.panel_main.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panel_main.Location = New System.Drawing.Point(292, 48)
         Me.panel_main.Name = "panel_main"
