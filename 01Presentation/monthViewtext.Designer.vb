@@ -65,48 +65,48 @@ Partial Class monthViewtext
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.GroupBox20 = New System.Windows.Forms.GroupBox()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.GroupBox19 = New System.Windows.Forms.GroupBox()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.GroupBox18 = New System.Windows.Forms.GroupBox()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.GroupBox17 = New System.Windows.Forms.GroupBox()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.GroupBox16 = New System.Windows.Forms.GroupBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.GroupBox15 = New System.Windows.Forms.GroupBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.GroupBox14 = New System.Windows.Forms.GroupBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.GroupBox12 = New System.Windows.Forms.GroupBox()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
-        Me.Label28 = New System.Windows.Forms.Label()
+        Me.GroupBox40 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.GroupBox42 = New System.Windows.Forms.GroupBox()
+        Me.Label42 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label36 = New System.Windows.Forms.Label()
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.GroupBox12 = New System.Windows.Forms.GroupBox()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.GroupBox14 = New System.Windows.Forms.GroupBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.GroupBox15 = New System.Windows.Forms.GroupBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.GroupBox16 = New System.Windows.Forms.GroupBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.GroupBox17 = New System.Windows.Forms.GroupBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.GroupBox18 = New System.Windows.Forms.GroupBox()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.GroupBox19 = New System.Windows.Forms.GroupBox()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.GroupBox20 = New System.Windows.Forms.GroupBox()
+        Me.Label39 = New System.Windows.Forms.Label()
         Me.GroupBox33 = New System.Windows.Forms.GroupBox()
-        Me.Label41 = New System.Windows.Forms.Label()
+        Me.Label36 = New System.Windows.Forms.Label()
         Me.GroupBox34 = New System.Windows.Forms.GroupBox()
-        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
         Me.GroupBox35 = New System.Windows.Forms.GroupBox()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.GroupBox42 = New System.Windows.Forms.GroupBox()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.GroupBox41 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.GroupBox40 = New System.Windows.Forms.GroupBox()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.GroupBox39 = New System.Windows.Forms.GroupBox()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.GroupBox38 = New System.Windows.Forms.GroupBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.GroupBox37 = New System.Windows.Forms.GroupBox()
-        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.GroupBox36 = New System.Windows.Forms.GroupBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.GroupBox37 = New System.Windows.Forms.GroupBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.GroupBox38 = New System.Windows.Forms.GroupBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.GroupBox39 = New System.Windows.Forms.GroupBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.GroupBox41 = New System.Windows.Forms.GroupBox()
+        Me.Label37 = New System.Windows.Forms.Label()
         Me.GroupBox32.SuspendLayout()
         Me.GroupBox23.SuspendLayout()
         Me.GroupBox24.SuspendLayout()
@@ -129,27 +129,27 @@ Partial Class monthViewtext
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.GroupBox20.SuspendLayout()
-        Me.GroupBox19.SuspendLayout()
-        Me.GroupBox18.SuspendLayout()
-        Me.GroupBox17.SuspendLayout()
-        Me.GroupBox16.SuspendLayout()
-        Me.GroupBox15.SuspendLayout()
-        Me.GroupBox14.SuspendLayout()
-        Me.GroupBox13.SuspendLayout()
-        Me.GroupBox12.SuspendLayout()
-        Me.GroupBox11.SuspendLayout()
+        Me.GroupBox40.SuspendLayout()
+        Me.GroupBox42.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
+        Me.GroupBox12.SuspendLayout()
+        Me.GroupBox13.SuspendLayout()
+        Me.GroupBox14.SuspendLayout()
+        Me.GroupBox15.SuspendLayout()
+        Me.GroupBox16.SuspendLayout()
+        Me.GroupBox17.SuspendLayout()
+        Me.GroupBox18.SuspendLayout()
+        Me.GroupBox19.SuspendLayout()
+        Me.GroupBox20.SuspendLayout()
         Me.GroupBox33.SuspendLayout()
         Me.GroupBox34.SuspendLayout()
         Me.GroupBox35.SuspendLayout()
-        Me.GroupBox42.SuspendLayout()
-        Me.GroupBox41.SuspendLayout()
-        Me.GroupBox40.SuspendLayout()
-        Me.GroupBox39.SuspendLayout()
-        Me.GroupBox38.SuspendLayout()
-        Me.GroupBox37.SuspendLayout()
         Me.GroupBox36.SuspendLayout()
+        Me.GroupBox37.SuspendLayout()
+        Me.GroupBox38.SuspendLayout()
+        Me.GroupBox39.SuspendLayout()
+        Me.GroupBox41.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox32
@@ -679,225 +679,49 @@ Partial Class monthViewtext
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1184, 861)
         Me.TableLayoutPanel1.TabIndex = 1
         '
-        'GroupBox20
+        'GroupBox40
         '
-        Me.GroupBox20.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox20.Controls.Add(Me.Label39)
-        Me.GroupBox20.Location = New System.Drawing.Point(848, 289)
-        Me.GroupBox20.Name = "GroupBox20"
-        Me.GroupBox20.Size = New System.Drawing.Size(163, 137)
-        Me.GroupBox20.TabIndex = 102
-        Me.GroupBox20.TabStop = False
+        Me.GroupBox40.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox40.Controls.Add(Me.Label1)
+        Me.GroupBox40.Location = New System.Drawing.Point(679, 718)
+        Me.GroupBox40.Name = "GroupBox40"
+        Me.GroupBox40.Size = New System.Drawing.Size(163, 140)
+        Me.GroupBox40.TabIndex = 122
+        Me.GroupBox40.TabStop = False
         '
-        'Label39
+        'Label1
         '
-        Me.Label39.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label39.Location = New System.Drawing.Point(3, 16)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label39.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label39.Size = New System.Drawing.Size(158, 27)
-        Me.Label39.TabIndex = 4
-        Me.Label39.Text = "28"
-        Me.Label39.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Label1.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 16)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label1.Size = New System.Drawing.Size(157, 27)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "28"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'GroupBox19
+        'GroupBox42
         '
-        Me.GroupBox19.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox19.Controls.Add(Me.Label34)
-        Me.GroupBox19.Location = New System.Drawing.Point(679, 289)
-        Me.GroupBox19.Name = "GroupBox19"
-        Me.GroupBox19.Size = New System.Drawing.Size(163, 137)
-        Me.GroupBox19.TabIndex = 101
-        Me.GroupBox19.TabStop = False
+        Me.GroupBox42.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox42.Controls.Add(Me.Label42)
+        Me.GroupBox42.Location = New System.Drawing.Point(1017, 718)
+        Me.GroupBox42.Name = "GroupBox42"
+        Me.GroupBox42.Size = New System.Drawing.Size(164, 140)
+        Me.GroupBox42.TabIndex = 123
+        Me.GroupBox42.TabStop = False
         '
-        'Label34
+        'Label42
         '
-        Me.Label34.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.Location = New System.Drawing.Point(3, 16)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label34.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label34.Size = New System.Drawing.Size(157, 27)
-        Me.Label34.TabIndex = 4
-        Me.Label34.Text = "28"
-        Me.Label34.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox18
-        '
-        Me.GroupBox18.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox18.Controls.Add(Me.Label29)
-        Me.GroupBox18.Location = New System.Drawing.Point(510, 289)
-        Me.GroupBox18.Name = "GroupBox18"
-        Me.GroupBox18.Size = New System.Drawing.Size(163, 137)
-        Me.GroupBox18.TabIndex = 100
-        Me.GroupBox18.TabStop = False
-        '
-        'Label29
-        '
-        Me.Label29.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(3, 16)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label29.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label29.Size = New System.Drawing.Size(157, 27)
-        Me.Label29.TabIndex = 4
-        Me.Label29.Text = "28"
-        Me.Label29.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox17
-        '
-        Me.GroupBox17.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox17.Controls.Add(Me.Label24)
-        Me.GroupBox17.Location = New System.Drawing.Point(341, 289)
-        Me.GroupBox17.Name = "GroupBox17"
-        Me.GroupBox17.Size = New System.Drawing.Size(163, 137)
-        Me.GroupBox17.TabIndex = 99
-        Me.GroupBox17.TabStop = False
-        '
-        'Label24
-        '
-        Me.Label24.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(3, 16)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label24.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label24.Size = New System.Drawing.Size(157, 27)
-        Me.Label24.TabIndex = 4
-        Me.Label24.Text = "28"
-        Me.Label24.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox16
-        '
-        Me.GroupBox16.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox16.Controls.Add(Me.Label11)
-        Me.GroupBox16.Location = New System.Drawing.Point(172, 289)
-        Me.GroupBox16.Name = "GroupBox16"
-        Me.GroupBox16.Size = New System.Drawing.Size(163, 137)
-        Me.GroupBox16.TabIndex = 98
-        Me.GroupBox16.TabStop = False
-        '
-        'Label11
-        '
-        Me.Label11.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(3, 16)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label11.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label11.Size = New System.Drawing.Size(157, 27)
-        Me.Label11.TabIndex = 4
-        Me.Label11.Text = "28"
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox15
-        '
-        Me.GroupBox15.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox15.Controls.Add(Me.Label12)
-        Me.GroupBox15.Location = New System.Drawing.Point(3, 289)
-        Me.GroupBox15.Name = "GroupBox15"
-        Me.GroupBox15.Size = New System.Drawing.Size(163, 137)
-        Me.GroupBox15.TabIndex = 97
-        Me.GroupBox15.TabStop = False
-        '
-        'Label12
-        '
-        Me.Label12.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(3, 16)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label12.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label12.Size = New System.Drawing.Size(157, 27)
-        Me.Label12.TabIndex = 4
-        Me.Label12.Text = "28"
-        Me.Label12.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox14
-        '
-        Me.GroupBox14.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox14.Controls.Add(Me.Label13)
-        Me.GroupBox14.Location = New System.Drawing.Point(1017, 146)
-        Me.GroupBox14.Name = "GroupBox14"
-        Me.GroupBox14.Size = New System.Drawing.Size(163, 137)
-        Me.GroupBox14.TabIndex = 96
-        Me.GroupBox14.TabStop = False
-        '
-        'Label13
-        '
-        Me.Label13.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(3, 16)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label13.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label13.Size = New System.Drawing.Size(157, 27)
-        Me.Label13.TabIndex = 4
-        Me.Label13.Text = "28"
-        Me.Label13.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox13
-        '
-        Me.GroupBox13.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox13.Controls.Add(Me.Label38)
-        Me.GroupBox13.Location = New System.Drawing.Point(848, 146)
-        Me.GroupBox13.Name = "GroupBox13"
-        Me.GroupBox13.Size = New System.Drawing.Size(163, 137)
-        Me.GroupBox13.TabIndex = 95
-        Me.GroupBox13.TabStop = False
-        '
-        'Label38
-        '
-        Me.Label38.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label38.Location = New System.Drawing.Point(3, 16)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label38.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label38.Size = New System.Drawing.Size(158, 27)
-        Me.Label38.TabIndex = 4
-        Me.Label38.Text = "28"
-        Me.Label38.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox12
-        '
-        Me.GroupBox12.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox12.Controls.Add(Me.Label33)
-        Me.GroupBox12.Location = New System.Drawing.Point(679, 146)
-        Me.GroupBox12.Name = "GroupBox12"
-        Me.GroupBox12.Size = New System.Drawing.Size(163, 137)
-        Me.GroupBox12.TabIndex = 94
-        Me.GroupBox12.TabStop = False
-        '
-        'Label33
-        '
-        Me.Label33.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.Location = New System.Drawing.Point(3, 16)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label33.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label33.Size = New System.Drawing.Size(157, 27)
-        Me.Label33.TabIndex = 4
-        Me.Label33.Text = "28"
-        Me.Label33.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox11
-        '
-        Me.GroupBox11.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox11.Controls.Add(Me.Label28)
-        Me.GroupBox11.Location = New System.Drawing.Point(510, 146)
-        Me.GroupBox11.Name = "GroupBox11"
-        Me.GroupBox11.Size = New System.Drawing.Size(163, 137)
-        Me.GroupBox11.TabIndex = 93
-        Me.GroupBox11.TabStop = False
-        '
-        'Label28
-        '
-        Me.Label28.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(3, 16)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label28.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label28.Size = New System.Drawing.Size(157, 27)
-        Me.Label28.TabIndex = 4
-        Me.Label28.Text = "28"
-        Me.Label28.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Label42.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label42.Location = New System.Drawing.Point(3, 16)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label42.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label42.Size = New System.Drawing.Size(158, 27)
+        Me.Label42.TabIndex = 4
+        Me.Label42.Text = "28"
+        Me.Label42.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'GroupBox1
         '
@@ -921,6 +745,236 @@ Partial Class monthViewtext
         Me.Label2.Text = "28"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'GroupBox11
+        '
+        Me.GroupBox11.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox11.Controls.Add(Me.Label28)
+        Me.GroupBox11.Location = New System.Drawing.Point(510, 146)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(163, 137)
+        Me.GroupBox11.TabIndex = 93
+        Me.GroupBox11.TabStop = False
+        '
+        'Label28
+        '
+        Me.Label28.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.Location = New System.Drawing.Point(3, 16)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label28.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label28.Size = New System.Drawing.Size(157, 27)
+        Me.Label28.TabIndex = 4
+        Me.Label28.Text = "28"
+        Me.Label28.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'GroupBox12
+        '
+        Me.GroupBox12.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox12.Controls.Add(Me.Label33)
+        Me.GroupBox12.Location = New System.Drawing.Point(679, 146)
+        Me.GroupBox12.Name = "GroupBox12"
+        Me.GroupBox12.Size = New System.Drawing.Size(163, 137)
+        Me.GroupBox12.TabIndex = 94
+        Me.GroupBox12.TabStop = False
+        '
+        'Label33
+        '
+        Me.Label33.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.Location = New System.Drawing.Point(3, 16)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label33.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label33.Size = New System.Drawing.Size(157, 27)
+        Me.Label33.TabIndex = 4
+        Me.Label33.Text = "28"
+        Me.Label33.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'GroupBox13
+        '
+        Me.GroupBox13.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox13.Controls.Add(Me.Label38)
+        Me.GroupBox13.Location = New System.Drawing.Point(848, 146)
+        Me.GroupBox13.Name = "GroupBox13"
+        Me.GroupBox13.Size = New System.Drawing.Size(163, 137)
+        Me.GroupBox13.TabIndex = 95
+        Me.GroupBox13.TabStop = False
+        '
+        'Label38
+        '
+        Me.Label38.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label38.Location = New System.Drawing.Point(3, 16)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label38.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label38.Size = New System.Drawing.Size(158, 27)
+        Me.Label38.TabIndex = 4
+        Me.Label38.Text = "28"
+        Me.Label38.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'GroupBox14
+        '
+        Me.GroupBox14.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox14.Controls.Add(Me.Label13)
+        Me.GroupBox14.Location = New System.Drawing.Point(1017, 146)
+        Me.GroupBox14.Name = "GroupBox14"
+        Me.GroupBox14.Size = New System.Drawing.Size(163, 137)
+        Me.GroupBox14.TabIndex = 96
+        Me.GroupBox14.TabStop = False
+        '
+        'Label13
+        '
+        Me.Label13.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(3, 16)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label13.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label13.Size = New System.Drawing.Size(157, 27)
+        Me.Label13.TabIndex = 4
+        Me.Label13.Text = "28"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'GroupBox15
+        '
+        Me.GroupBox15.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox15.Controls.Add(Me.Label12)
+        Me.GroupBox15.Location = New System.Drawing.Point(3, 289)
+        Me.GroupBox15.Name = "GroupBox15"
+        Me.GroupBox15.Size = New System.Drawing.Size(163, 137)
+        Me.GroupBox15.TabIndex = 97
+        Me.GroupBox15.TabStop = False
+        '
+        'Label12
+        '
+        Me.Label12.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(3, 16)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label12.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label12.Size = New System.Drawing.Size(157, 27)
+        Me.Label12.TabIndex = 4
+        Me.Label12.Text = "28"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'GroupBox16
+        '
+        Me.GroupBox16.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox16.Controls.Add(Me.Label11)
+        Me.GroupBox16.Location = New System.Drawing.Point(172, 289)
+        Me.GroupBox16.Name = "GroupBox16"
+        Me.GroupBox16.Size = New System.Drawing.Size(163, 137)
+        Me.GroupBox16.TabIndex = 98
+        Me.GroupBox16.TabStop = False
+        '
+        'Label11
+        '
+        Me.Label11.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(3, 16)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label11.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label11.Size = New System.Drawing.Size(157, 27)
+        Me.Label11.TabIndex = 4
+        Me.Label11.Text = "28"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'GroupBox17
+        '
+        Me.GroupBox17.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox17.Controls.Add(Me.Label24)
+        Me.GroupBox17.Location = New System.Drawing.Point(341, 289)
+        Me.GroupBox17.Name = "GroupBox17"
+        Me.GroupBox17.Size = New System.Drawing.Size(163, 137)
+        Me.GroupBox17.TabIndex = 99
+        Me.GroupBox17.TabStop = False
+        '
+        'Label24
+        '
+        Me.Label24.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(3, 16)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label24.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label24.Size = New System.Drawing.Size(157, 27)
+        Me.Label24.TabIndex = 4
+        Me.Label24.Text = "28"
+        Me.Label24.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'GroupBox18
+        '
+        Me.GroupBox18.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox18.Controls.Add(Me.Label29)
+        Me.GroupBox18.Location = New System.Drawing.Point(510, 289)
+        Me.GroupBox18.Name = "GroupBox18"
+        Me.GroupBox18.Size = New System.Drawing.Size(163, 137)
+        Me.GroupBox18.TabIndex = 100
+        Me.GroupBox18.TabStop = False
+        '
+        'Label29
+        '
+        Me.Label29.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.Location = New System.Drawing.Point(3, 16)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label29.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label29.Size = New System.Drawing.Size(157, 27)
+        Me.Label29.TabIndex = 4
+        Me.Label29.Text = "28"
+        Me.Label29.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'GroupBox19
+        '
+        Me.GroupBox19.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox19.Controls.Add(Me.Label34)
+        Me.GroupBox19.Location = New System.Drawing.Point(679, 289)
+        Me.GroupBox19.Name = "GroupBox19"
+        Me.GroupBox19.Size = New System.Drawing.Size(163, 137)
+        Me.GroupBox19.TabIndex = 101
+        Me.GroupBox19.TabStop = False
+        '
+        'Label34
+        '
+        Me.Label34.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.Location = New System.Drawing.Point(3, 16)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label34.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label34.Size = New System.Drawing.Size(157, 27)
+        Me.Label34.TabIndex = 4
+        Me.Label34.Text = "28"
+        Me.Label34.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'GroupBox20
+        '
+        Me.GroupBox20.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox20.Controls.Add(Me.Label39)
+        Me.GroupBox20.Location = New System.Drawing.Point(848, 289)
+        Me.GroupBox20.Name = "GroupBox20"
+        Me.GroupBox20.Size = New System.Drawing.Size(163, 137)
+        Me.GroupBox20.TabIndex = 102
+        Me.GroupBox20.TabStop = False
+        '
+        'Label39
+        '
+        Me.Label39.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label39.Location = New System.Drawing.Point(3, 16)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label39.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label39.Size = New System.Drawing.Size(158, 27)
+        Me.Label39.TabIndex = 4
+        Me.Label39.Text = "28"
+        Me.Label39.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'GroupBox33
+        '
+        Me.GroupBox33.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox33.Controls.Add(Me.Label36)
+        Me.GroupBox33.Location = New System.Drawing.Point(679, 575)
+        Me.GroupBox33.Name = "GroupBox33"
+        Me.GroupBox33.Size = New System.Drawing.Size(163, 137)
+        Me.GroupBox33.TabIndex = 115
+        Me.GroupBox33.TabStop = False
+        '
         'Label36
         '
         Me.Label36.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -933,15 +987,15 @@ Partial Class monthViewtext
         Me.Label36.Text = "28"
         Me.Label36.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'GroupBox33
+        'GroupBox34
         '
-        Me.GroupBox33.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox33.Controls.Add(Me.Label36)
-        Me.GroupBox33.Location = New System.Drawing.Point(679, 575)
-        Me.GroupBox33.Name = "GroupBox33"
-        Me.GroupBox33.Size = New System.Drawing.Size(163, 137)
-        Me.GroupBox33.TabIndex = 115
-        Me.GroupBox33.TabStop = False
+        Me.GroupBox34.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox34.Controls.Add(Me.Label41)
+        Me.GroupBox34.Location = New System.Drawing.Point(848, 575)
+        Me.GroupBox34.Name = "GroupBox34"
+        Me.GroupBox34.Size = New System.Drawing.Size(163, 137)
+        Me.GroupBox34.TabIndex = 116
+        Me.GroupBox34.TabStop = False
         '
         'Label41
         '
@@ -955,15 +1009,15 @@ Partial Class monthViewtext
         Me.Label41.Text = "28"
         Me.Label41.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'GroupBox34
+        'GroupBox35
         '
-        Me.GroupBox34.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox34.Controls.Add(Me.Label41)
-        Me.GroupBox34.Location = New System.Drawing.Point(848, 575)
-        Me.GroupBox34.Name = "GroupBox34"
-        Me.GroupBox34.Size = New System.Drawing.Size(163, 137)
-        Me.GroupBox34.TabIndex = 116
-        Me.GroupBox34.TabStop = False
+        Me.GroupBox35.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox35.Controls.Add(Me.Label16)
+        Me.GroupBox35.Location = New System.Drawing.Point(1017, 575)
+        Me.GroupBox35.Name = "GroupBox35"
+        Me.GroupBox35.Size = New System.Drawing.Size(163, 137)
+        Me.GroupBox35.TabIndex = 117
+        Me.GroupBox35.TabStop = False
         '
         'Label16
         '
@@ -977,147 +1031,15 @@ Partial Class monthViewtext
         Me.Label16.Text = "28"
         Me.Label16.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'GroupBox35
+        'GroupBox36
         '
-        Me.GroupBox35.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox35.Controls.Add(Me.Label16)
-        Me.GroupBox35.Location = New System.Drawing.Point(1017, 575)
-        Me.GroupBox35.Name = "GroupBox35"
-        Me.GroupBox35.Size = New System.Drawing.Size(163, 137)
-        Me.GroupBox35.TabIndex = 117
-        Me.GroupBox35.TabStop = False
-        '
-        'Label42
-        '
-        Me.Label42.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label42.Location = New System.Drawing.Point(3, 16)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label42.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label42.Size = New System.Drawing.Size(158, 27)
-        Me.Label42.TabIndex = 4
-        Me.Label42.Text = "28"
-        Me.Label42.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox42
-        '
-        Me.GroupBox42.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox42.Controls.Add(Me.Label42)
-        Me.GroupBox42.Location = New System.Drawing.Point(1017, 718)
-        Me.GroupBox42.Name = "GroupBox42"
-        Me.GroupBox42.Size = New System.Drawing.Size(164, 140)
-        Me.GroupBox42.TabIndex = 123
-        Me.GroupBox42.TabStop = False
-        '
-        'Label37
-        '
-        Me.Label37.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label37.Location = New System.Drawing.Point(3, 16)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label37.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label37.Size = New System.Drawing.Size(157, 27)
-        Me.Label37.TabIndex = 4
-        Me.Label37.Text = "28"
-        Me.Label37.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox41
-        '
-        Me.GroupBox41.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox41.Controls.Add(Me.Label37)
-        Me.GroupBox41.Location = New System.Drawing.Point(848, 718)
-        Me.GroupBox41.Name = "GroupBox41"
-        Me.GroupBox41.Size = New System.Drawing.Size(163, 140)
-        Me.GroupBox41.TabIndex = 122
-        Me.GroupBox41.TabStop = False
-        '
-        'Label1
-        '
-        Me.Label1.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 16)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(157, 27)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "28"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox40
-        '
-        Me.GroupBox40.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox40.Controls.Add(Me.Label1)
-        Me.GroupBox40.Location = New System.Drawing.Point(679, 718)
-        Me.GroupBox40.Name = "GroupBox40"
-        Me.GroupBox40.Size = New System.Drawing.Size(163, 140)
-        Me.GroupBox40.TabIndex = 122
-        Me.GroupBox40.TabStop = False
-        '
-        'Label32
-        '
-        Me.Label32.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.Location = New System.Drawing.Point(3, 16)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label32.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label32.Size = New System.Drawing.Size(157, 27)
-        Me.Label32.TabIndex = 4
-        Me.Label32.Text = "28"
-        Me.Label32.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox39
-        '
-        Me.GroupBox39.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox39.Controls.Add(Me.Label32)
-        Me.GroupBox39.Location = New System.Drawing.Point(510, 718)
-        Me.GroupBox39.Name = "GroupBox39"
-        Me.GroupBox39.Size = New System.Drawing.Size(163, 140)
-        Me.GroupBox39.TabIndex = 121
-        Me.GroupBox39.TabStop = False
-        '
-        'Label27
-        '
-        Me.Label27.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(3, 16)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label27.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label27.Size = New System.Drawing.Size(157, 27)
-        Me.Label27.TabIndex = 4
-        Me.Label27.Text = "28"
-        Me.Label27.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox38
-        '
-        Me.GroupBox38.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox38.Controls.Add(Me.Label27)
-        Me.GroupBox38.Location = New System.Drawing.Point(341, 718)
-        Me.GroupBox38.Name = "GroupBox38"
-        Me.GroupBox38.Size = New System.Drawing.Size(163, 140)
-        Me.GroupBox38.TabIndex = 120
-        Me.GroupBox38.TabStop = False
-        '
-        'Label22
-        '
-        Me.Label22.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(3, 16)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
-        Me.Label22.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label22.Size = New System.Drawing.Size(157, 27)
-        Me.Label22.TabIndex = 4
-        Me.Label22.Text = "28"
-        Me.Label22.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'GroupBox37
-        '
-        Me.GroupBox37.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox37.Controls.Add(Me.Label22)
-        Me.GroupBox37.Location = New System.Drawing.Point(172, 718)
-        Me.GroupBox37.Name = "GroupBox37"
-        Me.GroupBox37.Size = New System.Drawing.Size(163, 140)
-        Me.GroupBox37.TabIndex = 119
-        Me.GroupBox37.TabStop = False
+        Me.GroupBox36.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox36.Controls.Add(Me.Label17)
+        Me.GroupBox36.Location = New System.Drawing.Point(3, 718)
+        Me.GroupBox36.Name = "GroupBox36"
+        Me.GroupBox36.Size = New System.Drawing.Size(163, 140)
+        Me.GroupBox36.TabIndex = 118
+        Me.GroupBox36.TabStop = False
         '
         'Label17
         '
@@ -1131,15 +1053,93 @@ Partial Class monthViewtext
         Me.Label17.Text = "28"
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'GroupBox36
+        'GroupBox37
         '
-        Me.GroupBox36.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox36.Controls.Add(Me.Label17)
-        Me.GroupBox36.Location = New System.Drawing.Point(3, 718)
-        Me.GroupBox36.Name = "GroupBox36"
-        Me.GroupBox36.Size = New System.Drawing.Size(163, 140)
-        Me.GroupBox36.TabIndex = 118
-        Me.GroupBox36.TabStop = False
+        Me.GroupBox37.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox37.Controls.Add(Me.Label22)
+        Me.GroupBox37.Location = New System.Drawing.Point(172, 718)
+        Me.GroupBox37.Name = "GroupBox37"
+        Me.GroupBox37.Size = New System.Drawing.Size(163, 140)
+        Me.GroupBox37.TabIndex = 119
+        Me.GroupBox37.TabStop = False
+        '
+        'Label22
+        '
+        Me.Label22.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(3, 16)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label22.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label22.Size = New System.Drawing.Size(157, 27)
+        Me.Label22.TabIndex = 4
+        Me.Label22.Text = "28"
+        Me.Label22.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'GroupBox38
+        '
+        Me.GroupBox38.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox38.Controls.Add(Me.Label27)
+        Me.GroupBox38.Location = New System.Drawing.Point(341, 718)
+        Me.GroupBox38.Name = "GroupBox38"
+        Me.GroupBox38.Size = New System.Drawing.Size(163, 140)
+        Me.GroupBox38.TabIndex = 120
+        Me.GroupBox38.TabStop = False
+        '
+        'Label27
+        '
+        Me.Label27.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.Location = New System.Drawing.Point(3, 16)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label27.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label27.Size = New System.Drawing.Size(157, 27)
+        Me.Label27.TabIndex = 4
+        Me.Label27.Text = "28"
+        Me.Label27.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'GroupBox39
+        '
+        Me.GroupBox39.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox39.Controls.Add(Me.Label32)
+        Me.GroupBox39.Location = New System.Drawing.Point(510, 718)
+        Me.GroupBox39.Name = "GroupBox39"
+        Me.GroupBox39.Size = New System.Drawing.Size(163, 140)
+        Me.GroupBox39.TabIndex = 121
+        Me.GroupBox39.TabStop = False
+        '
+        'Label32
+        '
+        Me.Label32.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.Location = New System.Drawing.Point(3, 16)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label32.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label32.Size = New System.Drawing.Size(157, 27)
+        Me.Label32.TabIndex = 4
+        Me.Label32.Text = "28"
+        Me.Label32.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'GroupBox41
+        '
+        Me.GroupBox41.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox41.Controls.Add(Me.Label37)
+        Me.GroupBox41.Location = New System.Drawing.Point(848, 718)
+        Me.GroupBox41.Name = "GroupBox41"
+        Me.GroupBox41.Size = New System.Drawing.Size(163, 140)
+        Me.GroupBox41.TabIndex = 122
+        Me.GroupBox41.TabStop = False
+        '
+        'Label37
+        '
+        Me.Label37.Font = New System.Drawing.Font("JetBrains Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label37.Location = New System.Drawing.Point(3, 16)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Label37.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label37.Size = New System.Drawing.Size(157, 27)
+        Me.Label37.TabIndex = 4
+        Me.Label37.Text = "28"
+        Me.Label37.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'monthViewtext
         '
@@ -1174,27 +1174,27 @@ Partial Class monthViewtext
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.GroupBox20.ResumeLayout(False)
-        Me.GroupBox19.ResumeLayout(False)
-        Me.GroupBox18.ResumeLayout(False)
-        Me.GroupBox17.ResumeLayout(False)
-        Me.GroupBox16.ResumeLayout(False)
-        Me.GroupBox15.ResumeLayout(False)
-        Me.GroupBox14.ResumeLayout(False)
-        Me.GroupBox13.ResumeLayout(False)
-        Me.GroupBox12.ResumeLayout(False)
-        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox40.ResumeLayout(False)
+        Me.GroupBox42.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox12.ResumeLayout(False)
+        Me.GroupBox13.ResumeLayout(False)
+        Me.GroupBox14.ResumeLayout(False)
+        Me.GroupBox15.ResumeLayout(False)
+        Me.GroupBox16.ResumeLayout(False)
+        Me.GroupBox17.ResumeLayout(False)
+        Me.GroupBox18.ResumeLayout(False)
+        Me.GroupBox19.ResumeLayout(False)
+        Me.GroupBox20.ResumeLayout(False)
         Me.GroupBox33.ResumeLayout(False)
         Me.GroupBox34.ResumeLayout(False)
         Me.GroupBox35.ResumeLayout(False)
-        Me.GroupBox42.ResumeLayout(False)
-        Me.GroupBox41.ResumeLayout(False)
-        Me.GroupBox40.ResumeLayout(False)
-        Me.GroupBox39.ResumeLayout(False)
-        Me.GroupBox38.ResumeLayout(False)
-        Me.GroupBox37.ResumeLayout(False)
         Me.GroupBox36.ResumeLayout(False)
+        Me.GroupBox37.ResumeLayout(False)
+        Me.GroupBox38.ResumeLayout(False)
+        Me.GroupBox39.ResumeLayout(False)
+        Me.GroupBox41.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

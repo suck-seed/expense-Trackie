@@ -30,11 +30,11 @@ Partial Class New_Expense
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txt_date_picker = New System.Windows.Forms.DateTimePicker()
+        Me.flowPanel_category = New System.Windows.Forms.FlowLayoutPanel()
         Me.panel_topbar = New System.Windows.Forms.Panel()
         Me.button_close = New System.Windows.Forms.Button()
         Me.button_create = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.flowPanel_category = New System.Windows.Forms.FlowLayoutPanel()
         Me.table_inputs.SuspendLayout()
         Me.panel_topbar.SuspendLayout()
         Me.SuspendLayout()
@@ -138,8 +138,18 @@ Partial Class New_Expense
         Me.txt_date_picker.Size = New System.Drawing.Size(203, 20)
         Me.txt_date_picker.TabIndex = 8
         '
+        'flowPanel_category
+        '
+        Me.flowPanel_category.AutoScroll = True
+        Me.flowPanel_category.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.flowPanel_category.Location = New System.Drawing.Point(3, 276)
+        Me.flowPanel_category.Name = "flowPanel_category"
+        Me.flowPanel_category.Size = New System.Drawing.Size(410, 145)
+        Me.flowPanel_category.TabIndex = 9
+        '
         'panel_topbar
         '
+        Me.panel_topbar.BackColor = System.Drawing.Color.Transparent
         Me.panel_topbar.Controls.Add(Me.button_close)
         Me.panel_topbar.Controls.Add(Me.button_create)
         Me.panel_topbar.Controls.Add(Me.Label4)
@@ -189,15 +199,6 @@ Partial Class New_Expense
         Me.Label4.TabIndex = 2
         Me.Label4.Text = "New Expense" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'flowPanel_category
-        '
-        Me.flowPanel_category.AutoScroll = True
-        Me.flowPanel_category.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.flowPanel_category.Location = New System.Drawing.Point(3, 276)
-        Me.flowPanel_category.Name = "flowPanel_category"
-        Me.flowPanel_category.Size = New System.Drawing.Size(410, 145)
-        Me.flowPanel_category.TabIndex = 9
         '
         'New_Expense
         '

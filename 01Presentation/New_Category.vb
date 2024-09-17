@@ -31,14 +31,6 @@ Public Class New_Category
 
 
 
-        'MsgBox("current userId :" & SessionManager.Instance.currentUserId)
-        MsgBox("Default color : " & catColor)
-        MsgBox(catName)
-        MsgBox(catDescription)
-
-
-
-
         'adding into db
         Dim categorymanager As New CategoryManager()
 
@@ -46,6 +38,9 @@ Public Class New_Category
 
         If added > 0 Then
             MsgBox("Category added sucessfully")
+
+            ' reloading the categories in mainWindow after adding a category to reflect the added category
+            categorymanager.generateCategoryCheckButtons(mainWindow.mainWindowCategory)
 
         Else
             MsgBox("Category insertion failed. Please try again.")

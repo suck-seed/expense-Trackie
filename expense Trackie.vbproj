@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\CategoryManager.vb" />
+    <Compile Include="Application\ExpenseManager.vb" />
     <Compile Include="Application\SessionManager.vb" />
     <Compile Include="Application\UserManager.vb" />
     <Compile Include="DataLayer\CategoryRepository.vb" />
@@ -177,9 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="01Presentation\New Expense.resx">
       <DependentUpon>New Expense.vb</DependentUpon>
@@ -226,58 +227,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\home_button.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\surendra-rajawat-img-0669.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-home-144 %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-home-windows-11-outline-96.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-home-windows-11-outline-16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-home-windows-11-outline-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-chart-bar-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-database-export-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-day-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-month-view-96.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-month-view-32.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8-setting-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-user-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-day-70.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-day-57.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-bar-chart-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-send-file-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-export-32.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-minimize-32.png" />
@@ -322,17 +272,58 @@
     <None Include="Resources\restore down.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-export-16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-bar-chart-16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-home-16.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8-tick-161.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\barDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\day2Dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\day2Light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dayDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dayLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exportDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exportLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homeDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homeLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\month2Dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\month2Light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monthDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monthLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homeLight1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profileDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profileLight.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

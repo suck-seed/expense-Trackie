@@ -6,37 +6,57 @@
 
 
 
-
-
-
-
-
-
     ' MYBASE.LOAD
     Private Sub mybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'setting the username at profile
+        'setting the username 
         Me.lbl_username.Text = SessionManager.Instance.currentUsername
 
+
+        'loading categoriesss 
+        Dim categoryManager As New CategoryManager
+
+        categoryManager.generateCategoryCheckButtons(mainWindowCategory)
+
+
+
     End Sub
 
 
 
+    ' calnder and day view switch
+    Private Sub switch_Day_Calander_View(sender As Object, e As EventArgs) Handles radio_month_view.CheckedChanged, radio_day_view.CheckedChanged
 
-    ' SWITCHING BETWEEN CALANDER AND DAY VIEW
 
-    Private Sub monthViewClick(sender As Object, e As EventArgs) Handles btn_month_view.Click
+        'checking month
+        If radio_month_view.Checked Then
 
-        If radio_home.Checked Then
-            displayForm(New monthView())
+            If radio_home.Checked Then
+                displayForm(New monthView())
+            End If
+            radio_month_view.Image = My.Resources.monthDark
+
+        Else
+
+            radio_month_view.Image = My.Resources.monthLight
+
         End If
 
-    End Sub
 
-    Private Sub dayViewClick(sender As Object, e As EventArgs) Handles btn_day_view.Click
-        If radio_home.Checked Then
-            displayForm(New dayView())
+        'checking day
+        If radio_day_view.Checked Then
+
+            If radio_home.Checked Then
+                displayForm(New dayView())
+            End If
+            radio_day_view.Image = My.Resources.dayDark
+
+        Else
+
+            radio_day_view.Image = My.Resources.dayLight
+
         End If
+
     End Sub
 
 
@@ -58,8 +78,7 @@
 
 
 
-
-    ' ON CLICK EVENT
+    ' ADD CATEGORY AND EXPENSE
     Private Sub addExpenseClicked(sender As Object, e As EventArgs) Handles button_add_expense.Click
         New_Expense.Show()
     End Sub
@@ -69,15 +88,15 @@
     End Sub
 
 
-    ' CLOSE ON CLICK
 
+    ' close
     Private Sub buttonCloseClick(sender As Object, e As EventArgs) Handles button_close.Click
         Me.Close()
     End Sub
 
 
 
-    ' MIN MAX BAR CHANGES
+    ' minimize and maximize changes in button
     Private Sub buttonMaxClick(sender As Object, e As EventArgs) Handles button_max.Click
 
         panel_main.Refresh()
@@ -94,7 +113,7 @@
     End Sub
 
 
-    ' MINMIZE ON CLICK
+    ' minimize on button click
     Private Sub buttonMinClick(sender As Object, e As EventArgs) Handles button_min.Click
         Me.WindowState = FormWindowState.Minimized
 
@@ -104,7 +123,7 @@
 
 
 
-    ' WINDOW MOVEMENT
+    ' window movement
     Dim mouse_move As System.Drawing.Point
 
     Private Sub topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseDown
@@ -124,7 +143,7 @@
 
 
 
-    ' LINE DRAWING 
+    ' line drawing
 
     Dim pen As New Pen(Color.LightGray, 0.5)
 
@@ -146,6 +165,38 @@
         'graphics.DrawLine(pen, topbar.Location.X, topbar.Height, topbar.Width, topbar.Height)
         graphics.DrawLine(pen, 0, panel_topbar.Height, Me.Width, panel_topbar.Height)
     End Sub
+
+
+
+    ' checked visual cues
+    Private Sub radioCheckedChanged(sender As Object, e As EventArgs) Handles radio_home.CheckedChanged, radio_analytical.CheckedChanged, radio_export.CheckedChanged
+
+        ' for home button
+        If radio_home.Checked Then
+            radio_home.Image = My.Resources.homeDark
+        Else
+            radio_home.Image = My.Resources.homeLight
+        End If
+
+
+        ' for analytical button
+        If radio_analytical.Checked Then
+            radio_analytical.Image = My.Resources.barDark
+        Else
+            radio_analytical.Image = My.Resources.barLight
+        End If
+
+
+        ' for export button
+        If radio_export.Checked Then
+            radio_export.Image = My.Resources.exportDark
+        Else
+            radio_export.Image = My.Resources.exportLight
+        End If
+
+    End Sub
+
+
 
 
 End Class

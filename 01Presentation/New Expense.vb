@@ -6,9 +6,11 @@ Public Class New_Expense
     Dim amount As Decimal
     Dim remarks As String
     Dim dateAdded As DateTime
-    Dim timeAdded As DateTime = DateTime.Now.ToString("HH:mm:ss")
+    Dim timeAdded As DateTime = DateTime.Now
     Dim selectedCategoryId As Integer
 
+
+    Dim expenseManager As New ExpenseManager()
 
 
 
@@ -17,15 +19,22 @@ Public Class New_Expense
 
         ' Error proffing
 
+        If Not Decimal.TryParse(txt_Amount.Text, amount) Then
+            MsgBox("Amount should be Decimal ")
+            Return
+        End If
+
         If String.IsNullOrEmpty(txt_Amount.Text) Or String.IsNullOrEmpty(txt_Remarks.Text) Or getSelectedCategoryId() = 0 Then
             MsgBox("Provide all the required information ")
             Return
         End If
 
-        If Not Decimal.TryParse(txt_Amount.Text, amount) Then
-            MsgBox("Amount should be Decimal ")
-            Return
+
+        If txt_Remarks.Text.Length > 255 Then
+            MsgBox("Remarks cant be longer than 255 characters.")
         End If
+
+
 
 
 
@@ -39,10 +48,21 @@ Public Class New_Expense
 
 
         ' Debug
-        MsgBox(amount)
-        MsgBox(remarks)
-        MsgBox(dateAdded)
-        MsgBox(selectedCategoryId)
+        'MsgBox(amount)
+        'MsgBox(remarks)
+        'MsgBox(dateAdded)
+        'MsgBox(selectedCategoryId)
+
+
+        ' Backend implementation
+        Dim expenseId As Integer = expenseManager.addNewExpense(amount, remarks, dateAdded, timeAdded, selectedCategoryId)
+
+        If expenseId > 0 Then
+            MsgBox("Expense added sucessfully")
+
+        Else
+            MsgBox("Failed adding expense ")
+        End If
 
 
 

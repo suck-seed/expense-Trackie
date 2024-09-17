@@ -299,6 +299,7 @@ Partial Class New_Category
         '
         'panel_topbar
         '
+        Me.panel_topbar.BackColor = System.Drawing.Color.Transparent
         Me.panel_topbar.Controls.Add(Me.button_close)
         Me.panel_topbar.Controls.Add(Me.button_create)
         Me.panel_topbar.Controls.Add(Me.Label4)
