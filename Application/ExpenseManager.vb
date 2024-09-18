@@ -46,47 +46,44 @@
 
 
     ' load expense into panel
-    Public Sub loadExpenstions(ByRef panel As Panel, ByRef currentDate As DateTime)
+    'Public Sub loadExpenstions(ByRef panel As Panel, ByRef currentDate As DateTime)
 
-        Dim expenseTable As DataTable = expenseRepository.getExpensesDynamically(currentDate.ToString("yyyy-MM-dd"))
+    '    Dim expenseTable As DataTable = expenseRepository.getExpensesDynamically(currentDate.ToString("yyyy-MM-dd"))
 
-        panel.Controls.Clear()
-
-
-        For Each row As DataRow In expenseTable.Rows
+    '    panel.Controls.Clear()
 
 
-
-            Dim timeAdded As String = row("timeAdded").ToString
-            Dim time As DateTime = DateTime.Parse(timeAdded)
-            Dim formattedTime As String = time.ToString("hh:mm tt")
-            Dim amount As Decimal = row("amount")
+    '    For Each row As DataRow In expenseTable.Rows
 
 
-            ' creating instance of the expense Detailed display
-            Dim expenseDisplay As New expenseDetailDisplay()
+
+    '        Dim timeAdded As String = row("timeAdded").ToString
+    '        Dim time As DateTime = DateTime.Parse(timeAdded)
+    '        Dim formattedTime As String = time.ToString("hh:mm tt")
+    '        Dim amount As Decimal = row("amount")
 
 
-            expenseDisplay.lbl_amount.Text = amount.ToString()
-            expenseDisplay.lbl_remarks.Text = row("remarks").ToString
-            expenseDisplay.lbl_time.Text = formattedTime
-            expenseDisplay.BackColor = ColorTranslator.FromHtml(row("color").ToString())
-            expenseDisplay.Tag = row("eId")
-
-            expenseDisplay.Margin = New Padding(10)
-            'expenseDisplay.Width = panel_expenses.Width - 400
-            'expenseDisplay.Height = 90
-
-            expenseDisplay.AutoSize = False
-            expenseDisplay.Visible = True
-            'expenseDisplay.Anchor = AnchorStyles.Top And AnchorStyles.Right
-            expenseDisplay.Anchor = AnchorStyles.None
-
-            panel.Controls.Add(expenseDisplay)
+    '        ' creating instance of the expense Detailed display
+    '        Dim expenseDisplay As New expenseDetailDisplay()
 
 
-        Next
-    End Sub
+    '        expenseDisplay.lbl_amount.Text = amount.ToString()
+    '        expenseDisplay.lbl_remarks.Text = row("remarks").ToString
+    '        expenseDisplay.lbl_time.Text = formattedTime
+    '        expenseDisplay.BackColor = ColorTranslator.FromHtml(row("color").ToString())
+    '        expenseDisplay.Tag = row("eId")
+
+    '        expenseDisplay.Margin = New Padding(10)
+    '        expenseDisplay.AutoSize = False
+    '        expenseDisplay.Visible = True
+
+    '        expenseDisplay.Anchor = AnchorStyles.None
+
+    '        panel.Controls.Add(expenseDisplay)
+
+
+    '    Next
+    'End Sub
 
 
 

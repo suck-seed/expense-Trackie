@@ -3,18 +3,14 @@
 Public Class New_Category
 
 
-
-
     ' MAIN FUNCTIONALITY
     Dim catName As String
     Dim catDescription As String
     Dim catColor As String
 
-    'custom event
-    Public Event CategoryCreated()
 
+#Region "category creation"
 
-    ' button create
     Private Sub button_create_Click(sender As Object, e As EventArgs) Handles button_create.Click
 
         getDefaultColor()
@@ -42,7 +38,7 @@ Public Class New_Category
         If added > 0 Then
             MsgBox("Category added sucessfully")
 
-            RaiseEvent CategoryCreated()
+
             ' reloading the categories in mainWindow after adding a category to reflect the added category
             categorymanager.generateCategoryCheckButtons(mainWindow.flowPanelCategory)
 
@@ -55,7 +51,10 @@ Public Class New_Category
 
     End Sub
 
+#End Region
 
+
+#Region "color selection"
     ' Default color selection
     Private Sub getDefaultColor()
 
@@ -130,14 +129,16 @@ Public Class New_Category
     End Sub
 
 
+#End Region
 
 
-
+#Region "junk"
     ' CLOSING
 
     Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
         Me.Close()
     End Sub
+
 
 
 
@@ -182,5 +183,7 @@ Public Class New_Category
         End Using
     End Sub
 
+
+#End Region
 
 End Class

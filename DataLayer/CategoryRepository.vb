@@ -85,6 +85,45 @@ Public Class CategoryRepository
     End Function
 
 
+    Public Function deleteUserCategory(ByVal selectedCategory As Integer) As Integer
+
+        Dim result As Integer = 0
+
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
+
+            Using command As New SqlCommand("deleteCategory", connection)
+                command.CommandType = CommandType.StoredProcedure
+
+                'linking paremeter
+                command.Parameters.AddWithValue("@catId", selectedCategory)
+                command.Parameters.AddWithValue("@userId", userId)
+
+
+
+                'output paremeter
+                Dim resultParemeter As New SqlParameter("@result", SqlDbType.Int)
+                resultParemeter.Direction = ParameterDirection.Output
+
+                command.Parameters.Add(resultParemeter)
+
+
+                command.ExecuteNonQuery()
+
+
+                result = Convert.ToInt32(resultParemeter.Value)
+
+
+                Return result
+
+
+            End Using
+
+        End Using
+
+    End Function
+
+
     Public Function getUserCategory() As DataTable
 
         Dim dataTable As New DataTable()

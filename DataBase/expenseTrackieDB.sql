@@ -16,6 +16,12 @@ CREATE TABLE userInfo(
 
 );
 
+ALTER TABLE userInfo
+ADD profilePicturePath VARCHAR(255) NULL;
+
+select * from userInfo
+
+
 --  insertion testing
 INSERT INTO userInfo (username, password, number, dateJoined, enabled)
 VALUES ('johndoe', '1234', '1234567890', '2024-09-14', 1);
@@ -71,7 +77,7 @@ CREATE TABLE category(
 
 -- DELETE FROM category
 -- WHERE catId = 4
--- SELECT * from category
+SELECT * from category
 
 
 
@@ -112,3 +118,16 @@ on e.catId = c.catId
 WHERE e.userId = 1 AND c.userId = 1 AND c.enabled = 1 AND c.catId IN (2,3)
 
 
+
+
+
+
+
+-- after you run all this, in project goto App.config, you can see this
+-- <connectionStrings>
+--     <add name="expenseTrackie"
+--     connectionString="Data Source=NOTHINGS-LAPTOP\SQLEXPRESS;Initial Catalog=expenseTrackie;Integrated Security=True;"
+--     providerName="System.Data.SqlClient" />
+-- </connectionStrings>
+
+-- 

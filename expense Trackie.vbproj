@@ -75,6 +75,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="01Presentation\deleteCategory.Designer.vb">
+      <DependentUpon>deleteCategory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="01Presentation\deleteCategory.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Application\CategoryManager.vb" />
     <Compile Include="Application\ExpenseManager.vb" />
     <Compile Include="Application\SessionManager.vb" />
@@ -166,6 +172,9 @@
   <ItemGroup>
     <EmbeddedResource Include="01Presentation\dayView.resx">
       <DependentUpon>dayView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="01Presentation\deleteCategory.resx">
+      <DependentUpon>deleteCategory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="01Presentation\expenseDetailDisplay.resx">
       <DependentUpon>expenseDetailDisplay.vb</DependentUpon>
@@ -327,6 +336,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataBase\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

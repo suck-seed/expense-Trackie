@@ -31,11 +31,17 @@ Public Class SIgnIn
 
             MsgBox("Login sucessful")
 
+            MsgBox(SessionManager.Instance.currentUserId)
+            MsgBox(SessionManager.Instance.currentUsername)
+            MsgBox(SessionManager.Instance.currentPassword)
+            MsgBox(SessionManager.Instance.currentNumber)
+            MsgBox(SessionManager.Instance.currentdateJoined)
+            MsgBox(SessionManager.Instance.currentProfileLink)
 
             Me.Hide()
 
-            mainWindow.Show()
-
+            Dim mainScreen As New mainWindow
+            mainScreen.Show()
 
         Else
             MsgBox("User login failed. Please try again.")

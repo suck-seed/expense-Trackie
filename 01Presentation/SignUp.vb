@@ -6,7 +6,13 @@ Public Class SignUp
     Dim number As String
     Dim username As String
     Dim password As String
+    Dim imageAddress As String
     Dim dateJoined As DateTime = DateTime.Now.ToString("yyyy-MM-dd")
+
+
+
+#Region "Signup"
+
 
     Private Sub btn_signup_Click(sender As Object, e As EventArgs) Handles btn_signup.Click
 
@@ -26,7 +32,7 @@ Public Class SignUp
         ' backend handling
         Dim usermanager As New UserManager
 
-        Dim userId As Integer = usermanager.registerUser(username, number, password, dateJoined)
+        Dim userId As Integer = usermanager.registerUser(username, number, password, dateJoined, imageAddress)
 
 
         If userId > 0 Then
@@ -34,7 +40,9 @@ Public Class SignUp
             MsgBox("User registered sucessfully")
 
             Me.Hide()
-            mainWindow.Show()
+
+            Dim mainScreen As New mainWindow()
+            mainScreen.Show()
 
         Else
             MsgBox("User registration failed. Please try again.")
@@ -42,36 +50,37 @@ Public Class SignUp
 
     End Sub
 
+#End Region
+
+
+#Region "fetching image"
+
+
+    Private Sub btn_select_profile_Click(sender As Object, e As EventArgs) Handles btn_select_profile.Click
+
+        Dim fileDialog As New OpenFileDialog
+
+        fileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
+
+        If fileDialog.ShowDialog = DialogResult.OK Then
+
+            imageAddress = fileDialog.FileName
+            profilePicture.Image = Image.FromFile(imageAddress)
+
+
+        End If
 
 
 
+    End Sub
 
 
 
+#End Region
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#Region "signIn passing"
 
 
     ' other kura
@@ -80,6 +89,13 @@ Public Class SignUp
         form2.Show()
         Me.Hide()
     End Sub
+
+#End Region
+
+
+
+
+#Region "other functionality"
 
     Private Sub PassTxt_Enter(sender As Object, e As EventArgs) Handles txt_password.Enter
         UpdatePasswordVisibility()
@@ -113,8 +129,11 @@ Public Class SignUp
         UpdatePasswordVisibility()
     End Sub
 
+#End Region
 
-    '---- GRADIENT MILAUNA LAI ----'
+
+
+#Region "gradient"
     Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
         ' Get the client area of the form
         Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
@@ -138,6 +157,6 @@ Public Class SignUp
     Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
         Me.Close()
     End Sub
-
+#End Region
 
 End Class

@@ -9,16 +9,18 @@
 
     ' user Info
     Public Property currentUserId As Integer = 1
-    Public Property currentUsername As String
+    Public Property currentUsername As String = "johndoe"
     Public Property currentNumber As String
     Public Property currentPassword As String
     Public Property currentLoginTime As DateTime
+    Public Property currentProfileLink As String
+    Public Property currentdateJoined As DateTime
 
 
 
 
     ' expense display management
-    Public Property currentDate As DateTime = DateTime.Now
+    Public Property currentDate As DateTime
 
 
 

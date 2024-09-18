@@ -10,14 +10,14 @@ Public Class New_Expense
     Dim selectedCategoryId As Integer
 
     'custom event to trigger when a expense is added to refresh the day and month view
-    Public Event ExpenseAdded As EventHandler
+    Public Shared Event ExpenseAdded As EventHandler
 
 
 
     Dim expenseManager As New ExpenseManager()
 
 
-
+    ' expese creation
     Private Sub button_create_Click(sender As Object, e As EventArgs) Handles button_create.Click
 
 
@@ -56,7 +56,7 @@ Public Class New_Expense
         If expenseId > 0 Then
             MsgBox("Expense added sucessfully")
 
-            RaiseEvent ExpenseAdded(Me, e)
+            RaiseEvent ExpenseAdded(Me, EventArgs.Empty)
 
 
             Me.Close()

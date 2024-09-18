@@ -23,6 +23,20 @@
     End Function
 
 
+
+    Public Function deleteCategory(ByRef categoryId As Integer) As Integer
+
+        If categoryrepository.deleteUserCategory(categoryId) > 0 Then
+            Return 1
+        Else
+            Return -1
+        End If
+
+        'Return -1
+
+    End Function
+
+
     ' for loading category 
     Public Sub generateCategoryRadioButtons(ByVal panel As Panel)
 
@@ -38,7 +52,7 @@
 
 
             'variable for easy use
-            Dim catId As Integer = row("catId")
+            Dim catId As Integer = CInt(row("catId"))
             Dim catName As String = row("catName").ToString
 
             Dim colorHex As String = row("color").ToString()

@@ -38,12 +38,13 @@ CREATE PROCEDURE addUser
 	@password VARCHAR(255)  ,
 	@number VARCHAR(10)  ,
 	@dateJoined DATE ,
-	@userId INTEGER OUTPUT,
+	@profilePicturePath VARCHAR(255),
+	@userId INTEGER OUTPUT
 )
 AS
 BEGIN
-	INSERT INTO userInfo (username, password, number, dateJoined, enabled)
-	VALUES (@username, @password, @number, @dateJoined, 1);
+	INSERT INTO userInfo (username, password, number, dateJoined,profilePicturePath, enabled)
+	VALUES (@username, @password, @number, @dateJoined,@profilePicturePath, 1);
 
     SET @userId = SCOPE_IDENTITY()
 END
@@ -65,7 +66,19 @@ BEGIN
 
 END
 
+----------------------------------- fetch user info
+CREATE PROCEDURE fetchUserInfo
+(
+	@id INTEGER userId
+)
+AS 
+BEGIN
 
+	SELECT username,[password],number,dateJoined,profilePicturePath
+	FROM userInfo
+	WHERE id = @id AND enabled = 1
+
+END
 
 ------------------------------------ checkDuplicateCategory
 
@@ -115,6 +128,34 @@ BEGIN
 
 END
 
+
+------------------------------------------ deletecategory
+
+CREATE PROCEDURE deleteCategory
+(
+    @catId INTEGER,
+    @userId INTEGER,
+    @result INTEGER OUTPUT
+)
+AS
+BEGIN
+    -- Update category to disable it (set enabled to 0)
+    UPDATE category
+    SET enabled = 0
+    WHERE catId = @catId AND userId = @userId
+
+    -- Check if the update was successful
+    IF @@ROWCOUNT > 0
+    BEGIN
+        -- If a row was affected, return success
+        SET @result = 1
+    END
+    ELSE
+    BEGIN
+        -- If no rows were affected, return failure
+        SET @result = 0
+    END
+END
 
 
 ------------------------------------ getCategory

@@ -4,25 +4,40 @@ Public Class mainWindow
 
     Private categoryManager As New CategoryManager
     Private expenseManager As New ExpenseManager
+    Private categoryRepository As New CategoryRepository
 
+    Public Event CategoryChanged As EventHandler
 
+#Region "form load"
 
-    ' loading resources at startup
     Private Sub mybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'setting the username 
-        Me.lbl_username.Text = SessionManager.Instance.currentUsername
+
+        loadInformation()
+
 
 
         'loading categoriesss 
         categoryManager.generateCategoryCheckButtons(flowPanelCategory)
 
 
+    End Sub
+#End Region
+
+
+#Region "load information during startup"
+    Public Sub loadInformation()
+        Me.lbl_username.Text = SessionManager.Instance.currentUsername
+
+        If Not String.IsNullOrEmpty(SessionManager.Instance.currentProfileLink) Then
+            btn_profile.Image = Image.FromFile(SessionManager.Instance.currentProfileLink)
+        End If
 
     End Sub
+#End Region
 
 
-    ' day view selected
+#Region "calander/day"
     Private Sub radio_day_view_CheckedChanged(sender As Object, e As EventArgs) Handles radio_day_view.CheckedChanged
 
         If radio_month_view.Checked Then
@@ -42,7 +57,6 @@ Public Class mainWindow
 
 
 
-    ' calnder and day view switch
     Private Sub switch_Day_Calander_View(sender As Object, e As EventArgs) Handles radio_month_view.CheckedChanged, radio_day_view.CheckedChanged
 
 
@@ -50,7 +64,7 @@ Public Class mainWindow
         If radio_day_view.Checked Then
 
             If radio_home.Checked Then
-                displayForm(New dayView())
+                displayForm(New dayView(Me))
             End If
             radio_day_view.Image = My.Resources.dayDark
 
@@ -96,70 +110,94 @@ Public Class mainWindow
         'MessageBox.Show("Docking set to: " & form.Dock.ToString())
     End Sub
 
+#End Region
+
+
+#Region "get selected category"
 
 
     ' retriving categoryId
-    Private Sub All_or_Custom_selection(sender As Object, e As EventArgs) Handles radio_all.CheckedChanged, radio_custom.CheckedChanged
-
-        getSelectedCategory()
-
-    End Sub
+    Private Sub radio_all_Click(sender As Object, e As EventArgs) Handles radio_all.Click
 
 
-    Public Sub getSelectedCategory()
+        For Each control As Control In flowPanelCategory.Controls
+
+            If TypeOf control Is CheckBox Then
+                Dim checkBox As CheckBox = DirectCast(control, CheckBox)
+
+                checkBox.Checked = False
+
+            End If
+
+        Next
+
         Dim selectedCategoryIds As New List(Of Integer)
 
         ' if all is selected
-        If radio_all.Checked() Then
+        selectedCategoryIds.Clear()
+        SessionManager.SelectedCategoryIds = selectedCategoryIds
 
-            selectedCategoryIds.Clear()
+    End Sub
 
+    Private Sub radio_custom_Click(sender As Object, e As EventArgs) Handles radio_custom.Click
 
-        End If
+        Dim selectedCategoryIds As New List(Of Integer)
 
+        For Each control As Control In flowPanelCategory.Controls
 
-        If radio_custom.Checked Then
-            For Each control As Control In flowPanelCategory.Controls
+            If TypeOf control Is CheckBox Then
+                Dim checkBox As CheckBox = DirectCast(control, CheckBox)
 
-                If TypeOf control Is CheckBox Then
-                    Dim checkBox As CheckBox = DirectCast(control, CheckBox)
-
-                    If checkBox.Checked Then
-                        Dim categoryId As Integer = CInt(checkBox.Tag)
-                        selectedCategoryIds.Add(categoryId)
-                    End If
-
+                If checkBox.Checked Then
+                    Dim categoryId As Integer = CInt(checkBox.Tag)
+                    selectedCategoryIds.Add(categoryId)
                 End If
 
-            Next
+            End If
 
+        Next
 
-        End If
-
-        ' setting session manager ko ma value
         SessionManager.SelectedCategoryIds = selectedCategoryIds
 
     End Sub
 
 
 
+#End Region
 
-    ' ADD CATEGORY AND EXPENSE
+
+
+
+
+
+
+#Region "expense"
+
     Private Sub addExpenseClicked(sender As Object, e As EventArgs) Handles button_add_expense.Click
         New_Expense.Show()
     End Sub
 
+#End Region
+
+
+#Region "category"
     Private Sub addCategoryClicked(sender As Object, e As EventArgs) Handles add_category.Click
-        New_Category.Show()
+
+        Dim newCategory As New New_Category
+        newCategory.Show()
+
     End Sub
 
-    ' close
-    Private Sub buttonCloseClick(sender As Object, e As EventArgs) Handles button_close.Click
-        Me.Close()
+    Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
+
+        Dim deleteCat As New deleteCategory()
+
+        deleteCat.Show()
     End Sub
+#End Region
 
 
-
+#Region "check background change"
     ' checked visual cues
     Private Sub radioCheckedChanged(sender As Object, e As EventArgs) Handles radio_home.CheckedChanged, radio_analytical.CheckedChanged, radio_export.CheckedChanged
 
@@ -189,8 +227,10 @@ Public Class mainWindow
     End Sub
 
 
+#End Region
 
-    ' minimize and maximize changes in button
+
+#Region "min/max/close"
     Private Sub buttonMaxClick(sender As Object, e As EventArgs) Handles button_max.Click
 
         panel_main.Refresh()
@@ -214,10 +254,15 @@ Public Class mainWindow
         panel_main.Refresh()
     End Sub
 
+    ' close
+    Private Sub buttonCloseClick(sender As Object, e As EventArgs) Handles button_close.Click
+        Me.Close()
+    End Sub
+
+#End Region
 
 
-
-    ' window movement
+#Region "mouse Movement/paint"
     Dim mouse_move As System.Drawing.Point
 
     Private Sub topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseDown
@@ -250,48 +295,61 @@ Public Class mainWindow
 
 
 
-    Private Sub btn_debug_Click(sender As Object, e As EventArgs) Handles btn_debug.Click
 
-        Dim selectedCategoryIds As New List(Of Integer)
-
-        ' if all is selected
-        If radio_all.Checked() Then
-
-            selectedCategoryIds.Clear()
-
-        End If
-
-
-        If radio_custom.Checked Then
-            For Each control As Control In flowPanelCategory.Controls
-
-                If TypeOf control Is CheckBox Then
-                    Dim checkBox As CheckBox = DirectCast(control, CheckBox)
-
-                    If checkBox.Checked Then
-                        Dim categoryId As Integer = CInt(checkBox.Tag)
-                        selectedCategoryIds.Add(categoryId)
-                    End If
-
-                End If
-
-            Next
-
-        End If
-
-        ' setting session manager ko ma value
-        SessionManager.SelectedCategoryIds = selectedCategoryIds
+#End Region
 
 
 
-        ' Display the selected category IDs
-        If SessionManager.SelectedCategoryIds.Count > 0 Then
-            ' Convert list of integers to a comma-separated string
-            Dim categoryIdString As String = String.Join(", ", SessionManager.SelectedCategoryIds)
-            MessageBox.Show("Selected Categories: " & categoryIdString)
-        Else
-            MessageBox.Show("No categories selected.")
-        End If
+#Region "debug"
 
-    End Sub
+    'Private Sub btn_debug_Click(sender As Object, e As EventArgs) Handles btn_debug.Click
+
+    '    Dim selectedCategoryIds As New List(Of Integer)
+
+    '    ' if all is selected
+    '    If radio_all.Checked() Then
+
+    '        selectedCategoryIds.Clear()
+
+    '    End If
+
+
+    '    If radio_custom.Checked Then
+    '        For Each control As Control In flowPanelCategory.Controls
+
+    '            If TypeOf control Is CheckBox Then
+    '                Dim checkBox As CheckBox = DirectCast(control, CheckBox)
+
+    '                If checkBox.Checked Then
+    '                    Dim categoryId As Integer = CInt(checkBox.Tag)
+    '                    selectedCategoryIds.Add(categoryId)
+    '                End If
+
+    '            End If
+
+    '        Next
+
+    '    End If
+
+    '    ' setting session manager ko ma value
+    '    SessionManager.SelectedCategoryIds = selectedCategoryIds
+
+
+
+    '    ' Display the selected category IDs
+    '    If SessionManager.SelectedCategoryIds.Count > 0 Then
+    '        ' Convert list of integers to a comma-separated string
+    '        Dim categoryIdString As String = String.Join(", ", SessionManager.SelectedCategoryIds)
+    '        MessageBox.Show("Selected Categories: " & categoryIdString)
+    '    Else
+    '        MessageBox.Show("No categories selected.")
+    '    End If
+
+    'End Sub
+
+
+
+#End Region
+
+
 End Class
