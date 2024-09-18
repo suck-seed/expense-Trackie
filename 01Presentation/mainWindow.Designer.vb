@@ -30,6 +30,8 @@ Partial Class mainWindow
         Me.lbl_username = New System.Windows.Forms.Label()
         Me.btn_profile = New System.Windows.Forms.Button()
         Me.tableLayoutCategorySelector = New System.Windows.Forms.TableLayoutPanel()
+        Me.radio_custom = New System.Windows.Forms.RadioButton()
+        Me.radio_all = New System.Windows.Forms.RadioButton()
         Me.home_analysis_export_radio = New System.Windows.Forms.TableLayoutPanel()
         Me.radio_export = New System.Windows.Forms.RadioButton()
         Me.radio_analytical = New System.Windows.Forms.RadioButton()
@@ -51,15 +53,13 @@ Partial Class mainWindow
         Me.month_previous = New System.Windows.Forms.Button()
         Me.label_date = New System.Windows.Forms.Label()
         Me.panel_topbar = New System.Windows.Forms.Panel()
+        Me.btn_debug = New System.Windows.Forms.Button()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.radio_day_view = New System.Windows.Forms.RadioButton()
         Me.radio_month_view = New System.Windows.Forms.RadioButton()
         Me.button_min = New System.Windows.Forms.Button()
         Me.button_max = New System.Windows.Forms.Button()
         Me.button_close = New System.Windows.Forms.Button()
-        Me.btn_debug = New System.Windows.Forms.Button()
-        Me.radio_all = New System.Windows.Forms.RadioButton()
-        Me.radio_custom = New System.Windows.Forms.RadioButton()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.panel_sidebar.SuspendLayout()
         Me.tableLayoutCategorySelector.SuspendLayout()
@@ -187,6 +187,36 @@ Partial Class mainWindow
         Me.tableLayoutCategorySelector.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.tableLayoutCategorySelector.Size = New System.Drawing.Size(169, 39)
         Me.tableLayoutCategorySelector.TabIndex = 8
+        '
+        'radio_custom
+        '
+        Me.radio_custom.Appearance = System.Windows.Forms.Appearance.Button
+        Me.radio_custom.AutoSize = True
+        Me.radio_custom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.radio_custom.Font = New System.Drawing.Font("Cascadia Mono", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radio_custom.Location = New System.Drawing.Point(87, 3)
+        Me.radio_custom.Name = "radio_custom"
+        Me.radio_custom.Size = New System.Drawing.Size(79, 33)
+        Me.radio_custom.TabIndex = 1
+        Me.radio_custom.TabStop = True
+        Me.radio_custom.Text = "Custom"
+        Me.radio_custom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.radio_custom.UseVisualStyleBackColor = True
+        '
+        'radio_all
+        '
+        Me.radio_all.Appearance = System.Windows.Forms.Appearance.Button
+        Me.radio_all.AutoSize = True
+        Me.radio_all.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.radio_all.Font = New System.Drawing.Font("Cascadia Mono", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radio_all.Location = New System.Drawing.Point(3, 3)
+        Me.radio_all.Name = "radio_all"
+        Me.radio_all.Size = New System.Drawing.Size(78, 33)
+        Me.radio_all.TabIndex = 0
+        Me.radio_all.TabStop = True
+        Me.radio_all.Text = "All"
+        Me.radio_all.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.radio_all.UseVisualStyleBackColor = True
         '
         'home_analysis_export_radio
         '
@@ -488,6 +518,15 @@ Partial Class mainWindow
         Me.panel_topbar.Size = New System.Drawing.Size(1308, 48)
         Me.panel_topbar.TabIndex = 1
         '
+        'btn_debug
+        '
+        Me.btn_debug.Location = New System.Drawing.Point(776, 13)
+        Me.btn_debug.Name = "btn_debug"
+        Me.btn_debug.Size = New System.Drawing.Size(75, 23)
+        Me.btn_debug.TabIndex = 11
+        Me.btn_debug.Text = "Debug"
+        Me.btn_debug.UseVisualStyleBackColor = True
+        '
         'TableLayoutPanel5
         '
         Me.TableLayoutPanel5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -581,45 +620,6 @@ Partial Class mainWindow
         Me.button_close.Size = New System.Drawing.Size(50, 48)
         Me.button_close.TabIndex = 7
         Me.button_close.UseVisualStyleBackColor = True
-        '
-        'btn_debug
-        '
-        Me.btn_debug.Location = New System.Drawing.Point(776, 13)
-        Me.btn_debug.Name = "btn_debug"
-        Me.btn_debug.Size = New System.Drawing.Size(75, 23)
-        Me.btn_debug.TabIndex = 11
-        Me.btn_debug.Text = "Debug"
-        Me.btn_debug.UseVisualStyleBackColor = True
-        '
-        'radio_all
-        '
-        Me.radio_all.Appearance = System.Windows.Forms.Appearance.Button
-        Me.radio_all.AutoSize = True
-        Me.radio_all.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.radio_all.Font = New System.Drawing.Font("Cascadia Mono", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radio_all.Location = New System.Drawing.Point(3, 3)
-        Me.radio_all.Name = "radio_all"
-        Me.radio_all.Size = New System.Drawing.Size(78, 33)
-        Me.radio_all.TabIndex = 0
-        Me.radio_all.TabStop = True
-        Me.radio_all.Text = "All"
-        Me.radio_all.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.radio_all.UseVisualStyleBackColor = True
-        '
-        'radio_custom
-        '
-        Me.radio_custom.Appearance = System.Windows.Forms.Appearance.Button
-        Me.radio_custom.AutoSize = True
-        Me.radio_custom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.radio_custom.Font = New System.Drawing.Font("Cascadia Mono", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radio_custom.Location = New System.Drawing.Point(87, 3)
-        Me.radio_custom.Name = "radio_custom"
-        Me.radio_custom.Size = New System.Drawing.Size(79, 33)
-        Me.radio_custom.TabIndex = 1
-        Me.radio_custom.TabStop = True
-        Me.radio_custom.Text = "Custom"
-        Me.radio_custom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.radio_custom.UseVisualStyleBackColor = True
         '
         'mainWindow
         '

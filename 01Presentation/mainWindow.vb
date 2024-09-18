@@ -101,6 +101,12 @@ Public Class mainWindow
     ' retriving categoryId
     Private Sub All_or_Custom_selection(sender As Object, e As EventArgs) Handles radio_all.CheckedChanged, radio_custom.CheckedChanged
 
+        getSelectedCategory()
+
+    End Sub
+
+
+    Public Sub getSelectedCategory()
         Dim selectedCategoryIds As New List(Of Integer)
 
         ' if all is selected
@@ -108,11 +114,11 @@ Public Class mainWindow
 
             selectedCategoryIds.Clear()
 
+
         End If
 
-        ' if custom is selected
-        If radio_custom.Checked Then
 
+        If radio_custom.Checked Then
             For Each control As Control In flowPanelCategory.Controls
 
                 If TypeOf control Is CheckBox Then
@@ -128,18 +134,10 @@ Public Class mainWindow
             Next
 
 
-
         End If
 
         ' setting session manager ko ma value
         SessionManager.SelectedCategoryIds = selectedCategoryIds
-        panel_main.Refresh()
-    End Sub
-
-
-    Public Sub getSelectedCategory()
-
-
 
     End Sub
 
@@ -254,35 +252,35 @@ Public Class mainWindow
 
     Private Sub btn_debug_Click(sender As Object, e As EventArgs) Handles btn_debug.Click
 
-        'Dim selectedCategoryIds As New List(Of Integer)
+        Dim selectedCategoryIds As New List(Of Integer)
 
-        '' if all is selected
-        'If radio_all.Checked() Then
+        ' if all is selected
+        If radio_all.Checked() Then
 
-        '    selectedCategoryIds.Clear()
+            selectedCategoryIds.Clear()
 
-        'End If
+        End If
 
 
-        'If radio_custom.Checked Then
-        '    For Each control As Control In flowPanelCategory.Controls
+        If radio_custom.Checked Then
+            For Each control As Control In flowPanelCategory.Controls
 
-        '        If TypeOf control Is CheckBox Then
-        '            Dim checkBox As CheckBox = DirectCast(control, CheckBox)
+                If TypeOf control Is CheckBox Then
+                    Dim checkBox As CheckBox = DirectCast(control, CheckBox)
 
-        '            If checkBox.Checked Then
-        '                Dim categoryId As Integer = CInt(checkBox.Tag)
-        '                selectedCategoryIds.Add(categoryId)
-        '            End If
+                    If checkBox.Checked Then
+                        Dim categoryId As Integer = CInt(checkBox.Tag)
+                        selectedCategoryIds.Add(categoryId)
+                    End If
 
-        '        End If
+                End If
 
-        '    Next
+            Next
 
-        'End If
+        End If
 
-        '' setting session manager ko ma value
-        'SessionManager.SelectedCategoryIds = selectedCategoryIds
+        ' setting session manager ko ma value
+        SessionManager.SelectedCategoryIds = selectedCategoryIds
 
 
 

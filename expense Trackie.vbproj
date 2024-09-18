@@ -325,5 +325,8 @@
   <ItemGroup>
     <None Include="Resources\profileLight.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataBase\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
