@@ -5,8 +5,18 @@ Namespace Presentation
 
     Public Class MainWindow
 
+        Dim categoryManager As New CategoryManager()
+
+
+
 #Region " ready made instance of day view "
+
+
+        ' this makes object defined here available in other forms too
         Dim dayView As New DayView()
+        Dim monthView As New MonthView()
+
+
 #End Region
 
 
@@ -18,8 +28,7 @@ Namespace Presentation
 
             LoadInformation()
 
-            Dim categoryManager As New CategoryManager()
-            categoryManager.GenerateCategoryCheckButtons(flowPanelCategory)
+
 
         End Sub
 
@@ -27,16 +36,22 @@ Namespace Presentation
 
 
 
-#Region "load information during startup"
+#Region " loadInformation() "
 
-        Private Sub LoadInformation()
+        Public Sub LoadInformation()
+
+
             Me.lbl_username.Text = SessionManager.Instance.CurrentUsername
+
 
             If Not String.IsNullOrEmpty(SessionManager.Instance.CurrentProfileLink) Then
                 btn_profile.Image = Image.FromFile(SessionManager.Instance.CurrentProfileLink)
             End If
 
 
+            ' getting selected checks
+
+            CategoryManager.GenerateCategoryCheckButtons(flowPanelCategory, AddressOf Checkbox_CheckChanged)
 
         End Sub
 
@@ -51,7 +66,7 @@ Namespace Presentation
 
                 If radio_month_view.Checked Then
 
-                    DisplayForm(New MonthView())
+                    DisplayForm(monthView)
                     radio_month_view.Image = My.Resources.monthDark
 
 
@@ -122,10 +137,9 @@ Namespace Presentation
 #Region "get selected category"
 
 
-        ' retrieving categoryId
-        Private Sub radio_all_Click(sender As Object, e As EventArgs) Handles radio_all.Click
+        Private Sub btn_all_Click(sender As Object, e As EventArgs) Handles btn_all.Click
 
-
+            ' unchecking all the checks
             For Each control As Control In flowPanelCategory.Controls
 
                 If TypeOf control Is CheckBox Then
@@ -137,15 +151,22 @@ Namespace Presentation
 
             Next
 
+
+
+            ' clearning selectedCategoryIds
             Dim selectedCategoryIds As New List(Of Integer)
 
             ' if all is selected
             selectedCategoryIds.Clear()
             SessionManager.SelectedCategoryIds = selectedCategoryIds
 
+
         End Sub
 
-        Private Sub radio_custom_Click(sender As Object, e As EventArgs) Handles radio_custom.Click
+
+
+        ' event handling
+        Public Sub Checkbox_CheckChanged(sender As Object, e As EventArgs)
 
             Dim selectedCategoryIds As New List(Of Integer)
 
@@ -165,8 +186,9 @@ Namespace Presentation
 
             SessionManager.SelectedCategoryIds = selectedCategoryIds
 
-        End Sub
+            dayView.LoadExpenses()
 
+        End Sub
 
 
 #End Region
@@ -178,7 +200,7 @@ Namespace Presentation
 
             'NewExpense.Show()
 
-            Dim newExpense As New NewExpense(dayView)
+            Dim newExpense As New NewExpense(dayView, monthView)
             newExpense.Show()
 
         End Sub
@@ -202,7 +224,7 @@ Namespace Presentation
             btn_delete.Image = My.Resources.delete3Red
             'DeleteCategory.Show()
 
-            Dim deleteCategory As New DeleteCategory(dayView)
+            Dim deleteCategory As New DeleteCategory(dayView, monthView)
             deleteCategory.Show()
 
         End Sub
@@ -387,6 +409,8 @@ Namespace Presentation
         End Sub
 
 
+
+
 #End Region
 
 
@@ -440,6 +464,10 @@ Namespace Presentation
 
 
 #End Region
+
+
+
+
 
 
     End Class

@@ -17,13 +17,15 @@ Namespace Presentation
 #Region " New( dayView ) "
 
         Dim dayView As DayView
+        Dim monthView As MonthView
 
-        Public Sub New(ByRef dayViewInst As DayView)
+        Public Sub New(ByRef dayViewInst As DayView, ByRef monthViewInst As MonthView)
 
             ' This call is required by the designer.
             InitializeComponent()
 
             dayView = dayViewInst
+            monthView = monthViewInst
 
             ' Add any initialization after the InitializeComponent() call.
 

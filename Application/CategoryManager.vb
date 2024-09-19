@@ -3,23 +3,23 @@
 Namespace Application
     Public Class CategoryManager
 
-'        instance of CategoryRepository()    
+        '        instance of CategoryRepository()    
         Private _categoryrepository As New CategoryRepository()
 
 
 
-'        for adding category
+        '        for adding category
         Public Function RegisterCategory(ByRef catName As String, ByRef catDescription As String, ByRef catColor As String) As Integer
 
 
-'            checking is category already exists
+            '            checking is category already exists
             If _categoryrepository.IsDuplicateCategory(catName) Then
                 MsgBox("A category with provided name already exists")
                 Return -1
             End If
 
 
-'            proceeding with adding category
+            '            proceeding with adding category
             Dim added As Integer = _categoryrepository.AddCategory(catName, catDescription, catColor)
             Return added
 
@@ -36,26 +36,26 @@ Namespace Application
                 Return -1
             End If
 
-'            Return -1
+            '            Return -1
 
         End Function
 
 
-'        for loading category 
+        '        for loading category 
         Public Sub GenerateCategoryRadioButtons(ByVal panel As FlowLayoutPanel)
 
-'            loading a dataTable
+            '            loading a dataTable
             Dim categoryTable As DataTable = _categoryrepository.GetUserCategory()
 
 
-'            panel work
+            '            panel work
             panel.Controls.Clear()
 
 
             For Each row As DataRow In categoryTable.Rows
 
 
-'                variable for easy use
+                '                variable for easy use
                 Dim catId As Integer = CInt(row("catId"))
                 Dim catName As String = row("catName").ToString
 
@@ -64,7 +64,7 @@ Namespace Application
 
 
 
-'                assigning to radioButton
+                '                assigning to radioButton
                 Dim radioButton As New RadioButton
 
                 radioButton.Text = catName
@@ -72,7 +72,7 @@ Namespace Application
                 radioButton.BackColor = backColor
 
 
-'                button cosmetics
+                '                button cosmetics
                 radioButton.Appearance = Appearance.Button
                 radioButton.AutoSize = True
                 radioButton.TextAlign = ContentAlignment.MiddleCenter
@@ -85,7 +85,7 @@ Namespace Application
 
 
 
-'                adding to panel
+                '                adding to panel
                 panel.Controls.Add(radioButton)
 
 
@@ -94,7 +94,7 @@ Namespace Application
         End Sub
 
 
-        Public Sub GenerateCategoryCheckButtons(ByVal panel As FlowLayoutPanel)
+        Public Sub GenerateCategoryCheckButtons(ByVal panel As FlowLayoutPanel, handler As EventHandler)
 
             ' loading a dataTable
             Dim categoryTable As DataTable = _categoryrepository.GetUserCategory()
@@ -139,12 +139,24 @@ Namespace Application
 
 
 
+                ' adding handler for checkChanged event
+                AddHandler checkButton.CheckedChanged, handler
+
+
 
                 'adding to panel
                 panel.Controls.Add(checkButton)
 
 
             Next
+
+
+        End Sub
+
+
+        Private Sub Checkbox_CheckChanged(sender As Object, e As EventArgs)
+
+
 
 
         End Sub

@@ -13,13 +13,15 @@ Namespace Presentation
 #Region " New( dayView ) "
 
         Dim dayView As DayView
+        Dim monthView As MonthView
 
-        Public Sub New(ByRef dayViewInst As DayView)
+        Public Sub New(ByRef dayViewInst As DayView, ByRef monthViewInst As MonthView)
 
             ' This call is required by the designer.
             InitializeComponent()
 
             dayView = dayViewInst
+            monthView = monthViewInst
 
             ' Add any initialization after the InitializeComponent() call.
 
@@ -82,7 +84,8 @@ Namespace Presentation
 
             Dim categoryManager As New CategoryManager
             categoryManager.GenerateCategoryRadioButtons(flowPanel_category)
-            categoryManager.GenerateCategoryCheckButtons(MainWindow.flowPanelCategory)
+            'categoryManager.GenerateCategoryCheckButtons(MainWindow.flowPanelCategory)
+            MainWindow.LoadInformation()
             dayView.UpdateDisplayInformation()
 
         End Sub

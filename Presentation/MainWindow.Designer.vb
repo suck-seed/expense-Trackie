@@ -31,8 +31,6 @@
             Me.lbl_username = New System.Windows.Forms.Label()
             Me.btn_profile = New System.Windows.Forms.Button()
             Me.tableLayoutCategorySelector = New System.Windows.Forms.TableLayoutPanel()
-            Me.radio_custom = New System.Windows.Forms.Button()
-            Me.radio_all = New System.Windows.Forms.Button()
             Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
             Me.btn_delete = New System.Windows.Forms.Button()
             Me.Label8 = New System.Windows.Forms.Label()
@@ -61,6 +59,7 @@
             Me.radio_analytical = New System.Windows.Forms.RadioButton()
             Me.radio_home = New System.Windows.Forms.RadioButton()
             Me.button_close = New System.Windows.Forms.Button()
+            Me.btn_all = New System.Windows.Forms.Button()
             Me.TableLayoutPanel2.SuspendLayout()
             Me.panel_sidebar.SuspendLayout()
             Me.tableLayoutCategorySelector.SuspendLayout()
@@ -177,43 +176,17 @@
             '
             Me.tableLayoutCategorySelector.AutoScroll = True
             Me.tableLayoutCategorySelector.BackColor = System.Drawing.Color.Transparent
-            Me.tableLayoutCategorySelector.ColumnCount = 2
+            Me.tableLayoutCategorySelector.ColumnCount = 1
             Me.tableLayoutCategorySelector.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-            Me.tableLayoutCategorySelector.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-            Me.tableLayoutCategorySelector.Controls.Add(Me.radio_custom, 1, 0)
-            Me.tableLayoutCategorySelector.Controls.Add(Me.radio_all, 0, 0)
+            Me.tableLayoutCategorySelector.Controls.Add(Me.btn_all, 0, 0)
             Me.tableLayoutCategorySelector.Location = New System.Drawing.Point(22, 505)
             Me.tableLayoutCategorySelector.Margin = New System.Windows.Forms.Padding(0)
             Me.tableLayoutCategorySelector.MaximumSize = New System.Drawing.Size(247, 650)
             Me.tableLayoutCategorySelector.Name = "tableLayoutCategorySelector"
             Me.tableLayoutCategorySelector.RowCount = 1
             Me.tableLayoutCategorySelector.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-            Me.tableLayoutCategorySelector.Size = New System.Drawing.Size(169, 39)
+            Me.tableLayoutCategorySelector.Size = New System.Drawing.Size(244, 39)
             Me.tableLayoutCategorySelector.TabIndex = 8
-            '
-            'radio_custom
-            '
-            Me.radio_custom.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.radio_custom.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.radio_custom.Font = New System.Drawing.Font("Cascadia Code", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.radio_custom.Location = New System.Drawing.Point(87, 3)
-            Me.radio_custom.Name = "radio_custom"
-            Me.radio_custom.Size = New System.Drawing.Size(79, 33)
-            Me.radio_custom.TabIndex = 1
-            Me.radio_custom.Text = "Custom"
-            Me.radio_custom.UseVisualStyleBackColor = True
-            '
-            'radio_all
-            '
-            Me.radio_all.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.radio_all.FlatStyle = System.Windows.Forms.FlatStyle.System
-            Me.radio_all.Font = New System.Drawing.Font("Cascadia Code", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.radio_all.Location = New System.Drawing.Point(3, 3)
-            Me.radio_all.Name = "radio_all"
-            Me.radio_all.Size = New System.Drawing.Size(78, 33)
-            Me.radio_all.TabIndex = 0
-            Me.radio_all.Text = "All"
-            Me.radio_all.UseVisualStyleBackColor = True
             '
             'TableLayoutPanel8
             '
@@ -641,6 +614,24 @@
             Me.button_close.TabIndex = 7
             Me.button_close.UseVisualStyleBackColor = True
             '
+            'btn_all
+            '
+            Me.btn_all.AutoSize = True
+            Me.btn_all.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btn_all.Dock = System.Windows.Forms.DockStyle.Left
+            Me.btn_all.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.btn_all.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.btn_all.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btn_all.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 10.0!)
+            Me.btn_all.Location = New System.Drawing.Point(8, 5)
+            Me.btn_all.Margin = New System.Windows.Forms.Padding(8, 5, 8, 5)
+            Me.btn_all.Name = "btn_all"
+            Me.btn_all.Size = New System.Drawing.Size(70, 29)
+            Me.btn_all.TabIndex = 8
+            Me.btn_all.Text = "All"
+            Me.btn_all.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+            Me.btn_all.UseVisualStyleBackColor = True
+            '
             'MainWindow
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -659,6 +650,7 @@
             Me.panel_sidebar.ResumeLayout(False)
             Me.panel_sidebar.PerformLayout()
             Me.tableLayoutCategorySelector.ResumeLayout(False)
+            Me.tableLayoutCategorySelector.PerformLayout()
             Me.TableLayoutPanel8.ResumeLayout(False)
             Me.TableLayoutPanel8.PerformLayout()
             Me.TableLayoutPanel3.ResumeLayout(False)
@@ -704,12 +696,11 @@
         Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
         Friend WithEvents radio_day_view As RadioButton
         Friend WithEvents radio_month_view As RadioButton
-        Friend WithEvents radio_all As Button
-        Friend WithEvents radio_custom As Button
         Friend WithEvents btn_delete As Button
         Friend WithEvents home_analysis_export_radio As TableLayoutPanel
         Friend WithEvents radio_export As RadioButton
         Friend WithEvents radio_analytical As RadioButton
         Friend WithEvents radio_home As RadioButton
+        Friend WithEvents btn_all As Button
     End Class
 End NameSpace
