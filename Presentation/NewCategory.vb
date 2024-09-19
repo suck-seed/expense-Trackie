@@ -7,49 +7,52 @@ Namespace Presentation
 
 
         ' MAIN FUNCTIONALITY
-        Dim catName As String
-        Dim catDescription As String
-        Dim catColor As String
-        Dim categorymanager As New CategoryManager()
+        Dim _catName As String
+        Dim _catDescription As String
+        Dim _catColor As String
+
 
 #Region "category creation"
 
         Private Sub button_create_Click(sender As Object, e As EventArgs) Handles button_create.Click
 
-            getDefaultColor()
+            GetDefaultColor()
 
-            ' Error proffing
+            ' Error proofing
 
-            If String.IsNullOrEmpty(txt_name.Text) Or String.IsNullOrEmpty(txt_description.Text) Or String.IsNullOrEmpty(catColor) Then
+            If String.IsNullOrEmpty(txt_name.Text) Or String.IsNullOrEmpty(txt_description.Text) Or String.IsNullOrEmpty(_catColor) Then
                 MsgBox("Please fill all the information.")
                 Return
             End If
 
 
 
-            ' Retriving Information
-            catName = txt_name.Text
-            catDescription = txt_description.Text
+            ' Retrieving Information
+            _catName = txt_name.Text
+            _catDescription = txt_description.Text
 
 
 
             'adding into db
+            Dim categoryManager As New CategoryManager()
 
-
-            Dim catAdded As Integer = categorymanager.RegisterCategory(catName, catDescription, catColor)
+            Dim catAdded As Integer = categoryManager.RegisterCategory(_catName, _catDescription, _catColor)
 
             If catAdded > 0 Then
-                MsgBox("Category added sucessfully")
+                MsgBox("Category added successfully")
 
 
                 ' reloading the categories in mainWindow after adding a category to reflect the added category
-                categorymanager.GenerateCategoryCheckButtons(mainWindow.flowPanelCategory)
+                categoryManager.GenerateCategoryCheckButtons(MainWindow.flowPanelCategory)
+
+                ' clearing the text in textboxes
+                ClearInputBox()
 
             Else
                 MsgBox("Category insertion failed. Please try again.")
             End If
 
-            categorymanager.GenerateCategoryCheckButtons(mainWindow.flowPanelCategory)
+            categoryManager.GenerateCategoryCheckButtons(mainWindow.flowPanelCategory)
 
 
         End Sub
@@ -59,7 +62,7 @@ Namespace Presentation
 
 #Region "color selection"
         ' Default color selection
-        Private Sub getDefaultColor()
+        Private Sub GetDefaultColor()
 
             For Each control As Control In tabelPanel_color.Controls
 
@@ -68,7 +71,7 @@ Namespace Presentation
                     Dim rb As RadioButton = DirectCast(control, RadioButton)
 
                     If rb.Checked Then
-                        catColor = ColorTranslator.ToHtml(rb.BackColor)
+                        _catColor = ColorTranslator.ToHtml(rb.BackColor)
                         btn_custom_color.BackColor = SystemColors.ButtonFace
                     End If
 
@@ -113,24 +116,34 @@ Namespace Presentation
 
                     ' if known color, using string format to convert to #
                     Dim color As Color = cd.Color
-                    catColor = String.Format("#{0:X2}{1:X2}{2:X2}", color.R, color.G, color.B)
+                    _catColor = String.Format("#{0:X2}{1:X2}{2:X2}", color.R, color.G, color.B)
 
 
                 Else
 
 
                     ' if custom color, then using toHtml to convert to #
-                    catColor = ColorTranslator.ToHtml(cd.Color)
+                    _catColor = ColorTranslator.ToHtml(cd.Color)
 
 
                 End If
 
             End If
 
-            MsgBox("Custom color :" & catColor)
+            MsgBox("Custom color :" & _catColor)
 
         End Sub
 
+
+#End Region
+
+
+#Region "clear inputs"
+
+        Public Sub ClearInputBox()
+            txt_description.Text = ""
+            txt_name.Text = ""
+        End Sub
 
 #End Region
 
@@ -150,20 +163,20 @@ Namespace Presentation
         ' MOUSE MOVEMENT
 
 
-        Dim mouse_move As System.Drawing.Point
+        Dim _mouseMove As System.Drawing.Point
 
 
         Private Sub topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseDown
-            mouse_move = New Point(-e.X, -e.Y)
+            _mouseMove = New Point(-e.X, -e.Y)
         End Sub
 
 
         Private Sub topbar_MouseMove(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseMove
             If e.Button = Windows.Forms.MouseButtons.Left Then
-                Dim mouse_position As Point
-                mouse_position = Control.MousePosition
-                mouse_position.Offset(mouse_move.X, mouse_move.Y)
-                Me.Location = mouse_position
+                Dim position As Point
+                position = Control.MousePosition
+                position.Offset(_mouseMove.X, _mouseMove.Y)
+                Me.Location = position
             End If
         End Sub
 

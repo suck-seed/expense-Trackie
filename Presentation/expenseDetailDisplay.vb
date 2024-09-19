@@ -1,3 +1,5 @@
-﻿Public Class expenseDetailDisplay
+﻿Namespace Presentation
+    Public Class ExpenseDetailDisplay
 
-End Class
+    End Class
+End NameSpace

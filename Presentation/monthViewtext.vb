@@ -1,3 +1,5 @@
-﻿Public Class monthViewtext
+﻿Namespace Presentation
+    Public Class MonthViewtext
 
-End Class
+    End Class
+End NameSpace

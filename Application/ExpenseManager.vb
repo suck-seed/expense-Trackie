@@ -1,91 +1,116 @@
-﻿Public Class ExpenseManager
+﻿Imports expense_Trackie.DataLayer
+Imports expense_Trackie.Presentation
 
-    Dim expenseRepository As New ExpenseRepository()
-    Dim currentTime As DateTime = SessionManager.Instance.currentDate
+Namespace Application
+    Public Class ExpenseManager
 
-    Public Function addNewExpense(ByVal amount As Decimal, ByVal remarks As String, ByVal dateAdded As DateTime, ByVal timeAdded As DateTime, ByVal categoryId As Integer) As Integer
-
-        Dim added As Integer = expenseRepository.insertExpense(amount, remarks, dateAdded, timeAdded, categoryId)
-
-        If added > 0 Then
-            'debug
-            MsgBox("Expense added successfully")
-
-            Return added
-        End If
+        Dim _expenseRepository As New ExpenseRepository()
 
 
-        ' returns -1 if above isnt returned, meaning adding expense failed
-        Return -1
+        Public Function AddNewExpense(ByVal amount As Decimal, ByVal remarks As String, ByVal dateAdded As DateTime, ByVal timeAdded As DateTime, ByVal categoryId As Integer) As Integer
 
-    End Function
+            Dim added As Integer = _expenseRepository.InsertExpense(amount, remarks, dateAdded, timeAdded, categoryId)
+
+            If added > 0 Then
+                'debug
+                MsgBox("Expense added successfully")
+
+                Return added
+            End If
 
 
+            ' returns -1 if above isn't returned, meaning adding expense failed
+            Return -1
 
-
-    Public Function getTotalOfDay(ByRef currentDate As DateTime) As Decimal
-
-        Return expenseRepository.getTotalOfDayAllCategory(currentDate)
-
-    End Function
+        End Function
 
 
 
 
+        Public Function GetTotalOfDay(ByRef currentDate As DateTime) As Decimal
 
-    Public Function getTotalOfMonth(ByVal currentDate As DateTime) As Decimal
+            Return _expenseRepository.GetTotalOfDayAllCategory(currentDate)
 
-        Dim startingDate As New DateTime(currentDate.Year, currentDate.Month, 1)
-        Dim endingDate As New DateTime(currentDate.Year, currentDate.Month, DateTime.DaysInMonth(currentDate.Year, currentDate.Month))
-
-        Return expenseRepository.getTotalOfMonthAllCategory(startingDate, endingDate)
-
-    End Function
+        End Function
 
 
 
 
-    ' load expense into panel
-    'Public Sub loadExpenstions(ByRef panel As Panel, ByRef currentDate As DateTime)
 
-    '    Dim expenseTable As DataTable = expenseRepository.getExpensesDynamically(currentDate.ToString("yyyy-MM-dd"))
+        Public Function GetTotalOfMonth(ByVal currentDate As DateTime) As Decimal
 
-    '    panel.Controls.Clear()
+            Dim startingDate As New DateTime(currentDate.Year, currentDate.Month, 1)
+            Dim endingDate As New DateTime(currentDate.Year, currentDate.Month, DateTime.DaysInMonth(currentDate.Year, currentDate.Month))
 
+            Return _expenseRepository.GetTotalOfMonthAllCategory(startingDate, endingDate)
 
-    '    For Each row As DataRow In expenseTable.Rows
-
-
-
-    '        Dim timeAdded As String = row("timeAdded").ToString
-    '        Dim time As DateTime = DateTime.Parse(timeAdded)
-    '        Dim formattedTime As String = time.ToString("hh:mm tt")
-    '        Dim amount As Decimal = row("amount")
-
-
-    '        ' creating instance of the expense Detailed display
-    '        Dim expenseDisplay As New expenseDetailDisplay()
-
-
-    '        expenseDisplay.lbl_amount.Text = amount.ToString()
-    '        expenseDisplay.lbl_remarks.Text = row("remarks").ToString
-    '        expenseDisplay.lbl_time.Text = formattedTime
-    '        expenseDisplay.BackColor = ColorTranslator.FromHtml(row("color").ToString())
-    '        expenseDisplay.Tag = row("eId")
-
-    '        expenseDisplay.Margin = New Padding(10)
-    '        expenseDisplay.AutoSize = False
-    '        expenseDisplay.Visible = True
-
-    '        expenseDisplay.Anchor = AnchorStyles.None
-
-    '        panel.Controls.Add(expenseDisplay)
-
-
-    '    Next
-    'End Sub
+        End Function
 
 
 
 
-End Class
+        ' load expense into panel
+        Public Sub LoadExpense(ByRef panel As TableLayoutPanel, ByRef currentDate As DateTime)
+
+            Dim expenseTable As DataTable = _expenseRepository.GetExpensesDynamically(currentDate.ToString("yyyy-MM-dd"))
+
+            panel.Controls.Clear()
+            panel.RowCount = 0
+            panel.RowStyles.Clear()
+            panel.Padding = New Padding(0, 10, 0, 10)
+
+            For Each row As DataRow In expenseTable.Rows
+
+
+                'parsing values from row
+                Dim amount As String = row("amount").ToString()
+                Dim remarks As String = row("remarks").ToString()
+
+                Dim timeAdded As String = row("timeAdded").ToString
+                Dim time As DateTime = DateTime.Parse(timeAdded)
+                Dim formattedTime As String = time.ToString("hh:mm tt")
+
+
+
+                ' creating instance of the expense Detailed display
+                Dim expenseInfo As New ExpenseDetailDisplay()
+
+
+                'setting values in the display
+                expenseInfo.lbl_amount.Text = amount
+                expenseInfo.lbl_remarks.Text = remarks
+                expenseInfo.lbl_time.Text = formattedTime
+                expenseInfo.BackColor = ColorTranslator.FromHtml(row("color").ToString())
+                expenseInfo.Tag = row("eId")
+
+                'sizing the panels
+                expenseInfo.Margin = New Padding(100, 10, 100, 10)
+                expenseInfo.AutoSize = False
+                expenseInfo.Visible = True
+                expenseInfo.Anchor = AnchorStyles.Top
+                expenseInfo.Dock = DockStyle.Top
+
+
+                'row management
+                panel.RowCount += 1
+                panel.RowStyles.Add(New RowStyle(SizeType.Absolute, 90))
+
+
+                'adding into table layout panel
+                panel.Controls.Add(expenseInfo, 0, panel.RowCount - 1)
+
+
+
+                ' adding arko row for spacing
+                panel.RowCount += 1
+                panel.RowStyles.Add(New RowStyle(SizeType.Absolute, 20))
+
+            Next
+        End Sub
+
+
+
+
+    End Class
+
+End NameSpace

@@ -1,162 +1,167 @@
 ﻿Imports System.Configuration
 Imports System.Data.SqlClient
+Imports expense_Trackie.Application
 
-Public Class CategoryRepository
+Namespace DataLayer
 
-    Dim connectionString As String = ConfigurationManager.ConnectionStrings("expenseTrackie").ConnectionString
-    Dim userId As Integer = SessionManager.Instance.currentUserId
+    Public Class CategoryRepository
 
-    Public Function isDuplicateCategory(ByRef catName As String) As Boolean
+        ReadOnly _connectionString As String = ConfigurationManager.ConnectionStrings("expenseTrackie").ConnectionString
 
-        Using connection As New SqlConnection(connectionString)
+        ReadOnly _userId As Integer = SessionManager.Instance.CurrentUserId
 
-            connection.Open()
+        Public Function IsDuplicateCategory(ByRef catName As String) As Boolean
 
-            Using command As New SqlCommand("checkDuplicateCategory", connection)
-                command.CommandType = CommandType.StoredProcedure
+            Using connection As New SqlConnection(_connectionString)
 
+                connection.Open()
 
-                'linking paremeter
-                command.Parameters.AddWithValue("@catName", catName)
-                command.Parameters.AddWithValue("@userId", userId)
-
-
-                'adding output paremeter
-                Dim existsParemeter As New SqlParameter("@exists", SqlDbType.Bit)
-                existsParemeter.Direction = ParameterDirection.Output
-
-                command.Parameters.Add(existsParemeter)
+                Using command As New SqlCommand("checkDuplicateCategory", connection)
+                    command.CommandType = CommandType.StoredProcedure
 
 
-                'executing
-                command.ExecuteNonQuery()
+                    'linking parameter
+                    command.Parameters.AddWithValue("@catName", catName)
+                    command.Parameters.AddWithValue("@userId", _userId)
 
 
-                ' fetching and converting output to boolean
-                Dim exists As Boolean = Convert.ToBoolean(existsParemeter.Value)
-                Return exists
+                    'adding output parameter
+                    Dim existsParameter As New SqlParameter("@exists", SqlDbType.Bit)
+                    existsParameter.Direction = ParameterDirection.Output
 
-                'will return TRUE if a category under same name exists
-
-            End Using
-
-            connection.Close()
-
-        End Using
-
-    End Function
-
-    Public Function addCategory(ByRef catName As String, ByRef catDescription As String, ByRef catColor As String) As Integer
-        Dim catId As Integer = 0
-
-        Using connection As New SqlConnection(connectionString)
-            connection.Open()
-
-            Using command As New SqlCommand("addNewCategory", connection)
-                command.CommandType = CommandType.StoredProcedure
+                    command.Parameters.Add(existsParameter)
 
 
-                'linking paremeters
-                command.Parameters.AddWithValue("@catName", catName)
-                command.Parameters.AddWithValue("@description", catDescription)
-                command.Parameters.AddWithValue("@color", catColor)
-                command.Parameters.AddWithValue("@userId", userId)
+                    'executing
+                    command.ExecuteNonQuery()
 
 
-                'creating output paremeter
-                Dim catIdParemeter As New SqlParameter("@catId", SqlDbType.Int)
-                catIdParemeter.Direction = ParameterDirection.Output
+                    ' fetching and converting output to boolean
+                    Dim exists As Boolean = Convert.ToBoolean(existsParameter.Value)
+                    Return exists
 
-                command.Parameters.Add(catIdParemeter)
+                    'will return TRUE if a category under same name exists
 
+                End Using
 
-                'executing query
-                command.ExecuteNonQuery()
-
-
-                'fetching and retriving catId, if added successfully, it'll be +ve number, else 0
-                catId = Convert.ToInt32(catIdParemeter.Value)
-
-                Return catId
-
-            End Using
-        End Using
-
-    End Function
-
-
-    Public Function deleteUserCategory(ByVal selectedCategory As Integer) As Integer
-
-        Dim result As Integer = 0
-
-        Using connection As New SqlConnection(connectionString)
-            connection.Open()
-
-            Using command As New SqlCommand("deleteCategory", connection)
-                command.CommandType = CommandType.StoredProcedure
-
-                'linking paremeter
-                command.Parameters.AddWithValue("@catId", selectedCategory)
-                command.Parameters.AddWithValue("@userId", userId)
-
-
-
-                'output paremeter
-                Dim resultParemeter As New SqlParameter("@result", SqlDbType.Int)
-                resultParemeter.Direction = ParameterDirection.Output
-
-                command.Parameters.Add(resultParemeter)
-
-
-                command.ExecuteNonQuery()
-
-
-                result = Convert.ToInt32(resultParemeter.Value)
-
-
-                Return result
-
+                connection.Close()
 
             End Using
 
-        End Using
+        End Function
 
-    End Function
+        Public Function AddCategory(ByRef catName As String, ByRef catDescription As String, ByRef catColor As String) As Integer
+            Dim catId As Integer = 0
 
+            Using connection As New SqlConnection(_connectionString)
+                connection.Open()
 
-    Public Function getUserCategory() As DataTable
-
-        Dim dataTable As New DataTable()
-
-
-        ' query
-        Using connection As New SqlConnection(connectionString)
-            connection.Open()
+                Using command As New SqlCommand("addNewCategory", connection)
+                    command.CommandType = CommandType.StoredProcedure
 
 
-            Using command As New SqlCommand("getCategory", connection)
-                command.CommandType = CommandType.StoredProcedure
+                    'linking parameters
+                    command.Parameters.AddWithValue("@catName", catName)
+                    command.Parameters.AddWithValue("@description", catDescription)
+                    command.Parameters.AddWithValue("@color", catColor)
+                    command.Parameters.AddWithValue("@userId", _userId)
 
 
-                'setting up input paremeter
-                command.Parameters.AddWithValue("@userId", userId)
+                    'creating output parameter
+                    Dim catIdParameter As New SqlParameter("@catId", SqlDbType.Int)
+                    catIdParameter.Direction = ParameterDirection.Output
+
+                    command.Parameters.Add(catIdParameter)
 
 
-                ' building a sqlreader that reads the rows generated by procedure
-                Using dataReader As SqlDataReader = command.ExecuteReader()
+                    'executing query
+                    command.ExecuteNonQuery()
 
-                    ' loading the read rows into datatable
-                    dataTable.Load(dataReader)
+
+                    'fetching and retrieving catId, if added successfully, it'll be +ve number, else 0
+                    catId = Convert.ToInt32(catIdParameter.Value)
+
+                    Return catId
+
+                End Using
+            End Using
+
+        End Function
+
+
+        Public Function DeleteUserCategory(ByVal selectedCategory As Integer) As Integer
+
+            Dim result As Integer = 0
+
+            Using connection As New SqlConnection(_connectionString)
+                connection.Open()
+
+                Using command As New SqlCommand("deleteCategory", connection)
+                    command.CommandType = CommandType.StoredProcedure
+
+                    'linking parameter
+                    command.Parameters.AddWithValue("@catId", selectedCategory)
+                    command.Parameters.AddWithValue("@userId", _userId)
+
+
+
+                    'output parameter
+                    Dim resultParameter As New SqlParameter("@result", SqlDbType.Int)
+                    resultParameter.Direction = ParameterDirection.Output
+
+                    command.Parameters.Add(resultParameter)
+
+
+                    command.ExecuteNonQuery()
+
+
+                    result = Convert.ToInt32(resultParameter.Value)
+
+
+                    Return result
+
+
+                End Using
+
+            End Using
+
+        End Function
+
+
+        Public Function GetUserCategory() As DataTable
+
+            Dim dataTable As New DataTable()
+
+
+            ' query
+            Using connection As New SqlConnection(_connectionString)
+                connection.Open()
+
+
+                Using command As New SqlCommand("getCategory", connection)
+                    command.CommandType = CommandType.StoredProcedure
+
+
+                    'setting up input parameter
+                    command.Parameters.AddWithValue("@userId", _userId)
+
+
+                    ' building a sql reader that reads the rows generated by procedure
+                    Using dataReader As SqlDataReader = command.ExecuteReader()
+
+                        ' loading the read rows into datatable
+                        dataTable.Load(dataReader)
+                    End Using
+
+
                 End Using
 
 
             End Using
 
+            Return dataTable
 
-        End Using
+        End Function
 
-        Return dataTable
-
-    End Function
-
-End Class
+    End Class
+End NameSpace

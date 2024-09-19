@@ -1,60 +1,62 @@
 ﻿Imports System.Configuration
 Imports System.Data.SqlClient
 
-Public Class UserRepository
+Namespace DataLayer
 
-    ' DATAMEMBERS
-    Dim connectionString As String = ConfigurationManager.ConnectionStrings("expenseTrackie").ConnectionString
+    Public Class UserRepository
 
-    'Dim userId As Integer = SessionManager.Instance.currentUserId
+        ' DATA MEMBERS
+        ReadOnly _connectionString As String = ConfigurationManager.ConnectionStrings("expenseTrackie").ConnectionString
 
-    Sub New()
+        'Dim userId As Integer = SessionManager.Instance.currentUserId
 
-    End Sub
+        Sub New()
+
+        End Sub
 
 #Region "check duplicate user"
 
-    Public Function isDuplicateUser(ByVal username As String, ByVal number As String) As Boolean
+        Public Function IsDuplicateUser(ByVal username As String, ByVal number As String) As Boolean
 
-        Using connection As New SqlConnection(connectionString)
+            Using connection As New SqlConnection(_connectionString)
 
-            connection.Open()
+                connection.Open()
 
-            Using command As New SqlCommand("checkDuplicateUser", connection)
-                command.CommandType = CommandType.StoredProcedure
-
-
-                ' adding input paremeters
-                command.Parameters.AddWithValue("@username", username)
-                command.Parameters.AddWithValue("@number", number)
+                Using command As New SqlCommand("checkDuplicateUser", connection)
+                    command.CommandType = CommandType.StoredProcedure
 
 
-                ' adding output paremeter
-                Dim existsParemeter As New SqlParameter("@exists", SqlDbType.Bit)
-                existsParemeter.Direction = ParameterDirection.Output
-
-                command.Parameters.Add(existsParemeter)
+                    ' adding input paremeters
+                    command.Parameters.AddWithValue("@username", username)
+                    command.Parameters.AddWithValue("@number", number)
 
 
-                ' executing non query
-                command.ExecuteNonQuery()
+                    ' adding output paremeter
+                    Dim existsParemeter As New SqlParameter("@exists", SqlDbType.Bit)
+                    existsParemeter.Direction = ParameterDirection.Output
+
+                    command.Parameters.Add(existsParemeter)
+
+
+                    ' executing non query
+                    command.ExecuteNonQuery()
 
 
 
-                ' fetching and converting output to boolean
-                Dim exists As Boolean = Convert.ToBoolean(existsParemeter.Value)
+                    ' fetching and converting output to boolean
+                    Dim exists As Boolean = Convert.ToBoolean(existsParemeter.Value)
 
 
-                ' returns true if its duplicate
-                Return exists
+                    ' returns true if its duplicate
+                    Return exists
+
+
+                End Using
 
 
             End Using
 
-
-        End Using
-
-    End Function
+        End Function
 
 
 #End Region
@@ -62,55 +64,55 @@ Public Class UserRepository
 
 #Region "add user"
 
-    Public Function addUser(ByVal username As String, ByVal number As String, ByVal password As String, ByVal dateJoined As DateTime, ByVal profileImageLink As String) As Integer
+        Public Function AddUser(ByVal username As String, ByVal number As String, ByVal password As String, ByVal dateJoined As DateTime, ByVal profileImageLink As String) As Integer
 
-        Dim userId As Integer = 0
+            Dim userId As Integer = 0
 
-        Using connection As New SqlConnection(connectionString)
+            Using connection As New SqlConnection(_connectionString)
 
-            connection.Open()
+                connection.Open()
 
-            Using command As New SqlCommand("addNewUser", connection)
-                command.CommandType = CommandType.StoredProcedure
-
-
-                ' adding input paremeter
-                command.Parameters.AddWithValue("@username", username)
-                command.Parameters.AddWithValue("@password", password)
-                command.Parameters.AddWithValue("@number", number)
-                command.Parameters.AddWithValue("@dateJoined", dateJoined)
-                command.Parameters.AddWithValue("@profilePicturePath", profileImageLink)
-
-                ' adding output paremeter
-                Dim userIdParemeter As New SqlParameter("@userId", SqlDbType.Int)
-                userIdParemeter.Direction = ParameterDirection.Output
-
-                command.Parameters.Add(userIdParemeter)
+                Using command As New SqlCommand("addUser", connection)
+                    command.CommandType = CommandType.StoredProcedure
 
 
+                    ' adding input paremeter
+                    command.Parameters.AddWithValue("@username", username)
+                    command.Parameters.AddWithValue("@password", password)
+                    command.Parameters.AddWithValue("@number", number)
+                    command.Parameters.AddWithValue("@dateJoined", dateJoined)
+                    command.Parameters.AddWithValue("@profilePicturePath", profileImageLink)
 
-                ' executing non query
-                command.ExecuteNonQuery()
+                    ' adding output paremeter
+                    Dim userIdParemeter As New SqlParameter("@userId", SqlDbType.Int)
+                    userIdParemeter.Direction = ParameterDirection.Output
 
-                ' converting from sqlDb to vbDatatype
-                If Not IsDBNull(userIdParemeter.Value) Then
-                    userId = Convert.ToInt32(userIdParemeter.Value)
-                End If
+                    command.Parameters.Add(userIdParemeter)
 
 
 
+                    ' executing non query
+                    command.ExecuteNonQuery()
+
+                    ' converting from sqlDb to vbDatatype
+                    If Not IsDBNull(userIdParemeter.Value) Then
+                        userId = Convert.ToInt32(userIdParemeter.Value)
+                    End If
 
 
+
+
+
+                End Using
+
+                connection.Close()
             End Using
 
-            connection.Close()
-        End Using
 
+            ' returns the fetched userId / 0
+            Return userId
 
-        ' returns the fetched userId / 0
-        Return userId
-
-    End Function
+        End Function
 
 
 #End Region
@@ -119,50 +121,50 @@ Public Class UserRepository
 #Region "signIn"
 
 
-    Public Function signIn(ByVal username As String, ByVal password As String) As Integer
+        Public Function SignIn(ByVal username As String, ByVal password As String) As Integer
 
-        Dim userId As Integer = 0
+            Dim userId As Integer = 0
 
-        Using connection As New SqlConnection(connectionString)
+            Using connection As New SqlConnection(_connectionString)
 
-            connection.Open()
+                connection.Open()
 
-            Using command As New SqlCommand("logUserIn", connection)
-                command.CommandType = CommandType.StoredProcedure
-
-
-                ' input paremeter linking
-                command.Parameters.AddWithValue("@username", username)
-                command.Parameters.AddWithValue("@password", password)
+                Using command As New SqlCommand("logUserIn", connection)
+                    command.CommandType = CommandType.StoredProcedure
 
 
-                ' output paremeter creating
-                Dim userIdParemeter As New SqlParameter("@userId", SqlDbType.Int)
-                userIdParemeter.Direction = ParameterDirection.Output
-
-                command.Parameters.Add(userIdParemeter)
+                    ' input paremeter linking
+                    command.Parameters.AddWithValue("@username", username)
+                    command.Parameters.AddWithValue("@password", password)
 
 
+                    ' output paremeter creating
+                    Dim userIdParemeter As New SqlParameter("@userId", SqlDbType.Int)
+                    userIdParemeter.Direction = ParameterDirection.Output
 
-                'executing procedure
-                command.ExecuteNonQuery()
-
-                ' if tyo output paremeter isnt null, we retrive the value
-                ' convert it to vb integer and assign to userId and return
-                If Not IsDBNull(userIdParemeter.Value) Then
-                    userId = Convert.ToInt32(userIdParemeter.Value)
-                End If
+                    command.Parameters.Add(userIdParemeter)
 
 
+
+                    'executing procedure
+                    command.ExecuteNonQuery()
+
+                    ' if tyo output paremeter isnt null, we retrive the value
+                    ' convert it to vb integer and assign to userId and return
+                    If Not IsDBNull(userIdParemeter.Value) Then
+                        userId = Convert.ToInt32(userIdParemeter.Value)
+                    End If
+
+
+                End Using
+
+                connection.Close()
             End Using
 
-            connection.Close()
-        End Using
+            ' if no match returns 0, if match returns userId
+            Return userId
 
-        ' if no match returns 0, if match returns userId
-        Return userId
-
-    End Function
+        End Function
 #End Region
 
 
@@ -170,42 +172,43 @@ Public Class UserRepository
 #Region "fetch user info"
 
 
-    Public Function fetchUserInfo(ByVal userId As Integer) As DataTable
+        Public Function FetchUserInfo(ByVal userId As Integer) As DataTable
 
-        Dim dataTable As New DataTable()
-
-
-        Using connection As New SqlConnection(connectionString)
-            connection.Open()
+            Dim dataTable As New DataTable()
 
 
-            Using command As New SqlCommand("fetchUserInfo", connection)
-                command.CommandType = CommandType.StoredProcedure
+            Using connection As New SqlConnection(_connectionString)
+                connection.Open()
 
 
-                'linking input paremeter
-                command.Parameters.AddWithValue("@id", userId)
+                Using command As New SqlCommand("fetchUserInfo", connection)
+                    command.CommandType = CommandType.StoredProcedure
+
+
+                    'linking input paremeter
+                    command.Parameters.AddWithValue("@id", userId)
 
 
 
-                ' building a sqlreader that reads the rows generated by procedure
-                Using dataReader As SqlDataReader = command.ExecuteReader()
+                    ' building a sqlreader that reads the rows generated by procedure
+                    Using dataReader As SqlDataReader = command.ExecuteReader()
 
-                    ' loading the read rows into datatable
-                    dataTable.Load(dataReader)
+                        ' loading the read rows into datatable
+                        dataTable.Load(dataReader)
+                    End Using
+
+
+
                 End Using
-
-
 
             End Using
 
-        End Using
 
+            Return dataTable
 
-        Return dataTable
-
-    End Function
+        End Function
 
 #End Region
 
-End Class
+    End Class
+End NameSpace

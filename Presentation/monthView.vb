@@ -1,57 +1,61 @@
 ﻿Imports expense_Trackie.Application
 
-Public Class monthView
+Namespace Presentation
 
-    Dim currentDate As DateTime = DateTime.Now
-    Dim expenseManager As New ExpenseManager()
+    Public Class MonthView
 
-    Private Sub monthView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim _currentDate As DateTime = DateTime.Now
 
-        ' setting display date
-        updateDisplayInformation()
+        Private Sub monthView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-
-
-    End Sub
-
-
-    ' reflecting changes in information
-    Private Sub updateDisplayInformation()
-
-        lbl_year.Text = currentDate.ToString("yyyy")
-        lbl_month.Text = currentDate.ToString("MMM")
-        lbl_amount.Text = getTotal()
-
-    End Sub
-
-
-    ' db ko kam
-    Private Function getTotal() As Decimal
-        Return expenseManager.GetTotalOfMonth(currentDate)
-
-    End Function
+            ' setting display date
+            UpdateDisplayInformation()
 
 
 
-    Private Sub btn_previous_Click(sender As Object, e As EventArgs) Handles btn_previous.Click
-
-        currentDate = currentDate.AddMonths(-1)
-
-        'updating the date and total
-        updateDisplayInformation()
-
-    End Sub
-
-    Private Sub btn_next_Click(sender As Object, e As EventArgs) Handles btn_next.Click
-
-        currentDate = currentDate.AddMonths(1)
-
-        'updating the date and total
-        updateDisplayInformation()
-
-    End Sub
+        End Sub
 
 
+        ' reflecting changes in information
+        Private Sub UpdateDisplayInformation()
+
+            lbl_year.Text = _currentDate.ToString("yyyy")
+            lbl_month.Text = _currentDate.ToString("MMM")
+            lbl_amount.Text = GetTotal()
+
+        End Sub
 
 
-End Class
+        ' db ko kam
+        Private Function GetTotal() As Decimal
+            
+            Dim expenseManager As New ExpenseManager()
+            Return expenseManager.GetTotalOfMonth(_currentDate)
+
+        End Function
+
+
+
+        Private Sub btn_previous_Click(sender As Object, e As EventArgs) Handles btn_previous.Click
+
+            _currentDate = _currentDate.AddMonths(-1)
+
+            'updating the date and total
+            UpdateDisplayInformation()
+
+        End Sub
+
+        Private Sub btn_next_Click(sender As Object, e As EventArgs) Handles btn_next.Click
+
+            _currentDate = _currentDate.AddMonths(1)
+
+            'updating the date and total
+            UpdateDisplayInformation()
+
+        End Sub
+
+
+
+
+    End Class
+End NameSpace

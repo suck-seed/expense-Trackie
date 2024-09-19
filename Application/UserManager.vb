@@ -1,33 +1,37 @@
-﻿Public Class UserManager
+﻿Imports expense_Trackie.DataLayer
 
-    Dim userRepository As New UserRepository()
-    Dim userId As Integer = 0
+Namespace Application
+
+    Public Class UserManager
+
+        Dim _userRepository As New UserRepository()
+        Dim _userId As Integer = 0
 
 #Region "register"
 
-    Public Function registerUser(ByVal username As String, ByVal number As String, ByVal password As String, ByVal dateJoined As DateTime, ByVal imageAddress As String) As Integer
+        Public Function RegisterUser(ByVal username As String, ByVal number As String, ByVal password As String, ByVal dateJoined As DateTime, ByVal imageAddress As String) As Integer
 
 
-        If userRepository.isDuplicateUser(username, number) Then
-            MsgBox("A user with above information already exists ")
+            If _userRepository.IsDuplicateUser(username, number) Then
+                MsgBox("A user with above information already exists ")
 
 
-            Return -1
-        End If
+                Return -1
+            End If
 
 
-        userId = userRepository.addUser(username, number, password, dateJoined, imageAddress)
+            _userId = _userRepository.AddUser(username, number, password, dateJoined, imageAddress)
 
-        ' if registeration successful we would store the returned userId as currentiD
-        If userId > 0 Then
+            ' if registration successful we would store the returned userId as current id
+            If _userId > 0 Then
 
-            setUserSessionInformation(userId)
+                SetUserSessionInformation(_userId)
 
-        End If
+            End If
 
-        Return userId
+            Return _userId
 
-    End Function
+        End Function
 
 
 #End Region
@@ -36,65 +40,64 @@
 #Region "login"
 
 
-    Public Function logUserIn(ByVal username As String, ByVal password As String) As Integer
+        Public Function LogUserIn(ByVal username As String, ByVal password As String) As Integer
 
 
-        If userRepository.isDuplicateUser(username, "") Then
+            If _userRepository.IsDuplicateUser(username, "") Then
 
-            ' since username exist, we proceed to login
-            ' signIn from userRepository signIns and returns the 'id' of the user 
+                ' since username exist, we proceed to login
+                ' signIn from userRepository signIns and returns the 'id' of the user 
 
-            userId = userRepository.signIn(username, password)
+                _userId = _userRepository.SignIn(username, password)
 
-            If userId > 0 Then
+                If _userId > 0 Then
 
-                setUserSessionInformation(userId)
+                    SetUserSessionInformation(_userId)
+
+
+                End If
+                Return _userId
+
+
+            Else
+
+                MsgBox("User under the username does not exists. ")
+                Return -1
 
 
             End If
-            Return userId
 
 
-        Else
-
-            MsgBox("User under the username does not exists. ")
-            Return -1
-
-
-        End If
-
-
-    End Function
+        End Function
 #End Region
 
 
 #Region "setting session user info"
 
+        Private Sub SetUserSessionInformation(ByVal userId As Integer)
+
+            Dim dataTable As DataTable = _userRepository.FetchUserInfo(userId)
 
 
-    Public Sub setUserSessionInformation(ByVal userId As Integer)
+            SessionManager.Instance.CurrentUserId = userId
+            SessionManager.Instance.CurrentLoginTime = DateTime.Now
 
-        Dim dataTable As DataTable = userRepository.fetchUserInfo(userId)
-
-
-        SessionManager.Instance.currentUserId = userId
-        SessionManager.Instance.currentLoginTime = DateTime.Now
-
-        For Each row As DataRow In dataTable.Rows
+            For Each row As DataRow In dataTable.Rows
 
 
-            SessionManager.Instance.currentUsername = row("username").ToString
-            SessionManager.Instance.currentPassword = row("password").ToString
-            SessionManager.Instance.currentNumber = row("number").ToString
-            SessionManager.Instance.currentdateJoined = DateTime.Parse(row("dateJoined").ToString)
-            SessionManager.Instance.currentProfileLink = row("profilePicturePath").ToString
+                SessionManager.Instance.CurrentUsername = row("username").ToString
+                SessionManager.Instance.CurrentPassword = row("password").ToString
+                SessionManager.Instance.CurrentNumber = row("number").ToString
+                SessionManager.Instance.CurrentDateJoined = DateTime.Parse(row("dateJoined").ToString)
+                SessionManager.Instance.CurrentProfileLink = row("profilePicturePath").ToString
 
 
-        Next
+            Next
 
 
-    End Sub
+        End Sub
 
 #End Region
 
-End Class
+    End Class
+End NameSpace

@@ -3,6 +3,7 @@ Imports expense_Trackie.Application
 
 Namespace Presentation
 
+
     Public Class NewExpense
 
         ' DATA MEMBERS
@@ -12,8 +13,6 @@ Namespace Presentation
         ReadOnly _timeAdded As DateTime = DateTime.Now
         Dim _selectedCategoryId As Integer
 
-        'custom event to trigger when an expense is added to refresh the day and month view
-        Public Shared Event ExpenseAdded As EventHandler
 
 
         ' expense creation
@@ -54,12 +53,13 @@ Namespace Presentation
             Dim expenseId As Integer = expenseManager.AddNewExpense(_amount, _remarks, _dateAdded, _timeAdded, _selectedCategoryId)
 
             If expenseId > 0 Then
+
                 MsgBox("Expense added successfully")
 
-                RaiseEvent ExpenseAdded(Me, EventArgs.Empty)
-
+                'Presentation.DayView.btn_refresh
 
                 Me.Close()
+
             Else
                 MsgBox("Failed adding expense ")
             End If
@@ -67,6 +67,9 @@ Namespace Presentation
 
 
         End Sub
+
+
+
 
 
 
@@ -89,7 +92,7 @@ Namespace Presentation
 
             For Each control In flowPanel_category.Controls
 
-                If TypeOf (control) Is RadioButton  Then
+                If TypeOf (control) Is RadioButton Then
 
                     Dim radioButton As RadioButton = DirectCast(control, RadioButton)
 
@@ -114,19 +117,9 @@ Namespace Presentation
 
 
 
+#Region "junk"
+        ' CLOSING
 
-
-
-
-
-
-
-
-
-
-
-
-        ' CLOSE
         Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
             Me.Close()
         End Sub
@@ -134,21 +127,18 @@ Namespace Presentation
 
 
 
-        Protected Overrides Sub Finalize()
-            MyBase.Finalize()
-        End Sub
 
 
+        ' MOUSE MOVEMENT
 
 
-
-
-        ' TOPBAR MOVEMENT
         Dim _mouseMove As System.Drawing.Point
+
 
         Private Sub topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseDown
             _mouseMove = New Point(-e.X, -e.Y)
         End Sub
+
 
         Private Sub topbar_MouseMove(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseMove
             If e.Button = Windows.Forms.MouseButtons.Left Then
@@ -162,6 +152,7 @@ Namespace Presentation
 
 
         ' GRADIENT
+
         Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
             ' Get the client area of the form
             Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
@@ -176,6 +167,10 @@ Namespace Presentation
                 e.Graphics.FillRectangle(brush, rect)
             End Using
         End Sub
+
+
+#End Region
+
 
 
     End Class

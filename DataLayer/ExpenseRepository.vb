@@ -1,207 +1,211 @@
 ﻿Imports System.Configuration
 Imports System.Data.SqlClient
+Imports expense_Trackie.Application
 
-Public Class ExpenseRepository
+Namespace DataLayer
 
-
-    Dim connectionString As String = ConfigurationManager.ConnectionStrings("expenseTrackie").ConnectionString
-    Dim userId As Integer = SessionManager.Instance.currentUserId
-    Dim selectedCategory As List(Of Integer) = SessionManager.SelectedCategoryIds
+    Public Class ExpenseRepository
 
 
-    Public Function insertExpense(ByVal amount As Decimal, ByVal remarks As String, ByVal dateAdded As DateTime, ByVal timeAdded As DateTime, ByVal categoryId As Integer) As Integer
-
-        Dim expenseId As Integer = 0
-
-        Using connection As New SqlConnection(connectionString)
-            connection.Open()
-
-            Using command As New SqlCommand("addNewExpense", connection)
-                command.CommandType = CommandType.StoredProcedure
+        ReadOnly _connectionString As String = ConfigurationManager.ConnectionStrings("expenseTrackie").ConnectionString
+        ReadOnly _userId As Integer = SessionManager.Instance.CurrentUserId
+        ReadOnly _selectedCategory As List(Of Integer) = SessionManager.SelectedCategoryIds
+        ReadOnly _currentDate as DateTime = SessionManager.Instance.CurrentDate
 
 
-                'paremeter linking
-                command.Parameters.AddWithValue("@amount", amount)
-                command.Parameters.AddWithValue("@remarks", remarks)
-                command.Parameters.AddWithValue("@dateAdded", dateAdded)
-                command.Parameters.AddWithValue("@timeAdded", timeAdded)
-                command.Parameters.AddWithValue("@catId", categoryId)
-                command.Parameters.AddWithValue("@userId", userId)
+        Public Function InsertExpense(ByVal amount As Decimal, ByVal remarks As String, ByVal dateAdded As DateTime, ByVal timeAdded As DateTime, ByVal categoryId As Integer) As Integer
+
+            Dim expenseId As Integer = 0
+
+            Using connection As New SqlConnection(_connectionString)
+                connection.Open()
+
+                Using command As New SqlCommand("addNewExpense", connection)
+                    command.CommandType = CommandType.StoredProcedure
 
 
-                'output paremeter
-
-                Dim expenseIdParemeter As New SqlParameter("@eId", SqlDbType.Int)
-                expenseIdParemeter.Direction = ParameterDirection.Output
-
-                command.Parameters.Add(expenseIdParemeter)
-
-
-                command.ExecuteNonQuery()
+                    'paremeter linking
+                    command.Parameters.AddWithValue("@amount", amount)
+                    command.Parameters.AddWithValue("@remarks", remarks)
+                    command.Parameters.AddWithValue("@dateAdded", dateAdded)
+                    command.Parameters.AddWithValue("@timeAdded", timeAdded)
+                    command.Parameters.AddWithValue("@catId", categoryId)
+                    command.Parameters.AddWithValue("@userId", _userId)
 
 
-                'fetching output paremeter
-                expenseId = Convert.ToInt32(expenseIdParemeter.Value)
+                    'output paremeter
+
+                    Dim expenseIdParemeter As New SqlParameter("@eId", SqlDbType.Int)
+                    expenseIdParemeter.Direction = ParameterDirection.Output
+
+                    command.Parameters.Add(expenseIdParemeter)
 
 
-                Return expenseId
+                    command.ExecuteNonQuery()
 
 
-
-            End Using
-
-            connection.Close()
-
-        End Using
+                    'fetching output paremeter
+                    expenseId = Convert.ToInt32(expenseIdParemeter.Value)
 
 
-    End Function
+                    Return expenseId
 
 
 
-    Public Function getTotalOfDayAllCategory(ByVal currentDate As DateTime) As Decimal
-        ' datetime format = "yyyy-MM-dd"
+                End Using
 
-        Dim total As Decimal = 0
-
-        Using connection As New SqlConnection(connectionString)
-            connection.Open()
-
-            Using command As New SqlCommand("getTotalOfDayAllCategory", connection)
-                command.CommandType = CommandType.StoredProcedure
-
-
-                'linking input paremeter
-                command.Parameters.AddWithValue("@userId", userId)
-                command.Parameters.AddWithValue("@dateAdded", currentDate)
-
-
-
-                ' creating output paremeter
-                Dim totalParemeter As New SqlParameter("@total", SqlDbType.Decimal)
-                totalParemeter.Direction = ParameterDirection.Output
-
-                command.Parameters.Add(totalParemeter)
-
-
-                'executing query
-                command.ExecuteNonQuery()
-
-
-
-                'fetching total and assigning to total variable
-                If Not IsDBNull(totalParemeter.Value) Then
-                    total = Convert.ToDecimal(totalParemeter.Value)
-                End If
-
-
-                'returning 
-                Return total
+                connection.Close()
 
             End Using
 
 
-        End Using
-
-
-    End Function
+        End Function
 
 
 
+        Public Function GetTotalOfDayAllCategory(ByVal currentDate As DateTime) As Decimal
+            ' datetime format = "yyyy-MM-dd"
 
-    Public Function getTotalOfMonthAllCategory(ByVal startingDate As DateTime, ByVal endingDate As DateTime) As Decimal
-        ' datetime format = "yyyy-MM-dd"
+            Dim total As Decimal = 0
 
-        Dim total As Decimal = 0
+            Using connection As New SqlConnection(_connectionString)
+                connection.Open()
 
-        Using connection As New SqlConnection(connectionString)
-            connection.Open()
-
-            Using command As New SqlCommand("getTotalOfMonth", connection)
-                command.CommandType = CommandType.StoredProcedure
+                Using command As New SqlCommand("getTotalOfDayAllCategory", connection)
+                    command.CommandType = CommandType.StoredProcedure
 
 
-                'linking input paremeter
-                command.Parameters.AddWithValue("@userId", userId)
-                command.Parameters.AddWithValue("@startingDate", startingDate)
-                command.Parameters.AddWithValue("@endingDate", endingDate)
+                    'linking input paremeter
+                    command.Parameters.AddWithValue("@userId", _userId)
+                    command.Parameters.AddWithValue("@dateAdded", currentDate)
 
 
 
-                ' creating output paremeter
-                Dim totalParemeter As New SqlParameter("@total", SqlDbType.Decimal)
-                totalParemeter.Direction = ParameterDirection.Output
+                    ' creating output paremeter
+                    Dim totalParemeter As New SqlParameter("@total", SqlDbType.Decimal)
+                    totalParemeter.Direction = ParameterDirection.Output
 
-                command.Parameters.Add(totalParemeter)
-
-
-                'executing query
-                command.ExecuteNonQuery()
+                    command.Parameters.Add(totalParemeter)
 
 
-
-                'fetching total and assigning to total variable
-                If Not IsDBNull(totalParemeter.Value) Then
-                    total = Convert.ToDecimal(totalParemeter.Value)
-                End If
+                    'executing query
+                    command.ExecuteNonQuery()
 
 
-                'returning 
-                Return total
+
+                    'fetching total and assigning to total variable
+                    If Not IsDBNull(totalParemeter.Value) Then
+                        total = Convert.ToDecimal(totalParemeter.Value)
+                    End If
+
+
+                    'returning 
+                    Return total
+
+                End Using
+
 
             End Using
 
 
-        End Using
-
-
-    End Function
-
-
-
-    'Public Function getUserExpenseAllCategory(ByVal currentDate As DateTime) As DataTable
-
-    '    Dim dataTable As New DataTable()
-
-    '    Using connection As New SqlConnection(connectionString)
-    '        connection.Open()
-
-    '        Using command As New SqlCommand("getUserExpenseAllCategory", connection)
-    '            command.CommandType = CommandType.StoredProcedure
-
-
-
-    '            ' linking input paremeter
-    '            command.Parameters.AddWithValue("@userId", userId)
-    '            command.Parameters.AddWithValue("@dateAdded", currentDate)
-
-
-
-    '            ' building a sqlreader that reads the rows generated by procedure
-    '            Using dataReader As SqlDataReader = command.ExecuteReader()
-
-    '                ' loading the read rows into datatable
-    '                dataTable.Load(dataReader)
-    '            End Using
-
-
-
-    '        End Using
-
-    '    End Using
-
-    '    Return dataTable
-
-    'End Function
+        End Function
 
 
 
 
-    ' to get expenses dynamically
-    Public Function getExpensesDynamically(ByVal currentDate As DateTime) As DataTable
+        Public Function GetTotalOfMonthAllCategory(ByVal startingDate As DateTime, ByVal endingDate As DateTime) As Decimal
+            ' datetime format = "yyyy-MM-dd"
 
-        ' base query
-        Dim query As String = " SELECT eId,remarks,timeAdded,amount,color
+            Dim total As Decimal = 0
+
+            Using connection As New SqlConnection(_connectionString)
+                connection.Open()
+
+                Using command As New SqlCommand("getTotalOfMonth", connection)
+                    command.CommandType = CommandType.StoredProcedure
+
+
+                    'linking input paremeter
+                    command.Parameters.AddWithValue("@userId", _userId)
+                    command.Parameters.AddWithValue("@startingDate", startingDate)
+                    command.Parameters.AddWithValue("@endingDate", endingDate)
+
+
+
+                    ' creating output paremeter
+                    Dim totalParemeter As New SqlParameter("@total", SqlDbType.Decimal)
+                    totalParemeter.Direction = ParameterDirection.Output
+
+                    command.Parameters.Add(totalParemeter)
+
+
+                    'executing query
+                    command.ExecuteNonQuery()
+
+
+
+                    'fetching total and assigning to total variable
+                    If Not IsDBNull(totalParemeter.Value) Then
+                        total = Convert.ToDecimal(totalParemeter.Value)
+                    End If
+
+
+                    'returning 
+                    Return total
+
+                End Using
+
+
+            End Using
+
+
+        End Function
+
+
+
+        'Public Function getUserExpenseAllCategory(ByVal currentDate As DateTime) As DataTable
+
+        '    Dim dataTable As New DataTable()
+
+        '    Using connection As New SqlConnection(connectionString)
+        '        connection.Open()
+
+        '        Using command As New SqlCommand("getUserExpenseAllCategory", connection)
+        '            command.CommandType = CommandType.StoredProcedure
+
+
+
+        '            ' linking input paremeter
+        '            command.Parameters.AddWithValue("@userId", userId)
+        '            command.Parameters.AddWithValue("@dateAdded", currentDate)
+
+
+
+        '            ' building a sqlreader that reads the rows generated by procedure
+        '            Using dataReader As SqlDataReader = command.ExecuteReader()
+
+        '                ' loading the read rows into datatable
+        '                dataTable.Load(dataReader)
+        '            End Using
+
+
+
+        '        End Using
+
+        '    End Using
+
+        '    Return dataTable
+
+        'End Function
+
+
+
+
+        ' to get expenses dynamically
+        Public Function GetExpensesDynamically(ByVal currentDate As DateTime) As DataTable
+
+            ' base query
+            Dim query As String = " SELECT eId,remarks,timeAdded,amount,color
 		                        FROM expense e
 	                        	JOIN category c
 	                        	on e.catId = c.catId
@@ -212,39 +216,41 @@ Public Class ExpenseRepository
                             "
 
 
-        If selectedCategory.Count > 0 Then
+            If _selectedCategory.Count > 0 Then
 
-            'adding catogery filter
-            query &= "AND c.catId IN ( " & String.Join(",", selectedCategory) & " ) "
+                'adding category filter
+                query &= "AND c.catId IN ( " & String.Join(",", _selectedCategory) & " ) "
 
-        End If
-
-
-        Dim dataTable As New DataTable()
-
-        Using connection As New SqlConnection(connectionString)
-            connection.Open()
-
-            Using command As New SqlCommand(query, connection)
-
-                command.Parameters.AddWithValue("@userId", userId)
-                command.Parameters.AddWithValue("@dateAdded", currentDate)
+            End If
 
 
-                Using dataReader As SqlDataReader = command.ExecuteReader()
+            Dim dataTable As New DataTable()
 
-                    dataTable.Load(dataReader)
+            Using connection As New SqlConnection(_connectionString)
+                connection.Open()
+
+                Using command As New SqlCommand(query, connection)
+
+                    command.Parameters.AddWithValue("@userId", _userId)
+                    command.Parameters.AddWithValue("@dateAdded", currentDate)
+
+
+                    Using dataReader As SqlDataReader = command.ExecuteReader()
+
+                        dataTable.Load(dataReader)
+
+                    End Using
+
 
                 End Using
 
-
             End Using
 
-        End Using
-
-        Return dataTable
+            Return dataTable
 
 
-    End Function
+        End Function
 
-End Class
+    End Class
+    
+End NameSpace

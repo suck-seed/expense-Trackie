@@ -1,25 +1,22 @@
 ﻿Imports System.Drawing.Drawing2D
 Imports expense_Trackie.Application
-Imports expense_Trackie.DataLayer
 
-Namespace _01Presentation
+Namespace Presentation
 
-    Public Class mainWindow
-
-        Private categoryManager As New CategoryManager
-        Private expenseManager As New ExpenseManager
-        Private categoryRepository As New CategoryRepository
-
-        Public Event CategoryChanged As EventHandler
+    Public Class MainWindow
 
 #Region "form load"
 
 
-        Private Sub mybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
+        Private Sub MybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
-            loadInformation()
+            LoadInformation()
+
+            Dim categoryManager As New CategoryManager()
             categoryManager.GenerateCategoryCheckButtons(flowPanelCategory)
+
+            Me.add_category.PerformClick()
 
         End Sub
 
@@ -29,11 +26,11 @@ Namespace _01Presentation
 
 #Region "load information during startup"
 
-        Public Sub loadInformation()
-            Me.lbl_username.Text = SessionManager.Instance.currentUsername
+        Private Sub LoadInformation()
+            Me.lbl_username.Text = SessionManager.Instance.CurrentUsername
 
-            If Not String.IsNullOrEmpty(SessionManager.Instance.currentProfileLink) Then
-                btn_profile.Image = Image.FromFile(SessionManager.Instance.currentProfileLink)
+            If Not String.IsNullOrEmpty(SessionManager.Instance.CurrentProfileLink) Then
+                btn_profile.Image = Image.FromFile(SessionManager.Instance.CurrentProfileLink)
             End If
 
 
@@ -50,7 +47,7 @@ Namespace _01Presentation
             If radio_month_view.Checked Then
 
                 If radio_home.Checked Then
-                    displayForm(New monthView())
+                    DisplayForm(New MonthView())
                 End If
                 radio_month_view.Image = My.Resources.monthDark
 
@@ -71,7 +68,7 @@ Namespace _01Presentation
             If radio_day_view.Checked Then
 
                 If radio_home.Checked Then
-                    displayForm(New dayView(Me))
+                    DisplayForm(New DayView(Me))
                 End If
                 radio_day_view.Image = My.Resources.dayDark
 
@@ -85,7 +82,7 @@ Namespace _01Presentation
             If radio_month_view.Checked Then
 
                 If radio_home.Checked Then
-                    displayForm(New monthView())
+                    DisplayForm(New MonthView())
                 End If
                 radio_month_view.Image = My.Resources.monthDark
 
@@ -102,7 +99,7 @@ Namespace _01Presentation
         End Sub
 
 
-        Private Sub displayForm(control As UserControl)
+        Private Sub DisplayForm(control As UserControl)
 
             panel_main.Controls.Clear()
 
@@ -124,7 +121,7 @@ Namespace _01Presentation
 #Region "get selected category"
 
 
-        ' retriving categoryId
+        ' retrieving categoryId
         Private Sub radio_all_Click(sender As Object, e As EventArgs) Handles radio_all.Click
 
 
@@ -176,27 +173,29 @@ Namespace _01Presentation
 
 #Region "expense"
 
-        Private Sub addExpenseClicked(sender As Object, e As EventArgs) Handles button_add_expense.Click
-            New_Expense.Show()
+        Private Sub AddExpenseClicked(sender As Object, e As EventArgs) Handles button_add_expense.Click
+
+            NewExpense.Show()
+
         End Sub
+
+
 
 #End Region
 
 
 #Region "category"
-        Private Sub addCategoryClicked(sender As Object, e As EventArgs) Handles add_category.Click
+        Private Sub AddCategoryClicked(sender As Object, e As EventArgs) Handles add_category.Click
 
-            'Dim newCategory As New New_Category()
-            'newCategory.Show()
+            NewCategory.Show()
 
-            New_Category.Show()
+            'Presentation.NewCategory.button_create.PerformClick()
 
         End Sub
 
         Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
 
-            Dim deleteCat As New deleteCategory()
-            deleteCat.Show()
+            DeleteCategory.Show()
 
         End Sub
 #End Region
@@ -204,7 +203,7 @@ Namespace _01Presentation
 
 #Region "check background change"
         ' checked visual cues
-        Private Sub radioCheckedChanged(sender As Object, e As EventArgs) Handles radio_home.CheckedChanged, radio_analytical.CheckedChanged, radio_export.CheckedChanged
+        Private Sub RadioCheckedChanged(sender As Object, e As EventArgs) Handles radio_home.CheckedChanged, radio_analytical.CheckedChanged, radio_export.CheckedChanged
 
             ' for home button
             If radio_home.Checked Then
@@ -236,7 +235,7 @@ Namespace _01Presentation
 
 
 #Region "min/max/close"
-        Private Sub buttonMaxClick(sender As Object, e As EventArgs) Handles button_max.Click
+        Private Sub ButtonMaxClick(sender As Object, e As EventArgs) Handles button_max.Click
 
             panel_main.Refresh()
 
@@ -253,27 +252,27 @@ Namespace _01Presentation
 
 
         ' minimize on button click
-        Private Sub buttonMinClick(sender As Object, e As EventArgs) Handles button_min.Click
+        Private Sub ButtonMinClick(sender As Object, e As EventArgs) Handles button_min.Click
             Me.WindowState = FormWindowState.Minimized
 
             panel_main.Refresh()
         End Sub
 
         ' close
-        Private Sub buttonCloseClick(sender As Object, e As EventArgs) Handles button_close.Click
+        Private Sub ButtonCloseClick(sender As Object, e As EventArgs) Handles button_close.Click
             Me.Close()
-            eraseSessionInformation()
+            EraseSessionInformation()
 
         End Sub
 
-        Public Sub eraseSessionInformation()
+        Private Sub EraseSessionInformation()
 
-            SessionManager.Instance.currentUserId = 0
-            SessionManager.Instance.currentUsername = ""
-            SessionManager.Instance.currentPassword = ""
-            SessionManager.Instance.currentNumber = ""
-            SessionManager.Instance.currentdateJoined = DateTime.Now
-            SessionManager.Instance.currentProfileLink = ""
+            SessionManager.Instance.CurrentUserId = 0
+            SessionManager.Instance.CurrentUsername = ""
+            SessionManager.Instance.CurrentPassword = ""
+            SessionManager.Instance.CurrentNumber = ""
+            SessionManager.Instance.CurrentDateJoined = DateTime.Now
+            SessionManager.Instance.CurrentProfileLink = ""
 
         End Sub
 
@@ -281,21 +280,29 @@ Namespace _01Presentation
 #End Region
 
 
-#Region "mouse Movement/paint"
-        Dim mouse_move As System.Drawing.Point
+#Region "mouse Movement/ paint"
+
+        ' MOUSE MOVEMENT
+
+
+        Dim _mouseMove As System.Drawing.Point
+
 
         Private Sub topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseDown
-            mouse_move = New Point(-e.X, -e.Y)
+            _mouseMove = New Point(-e.X, -e.Y)
         End Sub
+
 
         Private Sub topbar_MouseMove(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseMove
             If e.Button = Windows.Forms.MouseButtons.Left Then
-                Dim mouse_position As Point
-                mouse_position = Control.MousePosition
-                mouse_position.Offset(mouse_move.X, mouse_move.Y)
-                Me.Location = mouse_position
+                Dim position As Point
+                position = Control.MousePosition
+                position.Offset(_mouseMove.X, _mouseMove.Y)
+                Me.Location = position
             End If
         End Sub
+
+
 
         Private Sub mainWindow_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
             ' Get the client area of the form

@@ -1,61 +1,63 @@
-﻿Public Class SessionManager
+﻿Namespace Application
+    Public Class SessionManager
 
-    Private Sub New()
+        Private Sub New()
 
-    End Sub
+        End Sub
 
-    Private Shared _instance As SessionManager
-
-
-    ' user Info
-    Public Property currentUserId As Integer = 1
-    Public Property currentUsername As String = "johndoe"
-    Public Property currentNumber As String
-    Public Property currentPassword As String
-    Public Property currentLoginTime As DateTime
-    Public Property currentProfileLink As String
-    Public Property currentdateJoined As DateTime
+        Private Shared _instance As SessionManager
 
 
-
-
-    ' expense display management
-    Public Property currentDate As DateTime
+        ' user Info
+        Public Property CurrentUserId As Integer = 1
+        Public Property CurrentUsername As String
+        Public Property CurrentNumber As String
+        Public Property CurrentPassword As String
+        Public Property CurrentLoginTime As DateTime
+        Public Property CurrentProfileLink As String
+        Public Property CurrentDateJoined As DateTime
 
 
 
-    Public Shared ReadOnly Property Instance() As SessionManager
-        Get
-            If _instance Is Nothing Then
-                _instance = New SessionManager()
-            End If
-            Return _instance
-        End Get
-    End Property
+
+        ' expense display management
+        Public Property CurrentDate As DateTime
 
 
 
-    ' selcted category
-    Private Shared _selectedCategoryIds As List(Of Integer)
-
-    Public Shared Property SelectedCategoryIds As List(Of Integer)
-        Get
-            If _selectedCategoryIds Is Nothing Then
-                _selectedCategoryIds = New List(Of Integer)
-            End If
-            Return _selectedCategoryIds
-        End Get
-        Set(value As List(Of Integer))
-            _selectedCategoryIds = value
-        End Set
-    End Property
+        Public Shared ReadOnly Property Instance() As SessionManager
+            Get
+                If _instance Is Nothing Then
+                    _instance = New SessionManager()
+                End If
+                Return _instance
+            End Get
+        End Property
 
 
 
-End Class
+        ' selected category
+        Private Shared _selectedCategoryIds As List(Of Integer)
+
+        Public Shared Property SelectedCategoryIds As List(Of Integer)
+            Get
+                If _selectedCategoryIds Is Nothing Then
+                    _selectedCategoryIds = New List(Of Integer)
+                End If
+                Return _selectedCategoryIds
+            End Get
+            Set(value As List(Of Integer))
+                _selectedCategoryIds = value
+            End Set
+        End Property
+
+
+
+    End Class
 
 
 
 
 ' to access
 ' SessionManager.Instance._____ = what we want to assign
+End NameSpace
