@@ -1,4 +1,8 @@
-﻿Public Class dayView
+﻿Imports expense_Trackie.Application
+Imports expense_Trackie.DataLayer
+Imports expense_Trackie._01Presentation
+
+Public Class dayView
 
     Dim currentDate As DateTime = DateTime.Now
     Dim expenseManager As New ExpenseManager()
@@ -48,7 +52,7 @@
 
     Private Function getTotal() As Decimal
 
-        Dim total As Decimal = expenseManager.getTotalOfDay(currentDate.ToString("yyyy-MM-dd"))
+        Dim total As Decimal = expenseManager.GetTotalOfDay(currentDate.ToString("yyyy-MM-dd"))
         Return total
 
     End Function
@@ -110,7 +114,7 @@
 
     Public Sub loadExpenstions()
 
-        Dim expenseTable As DataTable = expenseRepository.getExpensesDynamically(currentDate.ToString("yyyy-MM-dd"))
+        Dim expenseTable As DataTable = expenseRepository.GetExpensesDynamically(currentDate.ToString("yyyy-MM-dd"))
 
         panel_expense_display.Controls.Clear()
 

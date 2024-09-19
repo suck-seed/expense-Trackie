@@ -1,4 +1,5 @@
 ﻿Imports System.Drawing.Drawing2D
+Imports expense_Trackie.Application
 
 Public Class deleteCategory
 
@@ -7,7 +8,7 @@ Public Class deleteCategory
 
     Private Sub deleteCategory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        categoryManager.generateCategoryRadioButtons(flowPanel_category)
+        categoryManager.GenerateCategoryRadioButtons(flowPanel_category)
 
     End Sub
 
@@ -31,13 +32,13 @@ Public Class deleteCategory
 
         selectedCategoryId = getSelectedCategoryId()
 
-        Dim result As Integer = categoryManager.deleteCategory(selectedCategoryId)
+        Dim result As Integer = categoryManager.DeleteCategory(selectedCategoryId)
 
         If result > 0 Then
 
             ' generate panel with fresh category
-            categoryManager.generateCategoryRadioButtons(flowPanel_category)
-            categoryManager.generateCategoryCheckButtons(mainWindow.flowPanelCategory)
+            categoryManager.GenerateCategoryRadioButtons(flowPanel_category)
+            categoryManager.GenerateCategoryCheckButtons(mainWindow.flowPanelCategory)
         Else
 
             MsgBox("Failed deleting category")

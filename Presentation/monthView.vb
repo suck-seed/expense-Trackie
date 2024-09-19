@@ -1,4 +1,6 @@
-﻿Public Class monthView
+﻿Imports expense_Trackie.Application
+
+Public Class monthView
 
     Dim currentDate As DateTime = DateTime.Now
     Dim expenseManager As New ExpenseManager()
@@ -25,7 +27,7 @@
 
     ' db ko kam
     Private Function getTotal() As Decimal
-        Return expenseManager.getTotalOfMonth(currentDate)
+        Return expenseManager.GetTotalOfMonth(currentDate)
 
     End Function
 

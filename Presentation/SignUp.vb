@@ -1,4 +1,5 @@
 ﻿Imports System.Drawing.Drawing2D
+Imports expense_Trackie.Application
 
 Public Class SignUp
 
@@ -32,17 +33,23 @@ Public Class SignUp
         ' backend handling
         Dim usermanager As New UserManager
 
-        Dim userId As Integer = usermanager.registerUser(username, number, password, dateJoined, imageAddress)
+        Dim userId As Integer = usermanager.RegisterUser(username, number, password, dateJoined, imageAddress)
 
 
         If userId > 0 Then
 
             MsgBox("User registered sucessfully")
 
+            MsgBox(SessionManager.Instance.currentUserId)
+            MsgBox(SessionManager.Instance.currentUsername)
+            MsgBox(SessionManager.Instance.currentPassword)
+            MsgBox(SessionManager.Instance.currentNumber)
+            MsgBox(SessionManager.Instance.currentdateJoined)
+            MsgBox(SessionManager.Instance.currentProfileLink)
+
             Me.Hide()
 
-            Dim mainScreen As New mainWindow()
-            mainScreen.Show()
+            mainWindow.Show()
 
         Else
             MsgBox("User registration failed. Please try again.")

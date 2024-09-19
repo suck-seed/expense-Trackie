@@ -1,4 +1,5 @@
 ﻿Imports System.Drawing.Drawing2D
+Imports expense_Trackie.Application
 
 Public Class SIgnIn
 
@@ -25,7 +26,7 @@ Public Class SIgnIn
         ' application and backend referal
         Dim usermanager As New UserManager()
 
-        Dim userId As Integer = usermanager.logUserIn(username, password)
+        Dim userId As Integer = usermanager.LogUserIn(username, password)
 
         If userId > 0 Then
 
@@ -40,8 +41,7 @@ Public Class SIgnIn
 
             Me.Hide()
 
-            Dim mainScreen As New mainWindow
-            mainScreen.Show()
+            mainWindow.Show()
 
         Else
             MsgBox("User login failed. Please try again.")
