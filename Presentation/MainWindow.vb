@@ -5,6 +5,11 @@ Namespace Presentation
 
     Public Class MainWindow
 
+#Region " ready made instance of day view "
+        Dim dayView As New DayView()
+#End Region
+
+
 #Region "form load"
 
 
@@ -40,61 +45,55 @@ Namespace Presentation
 
 
 #Region "calander/day"
-        Private Sub radio_day_view_CheckedChanged(sender As Object, e As EventArgs) Handles radio_day_view.CheckedChanged
+        Private Sub radio_month_view_CheckedChanged(sender As Object, e As EventArgs) Handles radio_month_view.CheckedChanged, radio_home.CheckedChanged
 
-            If radio_month_view.Checked Then
+            If radio_home.Checked Then
 
-                If radio_home.Checked Then
+                If radio_month_view.Checked Then
 
                     DisplayForm(New MonthView())
+                    radio_month_view.Image = My.Resources.monthDark
+
+
 
                 End If
+
+            End If
+
+
+            'visual ques
+            If radio_month_view.Checked Then
                 radio_month_view.Image = My.Resources.monthDark
-
             Else
-
                 radio_month_view.Image = My.Resources.monthLight
-
             End If
 
         End Sub
 
 
 
-        Private Sub switch_Day_Calander_View(sender As Object, e As EventArgs) Handles radio_month_view.CheckedChanged, radio_day_view.CheckedChanged
+        Private Sub radio_day_view_checkChanged(sender As Object, e As EventArgs) Handles radio_day_view.CheckedChanged, radio_home.CheckedChanged
 
 
             'checking day
+            If radio_home.Checked Then
+
+                If radio_day_view.Checked Then
+
+                    DisplayForm(dayView)
+                    radio_day_view.Image = My.Resources.dayDark
+                End If
+
+            End If
+
+
+            'visual ques
+            'visual ques
             If radio_day_view.Checked Then
-
-                If radio_home.Checked Then
-
-                    DisplayForm(New DayView())
-
-                End If
                 radio_day_view.Image = My.Resources.dayDark
-
             Else
-
                 radio_day_view.Image = My.Resources.dayLight
-
             End If
-
-            'checking month
-            If radio_month_view.Checked Then
-
-                If radio_home.Checked Then
-                    DisplayForm(New MonthView())
-                End If
-                radio_month_view.Image = My.Resources.monthDark
-
-            Else
-
-                radio_month_view.Image = My.Resources.monthLight
-
-            End If
-
-            'debug
 
 
 
@@ -177,7 +176,10 @@ Namespace Presentation
 
         Private Sub AddExpenseClicked(sender As Object, e As EventArgs) Handles button_add_expense.Click
 
-            NewExpense.Show()
+            'NewExpense.Show()
+
+            Dim newExpense As New NewExpense(dayView)
+            newExpense.Show()
 
         End Sub
 
@@ -198,7 +200,10 @@ Namespace Presentation
         Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
 
             btn_delete.Image = My.Resources.delete3Red
-            DeleteCategory.Show()
+            'DeleteCategory.Show()
+
+            Dim deleteCategory As New DeleteCategory(dayView)
+            deleteCategory.Show()
 
         End Sub
 #End Region

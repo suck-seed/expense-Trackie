@@ -45,7 +45,6 @@ Namespace Presentation
                 ' reloading the categories in mainWindow after adding a category to reflect the added category
                 categoryManager.GenerateCategoryCheckButtons(MainWindow.flowPanelCategory)
 
-                ' clearing the text in textboxes
                 ClearInputBox()
 
             Else

@@ -14,8 +14,29 @@ Namespace Presentation
         Dim _selectedCategoryId As Integer
 
 
+#Region " New( dayView ) "
 
-        ' expense creation
+        Dim dayView As DayView
+
+        Public Sub New(ByRef dayViewInst As DayView)
+
+            ' This call is required by the designer.
+            InitializeComponent()
+
+            dayView = dayViewInst
+
+            ' Add any initialization after the InitializeComponent() call.
+
+        End Sub
+
+#End Region
+
+
+#Region " expense creation "
+
+
+
+
         Private Sub button_create_Click(sender As Object, e As EventArgs) Handles button_create.Click
 
 
@@ -56,9 +77,12 @@ Namespace Presentation
 
                 MsgBox("Expense added successfully")
 
-                'Presentation.DayView.btn_refresh
+                ' updating information in dayView
+                dayView.UpdateDisplayInformation()
+                ClearInputBox()
 
-                Me.Close()
+
+
 
             Else
                 MsgBox("Failed adding expense ")
@@ -69,8 +93,38 @@ Namespace Presentation
         End Sub
 
 
+#End Region
 
 
+
+#Region " clear inputs "
+
+        Public Sub ClearInputBox()
+            txt_Amount.Text = ""
+            txt_Remarks.Text = ""
+
+            For Each control In flowPanel_category.Controls
+
+                If TypeOf (control) Is RadioButton Then
+
+                    Dim radioButton As RadioButton = DirectCast(control, RadioButton)
+
+                    If radioButton.Checked Then
+                        radioButton.Checked = False
+                    End If
+
+                End If
+
+            Next
+
+
+        End Sub
+
+#End Region
+
+
+
+#Region " loading categories "
 
 
         ' Loading custom categories
@@ -83,6 +137,14 @@ Namespace Presentation
             categoryManager.GenerateCategoryRadioButtons(flowPanel_category)
 
         End Sub
+
+#End Region
+
+
+
+#Region " fetching selected category "
+
+
 
 
         ' Fetching categoryId
@@ -111,9 +173,7 @@ Namespace Presentation
 
 
 
-
-
-
+#End Region
 
 
 

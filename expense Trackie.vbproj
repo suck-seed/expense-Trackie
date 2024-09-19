@@ -110,6 +110,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\Module1.vb" />
     <Compile Include="Presentation\DeleteCategory.Designer.vb">
       <DependentUpon>DeleteCategory.vb</DependentUpon>
     </Compile>

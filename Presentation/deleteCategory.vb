@@ -5,24 +5,44 @@ Namespace Presentation
 
     Public Class DeleteCategory
 
-      
+
         Dim _selectedCategoryId As Integer
 
+
+
+#Region " New( dayView ) "
+
+        Dim dayView As DayView
+
+        Public Sub New(ByRef dayViewInst As DayView)
+
+            ' This call is required by the designer.
+            InitializeComponent()
+
+            dayView = dayViewInst
+
+            ' Add any initialization after the InitializeComponent() call.
+
+        End Sub
+
+#End Region
+
+
+
+#Region " load "
         Private Sub deleteCategory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
             Dim categoryManager As New CategoryManager
             categoryManager.GenerateCategoryRadioButtons(flowPanel_category)
 
         End Sub
 
+#End Region
 
 
 
-        Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
-            Me.Close()
-        End Sub
 
-
-
+#Region " delete functionality "
 
         Private Sub button_delete_Click(sender As Object, e As EventArgs) Handles button_delete.Click
 
@@ -33,16 +53,16 @@ Namespace Presentation
 
 
             _selectedCategoryId = getSelectedCategoryId()
-            
+
             Dim categoryManager As New CategoryManager
             Dim result As Integer = categoryManager.DeleteCategory(_selectedCategoryId)
 
             If result > 0 Then
 
-                ' generate panel with fresh category
-               
-                categoryManager.GenerateCategoryRadioButtons(flowPanel_category)
-                categoryManager.GenerateCategoryCheckButtons(mainWindow.flowPanelCategory)
+                ' Refresh information
+
+                RefreshDisplay()
+
             Else
 
                 MsgBox("Failed deleting category")
@@ -52,8 +72,25 @@ Namespace Presentation
 
         End Sub
 
+#End Region
 
 
+#Region " update display "
+
+
+        Public Sub RefreshDisplay()
+
+            Dim categoryManager As New CategoryManager
+            categoryManager.GenerateCategoryRadioButtons(flowPanel_category)
+            categoryManager.GenerateCategoryCheckButtons(MainWindow.flowPanelCategory)
+            dayView.UpdateDisplayInformation()
+
+        End Sub
+
+#End Region
+
+
+#Region " selected category "
 
         Private Function getSelectedCategoryId() As Integer
 
@@ -77,8 +114,12 @@ Namespace Presentation
 
         End Function
 
+#End Region
 
 
+
+
+#Region " gradient "
 
         Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
             ' Get the client area of the form
@@ -94,6 +135,17 @@ Namespace Presentation
                 e.Graphics.FillRectangle(brush, rect)
             End Using
         End Sub
+
+#End Region
+
+
+
+
+        Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
+            Me.Close()
+        End Sub
+
+
 
     End Class
 End NameSpace
