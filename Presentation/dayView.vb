@@ -9,7 +9,7 @@ Namespace Presentation
 
 #Region "initialization / load"
 
-        Public Sub New(ByRef parentWindow As MainWindow)
+        Public Sub New()
 
             ' This call is required by the designer.
             InitializeComponent()

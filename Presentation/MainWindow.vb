@@ -45,7 +45,9 @@ Namespace Presentation
             If radio_month_view.Checked Then
 
                 If radio_home.Checked Then
+
                     DisplayForm(New MonthView())
+
                 End If
                 radio_month_view.Image = My.Resources.monthDark
 
@@ -66,7 +68,9 @@ Namespace Presentation
             If radio_day_view.Checked Then
 
                 If radio_home.Checked Then
-                    DisplayForm(New DayView(Me))
+
+                    DisplayForm(New DayView())
+
                 End If
                 radio_day_view.Image = My.Resources.dayDark
 
