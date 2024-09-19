@@ -25,14 +25,14 @@
         Private Sub InitializeComponent()
             Me.generalTable = New System.Windows.Forms.TableLayoutPanel()
             Me.lbl_month = New System.Windows.Forms.Label()
-            Me.btn_next = New System.Windows.Forms.Button()
-            Me.btn_previous = New System.Windows.Forms.Button()
             Me.lbl_day = New System.Windows.Forms.Label()
             Me.lbl_total_amount = New System.Windows.Forms.Label()
             Me.Label9 = New System.Windows.Forms.Label()
             Me.panel_expense_display = New System.Windows.Forms.TableLayoutPanel()
             Me.Panel1 = New System.Windows.Forms.Panel()
             Me.btn_refresh = New System.Windows.Forms.Button()
+            Me.btn_next = New System.Windows.Forms.Button()
+            Me.btn_previous = New System.Windows.Forms.Button()
             Me.generalTable.SuspendLayout()
             Me.Panel1.SuspendLayout()
             Me.SuspendLayout()
@@ -76,36 +76,6 @@
             Me.lbl_month.TabIndex = 0
             Me.lbl_month.Text = "Sep"
             Me.lbl_month.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-            '
-            'btn_next
-            '
-            Me.btn_next.Dock = System.Windows.Forms.DockStyle.Left
-            Me.btn_next.FlatAppearance.BorderSize = 0
-            Me.btn_next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray
-            Me.btn_next.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btn_next.Image = Global.expense_Trackie.My.Resources.Resources.icons8_forward_16
-            Me.btn_next.Location = New System.Drawing.Point(173, 43)
-            Me.btn_next.Margin = New System.Windows.Forms.Padding(0)
-            Me.btn_next.Name = "btn_next"
-            Me.btn_next.RightToLeft = System.Windows.Forms.RightToLeft.No
-            Me.btn_next.Size = New System.Drawing.Size(50, 43)
-            Me.btn_next.TabIndex = 19
-            Me.btn_next.UseVisualStyleBackColor = True
-            '
-            'btn_previous
-            '
-            Me.btn_previous.Dock = System.Windows.Forms.DockStyle.Right
-            Me.btn_previous.FlatAppearance.BorderSize = 0
-            Me.btn_previous.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray
-            Me.btn_previous.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btn_previous.Image = Global.expense_Trackie.My.Resources.Resources.icons8_back_16
-            Me.btn_previous.Location = New System.Drawing.Point(66, 43)
-            Me.btn_previous.Margin = New System.Windows.Forms.Padding(0)
-            Me.btn_previous.Name = "btn_previous"
-            Me.btn_previous.RightToLeft = System.Windows.Forms.RightToLeft.No
-            Me.btn_previous.Size = New System.Drawing.Size(50, 43)
-            Me.btn_previous.TabIndex = 20
-            Me.btn_previous.UseVisualStyleBackColor = True
             '
             'lbl_day
             '
@@ -170,12 +140,46 @@
             'btn_refresh
             '
             Me.btn_refresh.FlatAppearance.BorderSize = 0
+            Me.btn_refresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.btn_refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
             Me.btn_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btn_refresh.Location = New System.Drawing.Point(660, 3)
             Me.btn_refresh.Name = "btn_refresh"
             Me.btn_refresh.Size = New System.Drawing.Size(75, 23)
             Me.btn_refresh.TabIndex = 21
             Me.btn_refresh.UseVisualStyleBackColor = True
+            '
+            'btn_next
+            '
+            Me.btn_next.Dock = System.Windows.Forms.DockStyle.Left
+            Me.btn_next.FlatAppearance.BorderSize = 0
+            Me.btn_next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.btn_next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.btn_next.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btn_next.Image = Global.expense_Trackie.My.Resources.Resources.icons8_forward_16
+            Me.btn_next.Location = New System.Drawing.Point(173, 43)
+            Me.btn_next.Margin = New System.Windows.Forms.Padding(0)
+            Me.btn_next.Name = "btn_next"
+            Me.btn_next.RightToLeft = System.Windows.Forms.RightToLeft.No
+            Me.btn_next.Size = New System.Drawing.Size(50, 43)
+            Me.btn_next.TabIndex = 19
+            Me.btn_next.UseVisualStyleBackColor = True
+            '
+            'btn_previous
+            '
+            Me.btn_previous.Dock = System.Windows.Forms.DockStyle.Right
+            Me.btn_previous.FlatAppearance.BorderSize = 0
+            Me.btn_previous.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.btn_previous.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.btn_previous.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btn_previous.Image = Global.expense_Trackie.My.Resources.Resources.icons8_back_16
+            Me.btn_previous.Location = New System.Drawing.Point(66, 43)
+            Me.btn_previous.Margin = New System.Windows.Forms.Padding(0)
+            Me.btn_previous.Name = "btn_previous"
+            Me.btn_previous.RightToLeft = System.Windows.Forms.RightToLeft.No
+            Me.btn_previous.Size = New System.Drawing.Size(50, 43)
+            Me.btn_previous.TabIndex = 20
+            Me.btn_previous.UseVisualStyleBackColor = True
             '
             'DayView
             '

@@ -153,6 +153,7 @@ Namespace Presentation
 
         Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
             Me.Close()
+            MainWindow.btn_delete.Image = My.Resources.delete3
         End Sub
 
 

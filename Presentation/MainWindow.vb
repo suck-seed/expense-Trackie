@@ -16,8 +16,6 @@ Namespace Presentation
             Dim categoryManager As New CategoryManager()
             categoryManager.GenerateCategoryCheckButtons(flowPanelCategory)
 
-            Me.add_category.PerformClick()
-
         End Sub
 
 #End Region
@@ -195,13 +193,14 @@ Namespace Presentation
 
         Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
 
+            btn_delete.Image = My.Resources.delete3Red
             DeleteCategory.Show()
 
         End Sub
 #End Region
 
 
-#Region "check background change"
+#Region "check / button visual cues"
         ' checked visual cues
         Private Sub RadioCheckedChanged(sender As Object, e As EventArgs) Handles radio_home.CheckedChanged, radio_analytical.CheckedChanged, radio_export.CheckedChanged
 
@@ -231,20 +230,36 @@ Namespace Presentation
         End Sub
 
 
+        Private Sub btn_delete_MouseHover(sender As Object, e As EventArgs) Handles btn_delete.MouseHover
+            btn_delete.Image = My.Resources.delete3Red
+        End Sub
+
+
+        Private Sub btn_delete_MouseLeave(sender As Object, e As EventArgs) Handles btn_delete.MouseLeave
+            btn_delete.Image = My.Resources.delete3
+        End Sub
+
+
 #End Region
 
 
 #Region "min/max/close"
         Private Sub ButtonMaxClick(sender As Object, e As EventArgs) Handles button_max.Click
 
-            panel_main.Refresh()
+            'panel_main.Refresh()
 
-            If Me.WindowState = FormWindowState.Maximized Then
-                Me.WindowState = FormWindowState.Normal
+            If Me.Size = New Size(1920, 1200) Then
+                'Me.WindowState = FormWindowState.Normal
+
+                Me.Size = New Size(1600, 1000)
+                Me.Location = New Point(160, 100)
                 button_max.Image = My.Resources.icons8_maximize_button_16
 
             Else
-                Me.WindowState = FormWindowState.Maximized
+                Me.Location = New Point(0, 0)
+                Me.Size = New Size(1920, 1200)
+
+                'Me.WindowState = FormWindowState.Maximized
                 button_max.Image = My.Resources.restore_down
             End If
 
@@ -280,7 +295,7 @@ Namespace Presentation
 #End Region
 
 
-#Region "mouse Movement/ paint"
+#Region " mouse Movement "
 
         ' MOUSE MOVEMENT
 
@@ -294,15 +309,58 @@ Namespace Presentation
 
 
         Private Sub topbar_MouseMove(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseMove
+
             If e.Button = Windows.Forms.MouseButtons.Left Then
                 Dim position As Point
                 position = Control.MousePosition
                 position.Offset(_mouseMove.X, _mouseMove.Y)
                 Me.Location = position
             End If
+
         End Sub
 
 
+        Private isMouseDown As Boolean = False
+
+
+        Private Sub panel_topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseDown
+            If e.Button = MouseButtons.Left Then
+                isMouseDown = True
+            End If
+        End Sub
+
+
+        Private Sub panel_topbar_MouseUp(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseUp
+            isMouseDown = False
+        End Sub
+
+        ' Handle MouseMove event and check if the mouse is down
+        Private Sub panel_topbar_MouseMove(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseMove
+            If isMouseDown Then
+                ' Your logic here
+                If Me.Size = New Size(1920, 1200) Then
+
+                    Me.Location = New Point(160, 5)
+                    Me.Size = New Size(1600, 1000)
+
+                    button_max.Image = My.Resources.icons8_maximize_button_16
+                End If
+            End If
+        End Sub
+
+
+
+
+
+
+
+
+
+
+#End Region
+
+
+#Region " gradient "
 
         Private Sub mainWindow_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
             ' Get the client area of the form
@@ -320,10 +378,7 @@ Namespace Presentation
         End Sub
 
 
-
-
 #End Region
-
 
 
 #Region "debug"
