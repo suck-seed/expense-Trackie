@@ -10,6 +10,9 @@ Namespace DataLayer
 
         ReadOnly _userId As Integer = SessionManager.Instance.CurrentUserId
 
+#Region " is duplicate ? "
+
+
         Public Function IsDuplicateCategory(ByRef catName As String) As Boolean
 
             Using connection As New SqlConnection(_connectionString)
@@ -50,6 +53,11 @@ Namespace DataLayer
 
         End Function
 
+#End Region
+
+#Region " add new category "
+
+
         Public Function AddCategory(ByRef catName As String, ByRef catDescription As String, ByRef catColor As String) As Integer
             Dim catId As Integer = 0
 
@@ -87,6 +95,11 @@ Namespace DataLayer
             End Using
 
         End Function
+
+#End Region
+
+
+#Region " delete category "
 
 
         Public Function DeleteUserCategory(ByVal selectedCategory As Integer) As Integer
@@ -127,6 +140,58 @@ Namespace DataLayer
 
         End Function
 
+#End Region
+
+
+
+#Region " update category "
+
+        Public Function UpdateCategoryInformation(ByVal catName As String, ByVal catDescription As String, ByVal catColor As String, ByVal catId As Integer) As Integer
+
+            Dim result As Integer = 0
+
+            Using connection As New SqlConnection(_connectionString)
+
+                connection.Open()
+
+                Using command As New SqlCommand("updateCategory", connection)
+                    command.CommandType = CommandType.StoredProcedure
+
+
+                    ' linking paremeter
+                    command.Parameters.AddWithValue("@catName", catName)
+                    command.Parameters.AddWithValue("@description", catDescription)
+                    command.Parameters.AddWithValue("@color", catColor)
+
+                    command.Parameters.AddWithValue("@catId", catId)
+                    command.Parameters.AddWithValue("@userId", _userId)
+
+
+                    'output paremeter
+                    Dim resultParameter As New SqlParameter("@result", SqlDbType.Int)
+                    resultParameter.Direction = ParameterDirection.Output
+
+                    command.Parameters.Add(resultParameter)
+
+
+                    command.ExecuteNonQuery()
+
+
+                    result = Convert.ToInt32(resultParameter.Value)
+
+
+                    Return result
+
+                End Using
+
+            End Using
+
+        End Function
+
+#End Region
+
+#Region " get category : datatable "
+
 
         Public Function GetUserCategory() As DataTable
 
@@ -162,6 +227,9 @@ Namespace DataLayer
             Return dataTable
 
         End Function
+
+#End Region
+
 
     End Class
 End NameSpace

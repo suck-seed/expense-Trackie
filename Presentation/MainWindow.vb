@@ -228,6 +228,13 @@ Namespace Presentation
             deleteCategory.Show()
 
         End Sub
+
+        Private Sub btn_edit_category_Click(sender As Object, e As EventArgs) Handles btn_edit_category.Click
+
+            Dim editCategory As New UpdateCategory(dayView, monthView)
+            editCategory.Show()
+        End Sub
+
 #End Region
 
 
@@ -407,6 +414,9 @@ Namespace Presentation
                 e.Graphics.FillRectangle(brush, rect)
             End Using
         End Sub
+
+
+
 
 
 

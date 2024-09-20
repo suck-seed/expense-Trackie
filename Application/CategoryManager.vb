@@ -7,6 +7,7 @@ Namespace Application
         Private _categoryrepository As New CategoryRepository()
 
 
+#Region " register category "
 
         '        for adding category
         Public Function RegisterCategory(ByRef catName As String, ByRef catDescription As String, ByRef catColor As String) As Integer
@@ -26,6 +27,10 @@ Namespace Application
 
         End Function
 
+#End Region
+
+
+#Region " delete category "
 
 
         Public Function DeleteCategory(ByRef categoryId As Integer) As Integer
@@ -40,9 +45,31 @@ Namespace Application
 
         End Function
 
+#End Region
+
+
+#Region " update category "
+
+        Public Function UpdateCategory(ByVal catName As String, ByVal catDescription As String, ByVal catColor As String, ByVal selectedId As Integer) As Integer
+
+
+            If _categoryrepository.UpdateCategoryInformation(catName, catDescription, catColor, selectedId) > 0 Then
+
+                Return 1
+
+            Else
+                Return -1
+            End If
+
+
+        End Function
+
+#End Region
+
+#Region " generate category : radio "
 
         '        for loading category 
-        Public Sub GenerateCategoryRadioButtons(ByVal panel As FlowLayoutPanel)
+        Public Sub GenerateCategoryRadioButtons(ByVal panel As FlowLayoutPanel, ByRef handler As EventHandler)
 
             '            loading a dataTable
             Dim categoryTable As DataTable = _categoryrepository.GetUserCategory()
@@ -58,7 +85,7 @@ Namespace Application
                 '                variable for easy use
                 Dim catId As Integer = CInt(row("catId"))
                 Dim catName As String = row("catName").ToString
-
+                Dim catDescription As String = row("description")
                 Dim colorHex As String = row("color").ToString()
                 Dim backColor As Color = ColorTranslator.FromHtml(colorHex)
 
@@ -70,6 +97,7 @@ Namespace Application
                 radioButton.Text = catName
                 radioButton.Tag = catId
                 radioButton.BackColor = backColor
+                radioButton.AccessibleDescription = catDescription
 
 
                 '                button cosmetics
@@ -79,10 +107,14 @@ Namespace Application
                 radioButton.Font = New Font("Cascadia Mono SemiLight", 10, FontStyle.Regular)
 
 
-                radioButton.FlatStyle = FlatStyle.Popup
+                'radioButton.FlatStyle = FlatStyle.Popup
                 radioButton.FlatAppearance.BorderSize = 1
                 radioButton.Margin = New Padding(8, 5, 8, 5)
 
+
+
+                ' event handler for CheckChanged event
+                AddHandler radioButton.CheckedChanged, handler
 
 
                 '                adding to panel
@@ -93,6 +125,12 @@ Namespace Application
 
         End Sub
 
+
+#End Region
+
+
+
+#Region " generate category : check "
 
         Public Sub GenerateCategoryCheckButtons(ByVal panel As FlowLayoutPanel, handler As EventHandler)
 
@@ -131,7 +169,7 @@ Namespace Application
                 checkButton.Font = New Font("Cascadia Mono SemiLight", 11, FontStyle.Regular)
 
 
-                checkButton.FlatStyle = FlatStyle.Flat
+                'checkButton.FlatStyle = FlatStyle.Flat
 
                 checkButton.FlatAppearance.BorderSize = 1
                 checkButton.Margin = New Padding(5, 8, 5, 8)
@@ -142,8 +180,6 @@ Namespace Application
                 ' adding handler for checkChanged event
                 AddHandler checkButton.CheckedChanged, handler
 
-
-
                 'adding to panel
                 panel.Controls.Add(checkButton)
 
@@ -153,13 +189,9 @@ Namespace Application
 
         End Sub
 
-
-        Private Sub Checkbox_CheckChanged(sender As Object, e As EventArgs)
-
+#End Region
 
 
-
-        End Sub
 
 
     End Class

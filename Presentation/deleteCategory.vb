@@ -6,13 +6,13 @@ Namespace Presentation
     Public Class DeleteCategory
 
 
-        Dim _selectedCategoryId As Integer
+        Dim _selectedCategoryId As Integer = 0
 
 
 
 #Region " New( dayView ) "
 
-        Dim dayView As DayView
+        Dim _dayView As DayView
         Dim monthView As MonthView
 
         Public Sub New(ByRef dayViewInst As DayView, ByRef monthViewInst As MonthView)
@@ -20,7 +20,7 @@ Namespace Presentation
             ' This call is required by the designer.
             InitializeComponent()
 
-            dayView = dayViewInst
+            _dayView = dayViewInst
             monthView = monthViewInst
 
             ' Add any initialization after the InitializeComponent() call.
@@ -35,7 +35,8 @@ Namespace Presentation
         Private Sub deleteCategory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
             Dim categoryManager As New CategoryManager
-            categoryManager.GenerateCategoryRadioButtons(flowPanel_category)
+            categoryManager.GenerateCategoryRadioButtons(flowPanel_category, AddressOf GetSelectedRadioCategoryId)
+
 
         End Sub
 
@@ -48,13 +49,10 @@ Namespace Presentation
 
         Private Sub button_delete_Click(sender As Object, e As EventArgs) Handles button_delete.Click
 
-            If getSelectedCategoryId() = 0 Then
+            If _selectedCategoryId = 0 Then
                 MsgBox("Select a category to delete")
                 Return
             End If
-
-
-            _selectedCategoryId = getSelectedCategoryId()
 
             Dim categoryManager As New CategoryManager
             Dim result As Integer = categoryManager.DeleteCategory(_selectedCategoryId)
@@ -83,10 +81,10 @@ Namespace Presentation
         Public Sub RefreshDisplay()
 
             Dim categoryManager As New CategoryManager
-            categoryManager.GenerateCategoryRadioButtons(flowPanel_category)
+            categoryManager.GenerateCategoryRadioButtons(flowPanel_category, AddressOf GetSelectedRadioCategoryId)
             'categoryManager.GenerateCategoryCheckButtons(MainWindow.flowPanelCategory)
             MainWindow.LoadInformation()
-            dayView.UpdateDisplayInformation()
+            _dayView.UpdateDisplayInformation()
 
         End Sub
 
@@ -95,9 +93,8 @@ Namespace Presentation
 
 #Region " selected category "
 
-        Private Function getSelectedCategoryId() As Integer
 
-            Dim id As Integer = 0
+        Public Sub GetSelectedRadioCategoryId()
 
             For Each control In flowPanel_category.Controls
 
@@ -106,16 +103,17 @@ Namespace Presentation
                     Dim radioButton As RadioButton = DirectCast(control, RadioButton)
 
                     If radioButton.Checked Then
-                        id = CInt(radioButton.Tag)
+                        _selectedCategoryId = CInt(radioButton.Tag)
+                        Return
+                    Else
+                        _selectedCategoryId = 0
                     End If
 
                 End If
 
             Next
 
-            Return id
-
-        End Function
+        End Sub
 
 #End Region
 

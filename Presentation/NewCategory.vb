@@ -39,7 +39,7 @@ Namespace Presentation
             Dim catAdded As Integer = categoryManager.RegisterCategory(_catName, _catDescription, _catColor)
 
             If catAdded > 0 Then
-                MsgBox("Category added successfully")
+
 
 
                 ' reloading the categories in mainWindow after adding a category to reflect the added category
@@ -47,6 +47,8 @@ Namespace Presentation
                 MainWindow.LoadInformation()
 
                 ClearInputBox()
+
+                MsgBox("Category added successfully")
 
             Else
                 MsgBox("Category insertion failed. Please try again.")
@@ -72,8 +74,10 @@ Namespace Presentation
                     Dim rb As RadioButton = DirectCast(control, RadioButton)
 
                     If rb.Checked Then
+
                         _catColor = ColorTranslator.ToHtml(rb.BackColor)
-                        btn_custom_color.BackColor = SystemColors.ButtonFace
+                        btn_custom_color.BackColor = Color.LightGray
+
                     End If
 
                 End If

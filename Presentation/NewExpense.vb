@@ -11,7 +11,7 @@ Namespace Presentation
         Dim _remarks As String
         Dim _dateAdded As DateTime
         ReadOnly _timeAdded As DateTime = DateTime.Now
-        Dim _selectedCategoryId As Integer
+        Dim _selectedCategoryId As Integer = 0
 
 
 #Region " New( dayView ) "
@@ -34,6 +34,25 @@ Namespace Presentation
 #End Region
 
 
+
+#Region " loading categories "
+
+
+        ' Loading custom categories
+        Private Sub New_Expense_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+
+            'generating category on panel
+            Dim categoryManager As New CategoryManager()
+            categoryManager.GenerateCategoryRadioButtons(panel_radio_category, AddressOf GetSelectedRadioCategoryId)
+
+        End Sub
+
+#End Region
+
+
+
 #Region " expense creation "
 
 
@@ -49,7 +68,7 @@ Namespace Presentation
                 Return
             End If
 
-            If String.IsNullOrEmpty(txt_Amount.Text) Or String.IsNullOrEmpty(txt_Remarks.Text) Or GetSelectedCategoryId() = 0 Then
+            If String.IsNullOrEmpty(txt_Amount.Text) Or String.IsNullOrEmpty(txt_Remarks.Text) Or _selectedCategoryId = 0 Then
                 MsgBox("Provide all the required information ")
                 Return
             End If
@@ -67,7 +86,7 @@ Namespace Presentation
             _amount = CDec(txt_Amount.Text)
             _remarks = txt_Remarks.Text
             _dateAdded = txt_date_picker.Value.ToString("yyyy-MM-dd")
-            _selectedCategoryId = GetSelectedCategoryId()
+
 
 
 
@@ -105,7 +124,7 @@ Namespace Presentation
             txt_Amount.Text = ""
             txt_Remarks.Text = ""
 
-            For Each control In flowPanel_category.Controls
+            For Each control In panel_radio_category.Controls
 
                 If TypeOf (control) Is RadioButton Then
 
@@ -126,17 +145,31 @@ Namespace Presentation
 
 
 
-#Region " loading categories "
 
 
-        ' Loading custom categories
-        Private Sub New_Expense_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Fetching categoryId
+
+#Region " selected category "
 
 
+        Public Sub GetSelectedRadioCategoryId()
 
-            'generating category on panel
-            Dim categoryManager As New CategoryManager()
-            categoryManager.GenerateCategoryRadioButtons(flowPanel_category)
+            For Each control In panel_radio_category.Controls
+
+                If TypeOf (control) Is RadioButton Then
+
+                    Dim radioButton As RadioButton = DirectCast(control, RadioButton)
+
+                    If radioButton.Checked Then
+                        _selectedCategoryId = CInt(radioButton.Tag)
+                        Return
+                    Else
+                        _selectedCategoryId = 0
+                    End If
+
+                End If
+
+            Next
 
         End Sub
 
@@ -144,38 +177,6 @@ Namespace Presentation
 
 
 
-#Region " fetching selected category "
-
-
-
-
-        ' Fetching categoryId
-        Private Function GetSelectedCategoryId() As Integer
-
-            Dim id As Integer = 0
-
-            For Each control In flowPanel_category.Controls
-
-                If TypeOf (control) Is RadioButton Then
-
-                    Dim radioButton As RadioButton = DirectCast(control, RadioButton)
-
-                    If radioButton.Checked Then
-                        id = CInt(radioButton.Tag)
-                    End If
-
-                End If
-
-            Next
-
-            Return id
-
-        End Function
-
-
-
-
-#End Region
 
 
 

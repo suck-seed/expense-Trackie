@@ -7,6 +7,9 @@ Namespace Application
         Dim _expenseRepository As New ExpenseRepository()
 
 
+#Region " add new expense "
+
+
         Public Function AddNewExpense(ByVal amount As Decimal, ByVal remarks As String, ByVal dateAdded As DateTime, ByVal timeAdded As DateTime, ByVal categoryId As Integer) As Integer
 
             Dim added As Integer = _expenseRepository.InsertExpense(amount, remarks, dateAdded, timeAdded, categoryId)
@@ -24,6 +27,11 @@ Namespace Application
 
         End Function
 
+#End Region
+
+
+
+#Region " total dayView "
 
 
 
@@ -33,6 +41,7 @@ Namespace Application
 
         End Function
 
+#End Region
 
 
 

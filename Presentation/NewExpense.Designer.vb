@@ -34,7 +34,7 @@
             Me.txt_Remarks = New System.Windows.Forms.RichTextBox()
             Me.Label5 = New System.Windows.Forms.Label()
             Me.txt_date_picker = New System.Windows.Forms.DateTimePicker()
-            Me.flowPanel_category = New System.Windows.Forms.FlowLayoutPanel()
+            Me.panel_radio_category = New System.Windows.Forms.FlowLayoutPanel()
             Me.txt_Amount = New System.Windows.Forms.RichTextBox()
             Me.panel_topbar.SuspendLayout()
             Me.TableLayoutPanel1.SuspendLayout()
@@ -139,7 +139,7 @@
             Me.TableLayoutPanel1.Controls.Add(Me.Label2, 0, 2)
             Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
             Me.TableLayoutPanel1.Controls.Add(Me.txt_date_picker, 0, 5)
-            Me.TableLayoutPanel1.Controls.Add(Me.flowPanel_category, 0, 7)
+            Me.TableLayoutPanel1.Controls.Add(Me.panel_radio_category, 0, 7)
             Me.TableLayoutPanel1.Controls.Add(Me.txt_Amount, 0, 1)
             Me.TableLayoutPanel1.Location = New System.Drawing.Point(35, 78)
             Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -184,14 +184,14 @@
             Me.txt_date_picker.Size = New System.Drawing.Size(200, 20)
             Me.txt_date_picker.TabIndex = 7
             '
-            'flowPanel_category
+            'panel_radio_category
             '
-            Me.flowPanel_category.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.flowPanel_category.Location = New System.Drawing.Point(0, 245)
-            Me.flowPanel_category.Margin = New System.Windows.Forms.Padding(0)
-            Me.flowPanel_category.Name = "flowPanel_category"
-            Me.flowPanel_category.Size = New System.Drawing.Size(437, 197)
-            Me.flowPanel_category.TabIndex = 9
+            Me.panel_radio_category.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.panel_radio_category.Location = New System.Drawing.Point(0, 245)
+            Me.panel_radio_category.Margin = New System.Windows.Forms.Padding(0)
+            Me.panel_radio_category.Name = "panel_radio_category"
+            Me.panel_radio_category.Size = New System.Drawing.Size(437, 197)
+            Me.panel_radio_category.TabIndex = 9
             '
             'txt_Amount
             '
@@ -233,7 +233,7 @@
         Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
         Friend WithEvents Label5 As Label
         Friend WithEvents txt_date_picker As DateTimePicker
-        Friend WithEvents flowPanel_category As FlowLayoutPanel
+        Friend WithEvents panel_radio_category As FlowLayoutPanel
         Friend WithEvents txt_Remarks As RichTextBox
         Friend WithEvents txt_Amount As RichTextBox
     End Class

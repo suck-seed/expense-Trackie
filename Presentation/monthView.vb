@@ -6,6 +6,11 @@ Namespace Presentation
 
         Dim _currentDate As DateTime = DateTime.Now
 
+
+#Region " load form "
+
+
+
         Private Sub monthView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
             ' setting display date
@@ -14,6 +19,12 @@ Namespace Presentation
 
 
         End Sub
+
+#End Region
+
+
+#Region " update displayed information "
+
 
 
         ' reflecting changes in information
@@ -25,15 +36,26 @@ Namespace Presentation
 
         End Sub
 
+#End Region
+
+
+
+#Region " get total "
+
+
 
         ' db ko kam
         Private Function GetTotal() As Decimal
-            
+
             Dim expenseManager As New ExpenseManager()
             Return expenseManager.GetTotalOfMonth(_currentDate)
 
         End Function
+#End Region
 
+
+
+#Region " navigation "
 
 
         Private Sub btn_previous_Click(sender As Object, e As EventArgs) Handles btn_previous.Click
@@ -53,7 +75,7 @@ Namespace Presentation
             UpdateDisplayInformation()
 
         End Sub
-
+#End Region
 
 
 

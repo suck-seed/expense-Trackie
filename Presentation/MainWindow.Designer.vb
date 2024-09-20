@@ -25,16 +25,13 @@
         Private Sub InitializeComponent()
             Me.panel_main = New System.Windows.Forms.Panel()
             Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-            Me.button_add_expense = New System.Windows.Forms.Button()
             Me.panel_sidebar = New System.Windows.Forms.Panel()
             Me.flowPanelCategory = New System.Windows.Forms.FlowLayoutPanel()
             Me.lbl_username = New System.Windows.Forms.Label()
-            Me.btn_profile = New System.Windows.Forms.Button()
             Me.tableLayoutCategorySelector = New System.Windows.Forms.TableLayoutPanel()
+            Me.btn_all = New System.Windows.Forms.Button()
             Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
-            Me.btn_delete = New System.Windows.Forms.Button()
             Me.Label8 = New System.Windows.Forms.Label()
-            Me.add_category = New System.Windows.Forms.Button()
             Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
             Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
             Me.Label7 = New System.Windows.Forms.Label()
@@ -45,21 +42,25 @@
             Me.Label2 = New System.Windows.Forms.Label()
             Me.Label1 = New System.Windows.Forms.Label()
             Me.table_calander_control = New System.Windows.Forms.TableLayoutPanel()
-            Me.month_next = New System.Windows.Forms.Button()
-            Me.month_previous = New System.Windows.Forms.Button()
             Me.label_date = New System.Windows.Forms.Label()
             Me.panel_topbar = New System.Windows.Forms.Panel()
             Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+            Me.home_analysis_export_radio = New System.Windows.Forms.TableLayoutPanel()
+            Me.btn_profile = New System.Windows.Forms.Button()
+            Me.btn_edit_category = New System.Windows.Forms.Button()
+            Me.btn_delete = New System.Windows.Forms.Button()
+            Me.add_category = New System.Windows.Forms.Button()
+            Me.month_next = New System.Windows.Forms.Button()
+            Me.month_previous = New System.Windows.Forms.Button()
+            Me.button_add_expense = New System.Windows.Forms.Button()
             Me.radio_day_view = New System.Windows.Forms.RadioButton()
             Me.radio_month_view = New System.Windows.Forms.RadioButton()
             Me.button_min = New System.Windows.Forms.Button()
             Me.button_max = New System.Windows.Forms.Button()
-            Me.home_analysis_export_radio = New System.Windows.Forms.TableLayoutPanel()
             Me.radio_export = New System.Windows.Forms.RadioButton()
             Me.radio_analytical = New System.Windows.Forms.RadioButton()
             Me.radio_home = New System.Windows.Forms.RadioButton()
             Me.button_close = New System.Windows.Forms.Button()
-            Me.btn_all = New System.Windows.Forms.Button()
             Me.TableLayoutPanel2.SuspendLayout()
             Me.panel_sidebar.SuspendLayout()
             Me.tableLayoutCategorySelector.SuspendLayout()
@@ -95,24 +96,6 @@
             Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.1579!))
             Me.TableLayoutPanel2.Size = New System.Drawing.Size(247, 86)
             Me.TableLayoutPanel2.TabIndex = 3
-            '
-            'button_add_expense
-            '
-            Me.button_add_expense.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.button_add_expense.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.button_add_expense.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-            Me.button_add_expense.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-            Me.button_add_expense.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.button_add_expense.Font = New System.Drawing.Font("Cascadia Mono", 13.0!)
-            Me.button_add_expense.Image = Global.expense_Trackie.My.Resources.Resources.icons8_add_161
-            Me.button_add_expense.Location = New System.Drawing.Point(52, 14)
-            Me.button_add_expense.Name = "button_add_expense"
-            Me.button_add_expense.Size = New System.Drawing.Size(142, 57)
-            Me.button_add_expense.TabIndex = 7
-            Me.button_add_expense.Text = "Add"
-            Me.button_add_expense.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-            Me.button_add_expense.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-            Me.button_add_expense.UseVisualStyleBackColor = True
             '
             'panel_sidebar
             '
@@ -156,22 +139,6 @@
             Me.lbl_username.TabIndex = 11
             Me.lbl_username.Text = "username"
             '
-            'btn_profile
-            '
-            Me.btn_profile.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-            Me.btn_profile.FlatAppearance.BorderSize = 0
-            Me.btn_profile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-            Me.btn_profile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-            Me.btn_profile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btn_profile.Image = Global.expense_Trackie.My.Resources.Resources.profileLight
-            Me.btn_profile.Location = New System.Drawing.Point(17, 893)
-            Me.btn_profile.Margin = New System.Windows.Forms.Padding(0)
-            Me.btn_profile.Name = "btn_profile"
-            Me.btn_profile.RightToLeft = System.Windows.Forms.RightToLeft.No
-            Me.btn_profile.Size = New System.Drawing.Size(50, 48)
-            Me.btn_profile.TabIndex = 10
-            Me.btn_profile.UseVisualStyleBackColor = True
-            '
             'tableLayoutCategorySelector
             '
             Me.tableLayoutCategorySelector.AutoScroll = True
@@ -188,15 +155,35 @@
             Me.tableLayoutCategorySelector.Size = New System.Drawing.Size(244, 39)
             Me.tableLayoutCategorySelector.TabIndex = 8
             '
+            'btn_all
+            '
+            Me.btn_all.AutoSize = True
+            Me.btn_all.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btn_all.Dock = System.Windows.Forms.DockStyle.Left
+            Me.btn_all.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.btn_all.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.btn_all.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btn_all.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 10.0!)
+            Me.btn_all.Location = New System.Drawing.Point(6, 5)
+            Me.btn_all.Margin = New System.Windows.Forms.Padding(6, 5, 8, 5)
+            Me.btn_all.Name = "btn_all"
+            Me.btn_all.Size = New System.Drawing.Size(59, 29)
+            Me.btn_all.TabIndex = 8
+            Me.btn_all.Text = "All"
+            Me.btn_all.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+            Me.btn_all.UseVisualStyleBackColor = True
+            '
             'TableLayoutPanel8
             '
-            Me.TableLayoutPanel8.ColumnCount = 3
-            Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.32389!))
-            Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.4332!))
-            Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.83806!))
+            Me.TableLayoutPanel8.ColumnCount = 4
+            Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.59223!))
+            Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.4466!))
+            Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.96116!))
+            Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+            Me.TableLayoutPanel8.Controls.Add(Me.btn_edit_category, 0, 0)
             Me.TableLayoutPanel8.Controls.Add(Me.btn_delete, 0, 0)
             Me.TableLayoutPanel8.Controls.Add(Me.Label8, 0, 0)
-            Me.TableLayoutPanel8.Controls.Add(Me.add_category, 2, 0)
+            Me.TableLayoutPanel8.Controls.Add(Me.add_category, 3, 0)
             Me.TableLayoutPanel8.Location = New System.Drawing.Point(22, 453)
             Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
             Me.TableLayoutPanel8.RowCount = 1
@@ -204,47 +191,17 @@
             Me.TableLayoutPanel8.Size = New System.Drawing.Size(247, 45)
             Me.TableLayoutPanel8.TabIndex = 7
             '
-            'btn_delete
-            '
-            Me.btn_delete.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btn_delete.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.btn_delete.FlatAppearance.BorderSize = 0
-            Me.btn_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-            Me.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-            Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btn_delete.Image = Global.expense_Trackie.My.Resources.Resources.delete3
-            Me.btn_delete.Location = New System.Drawing.Point(152, 3)
-            Me.btn_delete.Name = "btn_delete"
-            Me.btn_delete.Size = New System.Drawing.Size(42, 39)
-            Me.btn_delete.TabIndex = 3
-            Me.btn_delete.UseVisualStyleBackColor = True
-            '
             'Label8
             '
             Me.Label8.AutoSize = True
             Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.Label8.Font = New System.Drawing.Font("Cascadia Mono", 13.0!)
+            Me.Label8.Font = New System.Drawing.Font("Cascadia Mono", 12.0!)
             Me.Label8.Location = New System.Drawing.Point(3, 0)
             Me.Label8.Name = "Label8"
-            Me.Label8.Size = New System.Drawing.Size(143, 45)
+            Me.Label8.Size = New System.Drawing.Size(125, 45)
             Me.Label8.TabIndex = 0
             Me.Label8.Text = "My Category"
             Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-            '
-            'add_category
-            '
-            Me.add_category.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.add_category.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.add_category.FlatAppearance.BorderSize = 0
-            Me.add_category.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-            Me.add_category.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-            Me.add_category.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.add_category.Image = Global.expense_Trackie.My.Resources.Resources.icons8_add_161
-            Me.add_category.Location = New System.Drawing.Point(200, 3)
-            Me.add_category.Name = "add_category"
-            Me.add_category.Size = New System.Drawing.Size(44, 39)
-            Me.add_category.TabIndex = 2
-            Me.add_category.UseVisualStyleBackColor = True
             '
             'TableLayoutPanel4
             '
@@ -382,36 +339,6 @@
             Me.table_calander_control.Size = New System.Drawing.Size(247, 45)
             Me.table_calander_control.TabIndex = 4
             '
-            'month_next
-            '
-            Me.month_next.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.month_next.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.month_next.FlatAppearance.BorderSize = 0
-            Me.month_next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-            Me.month_next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-            Me.month_next.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.month_next.Image = Global.expense_Trackie.My.Resources.Resources.icons8_forward_16
-            Me.month_next.Location = New System.Drawing.Point(212, 3)
-            Me.month_next.Name = "month_next"
-            Me.month_next.Size = New System.Drawing.Size(32, 39)
-            Me.month_next.TabIndex = 1
-            Me.month_next.UseVisualStyleBackColor = True
-            '
-            'month_previous
-            '
-            Me.month_previous.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.month_previous.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.month_previous.FlatAppearance.BorderSize = 0
-            Me.month_previous.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-            Me.month_previous.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-            Me.month_previous.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.month_previous.Image = Global.expense_Trackie.My.Resources.Resources.icons8_back_16
-            Me.month_previous.Location = New System.Drawing.Point(175, 3)
-            Me.month_previous.Name = "month_previous"
-            Me.month_previous.Size = New System.Drawing.Size(31, 39)
-            Me.month_previous.TabIndex = 0
-            Me.month_previous.UseVisualStyleBackColor = True
-            '
             'label_date
             '
             Me.label_date.AutoSize = True
@@ -454,6 +381,133 @@
             Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48.0!))
             Me.TableLayoutPanel5.Size = New System.Drawing.Size(99, 48)
             Me.TableLayoutPanel5.TabIndex = 10
+            '
+            'home_analysis_export_radio
+            '
+            Me.home_analysis_export_radio.ColumnCount = 3
+            Me.home_analysis_export_radio.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+            Me.home_analysis_export_radio.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+            Me.home_analysis_export_radio.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+            Me.home_analysis_export_radio.Controls.Add(Me.radio_export, 2, 0)
+            Me.home_analysis_export_radio.Controls.Add(Me.radio_analytical, 1, 0)
+            Me.home_analysis_export_radio.Controls.Add(Me.radio_home, 0, 0)
+            Me.home_analysis_export_radio.Location = New System.Drawing.Point(45, 1)
+            Me.home_analysis_export_radio.Margin = New System.Windows.Forms.Padding(0)
+            Me.home_analysis_export_radio.Name = "home_analysis_export_radio"
+            Me.home_analysis_export_radio.RowCount = 1
+            Me.home_analysis_export_radio.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+            Me.home_analysis_export_radio.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47.0!))
+            Me.home_analysis_export_radio.Size = New System.Drawing.Size(200, 47)
+            Me.home_analysis_export_radio.TabIndex = 0
+            '
+            'btn_profile
+            '
+            Me.btn_profile.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Me.btn_profile.FlatAppearance.BorderSize = 0
+            Me.btn_profile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.btn_profile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.btn_profile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btn_profile.Image = Global.expense_Trackie.My.Resources.Resources.profileLight
+            Me.btn_profile.Location = New System.Drawing.Point(17, 893)
+            Me.btn_profile.Margin = New System.Windows.Forms.Padding(0)
+            Me.btn_profile.Name = "btn_profile"
+            Me.btn_profile.RightToLeft = System.Windows.Forms.RightToLeft.No
+            Me.btn_profile.Size = New System.Drawing.Size(50, 48)
+            Me.btn_profile.TabIndex = 10
+            Me.btn_profile.UseVisualStyleBackColor = True
+            '
+            'btn_edit_category
+            '
+            Me.btn_edit_category.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btn_edit_category.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.btn_edit_category.FlatAppearance.BorderSize = 0
+            Me.btn_edit_category.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.btn_edit_category.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.btn_edit_category.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btn_edit_category.Image = Global.expense_Trackie.My.Resources.Resources.edit
+            Me.btn_edit_category.Location = New System.Drawing.Point(172, 3)
+            Me.btn_edit_category.Name = "btn_edit_category"
+            Me.btn_edit_category.Size = New System.Drawing.Size(31, 39)
+            Me.btn_edit_category.TabIndex = 4
+            Me.btn_edit_category.UseVisualStyleBackColor = True
+            '
+            'btn_delete
+            '
+            Me.btn_delete.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btn_delete.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.btn_delete.FlatAppearance.BorderSize = 0
+            Me.btn_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btn_delete.Image = Global.expense_Trackie.My.Resources.Resources.delete3
+            Me.btn_delete.Location = New System.Drawing.Point(134, 3)
+            Me.btn_delete.Name = "btn_delete"
+            Me.btn_delete.Size = New System.Drawing.Size(32, 39)
+            Me.btn_delete.TabIndex = 3
+            Me.btn_delete.UseVisualStyleBackColor = True
+            '
+            'add_category
+            '
+            Me.add_category.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.add_category.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.add_category.FlatAppearance.BorderSize = 0
+            Me.add_category.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.add_category.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.add_category.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.add_category.Image = Global.expense_Trackie.My.Resources.Resources.icons8_add_161
+            Me.add_category.Location = New System.Drawing.Point(209, 3)
+            Me.add_category.Name = "add_category"
+            Me.add_category.Size = New System.Drawing.Size(35, 39)
+            Me.add_category.TabIndex = 2
+            Me.add_category.UseVisualStyleBackColor = True
+            '
+            'month_next
+            '
+            Me.month_next.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.month_next.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.month_next.FlatAppearance.BorderSize = 0
+            Me.month_next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.month_next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.month_next.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.month_next.Image = Global.expense_Trackie.My.Resources.Resources.icons8_forward_16
+            Me.month_next.Location = New System.Drawing.Point(212, 3)
+            Me.month_next.Name = "month_next"
+            Me.month_next.Size = New System.Drawing.Size(32, 39)
+            Me.month_next.TabIndex = 1
+            Me.month_next.UseVisualStyleBackColor = True
+            '
+            'month_previous
+            '
+            Me.month_previous.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.month_previous.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.month_previous.FlatAppearance.BorderSize = 0
+            Me.month_previous.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.month_previous.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.month_previous.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.month_previous.Image = Global.expense_Trackie.My.Resources.Resources.icons8_back_16
+            Me.month_previous.Location = New System.Drawing.Point(175, 3)
+            Me.month_previous.Name = "month_previous"
+            Me.month_previous.Size = New System.Drawing.Size(31, 39)
+            Me.month_previous.TabIndex = 0
+            Me.month_previous.UseVisualStyleBackColor = True
+            '
+            'button_add_expense
+            '
+            Me.button_add_expense.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.button_add_expense.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.button_add_expense.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.button_add_expense.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.button_add_expense.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.button_add_expense.Font = New System.Drawing.Font("Cascadia Mono", 13.0!)
+            Me.button_add_expense.Image = Global.expense_Trackie.My.Resources.Resources.icons8_add_161
+            Me.button_add_expense.Location = New System.Drawing.Point(52, 14)
+            Me.button_add_expense.Name = "button_add_expense"
+            Me.button_add_expense.Size = New System.Drawing.Size(142, 57)
+            Me.button_add_expense.TabIndex = 7
+            Me.button_add_expense.Text = "Add"
+            Me.button_add_expense.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+            Me.button_add_expense.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+            Me.button_add_expense.UseVisualStyleBackColor = True
             '
             'radio_day_view
             '
@@ -520,24 +574,6 @@
             Me.button_max.Size = New System.Drawing.Size(50, 48)
             Me.button_max.TabIndex = 0
             Me.button_max.UseVisualStyleBackColor = True
-            '
-            'home_analysis_export_radio
-            '
-            Me.home_analysis_export_radio.ColumnCount = 3
-            Me.home_analysis_export_radio.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-            Me.home_analysis_export_radio.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-            Me.home_analysis_export_radio.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-            Me.home_analysis_export_radio.Controls.Add(Me.radio_export, 2, 0)
-            Me.home_analysis_export_radio.Controls.Add(Me.radio_analytical, 1, 0)
-            Me.home_analysis_export_radio.Controls.Add(Me.radio_home, 0, 0)
-            Me.home_analysis_export_radio.Location = New System.Drawing.Point(45, 1)
-            Me.home_analysis_export_radio.Margin = New System.Windows.Forms.Padding(0)
-            Me.home_analysis_export_radio.Name = "home_analysis_export_radio"
-            Me.home_analysis_export_radio.RowCount = 1
-            Me.home_analysis_export_radio.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-            Me.home_analysis_export_radio.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47.0!))
-            Me.home_analysis_export_radio.Size = New System.Drawing.Size(200, 47)
-            Me.home_analysis_export_radio.TabIndex = 0
             '
             'radio_export
             '
@@ -614,24 +650,6 @@
             Me.button_close.TabIndex = 7
             Me.button_close.UseVisualStyleBackColor = True
             '
-            'btn_all
-            '
-            Me.btn_all.AutoSize = True
-            Me.btn_all.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btn_all.Dock = System.Windows.Forms.DockStyle.Left
-            Me.btn_all.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-            Me.btn_all.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-            Me.btn_all.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btn_all.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 10.0!)
-            Me.btn_all.Location = New System.Drawing.Point(8, 5)
-            Me.btn_all.Margin = New System.Windows.Forms.Padding(8, 5, 8, 5)
-            Me.btn_all.Name = "btn_all"
-            Me.btn_all.Size = New System.Drawing.Size(70, 29)
-            Me.btn_all.TabIndex = 8
-            Me.btn_all.Text = "All"
-            Me.btn_all.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-            Me.btn_all.UseVisualStyleBackColor = True
-            '
             'MainWindow
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -641,7 +659,6 @@
             Me.Controls.Add(Me.panel_main)
             Me.Controls.Add(Me.panel_sidebar)
             Me.Controls.Add(Me.panel_topbar)
-            Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.MinimumSize = New System.Drawing.Size(1600, 1000)
             Me.Name = "MainWindow"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -702,5 +719,6 @@
         Friend WithEvents radio_analytical As RadioButton
         Friend WithEvents radio_home As RadioButton
         Friend WithEvents btn_all As Button
+        Friend WithEvents btn_edit_category As Button
     End Class
 End NameSpace
