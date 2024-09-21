@@ -26,6 +26,8 @@ Namespace Presentation
         Private Sub MybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
+            radio_home.Checked = True
+            radio_day_view.Checked = True
             LoadInformation()
 
 
@@ -238,6 +240,13 @@ Namespace Presentation
 #End Region
 
 
+#Region " profile "
+        Private Sub btn_profile_Click(sender As Object, e As EventArgs) Handles btn_profile.Click
+            DisplayProfile.Show()
+        End Sub
+
+#End Region
+
 #Region "check / button visual cues"
         ' checked visual cues
         Private Sub RadioCheckedChanged(sender As Object, e As EventArgs) Handles radio_home.CheckedChanged, radio_analytical.CheckedChanged, radio_export.CheckedChanged
@@ -414,6 +423,7 @@ Namespace Presentation
                 e.Graphics.FillRectangle(brush, rect)
             End Using
         End Sub
+
 
 
 

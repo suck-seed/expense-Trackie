@@ -28,6 +28,7 @@
             Me.panel_topbar = New System.Windows.Forms.Panel()
             Me.button_create = New System.Windows.Forms.Button()
             Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+            Me.btn_custom_color = New System.Windows.Forms.Button()
             Me.panel_color = New System.Windows.Forms.TableLayoutPanel()
             Me.Label3 = New System.Windows.Forms.Label()
             Me.txt_description = New System.Windows.Forms.RichTextBox()
@@ -36,7 +37,6 @@
             Me.Label1 = New System.Windows.Forms.Label()
             Me.Label5 = New System.Windows.Forms.Label()
             Me.panel_radio_category = New System.Windows.Forms.FlowLayoutPanel()
-            Me.btn_custom_color = New System.Windows.Forms.Button()
             Me.panel_topbar.SuspendLayout()
             Me.TableLayoutPanel1.SuspendLayout()
             Me.SuspendLayout()
@@ -124,6 +124,21 @@
             Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.450705!))
             Me.TableLayoutPanel1.Size = New System.Drawing.Size(407, 506)
             Me.TableLayoutPanel1.TabIndex = 5
+            '
+            'btn_custom_color
+            '
+            Me.btn_custom_color.Anchor = System.Windows.Forms.AnchorStyles.None
+            Me.btn_custom_color.BackColor = System.Drawing.SystemColors.ButtonFace
+            Me.btn_custom_color.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btn_custom_color.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.btn_custom_color.Location = New System.Drawing.Point(146, 466)
+            Me.btn_custom_color.Margin = New System.Windows.Forms.Padding(0)
+            Me.btn_custom_color.Name = "btn_custom_color"
+            Me.btn_custom_color.RightToLeft = System.Windows.Forms.RightToLeft.No
+            Me.btn_custom_color.Size = New System.Drawing.Size(115, 31)
+            Me.btn_custom_color.TabIndex = 15
+            Me.btn_custom_color.Text = "Custom Color"
+            Me.btn_custom_color.UseVisualStyleBackColor = False
             '
             'panel_color
             '
@@ -218,20 +233,6 @@
             Me.panel_radio_category.Name = "panel_radio_category"
             Me.panel_radio_category.Size = New System.Drawing.Size(401, 197)
             Me.panel_radio_category.TabIndex = 14
-            '
-            'btn_custom_color
-            '
-            Me.btn_custom_color.Anchor = System.Windows.Forms.AnchorStyles.None
-            Me.btn_custom_color.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btn_custom_color.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.btn_custom_color.Location = New System.Drawing.Point(146, 466)
-            Me.btn_custom_color.Margin = New System.Windows.Forms.Padding(0)
-            Me.btn_custom_color.Name = "btn_custom_color"
-            Me.btn_custom_color.RightToLeft = System.Windows.Forms.RightToLeft.No
-            Me.btn_custom_color.Size = New System.Drawing.Size(115, 31)
-            Me.btn_custom_color.TabIndex = 15
-            Me.btn_custom_color.Text = "Custom Color"
-            Me.btn_custom_color.UseVisualStyleBackColor = True
             '
             'UpdateCategory
             '

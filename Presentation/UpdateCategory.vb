@@ -61,7 +61,7 @@ Namespace Presentation
 #Region " category selected, load info on input box "
 
 
-        Public Sub LoadCategoryInfo()
+        Public Sub LoadCategoryInfo(ByVal cId As Integer)
 
             For Each control In panel_radio_category.Controls
 
@@ -129,6 +129,15 @@ Namespace Presentation
             End If
 
 
+            ' is information even changed
+
+            If Not nameChanged And Not descriptionChanged And Not colorChanged Then
+
+                MsgBox("Please change atleast one information")
+                Return
+            End If
+
+
             ' fool proffing
             If String.IsNullOrEmpty(txt_name.Text) Or String.IsNullOrEmpty(txt_description.Text) Or String.IsNullOrEmpty(_catColor) Then
                 MsgBox("Please fill all the information.")
@@ -137,13 +146,6 @@ Namespace Presentation
 
 
 
-            ' is information even changed
-
-            If Not nameChanged And Not descriptionChanged And Not colorChanged Then
-
-                MsgBox("Please change atleast one information")
-                Return
-            End If
 
 
 

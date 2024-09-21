@@ -110,7 +110,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Presentation\InputClearer.vb" />
+    <Compile Include="Presentation\DisplayProfile.Designer.vb">
+      <DependentUpon>DisplayProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\DisplayProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Cleaner.vb" />
     <Compile Include="Presentation\DeleteCategory.Designer.vb">
       <DependentUpon>DeleteCategory.vb</DependentUpon>
     </Compile>
@@ -141,6 +147,7 @@
     <Compile Include="Presentation\ExpenseDetailDisplay.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Presentation\Loader.vb" />
     <Compile Include="Presentation\MonthView.Designer.vb">
       <DependentUpon>MonthView.vb</DependentUpon>
     </Compile>
@@ -223,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\DeleteCategory.resx">
       <DependentUpon>DeleteCategory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\DisplayProfile.resx">
+      <DependentUpon>DisplayProfile.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\ExpenseDetailDisplay.resx">
       <DependentUpon>ExpenseDetailDisplay.vb</DependentUpon>
@@ -425,6 +435,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

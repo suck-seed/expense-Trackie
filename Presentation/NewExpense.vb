@@ -152,7 +152,7 @@ Namespace Presentation
 #Region " selected category "
 
 
-        Public Sub GetSelectedRadioCategoryId()
+        Public Sub GetSelectedRadioCategoryId(ByVal cId As Integer)
 
             For Each control In panel_radio_category.Controls
 

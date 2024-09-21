@@ -59,7 +59,7 @@ Namespace Application
 
 
         ' load expense into panel
-        Public Sub LoadExpense(ByRef panel As TableLayoutPanel, ByRef currentDate As DateTime)
+        Public Sub LoadExpense(ByRef panel As TableLayoutPanel, ByRef currentDate As DateTime, handler As Action(Of Integer))
 
             Dim expenseTable As DataTable = _expenseRepository.GetExpensesDynamically(currentDate.ToString("yyyy-MM-dd"))
 
@@ -98,6 +98,15 @@ Namespace Application
                 expenseInfo.Visible = True
                 expenseInfo.Anchor = AnchorStyles.Top
                 expenseInfo.Dock = DockStyle.Top
+
+
+
+
+                'event handler
+                Dim eId As Integer = CInt(expenseInfo.Tag)
+                AddHandler expenseInfo.lbl_amount.Click, Sub() handler(eId)
+                AddHandler expenseInfo.lbl_remarks.Click, Sub() handler(eId)
+                AddHandler expenseInfo.lbl_amount.Click, Sub() handler(eId)
 
 
                 'row management

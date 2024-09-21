@@ -64,12 +64,11 @@ Namespace Presentation
 
 #Region "fetching image"
 
-
-        Private Sub btn_select_profile_Click(sender As Object, e As EventArgs) Handles btn_select_profile.Click
+        Private Sub profilePicture_Click(sender As Object, e As EventArgs) Handles profilePicture.Click
 
             Dim fileDialog As New OpenFileDialog
-            
-           
+
+
             fileDialog.Filter = ImageFilter
 
             If fileDialog.ShowDialog = DialogResult.OK Then
@@ -79,8 +78,6 @@ Namespace Presentation
 
 
             End If
-
-
 
         End Sub
 
@@ -167,6 +164,8 @@ Namespace Presentation
         Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
             Me.Close()
         End Sub
+
+
 #End Region
 
     End Class

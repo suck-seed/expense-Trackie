@@ -66,15 +66,74 @@ BEGIN
 
 END
 
+
+------------------------------------ updateInfo
+CREATE PROCEDURE updateUserInfo
+(
+	@username VARCHAR(255) ,
+	@number VARCHAR(10)  ,
+	@password VARCHAR(255)  ,
+	@dailyLimit DECIMAL(10,2),
+	@profilePicturePath VARCHAR(255),
+	@userId INTEGER,
+	@result INTEGER OUTPUT
+)
+AS
+BEGIN
+	UPDATE userInfo
+    SET username = @username, number = @number, [password] = @password, dailyLimit = @dailyLimit, profilePicturePath = @profilePicturePath
+    WHERE id = @userId
+
+    -- Check if the update was successful
+    IF @@ROWCOUNT > 0
+    BEGIN
+        -- If a row was affected, return success
+        SET @result = 1
+    END
+    ELSE
+    BEGIN
+        -- If no rows were affected, return failure
+        SET @result = 0
+    END
+END
+
+
+------------------------------------------ delete user inf
+CREATE PROCEDURE deleteUserInfo
+(
+    @userId INTEGER,
+    @result INTEGER OUTPUT
+)
+AS
+BEGIN
+    -- Update category to disable it (set enabled to 0)
+    UPDATE userInfo
+    SET enabled = 0
+    WHERE id = @userId
+
+    -- Check if the update was successful
+    IF @@ROWCOUNT > 0
+    BEGIN
+        -- If a row was affected, return success
+        SET @result = 1
+    END
+    ELSE
+    BEGIN
+        -- If no rows were affected, return failure
+        SET @result = 0
+    END
+END
+
+
 ----------------------------------- fetch user info
-CREATE PROCEDURE fetchUserInfo
+ALTER PROCEDURE fetchUserInfo
 (
 	@id INTEGER 
 )
 AS 
 BEGIN
 
-	SELECT username,[password],number,dateJoined,profilePicturePath
+	SELECT username,[password],number,dateJoined,profilePicturePath,dailyLimit
 	FROM userInfo
 	WHERE id = @id AND enabled = 1
 
@@ -173,7 +232,7 @@ AS
 BEGIN
 
 	UPDATE category
-    SET enabled = 0
+    SET catName = @catName, [description] = @description, color = @color
     WHERE catId = @catId AND userId = @userId
 
     -- Check if the update was successful

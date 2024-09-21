@@ -20,19 +20,19 @@ Namespace My
     ' Solution Explorer), and make changes on the Application tab.
     '
     Partial Friend Class MyApplication
-
-        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>
+        
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Public Sub New()
             MyBase.New(Global.Microsoft.VisualBasic.ApplicationServices.AuthenticationMode.Windows)
-            Me.IsSingleInstance = True
-            Me.EnableVisualStyles = False
-            Me.SaveMySettingsOnExit = True
-            Me.ShutdownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
+            Me.IsSingleInstance = true
+            Me.EnableVisualStyles = false
+            Me.SaveMySettingsOnExit = true
+            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
         End Sub
-
-        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>
+        
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.expense_Trackie.Presentation.MainWindow
+            Me.MainForm = Global.expense_Trackie.Presentation.SignIn
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _

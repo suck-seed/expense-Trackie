@@ -38,11 +38,8 @@
             Me.PictureBox1 = New System.Windows.Forms.PictureBox()
             Me.button_close = New System.Windows.Forms.Button()
             Me.Label5 = New System.Windows.Forms.Label()
-            Me.btn_select_profile = New System.Windows.Forms.Button()
             Me.profilePicture = New System.Windows.Forms.Button()
-            Me.pictureBoxProfile = New System.Windows.Forms.PictureBox()
             CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.pictureBoxProfile, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             '
             'Label4
@@ -200,44 +197,23 @@
             Me.Label5.TabIndex = 43
             Me.Label5.Text = "Profile"
             '
-            'btn_select_profile
-            '
-            Me.btn_select_profile.Font = New System.Drawing.Font("Cascadia Mono", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.btn_select_profile.Location = New System.Drawing.Point(621, 181)
-            Me.btn_select_profile.Name = "btn_select_profile"
-            Me.btn_select_profile.Size = New System.Drawing.Size(75, 23)
-            Me.btn_select_profile.TabIndex = 44
-            Me.btn_select_profile.Text = "Select"
-            Me.btn_select_profile.UseVisualStyleBackColor = True
-            '
             'profilePicture
             '
             Me.profilePicture.FlatAppearance.BorderSize = 0
             Me.profilePicture.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.profilePicture.Image = Global.expense_Trackie.My.Resources.Resources.profileLight
-            Me.profilePicture.Location = New System.Drawing.Point(705, 159)
+            Me.profilePicture.Location = New System.Drawing.Point(620, 182)
             Me.profilePicture.Name = "profilePicture"
             Me.profilePicture.Size = New System.Drawing.Size(51, 45)
             Me.profilePicture.TabIndex = 45
             Me.profilePicture.UseVisualStyleBackColor = True
-            '
-            'pictureBoxProfile
-            '
-            Me.pictureBoxProfile.Location = New System.Drawing.Point(762, 159)
-            Me.pictureBoxProfile.Name = "pictureBoxProfile"
-            Me.pictureBoxProfile.Size = New System.Drawing.Size(59, 45)
-            Me.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-            Me.pictureBoxProfile.TabIndex = 46
-            Me.pictureBoxProfile.TabStop = False
             '
             'SignUp
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.ClientSize = New System.Drawing.Size(969, 750)
-            Me.Controls.Add(Me.pictureBoxProfile)
             Me.Controls.Add(Me.profilePicture)
-            Me.Controls.Add(Me.btn_select_profile)
             Me.Controls.Add(Me.Label5)
             Me.Controls.Add(Me.button_close)
             Me.Controls.Add(Me.Label4)
@@ -257,7 +233,6 @@
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
             Me.Text = "SignUp"
             CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.pictureBoxProfile, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
             Me.PerformLayout()
 
@@ -277,8 +252,6 @@
         Friend WithEvents PictureBox1 As PictureBox
         Friend WithEvents button_close As Button
         Friend WithEvents Label5 As Label
-        Friend WithEvents btn_select_profile As Button
         Friend WithEvents profilePicture As Button
-        Friend WithEvents pictureBoxProfile As PictureBox
     End Class
 End NameSpace

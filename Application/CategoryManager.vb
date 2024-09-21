@@ -69,7 +69,7 @@ Namespace Application
 #Region " generate category : radio "
 
         '        for loading category 
-        Public Sub GenerateCategoryRadioButtons(ByVal panel As FlowLayoutPanel, ByRef handler As EventHandler)
+        Public Sub GenerateCategoryRadioButtons(ByVal panel As FlowLayoutPanel, handler As Action(Of Integer))
 
             '            loading a dataTable
             Dim categoryTable As DataTable = _categoryrepository.GetUserCategory()
@@ -114,7 +114,7 @@ Namespace Application
 
 
                 ' event handler for CheckChanged event
-                AddHandler radioButton.CheckedChanged, handler
+                AddHandler radioButton.CheckedChanged, Sub() handler(radioButton.Tag)
 
 
                 '                adding to panel

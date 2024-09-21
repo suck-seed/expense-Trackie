@@ -11,13 +11,20 @@ Namespace Application
 
         Public Function RegisterUser(ByVal username As String, ByVal number As String, ByVal password As String, ByVal dateJoined As DateTime, ByVal imageAddress As String) As Integer
 
-
-            If _userRepository.IsDuplicateUser(username, number) Then
-                MsgBox("A user with above information already exists ")
-
-
+            ' if both username and number exists
+            If _userRepository.IsDuplicateUser(username, "") Then
+                MsgBox(" Username already exists ")
                 Return -1
             End If
+
+            If _userRepository.IsDuplicateUser("", number) Then
+                MsgBox(" Number already in use ")
+                Return -1
+            End If
+            'If _userRepository.IsDuplicateUser(username, number) Then
+            '    MsgBox("A user with above information already exists "
+            '    Return -1
+            'End If
 
 
             _userId = _userRepository.AddUser(username, number, password, dateJoined, imageAddress)
@@ -71,6 +78,81 @@ Namespace Application
         End Function
 #End Region
 
+#Region " update "
+
+        Function UpdateUserInfo(ByVal _username As String, ByVal _password As String, ByVal _number As String, ByVal _dailyLimit As Decimal, ByVal _profileLink As String, ByVal userId As Integer) As Integer
+
+            Dim currentUsername As String = SessionManager.Instance.CurrentUsername
+            Dim currentNumber As String = SessionManager.Instance.CurrentNumber
+
+
+            ' different username number but already exists to other
+
+            If _userRepository.IsDuplicateUser(_username, "") And _username <> currentUsername Then
+                MsgBox(" Username already exists ")
+                Return -1
+            End If
+
+            If _userRepository.IsDuplicateUser("", _number) And _number <> currentNumber Then
+
+                MsgBox(" Number already is in use ")
+                Return -1
+            End If
+
+
+
+
+            ' EVERYTHING ELSE THAN username & number is changed
+            If _userRepository.IsDuplicateUser(_username, "") = True And _username = currentUsername And _userRepository.IsDuplicateUser("", _number) = True And _number = currentNumber Then
+
+                If _userRepository.UpdateUser(_username, _password, _number, _dailyLimit, _profileLink, userId) > 0 Then
+
+
+                    SetUserSessionInformation(userId)
+                    Return 1
+                Else
+
+                    Return -1
+
+                End If
+
+            End If
+
+
+            ' anything else bhaye ma
+            If _userRepository.UpdateUser(_username, _password, _number, _dailyLimit, _profileLink, userId) > 0 Then
+
+
+                SetUserSessionInformation(userId)
+                Return 1
+            Else
+
+                Return -1
+
+            End If
+
+
+
+
+        End Function
+
+#End Region
+
+
+#Region "delete user"
+
+        Public Function DeleteUser(ByVal currentId As Integer) As Integer
+
+            If _userRepository.DeleteUserInfo(currentId) Then
+                Return 1
+            Else
+                Return -1
+            End If
+
+        End Function
+
+#End Region
+
 
 #Region "setting session user info"
 
@@ -90,6 +172,10 @@ Namespace Application
                 SessionManager.Instance.CurrentNumber = row("number").ToString
                 SessionManager.Instance.CurrentDateJoined = DateTime.Parse(row("dateJoined").ToString)
                 SessionManager.Instance.CurrentProfileLink = row("profilePicturePath").ToString
+
+                If Not IsDBNull(row("dailyLimit")) Then
+                    SessionManager.Instance.CurrentDailyLimit = CDec(row("dailyLimit"))
+                End If
 
 
             Next

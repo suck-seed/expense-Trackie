@@ -106,7 +106,7 @@ Namespace Presentation
 
             Dim expenseManager As New ExpenseManager()
 
-            expenseManager.LoadExpense(panel_expense_display, _currentDate)
+            expenseManager.LoadExpense(panel_expense_display, _currentDate, AddressOf DeleteOnExpenseClick)
 
         End Sub
 
@@ -119,6 +119,13 @@ Namespace Presentation
 
 #End Region
 
+
+        Public Sub DeleteOnExpenseClick(ByVal eId As Integer)
+
+            MsgBox(eId)
+
+
+        End Sub
 
 
 

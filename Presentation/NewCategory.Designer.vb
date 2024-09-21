@@ -24,29 +24,19 @@
         <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
             Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+            Me.txt_description = New System.Windows.Forms.RichTextBox()
+            Me.txt_name = New System.Windows.Forms.RichTextBox()
             Me.Label3 = New System.Windows.Forms.Label()
             Me.Label2 = New System.Windows.Forms.Label()
             Me.Label1 = New System.Windows.Forms.Label()
+            Me.panel_color = New System.Windows.Forms.TableLayoutPanel()
             Me.btn_custom_color = New System.Windows.Forms.Button()
             Me.panel_topbar = New System.Windows.Forms.Panel()
             Me.Label4 = New System.Windows.Forms.Label()
             Me.button_close = New System.Windows.Forms.Button()
             Me.button_create = New System.Windows.Forms.Button()
-            Me.txt_name = New System.Windows.Forms.RichTextBox()
-            Me.txt_description = New System.Windows.Forms.RichTextBox()
-            Me.Radio_Color3 = New System.Windows.Forms.RadioButton()
-            Me.Radio_Color4 = New System.Windows.Forms.RadioButton()
-            Me.Radio_Color1 = New System.Windows.Forms.RadioButton()
-            Me.Radio_Color2 = New System.Windows.Forms.RadioButton()
-            Me.Radio_Color5 = New System.Windows.Forms.RadioButton()
-            Me.Radio_Color8 = New System.Windows.Forms.RadioButton()
-            Me.Radio_Color9 = New System.Windows.Forms.RadioButton()
-            Me.Radio_Color6 = New System.Windows.Forms.RadioButton()
-            Me.Radio_Color7 = New System.Windows.Forms.RadioButton()
-            Me.tabelPanel_color = New System.Windows.Forms.TableLayoutPanel()
             Me.TableLayoutPanel1.SuspendLayout()
             Me.panel_topbar.SuspendLayout()
-            Me.tabelPanel_color.SuspendLayout()
             Me.SuspendLayout()
             '
             'TableLayoutPanel1
@@ -61,7 +51,7 @@
             Me.TableLayoutPanel1.Controls.Add(Me.Label3, 0, 4)
             Me.TableLayoutPanel1.Controls.Add(Me.Label2, 0, 2)
             Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
-            Me.TableLayoutPanel1.Controls.Add(Me.tabelPanel_color, 0, 5)
+            Me.TableLayoutPanel1.Controls.Add(Me.panel_color, 0, 5)
             Me.TableLayoutPanel1.Controls.Add(Me.btn_custom_color, 0, 6)
             Me.TableLayoutPanel1.Location = New System.Drawing.Point(43, 65)
             Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -76,6 +66,27 @@
             Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
             Me.TableLayoutPanel1.Size = New System.Drawing.Size(407, 309)
             Me.TableLayoutPanel1.TabIndex = 1
+            '
+            'txt_description
+            '
+            Me.txt_description.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.txt_description.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.txt_description.Location = New System.Drawing.Point(3, 130)
+            Me.txt_description.Multiline = False
+            Me.txt_description.Name = "txt_description"
+            Me.txt_description.Size = New System.Drawing.Size(401, 29)
+            Me.txt_description.TabIndex = 12
+            Me.txt_description.Text = ""
+            '
+            'txt_name
+            '
+            Me.txt_name.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.txt_name.Location = New System.Drawing.Point(3, 46)
+            Me.txt_name.Multiline = False
+            Me.txt_name.Name = "txt_name"
+            Me.txt_name.Size = New System.Drawing.Size(401, 29)
+            Me.txt_name.TabIndex = 11
+            Me.txt_name.Text = ""
             '
             'Label3
             '
@@ -101,7 +112,6 @@
             '
             'Label1
             '
-            Me.Label1.AutoSize = True
             Me.Label1.Dock = System.Windows.Forms.DockStyle.Bottom
             Me.Label1.Font = New System.Drawing.Font("Cascadia Mono", 10.0!)
             Me.Label1.Location = New System.Drawing.Point(3, 25)
@@ -109,6 +119,26 @@
             Me.Label1.Size = New System.Drawing.Size(401, 18)
             Me.Label1.TabIndex = 0
             Me.Label1.Text = "Name"
+            '
+            'panel_color
+            '
+            Me.panel_color.ColumnCount = 9
+            Me.panel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+            Me.panel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+            Me.panel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+            Me.panel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+            Me.panel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+            Me.panel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+            Me.panel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
+            Me.panel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.7207!))
+            Me.panel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.47132!))
+            Me.panel_color.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.panel_color.Location = New System.Drawing.Point(3, 203)
+            Me.panel_color.Name = "panel_color"
+            Me.panel_color.RowCount = 1
+            Me.panel_color.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+            Me.panel_color.Size = New System.Drawing.Size(401, 44)
+            Me.panel_color.TabIndex = 5
             '
             'btn_custom_color
             '
@@ -178,184 +208,6 @@
             Me.button_create.TabIndex = 10
             Me.button_create.UseVisualStyleBackColor = True
             '
-            'txt_name
-            '
-            Me.txt_name.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.txt_name.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.txt_name.Location = New System.Drawing.Point(3, 46)
-            Me.txt_name.Multiline = False
-            Me.txt_name.Name = "txt_name"
-            Me.txt_name.Size = New System.Drawing.Size(401, 29)
-            Me.txt_name.TabIndex = 11
-            Me.txt_name.Text = ""
-            '
-            'txt_description
-            '
-            Me.txt_description.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.txt_description.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.txt_description.Location = New System.Drawing.Point(3, 130)
-            Me.txt_description.Multiline = False
-            Me.txt_description.Name = "txt_description"
-            Me.txt_description.Size = New System.Drawing.Size(401, 29)
-            Me.txt_description.TabIndex = 12
-            Me.txt_description.Text = ""
-            '
-            'Radio_Color3
-            '
-            Me.Radio_Color3.Appearance = System.Windows.Forms.Appearance.Button
-            Me.Radio_Color3.AutoSize = True
-            Me.Radio_Color3.BackColor = System.Drawing.Color.FromArgb(CType(CType(106, Byte), Integer), CType(CType(156, Byte), Integer), CType(CType(137, Byte), Integer))
-            Me.Radio_Color3.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.Radio_Color3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.Radio_Color3.Location = New System.Drawing.Point(91, 3)
-            Me.Radio_Color3.Name = "Radio_Color3"
-            Me.Radio_Color3.Size = New System.Drawing.Size(38, 38)
-            Me.Radio_Color3.TabIndex = 0
-            Me.Radio_Color3.TabStop = True
-            Me.Radio_Color3.UseVisualStyleBackColor = False
-            '
-            'Radio_Color4
-            '
-            Me.Radio_Color4.Appearance = System.Windows.Forms.Appearance.Button
-            Me.Radio_Color4.AutoSize = True
-            Me.Radio_Color4.BackColor = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(172, Byte), Integer), CType(CType(205, Byte), Integer))
-            Me.Radio_Color4.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.Radio_Color4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.Radio_Color4.Location = New System.Drawing.Point(135, 3)
-            Me.Radio_Color4.Name = "Radio_Color4"
-            Me.Radio_Color4.Size = New System.Drawing.Size(38, 38)
-            Me.Radio_Color4.TabIndex = 1
-            Me.Radio_Color4.TabStop = True
-            Me.Radio_Color4.UseVisualStyleBackColor = False
-            '
-            'Radio_Color1
-            '
-            Me.Radio_Color1.Appearance = System.Windows.Forms.Appearance.Button
-            Me.Radio_Color1.AutoSize = True
-            Me.Radio_Color1.BackColor = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(115, Byte), Integer))
-            Me.Radio_Color1.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.Radio_Color1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.Radio_Color1.Location = New System.Drawing.Point(3, 3)
-            Me.Radio_Color1.Name = "Radio_Color1"
-            Me.Radio_Color1.Size = New System.Drawing.Size(38, 38)
-            Me.Radio_Color1.TabIndex = 2
-            Me.Radio_Color1.TabStop = True
-            Me.Radio_Color1.UseVisualStyleBackColor = False
-            '
-            'Radio_Color2
-            '
-            Me.Radio_Color2.Appearance = System.Windows.Forms.Appearance.Button
-            Me.Radio_Color2.AutoSize = True
-            Me.Radio_Color2.BackColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(194, Byte), Integer), CType(CType(165, Byte), Integer))
-            Me.Radio_Color2.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.Radio_Color2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.Radio_Color2.Location = New System.Drawing.Point(47, 3)
-            Me.Radio_Color2.Name = "Radio_Color2"
-            Me.Radio_Color2.Size = New System.Drawing.Size(38, 38)
-            Me.Radio_Color2.TabIndex = 3
-            Me.Radio_Color2.TabStop = True
-            Me.Radio_Color2.UseVisualStyleBackColor = False
-            '
-            'Radio_Color5
-            '
-            Me.Radio_Color5.Appearance = System.Windows.Forms.Appearance.Button
-            Me.Radio_Color5.AutoSize = True
-            Me.Radio_Color5.BackColor = System.Drawing.Color.FromArgb(CType(CType(206, Byte), Integer), CType(CType(212, Byte), Integer), CType(CType(218, Byte), Integer))
-            Me.Radio_Color5.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.Radio_Color5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.Radio_Color5.Location = New System.Drawing.Point(179, 3)
-            Me.Radio_Color5.Name = "Radio_Color5"
-            Me.Radio_Color5.Size = New System.Drawing.Size(38, 38)
-            Me.Radio_Color5.TabIndex = 4
-            Me.Radio_Color5.TabStop = True
-            Me.Radio_Color5.UseVisualStyleBackColor = False
-            '
-            'Radio_Color8
-            '
-            Me.Radio_Color8.Appearance = System.Windows.Forms.Appearance.Button
-            Me.Radio_Color8.AutoSize = True
-            Me.Radio_Color8.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(184, Byte), Integer))
-            Me.Radio_Color8.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.Radio_Color8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.Radio_Color8.Location = New System.Drawing.Point(311, 3)
-            Me.Radio_Color8.Name = "Radio_Color8"
-            Me.Radio_Color8.Size = New System.Drawing.Size(40, 38)
-            Me.Radio_Color8.TabIndex = 5
-            Me.Radio_Color8.TabStop = True
-            Me.Radio_Color8.UseVisualStyleBackColor = False
-            '
-            'Radio_Color9
-            '
-            Me.Radio_Color9.Appearance = System.Windows.Forms.Appearance.Button
-            Me.Radio_Color9.AutoSize = True
-            Me.Radio_Color9.BackColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(191, Byte), Integer), CType(CType(167, Byte), Integer))
-            Me.Radio_Color9.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.Radio_Color9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.Radio_Color9.Location = New System.Drawing.Point(357, 3)
-            Me.Radio_Color9.Name = "Radio_Color9"
-            Me.Radio_Color9.Size = New System.Drawing.Size(41, 38)
-            Me.Radio_Color9.TabIndex = 6
-            Me.Radio_Color9.TabStop = True
-            Me.Radio_Color9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-            Me.Radio_Color9.UseVisualStyleBackColor = False
-            '
-            'Radio_Color6
-            '
-            Me.Radio_Color6.Appearance = System.Windows.Forms.Appearance.Button
-            Me.Radio_Color6.AutoSize = True
-            Me.Radio_Color6.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(202, Byte), Integer))
-            Me.Radio_Color6.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.Radio_Color6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.Radio_Color6.Location = New System.Drawing.Point(223, 3)
-            Me.Radio_Color6.Name = "Radio_Color6"
-            Me.Radio_Color6.Size = New System.Drawing.Size(38, 38)
-            Me.Radio_Color6.TabIndex = 7
-            Me.Radio_Color6.TabStop = True
-            Me.Radio_Color6.UseVisualStyleBackColor = False
-            '
-            'Radio_Color7
-            '
-            Me.Radio_Color7.Appearance = System.Windows.Forms.Appearance.Button
-            Me.Radio_Color7.AutoSize = True
-            Me.Radio_Color7.BackColor = System.Drawing.Color.FromArgb(CType(CType(187, Byte), Integer), CType(CType(154, Byte), Integer), CType(CType(177, Byte), Integer))
-            Me.Radio_Color7.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.Radio_Color7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.Radio_Color7.Location = New System.Drawing.Point(267, 3)
-            Me.Radio_Color7.Name = "Radio_Color7"
-            Me.Radio_Color7.Size = New System.Drawing.Size(38, 38)
-            Me.Radio_Color7.TabIndex = 8
-            Me.Radio_Color7.TabStop = True
-            Me.Radio_Color7.UseVisualStyleBackColor = False
-            '
-            'tabelPanel_color
-            '
-            Me.tabelPanel_color.ColumnCount = 9
-            Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-            Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-            Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-            Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-            Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-            Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-            Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-            Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.7207!))
-            Me.tabelPanel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.47132!))
-            Me.tabelPanel_color.Controls.Add(Me.Radio_Color7, 0, 0)
-            Me.tabelPanel_color.Controls.Add(Me.Radio_Color6, 0, 0)
-            Me.tabelPanel_color.Controls.Add(Me.Radio_Color9, 0, 0)
-            Me.tabelPanel_color.Controls.Add(Me.Radio_Color8, 0, 0)
-            Me.tabelPanel_color.Controls.Add(Me.Radio_Color5, 0, 0)
-            Me.tabelPanel_color.Controls.Add(Me.Radio_Color2, 0, 0)
-            Me.tabelPanel_color.Controls.Add(Me.Radio_Color1, 0, 0)
-            Me.tabelPanel_color.Controls.Add(Me.Radio_Color4, 0, 0)
-            Me.tabelPanel_color.Controls.Add(Me.Radio_Color3, 0, 0)
-            Me.tabelPanel_color.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.tabelPanel_color.Location = New System.Drawing.Point(3, 203)
-            Me.tabelPanel_color.Name = "tabelPanel_color"
-            Me.tabelPanel_color.RowCount = 1
-            Me.tabelPanel_color.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-            Me.tabelPanel_color.Size = New System.Drawing.Size(401, 44)
-            Me.tabelPanel_color.TabIndex = 5
-            '
             'NewCategory
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -374,8 +226,6 @@
             Me.TableLayoutPanel1.PerformLayout()
             Me.panel_topbar.ResumeLayout(False)
             Me.panel_topbar.PerformLayout()
-            Me.tabelPanel_color.ResumeLayout(False)
-            Me.tabelPanel_color.PerformLayout()
             Me.ResumeLayout(False)
 
         End Sub
@@ -391,15 +241,6 @@
         Friend WithEvents btn_custom_color As Button
         Friend WithEvents txt_description As RichTextBox
         Friend WithEvents txt_name As RichTextBox
-        Friend WithEvents tabelPanel_color As TableLayoutPanel
-        Friend WithEvents Radio_Color7 As RadioButton
-        Friend WithEvents Radio_Color6 As RadioButton
-        Friend WithEvents Radio_Color9 As RadioButton
-        Friend WithEvents Radio_Color8 As RadioButton
-        Friend WithEvents Radio_Color5 As RadioButton
-        Friend WithEvents Radio_Color2 As RadioButton
-        Friend WithEvents Radio_Color1 As RadioButton
-        Friend WithEvents Radio_Color4 As RadioButton
-        Friend WithEvents Radio_Color3 As RadioButton
+        Friend WithEvents panel_color As TableLayoutPanel
     End Class
 End NameSpace

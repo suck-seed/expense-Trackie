@@ -12,11 +12,21 @@ Namespace Presentation
         Dim _catColor As String
 
 
+#Region " load "
+        Private Sub NewCategory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+            LoadDefaultColor(panel_color, AddressOf ColorIdDefaultColor)
+
+        End Sub
+
+#End Region
+
+
 #Region "category creation"
 
         Private Sub button_create_Click(sender As Object, e As EventArgs) Handles button_create.Click
 
-            GetDefaultColor()
 
             ' Error proofing
 
@@ -65,9 +75,12 @@ Namespace Presentation
 
 #Region "color selection"
         ' Default color selection
-        Private Sub GetDefaultColor()
 
-            For Each control As Control In tabelPanel_color.Controls
+#Region " color selection "
+
+        Private Sub ColorIdDefaultColor()
+
+            For Each control As Control In panel_color.Controls
 
                 If TypeOf control Is RadioButton Then
 
@@ -75,10 +88,12 @@ Namespace Presentation
 
                     If rb.Checked Then
 
+
                         _catColor = ColorTranslator.ToHtml(rb.BackColor)
-                        btn_custom_color.BackColor = Color.LightGray
+                        btn_custom_color.BackColor = SystemColors.ButtonFace
 
                     End If
+
 
                 End If
 
@@ -87,14 +102,11 @@ Namespace Presentation
         End Sub
 
 
-
-        ' Custom color selection
         Private Sub btn_custom_color_Click(sender As Object, e As EventArgs) Handles btn_custom_color.Click
 
 
-
-            ' unchecking all the radio buttons
-            For Each control As Control In tabelPanel_color.Controls
+            ' unchecking default color
+            For Each control As Control In panel_color.Controls
 
                 If TypeOf control Is RadioButton Then
 
@@ -137,7 +149,13 @@ Namespace Presentation
 
             MsgBox("Custom color :" & _catColor)
 
+
+
         End Sub
+
+
+
+#End Region
 
 
 #End Region
@@ -204,6 +222,8 @@ Namespace Presentation
                 e.Graphics.FillRectangle(brush, rect)
             End Using
         End Sub
+
+
 
 
 #End Region

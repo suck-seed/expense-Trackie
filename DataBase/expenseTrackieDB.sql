@@ -11,13 +11,15 @@ CREATE TABLE userInfo(
         number VARCHAR(10) UNIQUE NOT NULL,
         dateJoined DATE NOT NULL,
         enabled BIT NOT NULL DEFAULT 1,
+        profilePicturePath VARCHAR(255),
+        dailyLimit DECIMAL(10,2) CONSTRAINT def_limit DEFAULT 5000
 
         
 
 );
 
 ALTER TABLE userInfo
-ADD profilePicturePath VARCHAR(255) NULL;
+ADD dailyLimit DECIMAL(10,2) NULL;
 
 select * from userInfo
 

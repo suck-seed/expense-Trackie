@@ -32,7 +32,7 @@ Namespace Presentation
 
             If userId > 0 Then
 
-                MsgBox("Login successful")
+
 
                 MsgBox(SessionManager.Instance.CurrentUserId)
                 MsgBox(SessionManager.Instance.CurrentUsername)
@@ -43,7 +43,8 @@ Namespace Presentation
 
                 Me.Hide()
 
-                mainWindow.Show()
+                ClearInputFields()
+                MainWindow.Show()
 
             Else
                 MsgBox("User login failed. Please try again.")

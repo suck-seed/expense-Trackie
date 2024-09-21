@@ -118,6 +118,54 @@ Namespace DataLayer
 #End Region
 
 
+
+#Region " update "
+        Function UpdateUser(ByVal _username As String, ByVal _password As String, ByVal _number As String, ByVal _dailyLimit As Decimal, ByVal _profileLink As String, ByVal userId As Integer) As Integer
+
+            Dim result As Integer = 0
+
+            Using connection As New SqlConnection(_connectionString)
+
+                connection.Open()
+
+                Using command As New SqlCommand("updateUserInfo", connection)
+                    command.CommandType = CommandType.StoredProcedure
+
+
+                    ' linking paremeter
+                    command.Parameters.AddWithValue("@username", _username)
+                    command.Parameters.AddWithValue("@number", _number)
+                    command.Parameters.AddWithValue("@password", _password)
+
+                    command.Parameters.AddWithValue("@dailyLimit", _dailyLimit)
+                    command.Parameters.AddWithValue("@profilePicturePath", _profileLink)
+                    command.Parameters.AddWithValue("@userId", userId)
+
+
+                    'output paremeter
+                    Dim resultParameter As New SqlParameter("@result", SqlDbType.Int)
+                    resultParameter.Direction = ParameterDirection.Output
+
+                    command.Parameters.Add(resultParameter)
+
+
+                    command.ExecuteNonQuery()
+
+
+                    result = Convert.ToInt32(resultParameter.Value)
+
+
+                    Return result
+
+                End Using
+
+            End Using
+
+        End Function
+
+#End Region
+
+
 #Region "signIn"
 
 
@@ -208,6 +256,48 @@ Namespace DataLayer
 
         End Function
 
+#End Region
+
+
+
+#Region " delete "
+        Function DeleteUserInfo(ByVal userId As Integer) As Integer
+
+            Dim result As Integer = 0
+
+            Using connection As New SqlConnection(_connectionString)
+
+                connection.Open()
+
+                Using command As New SqlCommand("deleteUserInfo", connection)
+                    command.CommandType = CommandType.StoredProcedure
+
+
+                    ' linking paremeter
+                    command.Parameters.AddWithValue("@userId", userId)
+
+
+                    'output paremeter
+                    Dim resultParameter As New SqlParameter("@result", SqlDbType.Int)
+                    resultParameter.Direction = ParameterDirection.Output
+
+                    command.Parameters.Add(resultParameter)
+
+
+                    command.ExecuteNonQuery()
+
+
+                    result = Convert.ToInt32(resultParameter.Value)
+
+
+                    Return result
+
+                End Using
+
+            End Using
+
+
+        End Function
 #End Region
 
     End Class
