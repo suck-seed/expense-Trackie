@@ -10,15 +10,15 @@ Namespace Presentation
         Dim _catColor As String
 
 
-        Dim selectedId As Integer
-        Dim selectedName As String
-        Dim selectedDescription As String
-        Dim selectedColor As String
+        Dim _selectedId As Integer
+        Dim _selectedName As String
+        Dim _selectedDescription As String
+        Dim _selectedColor As String
 
 
-        Dim nameChanged As Boolean = False
-        Dim descriptionChanged As Boolean = False
-        Dim colorChanged As Boolean = False
+        Dim _nameChanged As Boolean = False
+        Dim _descriptionChanged As Boolean = False
+        Dim _colorChanged As Boolean = False
 
 #Region " New( dayView ) "
 
@@ -72,14 +72,16 @@ Namespace Presentation
                     If radioButton.Checked Then
 
                         ' storing selected category id
-                        selectedName = radioButton.Text.ToString
-                        selectedDescription = radioButton.AccessibleDescription.ToString
-                        selectedColor = ColorTranslator.ToHtml(radioButton.BackColor)
-                        selectedId = radioButton.Tag
+                        _selectedName = radioButton.Text.ToString
+                        _selectedDescription = radioButton.AccessibleDescription.ToString
+                        _selectedColor = ColorTranslator.ToHtml(radioButton.BackColor)
+                        _selectedId = radioButton.Tag
+                        MsgBox(_selectedId)
+
 
                         ' displaying in input box
-                        txt_name.Text = selectedName
-                        txt_description.Text = selectedDescription
+                        txt_name.Text = _selectedName
+                        txt_description.Text = _selectedDescription
 
 
 
@@ -94,12 +96,12 @@ Namespace Presentation
 
                                 Dim radioBackColor As String = ColorTranslator.ToHtml(radioButton1.BackColor)
 
-                                If radioBackColor = selectedColor Then
+                                If radioBackColor = _selectedColor Then
 
                                     radioButton1.Checked = True
                                     Return
                                 Else
-                                    btn_custom_color.BackColor = ColorTranslator.FromHtml(selectedColor)
+                                    btn_custom_color.BackColor = ColorTranslator.FromHtml(_selectedColor)
                                 End If
 
                             End If
@@ -124,18 +126,12 @@ Namespace Presentation
         Private Sub button_create_Click(sender As Object, e As EventArgs) Handles button_create.Click
 
             ' is color changed
-            If _catColor <> selectedColor Then
-                colorChanged = True
+            If _catColor <> _selectedColor Then
+                _colorChanged = True
+            Else
+                _colorChanged = False
             End If
 
-
-            ' is information even changed
-
-            If Not nameChanged And Not descriptionChanged And Not colorChanged Then
-
-                MsgBox("Please change atleast one information")
-                Return
-            End If
 
 
             ' fool proffing
@@ -143,6 +139,17 @@ Namespace Presentation
                 MsgBox("Please fill all the information.")
                 Return
             End If
+
+
+            ' is information even changed
+
+            If Not _nameChanged And Not _descriptionChanged And Not _colorChanged Then
+
+                MsgBox("Please change atleast one information")
+                Return
+            End If
+
+
 
 
 
@@ -159,14 +166,18 @@ Namespace Presentation
 
             Dim categoryManager As New CategoryManager()
 
-            If categoryManager.UpdateCategory(_catName, _catDescription, _catColor, selectedId) > 0 Then
+            If categoryManager.UpdateCategory(_catName, _catDescription, _catColor, _selectedId) > 0 Then
 
-                ' updating display information
+                ' updating category in itself
                 categoryManager.GenerateCategoryRadioButtons(panel_radio_category, AddressOf LoadCategoryInfo)
 
-                MainWindow.LoadInformation()
-                _dayView.UpdateDisplayInformation()
 
+                ' 
+                MainWindow.LoadInformation()
+                _dayView.DisplayInformation()
+
+                txt_name.Text = ""
+                txt_description.Text = ""
 
 
                 ' updated !!
@@ -275,28 +286,25 @@ Namespace Presentation
 
         Private Sub txt_name_TextChanged(sender As Object, e As EventArgs) Handles txt_name.TextChanged
 
-            'If txt_name.Text = selectedName Then
-            '    nameChanged = False
-            'Else
-            '    nameChanged = True
-            'End If
 
-            If txt_name.Text <> selectedName Then
-                nameChanged = True
+
+            If txt_name.Text <> _selectedName Then
+                _nameChanged = True
+            Else
+                _nameChanged = False
             End If
 
         End Sub
 
         Private Sub txt_description_TextChanged(sender As Object, e As EventArgs) Handles txt_description.TextChanged
 
-            'If txt_description.Text = selectedDescription Then
-            '    descriptionChanged = False
-            'Else
-            '    descriptionChanged = True
-            'End If
 
-            If txt_description.Text <> selectedDescription Then
-                descriptionChanged = True
+
+            If txt_description.Text <> _selectedDescription Then
+                _descriptionChanged = True
+
+            Else
+                _descriptionChanged = False
             End If
 
         End Sub

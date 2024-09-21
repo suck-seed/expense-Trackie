@@ -82,12 +82,18 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -110,6 +116,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\CalanderView.Designer.vb">
+      <DependentUpon>CalanderView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\CalanderView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Presentation\DisplayProfile.Designer.vb">
       <DependentUpon>DisplayProfile.vb</DependentUpon>
     </Compile>
@@ -148,6 +160,12 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Presentation\Loader.vb" />
+    <Compile Include="Presentation\monthDate.Designer.vb">
+      <DependentUpon>monthDate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\monthDate.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Presentation\MonthView.Designer.vb">
       <DependentUpon>MonthView.vb</DependentUpon>
     </Compile>
@@ -200,12 +218,6 @@
     <Compile Include="Presentation\SignUp.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\testing.Designer.vb">
-      <DependentUpon>testing.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\testing.vb">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Resource1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -225,6 +237,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Presentation\CalanderView.resx">
+      <DependentUpon>CalanderView.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\DayView.resx">
       <DependentUpon>DayView.vb</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\ExpenseDetailDisplay.resx">
       <DependentUpon>ExpenseDetailDisplay.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\monthDate.resx">
+      <DependentUpon>monthDate.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\MonthView.resx">
       <DependentUpon>MonthView.vb</DependentUpon>
@@ -260,9 +278,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\SignUp.resx">
       <DependentUpon>SignUp.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\testing.resx">
-      <DependentUpon>testing.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\UpdateCategory.resx">
       <DependentUpon>UpdateCategory.vb</DependentUpon>
@@ -302,6 +317,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\icons8-setting-32.png" />
   </ItemGroup>
   <ItemGroup>
@@ -438,6 +454,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nextTight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previousTight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

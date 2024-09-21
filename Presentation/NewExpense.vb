@@ -18,14 +18,17 @@ Namespace Presentation
 
         Dim dayView As DayView
         Dim monthView As MonthView
+        Dim calanderView As CalanderView
 
-        Public Sub New(ByRef dayViewInst As DayView, ByRef monthViewInst As MonthView)
+        Public Sub New(ByRef dayViewInst As DayView, ByRef monthViewInst As MonthView, ByRef calanderViewInst As CalanderView)
 
             ' This call is required by the designer.
             InitializeComponent()
 
             dayView = dayViewInst
             monthView = monthViewInst
+            calanderView = calanderViewInst
+
 
             ' Add any initialization after the InitializeComponent() call.
 
@@ -99,7 +102,9 @@ Namespace Presentation
                 MsgBox("Expense added successfully")
 
                 ' updating information in dayView
-                dayView.UpdateDisplayInformation()
+                dayView.DisplayInformation()
+                monthView.DisplayInformation()
+                calanderView.DisplayInformation()
                 ClearInputBox()
 
 

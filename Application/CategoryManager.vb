@@ -53,6 +53,15 @@ Namespace Application
         Public Function UpdateCategory(ByVal catName As String, ByVal catDescription As String, ByVal catColor As String, ByVal selectedId As Integer) As Integer
 
 
+
+            If _categoryrepository.IsDuplicateCategory(catName) And _categoryrepository.GetCategoryId(catName) <> selectedId Then
+
+                MsgBox(" Category with provided name already exist !")
+                Return -1
+            End If
+
+
+
             If _categoryrepository.UpdateCategoryInformation(catName, catDescription, catColor, selectedId) > 0 Then
 
                 Return 1

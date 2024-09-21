@@ -4,7 +4,7 @@ Namespace Presentation
 
     Public Class DayView
 
-        Dim _currentDate As DateTime = DateTime.Now
+        Public _currentDate As DateTime = DateTime.Now
 
 
 #Region "initialization / load"
@@ -13,7 +13,7 @@ Namespace Presentation
 
             ' This call is required by the designer.
             InitializeComponent()
-            UpdateDisplayInformation()
+            DisplayInformation()
 
         End Sub
 
@@ -21,7 +21,7 @@ Namespace Presentation
 
         Private Sub dayView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-            UpdateDisplayInformation()
+            DisplayInformation()
 
         End Sub
 
@@ -32,7 +32,7 @@ Namespace Presentation
 #Region "update display information"
 
 
-        Public Sub UpdateDisplayInformation()
+        Public Sub DisplayInformation()
 
 
             lbl_month.Text = _currentDate.ToString("MMM")
@@ -59,7 +59,7 @@ Namespace Presentation
             _currentDate = _currentDate.AddDays(-1)
             SessionManager.Instance.CurrentDate = _currentDate
 
-            UpdateDisplayInformation()
+            DisplayInformation()
 
             'MsgBox(SessionManager.Instance.CurrentDate)
 
@@ -76,7 +76,7 @@ Namespace Presentation
             SessionManager.Instance.CurrentDate = _currentDate
 
 
-            UpdateDisplayInformation()
+            DisplayInformation()
 
             'MsgBox(SessionManager.Instance.CurrentDate)
 

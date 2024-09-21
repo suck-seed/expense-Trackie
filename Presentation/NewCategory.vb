@@ -52,8 +52,7 @@ Namespace Presentation
 
 
 
-                ' reloading the categories in mainWindow after adding a category to reflect the added category
-                'categoryManager.GenerateCategoryCheckButtons(MainWindow.flowPanelCategory)
+                ' reloading category in mainwindow
                 MainWindow.LoadInformation()
 
                 ClearInputBox()
@@ -64,8 +63,7 @@ Namespace Presentation
                 MsgBox("Category insertion failed. Please try again.")
             End If
 
-            'categoryManager.GenerateCategoryCheckButtons(mainWindow.flowPanelCategory)
-            MainWindow.LoadInformation()
+
 
 
         End Sub

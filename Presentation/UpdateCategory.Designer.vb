@@ -258,8 +258,6 @@
         Friend WithEvents panel_topbar As Panel
         Friend WithEvents button_create As Button
         Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-        Friend WithEvents txt_description As RichTextBox
-        Friend WithEvents txt_name As RichTextBox
         Friend WithEvents Label3 As Label
         Friend WithEvents Label2 As Label
         Friend WithEvents Label1 As Label
@@ -267,5 +265,7 @@
         Friend WithEvents Label5 As Label
         Friend WithEvents panel_radio_category As FlowLayoutPanel
         Friend WithEvents btn_custom_color As Button
+        Public WithEvents txt_description As RichTextBox
+        Public WithEvents txt_name As RichTextBox
     End Class
 End NameSpace

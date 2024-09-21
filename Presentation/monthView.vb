@@ -14,7 +14,7 @@ Namespace Presentation
         Private Sub monthView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
             ' setting display date
-            UpdateDisplayInformation()
+            DisplayInformation()
 
 
 
@@ -28,7 +28,7 @@ Namespace Presentation
 
 
         ' reflecting changes in information
-        Private Sub UpdateDisplayInformation()
+        Public Sub DisplayInformation()
 
             lbl_year.Text = _currentDate.ToString("yyyy")
             lbl_month.Text = _currentDate.ToString("MMM")
@@ -63,7 +63,7 @@ Namespace Presentation
             _currentDate = _currentDate.AddMonths(-1)
 
             'updating the date and total
-            UpdateDisplayInformation()
+            DisplayInformation()
 
         End Sub
 
@@ -72,7 +72,7 @@ Namespace Presentation
             _currentDate = _currentDate.AddMonths(1)
 
             'updating the date and total
-            UpdateDisplayInformation()
+            DisplayInformation()
 
         End Sub
 #End Region

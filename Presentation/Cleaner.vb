@@ -9,6 +9,9 @@ Module Ui
         NewCategory.txt_description.Text = ""
         NewCategory.txt_name.Text = ""
 
+        'update category
+
+
         'new expense
 
 

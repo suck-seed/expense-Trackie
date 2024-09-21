@@ -249,7 +249,7 @@ BEGIN
 
 END
 
------------------------------------- getCategory
+------------------------------------ getCategoryby Id
 
 CREATE PROCEDURE getCategory
 (
@@ -264,6 +264,20 @@ BEGIN
 
 END
 
+
+---------------------------- getCategoryId by name
+ALTER PROCEDURE getCategoryId
+(
+    @catName VARCHAR(100),
+    @userId INTEGER,
+    @catId INTEGER OUTPUT
+)
+AS
+BEGIN
+    SELECT @catId = catId
+    FROM category
+    WHERE catName = @catName AND userId = @userId AND  enabled = 1
+END
 
 
 

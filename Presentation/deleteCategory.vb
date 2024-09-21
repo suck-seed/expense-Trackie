@@ -13,15 +13,17 @@ Namespace Presentation
 #Region " New( dayView ) "
 
         Dim _dayView As DayView
-        Dim monthView As MonthView
+        Dim _monthView As MonthView
+        Dim _calanderView As CalanderView
 
-        Public Sub New(ByRef dayViewInst As DayView, ByRef monthViewInst As MonthView)
+        Public Sub New(ByRef dayViewInst As DayView, ByRef monthViewInst As MonthView, ByRef calanderViewInst As CalanderView)
 
             ' This call is required by the designer.
             InitializeComponent()
 
             _dayView = dayViewInst
-            monthView = monthViewInst
+            _monthView = monthViewInst
+            _calanderView = calanderViewInst
 
             ' Add any initialization after the InitializeComponent() call.
 
@@ -81,10 +83,18 @@ Namespace Presentation
         Public Sub RefreshDisplay()
 
             Dim categoryManager As New CategoryManager
+
+            ' repaining in delete panel
             categoryManager.GenerateCategoryRadioButtons(flowPanel_category, AddressOf GetSelectedRadioCategoryId)
-            'categoryManager.GenerateCategoryCheckButtons(MainWindow.flowPanelCategory)
+
+            'reloading in mainwindow
             MainWindow.LoadInformation()
-            _dayView.UpdateDisplayInformation()
+
+            'reloading in dayView
+            _dayView.DisplayInformation()
+
+            'refreshing calander
+            _calanderView.DisplayInformation()
 
         End Sub
 

@@ -1,38 +1,49 @@
-﻿Imports System.Drawing.Drawing2D
-Imports expense_Trackie.Application
+﻿Imports expense_Trackie.Application
 
 Namespace Presentation
 
     Public Class MainWindow
 
-        Dim categoryManager As New CategoryManager()
+        Dim _categoryManager As New CategoryManager()
 
 
 
-#Region " ready made instance of day view "
+#Region " predefined instance of userControls "
 
 
         ' this makes object defined here available in other forms too
-        Dim dayView As New DayView()
-        Dim monthView As New MonthView()
-
+        Dim _dayView As New DayView()
+        Dim _monthView As New MonthView()
+        Dim _calanderView As New CalanderView(_dayView)
 
 #End Region
 
 
-#Region "form load"
+#Region " form load / calander load "
 
 
         Private Sub MybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
 
+            ' loading information to form
+            LoadInformation()
+            LoadUserInformation()
+
+            LoadCalander()
 
             radio_home.Checked = True
             radio_day_view.Checked = True
-            LoadInformation()
 
 
 
         End Sub
+
+
+        Sub LoadCalander()
+
+            panel_calender.Controls.Add(_calanderView)
+
+        End Sub
+
 
 #End Region
 
@@ -40,9 +51,9 @@ Namespace Presentation
 
 #Region " loadInformation() "
 
-        Public Sub LoadInformation()
 
 
+        Public Sub LoadUserInformation()
             Me.lbl_username.Text = SessionManager.Instance.CurrentUsername
 
 
@@ -51,9 +62,18 @@ Namespace Presentation
             End If
 
 
-            ' getting selected checks
+        End Sub
 
-            CategoryManager.GenerateCategoryCheckButtons(flowPanelCategory, AddressOf Checkbox_CheckChanged)
+
+        Public Sub LoadInformation()
+
+            'mainwindow category
+            _categoryManager.GenerateCategoryCheckButtons(flowPanelCategory, AddressOf Checkbox_CheckChanged)
+
+
+            ' dayview refresh
+
+
 
         End Sub
 
@@ -68,7 +88,7 @@ Namespace Presentation
 
                 If radio_month_view.Checked Then
 
-                    DisplayForm(monthView)
+                    DisplayForm(_monthView)
                     radio_month_view.Image = My.Resources.monthDark
 
 
@@ -97,7 +117,7 @@ Namespace Presentation
 
                 If radio_day_view.Checked Then
 
-                    DisplayForm(dayView)
+                    DisplayForm(_dayView)
                     radio_day_view.Image = My.Resources.dayDark
                 End If
 
@@ -188,7 +208,7 @@ Namespace Presentation
 
             SessionManager.SelectedCategoryIds = selectedCategoryIds
 
-            dayView.LoadExpenses()
+            _dayView.LoadExpenses()
 
         End Sub
 
@@ -202,7 +222,7 @@ Namespace Presentation
 
             'NewExpense.Show()
 
-            Dim newExpense As New NewExpense(dayView, monthView)
+            Dim newExpense As New NewExpense(_dayView, _monthView, _calanderView)
             newExpense.Show()
 
         End Sub
@@ -226,14 +246,14 @@ Namespace Presentation
             btn_delete.Image = My.Resources.delete3Red
             'DeleteCategory.Show()
 
-            Dim deleteCategory As New DeleteCategory(dayView, monthView)
+            Dim deleteCategory As New DeleteCategory(_dayView, _monthView, _calanderView)
             deleteCategory.Show()
 
         End Sub
 
         Private Sub btn_edit_category_Click(sender As Object, e As EventArgs) Handles btn_edit_category.Click
 
-            Dim editCategory As New UpdateCategory(dayView, monthView)
+            Dim editCategory As New UpdateCategory(_dayView, _monthView)
             editCategory.Show()
         End Sub
 
@@ -242,7 +262,11 @@ Namespace Presentation
 
 #Region " profile "
         Private Sub btn_profile_Click(sender As Object, e As EventArgs) Handles btn_profile.Click
-            DisplayProfile.Show()
+
+
+            Dim displayProfile As New DisplayProfile(_calanderView)
+            displayProfile.Show()
+
         End Sub
 
 #End Region
@@ -409,20 +433,32 @@ Namespace Presentation
 
 #Region " gradient "
 
-        Private Sub mainWindow_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
-            ' Get the client area of the form
-            Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
+        'Private Sub mainWindow_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
+        '    ' Get the client area of the form
+        '    Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
 
-            ' Define the start and end colors for the gradient
-            Dim startColor As Color = Color.Beige
-            Dim endColor As Color = Color.AliceBlue
+        '    ' Define the start and end colors for the gradient
+        '    Dim startColor As Color = Color.Beige
+        '    Dim endColor As Color = Color.AliceBlue
 
-            ' Create a LinearGradientBrush
-            Using brush As New LinearGradientBrush(rect, startColor, endColor, LinearGradientMode.Horizontal)
-                ' Fill the rectangle with the gradient
-                e.Graphics.FillRectangle(brush, rect)
-            End Using
-        End Sub
+        '    ' Create a LinearGradientBrush
+        '    Using brush As New LinearGradientBrush(rect, startColor, endColor, LinearGradientMode.Horizontal)
+        '        ' Fill the rectangle with the gradient
+        '        e.Graphics.FillRectangle(brush, rect)
+        '    End Using
+        'End Sub
+
+        'Private Sub panel_topbar_Paint(sender As Object, e As PaintEventArgs) Handles panel_topbar.Paint
+
+        '    Dim p As New Pen(Color.DarkGray, 1)
+        '    Dim g As Graphics = Me.CreateGraphics
+
+        '    g.DrawLine(p, 0, panel_topbar.Size.Height - 2, panel_topbar.Size.Width, panel_topbar.Size.Height - 2)
+
+
+        'End Sub
+
+
 
 
 
@@ -484,6 +520,7 @@ Namespace Presentation
 
 
 #End Region
+
 
 
 

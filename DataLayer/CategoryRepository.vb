@@ -53,6 +53,44 @@ Namespace DataLayer
 
         End Function
 
+
+
+        Public Function GetCategoryId(ByVal catName As String) As Integer
+
+            Dim catId As Integer = 0
+
+            Using connection As New SqlConnection(_connectionString)
+                connection.Open()
+
+                Using command As New SqlCommand("getCategoryId", connection)
+
+                    command.CommandType = CommandType.StoredProcedure
+
+                    'linking input paremeter
+                    command.Parameters.AddWithValue("@catName", catName)
+                    command.Parameters.AddWithValue("@userId", _userId)
+
+
+                    'output paremeter
+                    Dim catIDParemeter As New SqlParameter("@catId", SqlDbType.Int)
+                    catIDParemeter.Direction = ParameterDirection.Output
+
+                    command.Parameters.Add(catIDParemeter)
+
+                    command.ExecuteNonQuery()
+
+
+                    If Not IsDBNull(catIDParemeter.Value) Then
+                        catId = Convert.ToInt32(catIDParemeter.Value)
+                    End If
+
+                    Return catId
+
+                End Using
+            End Using
+
+        End Function
+
 #End Region
 
 #Region " add new category "
