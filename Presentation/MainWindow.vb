@@ -13,7 +13,7 @@ Namespace Presentation
 
         ' this makes object defined here available in other forms too
         Dim _dayView As New DayView()
-        Dim _monthView As New MonthView()
+        Dim _monthView As New MonthView(_dayView)
         Dim _calanderView As New CalanderView(_dayView)
 
 #End Region

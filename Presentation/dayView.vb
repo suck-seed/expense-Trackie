@@ -106,7 +106,7 @@ Namespace Presentation
 
             Dim expenseManager As New ExpenseManager()
 
-            expenseManager.LoadExpense(panel_expense_display, _currentDate, AddressOf DeleteOnExpenseClick)
+            expenseManager.LoadDayExpenses(panel_expense_display, _currentDate, AddressOf DeleteOnExpenseClick)
 
         End Sub
 

@@ -59,10 +59,13 @@ Namespace Application
 
 
         ' load expense into panel
-        Public Sub LoadExpense(ByRef panel As TableLayoutPanel, ByRef currentDate As DateTime, handler As Action(Of Integer))
+        Public Sub LoadDayExpenses(ByRef panel As TableLayoutPanel, ByRef currentDate As DateTime, handler As Action(Of Integer))
+
+
 
             Dim expenseTable As DataTable = _expenseRepository.GetExpensesDynamically(currentDate.ToString("yyyy-MM-dd"))
 
+            panel.SuspendLayout()
             panel.Controls.Clear()
             panel.RowCount = 0
             panel.RowStyles.Clear()
@@ -124,8 +127,85 @@ Namespace Application
                 panel.RowStyles.Add(New RowStyle(SizeType.Absolute, 20))
 
             Next
+
+            panel.ResumeLayout(True)
+
         End Sub
 
+
+
+
+
+#Region " load expense in monthView "
+
+        Public Sub LoadMonthExpenses(ByRef panel As TableLayoutPanel, ByRef currentDate As DateTime)
+
+
+            Dim expenseTable As DataTable = _expenseRepository.GetExpensesDynamically(currentDate.ToString("yyyy-MM-dd"))
+
+            panel.SuspendLayout()
+            panel.Controls.Clear()
+            panel.RowCount = 0
+            panel.RowStyles.Clear()
+            panel.Padding = New Padding(0, 10, 0, 10)
+
+            For Each row As DataRow In expenseTable.Rows
+
+
+                'parsing values from row
+                Dim amount As String = row("amount").ToString()
+                Dim remarks As String = row("remarks").ToString()
+
+                Dim timeAdded As String = row("timeAdded").ToString
+                Dim time As DateTime = DateTime.Parse(timeAdded)
+                Dim formattedTime As String = time.ToString("hh:mm tt")
+
+
+
+                ' creating instance of the expense Detailed display
+                Dim expenseInfo As New ExpenseRemarksDisplay()
+
+
+                'setting values in the display
+                expenseInfo.lbl_remark.Text = remarks
+                expenseInfo.BackColor = ColorTranslator.FromHtml(row("color").ToString())
+                expenseInfo.Tag = row("eId")
+
+                'sizing the panels
+                'expenseInfo.Margin = New Padding(100, 10, 100, 10)
+                expenseInfo.AutoSize = False
+                expenseInfo.Visible = True
+                expenseInfo.Anchor = AnchorStyles.Top
+                expenseInfo.Dock = DockStyle.Top
+
+
+
+
+                'row management
+                panel.RowCount += 1
+                panel.RowStyles.Add(New RowStyle(SizeType.Absolute, 30))
+
+
+                'adding into table layout panel
+                panel.Controls.Add(expenseInfo, 0, panel.RowCount - 1)
+
+                If panel.RowCount > 5 Then
+                    Return
+                End If
+
+                ' adding arko row for spacing
+                panel.RowCount += 1
+                panel.RowStyles.Add(New RowStyle(SizeType.Absolute, 5))
+
+            Next
+
+            panel.ResumeLayout(True)
+
+
+        End Sub
+
+
+#End Region
 
 
 

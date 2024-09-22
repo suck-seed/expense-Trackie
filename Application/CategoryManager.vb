@@ -85,6 +85,7 @@ Namespace Application
 
 
             '            panel work
+            panel.SuspendLayout()
             panel.Controls.Clear()
 
 
@@ -132,6 +133,8 @@ Namespace Application
 
             Next
 
+            panel.ResumeLayout()
+
         End Sub
 
 
@@ -148,6 +151,7 @@ Namespace Application
 
 
             'panel work
+            panel.SuspendLayout()
             panel.Controls.Clear()
 
 
@@ -195,6 +199,7 @@ Namespace Application
 
             Next
 
+            panel.ResumeLayout(True)
 
         End Sub
 

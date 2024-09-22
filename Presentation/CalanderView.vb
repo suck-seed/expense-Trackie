@@ -79,18 +79,24 @@ Public Class CalanderView
 
     Public Sub ShowDays(handler As Action(Of DateTime))
 
+
+        'clear previous controls
+        fpanel_dates.SuspendLayout()
         fpanel_dates.Controls.Clear()
 
+
+        ' seting values
         Dim year As Integer = _currentDate.Year
         Dim month As Integer = _currentDate.Month
 
         Dim StartOfTheMonth As New DateTime(year, month, 1)
-        Dim day As Integer = DateTime.DaysInMonth(year, month)
-        Dim week As Integer = Convert.ToInt32(StartOfTheMonth.DayOfWeek.ToString("d"))
+        Dim DaysInMonth As Integer = DateTime.DaysInMonth(year, month)
+        Dim StartDayOfWeek As Integer = Convert.ToInt32(StartOfTheMonth.DayOfWeek.ToString("d"))
 
 
 
-        For i As Integer = 1 To week - 1 Step 1
+        ' Add empty placeholders for the days before the first day of the month
+        For i As Integer = 1 To StartDayOfWeek - 1 Step 1
 
             Dim md As New monthDate("")
             fpanel_dates.Controls.Add(md)
@@ -98,39 +104,35 @@ Public Class CalanderView
         Next
 
 
-        For i As Integer = 1 To day Step 1
+        ' Adding actual days with event
+        For i As Integer = 1 To DaysInMonth Step 1
 
 
-            ' making a date for this instance of monthDate
             Dim currentDate As New DateTime(year, month, i)
 
 
+            ' instance of dateDisplay usercontrol
+            Dim dateDisplay As New monthDate(i.ToString())
 
-
-            ' creating  new instance and asigning the date
-            Dim dateDisplay As New monthDate(i & "")
-
-
-
-            ' putting the date in tag for ahh for loading it in dayView when clicked
             dateDisplay.Tag = currentDate
 
+
+            ' setting back red if 
             Dim total As Decimal = GetTotal(currentDate)
-
             If total > SessionManager.Instance.CurrentDailyLimit Then
-                dateDisplay.lbl_date.BackColor = ColorTranslator.FromHtml("#fa5252")
 
-            Else
-                dateDisplay.lbl_date.BackColor = ColorTranslator.FromHtml("#ffc9c9")
+                dateDisplay.BackColor = ColorTranslator.FromHtml("#fa5252")
+
+
             End If
-
-
 
             AddHandler dateDisplay.lbl_date.Click, Sub() handler(currentDate)
             fpanel_dates.Controls.Add(dateDisplay)
 
         Next
 
+
+        fpanel_dates.ResumeLayout(True)
 
     End Sub
 
@@ -152,6 +154,12 @@ Public Class CalanderView
 
     Public Sub DateClicked(ByVal currentDate As DateTime)
 
+
+        'MainWindow.panel_main.Controls.Clear()
+
+        MainWindow.radio_day_view.Checked = True
+        MainWindow.radio_month_view.Checked = False
+        MainWindow.radio_home.Checked = True
 
         _dayView._currentDate = currentDate
         _dayView.DisplayInformation()

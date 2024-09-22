@@ -116,6 +116,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\ExpenseRemarksDisplay.Designer.vb">
+      <DependentUpon>ExpenseRemarksDisplay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ExpenseRemarksDisplay.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\monthExpense.Designer.vb">
+      <DependentUpon>monthExpense.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\monthExpense.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Presentation\CalanderView.Designer.vb">
       <DependentUpon>CalanderView.vb</DependentUpon>
     </Compile>
@@ -237,6 +249,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Presentation\ExpenseRemarksDisplay.resx">
+      <DependentUpon>ExpenseRemarksDisplay.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\monthExpense.resx">
+      <DependentUpon>monthExpense.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\CalanderView.resx">
       <DependentUpon>CalanderView.vb</DependentUpon>
     </EmbeddedResource>
