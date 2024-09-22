@@ -175,6 +175,7 @@ Namespace Presentation
                 ' 
                 MainWindow.LoadInformation()
                 _dayView.DisplayInformation()
+                _monthView.DisplayInformation()
 
                 txt_name.Text = ""
                 txt_description.Text = ""

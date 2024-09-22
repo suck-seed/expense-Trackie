@@ -23,7 +23,10 @@ Partial Class monthDate
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.lbl_date = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -31,6 +34,7 @@ Partial Class monthDate
         Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
@@ -40,16 +44,29 @@ Partial Class monthDate
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(31, 31)
         Me.TableLayoutPanel1.TabIndex = 0
         '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.ColumnCount = 1
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.lbl_date, 0, 0)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(25, 25)
+        Me.TableLayoutPanel2.TabIndex = 0
+        '
         'lbl_date
         '
-        Me.lbl_date.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lbl_date.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_date.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lbl_date.Font = New System.Drawing.Font("Cascadia Mono", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_date.Location = New System.Drawing.Point(0, 0)
-        Me.lbl_date.Margin = New System.Windows.Forms.Padding(5)
+        Me.lbl_date.Margin = New System.Windows.Forms.Padding(0)
         Me.lbl_date.Name = "lbl_date"
-        Me.lbl_date.Size = New System.Drawing.Size(31, 31)
-        Me.lbl_date.TabIndex = 1
+        Me.lbl_date.Size = New System.Drawing.Size(25, 25)
+        Me.lbl_date.TabIndex = 2
         Me.lbl_date.Text = "d"
         Me.lbl_date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -58,14 +75,17 @@ Partial Class monthDate
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Transparent
-        Me.Controls.Add(Me.lbl_date)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "monthDate"
         Me.Size = New System.Drawing.Size(31, 31)
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents lbl_date As Label
 End Class
