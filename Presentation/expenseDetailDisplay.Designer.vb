@@ -55,7 +55,7 @@
             '
             Me.lbl_time.AutoSize = True
             Me.lbl_time.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.lbl_time.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.lbl_time.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
             Me.lbl_time.Location = New System.Drawing.Point(3, 44)
             Me.lbl_time.Name = "lbl_time"
             Me.lbl_time.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
@@ -68,7 +68,7 @@
             '
             Me.lbl_remarks.AutoSize = True
             Me.lbl_remarks.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.lbl_remarks.Font = New System.Drawing.Font("Cascadia Code SemiLight", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.lbl_remarks.Font = New System.Drawing.Font("IBM Plex Mono", 12.0!)
             Me.lbl_remarks.Location = New System.Drawing.Point(3, 0)
             Me.lbl_remarks.Name = "lbl_remarks"
             Me.lbl_remarks.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
@@ -82,7 +82,7 @@
             Me.lbl_amount.AutoSize = True
             Me.lbl_amount.BackColor = System.Drawing.Color.Transparent
             Me.lbl_amount.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.lbl_amount.Font = New System.Drawing.Font("Cascadia Code", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.lbl_amount.Font = New System.Drawing.Font("IBM Plex Mono SemiBold", 16.0!, System.Drawing.FontStyle.Bold)
             Me.lbl_amount.Location = New System.Drawing.Point(3, 0)
             Me.lbl_amount.Name = "lbl_amount"
             Me.lbl_amount.Size = New System.Drawing.Size(150, 88)
@@ -108,6 +108,7 @@
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+            Me.BackColor = System.Drawing.Color.Transparent
             Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.Controls.Add(Me.TableLayoutPanel2)
             Me.Controls.Add(Me.generalTable)

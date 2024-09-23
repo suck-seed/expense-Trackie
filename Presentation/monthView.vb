@@ -42,7 +42,7 @@ Namespace Presentation
             lbl_year.Text = _currentDate.ToString("yyyy")
             lbl_year.Text = _currentDate.ToString("MMM")
             lbl_total_amount.Text = GetTotal()
-            loadDays(AddressOf OnDateClick)
+            loadDays()
 
         End Sub
 
@@ -70,25 +70,37 @@ Namespace Presentation
 
         Private Sub btn_previous_Click(sender As Object, e As EventArgs) Handles btn_previous.Click
 
+            btn_previous.Image = My.Resources.leftDark
+
             _currentDate = _currentDate.AddMonths(-1)
 
             'updating the date and total
+
             DisplayInformation()
+            timer_reset_image.Start()
 
         End Sub
 
         Private Sub btn_next_Click(sender As Object, e As EventArgs) Handles btn_next.Click
 
+            btn_next.Image = My.Resources.rightDark
+
             _currentDate = _currentDate.AddMonths(1)
 
             'updating the date and total
+
             DisplayInformation()
+            timer_reset_image.Start()
 
         End Sub
 #End Region
 
 
-        Public Sub loadDays(handler As Action(Of DateTime))
+
+#Region " loading days and 3 top expense "
+
+
+        Public Sub loadDays()
 
             'clear previous controls
             tpanel_day.SuspendLayout()
@@ -141,7 +153,7 @@ Namespace Presentation
 
 
                 'event handler
-                AddHandler dateDisplay.lbl_day.Click, Sub() handler(currentDate)
+                AddHandler dateDisplay.lbl_day.Click, Sub() OnDateClick(currentDate)
 
 
                 ' Add the control to the TableLayoutPanel
@@ -166,8 +178,11 @@ Namespace Presentation
 
         End Sub
 
+#End Region
 
 
+
+#Region " onClick go to dayView of that day"
 
         Public Sub OnDateClick(ByVal pressedDate As DateTime)
 
@@ -179,6 +194,22 @@ Namespace Presentation
             _dayView.DisplayInformation()
 
         End Sub
+
+#End Region
+
+
+#Region " visual cued for button "
+
+        Private Sub timer_revertImage_Tick(sender As Object, e As EventArgs) Handles timer_reset_image.Tick
+            ' Revert the image back to right
+            btn_next.Image = My.Resources.right
+            btn_previous.Image = My.Resources.left
+
+            ' Stop the timer as the image has been reverted
+            timer_reset_image.Stop()
+        End Sub
+
+#End Region
 
 
     End Class

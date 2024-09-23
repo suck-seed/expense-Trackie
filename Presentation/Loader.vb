@@ -1,4 +1,6 @@
-﻿Module Loader
+﻿Imports System.Drawing.Drawing2D
+
+Module Loader
 
     Sub LoadDefaultColor(ByRef panel As TableLayoutPanel, ByRef handler As EventHandler)
 
@@ -37,5 +39,21 @@
         Next
 
     End Sub
+
+
+
+
+#Region " make picturebox circle "
+
+    Public Sub MakePictureBoxCircular(ByVal picBox As PictureBox)
+        ' Create a circular path
+        Dim path As New GraphicsPath()
+        path.AddEllipse(0, 0, picBox.Width, picBox.Height)
+
+        ' Apply the circular region to the PictureBox
+        picBox.Region = New Region(path)
+    End Sub
+
+#End Region
 
 End Module

@@ -78,7 +78,7 @@
             Me.button_delete.FlatAppearance.BorderSize = 0
             Me.button_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(125, Byte), Integer))
             Me.button_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.button_delete.Image = Global.expense_Trackie.My.Resources.Resources.icons8_tick_161
+            Me.button_delete.Image = Global.expense_Trackie.My.Resources.Resources.tickRound
             Me.button_delete.Location = New System.Drawing.Point(481, 0)
             Me.button_delete.Margin = New System.Windows.Forms.Padding(0)
             Me.button_delete.Name = "button_delete"
@@ -101,7 +101,7 @@
             'TableLayoutPanel1
             '
             Me.TableLayoutPanel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                                                 Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
             Me.TableLayoutPanel1.ColumnCount = 1
             Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -124,7 +124,7 @@
             Me.flowPanel_category.Size = New System.Drawing.Size(417, 322)
             Me.flowPanel_category.TabIndex = 10
             '
-            'deleteCategory
+            'DeleteCategory
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -132,7 +132,8 @@
             Me.Controls.Add(Me.panel_topbar)
             Me.Controls.Add(Me.TableLayoutPanel1)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-            Me.Name = "deleteCategory"
+            Me.KeyPreview = True
+            Me.Name = "DeleteCategory"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
             Me.Text = "deleteCategory"
             Me.panel_topbar.ResumeLayout(False)

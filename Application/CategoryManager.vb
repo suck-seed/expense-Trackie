@@ -179,7 +179,7 @@ Namespace Application
                 checkButton.Appearance = Appearance.Button
                 checkButton.AutoSize = True
                 checkButton.TextAlign = ContentAlignment.MiddleCenter
-                checkButton.Font = New Font("Cascadia Mono SemiLight", 11, FontStyle.Regular)
+                checkButton.Font = New Font("IBM Plex Mono", 11, FontStyle.Regular)
 
 
                 'checkButton.FlatStyle = FlatStyle.Flat

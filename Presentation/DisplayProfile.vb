@@ -31,6 +31,11 @@ Namespace Presentation
         Dim _dailyLimit As Decimal
         Dim _profileLink As String = ""
 
+
+        'for refreshing or not calander
+        Dim _enteredLimit As Decimal
+        Dim _lastSessionLimit As Decimal = SessionManager.Instance.CurrentDailyLimit
+
 #End Region
 
 #Region " new instance created "
@@ -56,7 +61,7 @@ Namespace Presentation
 
 
             ' loading
-
+            MakePictureBoxCircular(img_profile)
 
             LoadCurrentUserInformation()
 
@@ -67,7 +72,7 @@ Namespace Presentation
 
             If Not String.IsNullOrEmpty(_currentProfilePictureLink) Then
 
-                btn_profile.Image = Image.FromFile(_currentProfilePictureLink)
+                img_profile.Image = Image.FromFile(_currentProfilePictureLink)
 
             End If
 
@@ -121,6 +126,7 @@ Namespace Presentation
                 Return
             Else
                 _dailyLimit = CDec(txt_dailyLimit.Text)
+                _enteredLimit = _dailyLimit
             End If
 
 
@@ -139,10 +145,11 @@ Namespace Presentation
 
                 'reflect changes in mainwindow
                 MainWindow.LoadUserInformation()
-                _calanderView.DisplayInformation()
 
+                If _enteredLimit <> _lastSessionLimit Then
+                    _calanderView.DisplayInformation()
 
-                MsgBox("Updated successfully")
+                End If
 
 
             End If
@@ -206,7 +213,7 @@ Namespace Presentation
 
 
 
-        Private Sub btn_profile_Click(sender As Object, e As EventArgs) Handles btn_profile.Click
+        Private Sub ImageProfileClick(sender As Object, e As EventArgs) Handles img_profile.Click
             Dim fileDialog As New OpenFileDialog
 
 
@@ -216,7 +223,7 @@ Namespace Presentation
             If fileDialog.ShowDialog = DialogResult.OK Then
 
                 _profileLink = fileDialog.FileName
-                btn_profile.Image = Image.FromFile(_profileLink)
+                img_profile.Image = Image.FromFile(_profileLink)
 
 
             End If
@@ -248,7 +255,7 @@ Namespace Presentation
 #End Region
 
 
-#Region " log out "
+#Region " delete account "
         Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
 
             If MessageBox.Show("Do you want to delete account ?", "Delete Account", MessageBoxButtons.YesNo) = DialogResult.Yes Then
@@ -274,6 +281,8 @@ Namespace Presentation
         End Sub
 
 #End Region
+
+
 
 
 #Region " mouse movement / gradient "
@@ -330,6 +339,22 @@ Namespace Presentation
 
 
 #End Region
+
+
+
+#Region " key events "
+
+        Private Sub EscPressed(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+
+            If e.KeyCode = Keys.Escape Then
+                Me.Close()
+            End If
+
+        End Sub
+
+#End Region
+
+
 
 
     End Class

@@ -59,11 +59,11 @@ Namespace Application
 
 
         ' load expense into panel
-        Public Sub LoadDayExpenses(ByRef panel As TableLayoutPanel, ByRef currentDate As DateTime, handler As Action(Of Integer))
+        Public Sub LoadDayExpenses(ByRef panel As TableLayoutPanel, ByRef currentDate As DateTime, ByVal filterCount As Integer, handler As Action(Of Integer))
 
 
 
-            Dim expenseTable As DataTable = _expenseRepository.GetExpensesDynamically(currentDate.ToString("yyyy-MM-dd"))
+            Dim expenseTable As DataTable = _expenseRepository.GetExpensesDynamically(currentDate.ToString("yyyy-MM-dd"), filterCount)
 
             panel.SuspendLayout()
             panel.Controls.Clear()
@@ -141,7 +141,7 @@ Namespace Application
         Public Sub LoadMonthExpenses(ByRef panel As TableLayoutPanel, ByRef currentDate As DateTime)
 
 
-            Dim expenseTable As DataTable = _expenseRepository.GetExpensesDynamically(currentDate.ToString("yyyy-MM-dd"))
+            Dim expenseTable As DataTable = _expenseRepository.GetExpensesDynamically(currentDate.ToString("yyyy-MM-dd"), 3)
 
             panel.SuspendLayout()
             panel.Controls.Clear()

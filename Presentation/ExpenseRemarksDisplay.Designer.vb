@@ -38,18 +38,18 @@ Partial Class ExpenseRemarksDisplay
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(236, 36)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(234, 34)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'lbl_remark
         '
-        Me.lbl_remark.AutoSize = True
+        Me.lbl_remark.AutoEllipsis = True
         Me.lbl_remark.Cursor = System.Windows.Forms.Cursors.Default
-        Me.lbl_remark.Dock = System.Windows.Forms.DockStyle.Left
-        Me.lbl_remark.Font = New System.Drawing.Font("Cascadia Mono", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_remark.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lbl_remark.Font = New System.Drawing.Font("IBM Plex Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_remark.Location = New System.Drawing.Point(3, 0)
         Me.lbl_remark.Name = "lbl_remark"
-        Me.lbl_remark.Size = New System.Drawing.Size(49, 36)
+        Me.lbl_remark.Size = New System.Drawing.Size(228, 34)
         Me.lbl_remark.TabIndex = 0
         Me.lbl_remark.Text = "Remarks"
         Me.lbl_remark.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -58,11 +58,12 @@ Partial Class ExpenseRemarksDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Transparent
+        Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Name = "ExpenseRemarksDisplay"
-        Me.Size = New System.Drawing.Size(236, 36)
+        Me.Size = New System.Drawing.Size(234, 34)
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

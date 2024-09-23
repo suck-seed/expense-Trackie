@@ -32,9 +32,9 @@
             Me.panel_color = New System.Windows.Forms.TableLayoutPanel()
             Me.btn_custom_color = New System.Windows.Forms.Button()
             Me.panel_topbar = New System.Windows.Forms.Panel()
-            Me.Label4 = New System.Windows.Forms.Label()
             Me.button_close = New System.Windows.Forms.Button()
             Me.button_create = New System.Windows.Forms.Button()
+            Me.Label4 = New System.Windows.Forms.Label()
             Me.TableLayoutPanel1.SuspendLayout()
             Me.panel_topbar.SuspendLayout()
             Me.SuspendLayout()
@@ -168,16 +168,6 @@
             Me.panel_topbar.Size = New System.Drawing.Size(496, 46)
             Me.panel_topbar.TabIndex = 2
             '
-            'Label4
-            '
-            Me.Label4.AutoSize = True
-            Me.Label4.Font = New System.Drawing.Font("Cascadia Mono", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.Label4.Location = New System.Drawing.Point(189, 9)
-            Me.Label4.Name = "Label4"
-            Me.Label4.Size = New System.Drawing.Size(118, 21)
-            Me.Label4.TabIndex = 2
-            Me.Label4.Text = "New Category"
-            '
             'button_close
             '
             Me.button_close.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -199,7 +189,7 @@
             Me.button_create.FlatAppearance.BorderSize = 0
             Me.button_create.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(125, Byte), Integer))
             Me.button_create.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.button_create.Image = Global.expense_Trackie.My.Resources.Resources.icons8_tick_161
+            Me.button_create.Image = Global.expense_Trackie.My.Resources.Resources.tickRound
             Me.button_create.Location = New System.Drawing.Point(446, 0)
             Me.button_create.Margin = New System.Windows.Forms.Padding(0)
             Me.button_create.Name = "button_create"
@@ -207,6 +197,16 @@
             Me.button_create.Size = New System.Drawing.Size(50, 46)
             Me.button_create.TabIndex = 10
             Me.button_create.UseVisualStyleBackColor = True
+            '
+            'Label4
+            '
+            Me.Label4.AutoSize = True
+            Me.Label4.Font = New System.Drawing.Font("Cascadia Mono", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.Label4.Location = New System.Drawing.Point(189, 9)
+            Me.Label4.Name = "Label4"
+            Me.Label4.Size = New System.Drawing.Size(118, 21)
+            Me.Label4.TabIndex = 2
+            Me.Label4.Text = "New Category"
             '
             'NewCategory
             '
@@ -217,6 +217,7 @@
             Me.Controls.Add(Me.panel_topbar)
             Me.Controls.Add(Me.TableLayoutPanel1)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+            Me.KeyPreview = True
             Me.MaximumSize = New System.Drawing.Size(496, 427)
             Me.MinimizeBox = False
             Me.Name = "NewCategory"

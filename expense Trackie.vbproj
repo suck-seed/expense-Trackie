@@ -479,5 +479,26 @@
   <ItemGroup>
     <None Include="Resources\previousTight.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leftDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rightDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tickRound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filterDark.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

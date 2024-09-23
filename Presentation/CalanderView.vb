@@ -22,6 +22,9 @@ Public Class CalanderView
 
     Private Sub CalanderView_Load(sender As Object, e As EventArgs) Handles Me.Load
         DisplayInformation()
+
+
+
     End Sub
 
 

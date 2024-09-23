@@ -63,6 +63,44 @@ Namespace DataLayer
 
 
 
+        Public Function DeleteExpense(ByVal eId As Integer) As Integer
+
+            Dim result As Integer = 0
+
+            Using connection As New SqlConnection(_connectionString)
+                connection.Open()
+
+                Using command As New SqlCommand("deleteExpense", connection)
+                    command.CommandType = CommandType.StoredProcedure
+
+
+                    'linking paremeter
+                    command.Parameters.AddWithValue("@eId", eId)
+                    command.Parameters.AddWithValue("@userId", _userId)
+
+
+                    'linking output paremeter
+                    ' creating output paremeter
+                    Dim resultParemeter As New SqlParameter("@result", SqlDbType.Int)
+                    resultParemeter.Direction = ParameterDirection.Output
+
+                    command.Parameters.Add(resultParemeter)
+
+
+
+                    command.ExecuteNonQuery()
+
+                    result = Convert.ToInt32(resultParemeter.Value)
+
+
+                    Return result
+
+                End Using
+            End Using
+        End Function
+
+
+
         Public Function GetTotalOfDayAllCategory(ByVal currentDate As DateTime) As Decimal
             ' datetime format = "yyyy-MM-dd"
 
@@ -202,10 +240,10 @@ Namespace DataLayer
 
 
         ' to get expenses dynamically
-        Public Function GetExpensesDynamically(ByVal currentDate As DateTime) As DataTable
+        Public Function GetExpensesDynamically(ByVal currentDate As DateTime, ByVal filterCount As Integer) As DataTable
 
             ' base query
-            Dim query As String = " SELECT eId,remarks,timeAdded,amount,color
+            Dim query As String = " SELECT e.eId, e.remarks, e.timeAdded, e.amount, c.color
 		                        FROM expense e
 	                        	JOIN category c
 	                        	on e.catId = c.catId
@@ -215,13 +253,31 @@ Namespace DataLayer
 			                    AND e.dateAdded = @dateAdded  
                             "
 
-
+            ' filtering by category selected
             If _selectedCategory.Count > 0 Then
 
                 'adding category filter
                 query &= "AND c.catId IN ( " & String.Join(",", _selectedCategory) & " ) "
 
             End If
+
+
+            ' select case for sorting
+            Select Case filterCount
+                Case 2
+                    ' Sort by amount in ascending order
+                    query &= " ORDER BY e.amount ASC"
+                Case 3
+                    ' Sort by amount in descending order
+                    query &= " ORDER BY e.amount DESC"
+                Case Else
+                    ' Default sort, maybe by timeAdded (you can adjust this)
+                    query &= " ORDER BY e.timeAdded ASC"
+            End Select
+
+
+
+
 
 
             Dim dataTable As New DataTable()

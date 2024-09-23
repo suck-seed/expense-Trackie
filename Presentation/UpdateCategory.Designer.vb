@@ -85,7 +85,7 @@
             Me.button_create.FlatAppearance.BorderSize = 0
             Me.button_create.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(125, Byte), Integer))
             Me.button_create.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.button_create.Image = Global.expense_Trackie.My.Resources.Resources.icons8_tick_161
+            Me.button_create.Image = Global.expense_Trackie.My.Resources.Resources.tickRound
             Me.button_create.Location = New System.Drawing.Point(446, 0)
             Me.button_create.Margin = New System.Windows.Forms.Padding(0)
             Me.button_create.Name = "button_create"
@@ -242,6 +242,7 @@
             Me.Controls.Add(Me.TableLayoutPanel1)
             Me.Controls.Add(Me.panel_topbar)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+            Me.KeyPreview = True
             Me.Name = "UpdateCategory"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
             Me.Text = "UpdateCategory"

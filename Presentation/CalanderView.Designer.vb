@@ -32,10 +32,10 @@ Partial Class CalanderView
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.table_calander_control = New System.Windows.Forms.TableLayoutPanel()
-        Me.lbl_month = New System.Windows.Forms.Label()
         Me.lbl_year = New System.Windows.Forms.Label()
         Me.month_next = New System.Windows.Forms.Button()
         Me.month_previous = New System.Windows.Forms.Button()
+        Me.lbl_month = New System.Windows.Forms.Label()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.table_calander_control.SuspendLayout()
         Me.SuspendLayout()
@@ -65,6 +65,7 @@ Partial Class CalanderView
         Me.TableLayoutPanel3.Controls.Add(Me.Label3, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Label2, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel3.Font = New System.Drawing.Font("IBM Plex Mono", 8.249999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 45)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
@@ -76,7 +77,7 @@ Partial Class CalanderView
         '
         Me.Label7.AutoSize = True
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label7.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("IBM Plex Mono", 8.249999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(143, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(29, 31)
@@ -88,7 +89,7 @@ Partial Class CalanderView
         '
         Me.Label6.AutoSize = True
         Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label6.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("IBM Plex Mono", 8.249999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(178, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(29, 31)
@@ -100,7 +101,7 @@ Partial Class CalanderView
         '
         Me.Label5.AutoSize = True
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label5.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("IBM Plex Mono", 8.249999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.IndianRed
         Me.Label5.Location = New System.Drawing.Point(213, 0)
         Me.Label5.Name = "Label5"
@@ -113,7 +114,7 @@ Partial Class CalanderView
         '
         Me.Label4.AutoSize = True
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label4.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("IBM Plex Mono", 8.249999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(108, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(29, 31)
@@ -125,7 +126,7 @@ Partial Class CalanderView
         '
         Me.Label3.AutoSize = True
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label3.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("IBM Plex Mono", 8.249999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(3, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(29, 31)
@@ -137,7 +138,7 @@ Partial Class CalanderView
         '
         Me.Label2.AutoSize = True
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label2.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("IBM Plex Mono", 8.249999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(38, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(29, 31)
@@ -149,7 +150,7 @@ Partial Class CalanderView
         '
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("IBM Plex Mono", 8.249999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(73, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(29, 31)
@@ -176,23 +177,11 @@ Partial Class CalanderView
         Me.table_calander_control.Size = New System.Drawing.Size(247, 45)
         Me.table_calander_control.TabIndex = 26
         '
-        'lbl_month
-        '
-        Me.lbl_month.AutoSize = True
-        Me.lbl_month.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lbl_month.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_month.Location = New System.Drawing.Point(3, 0)
-        Me.lbl_month.Name = "lbl_month"
-        Me.lbl_month.Size = New System.Drawing.Size(32, 45)
-        Me.lbl_month.TabIndex = 2
-        Me.lbl_month.Text = "Sep"
-        Me.lbl_month.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'lbl_year
         '
         Me.lbl_year.AutoSize = True
         Me.lbl_year.Dock = System.Windows.Forms.DockStyle.Left
-        Me.lbl_year.Font = New System.Drawing.Font("Cascadia Mono SemiLight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_year.Font = New System.Drawing.Font("IBM Plex Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_year.Location = New System.Drawing.Point(41, 0)
         Me.lbl_year.Name = "lbl_year"
         Me.lbl_year.Size = New System.Drawing.Size(40, 45)
@@ -231,6 +220,18 @@ Partial Class CalanderView
         Me.month_previous.Size = New System.Drawing.Size(26, 39)
         Me.month_previous.TabIndex = 0
         Me.month_previous.UseVisualStyleBackColor = True
+        '
+        'lbl_month
+        '
+        Me.lbl_month.AutoSize = True
+        Me.lbl_month.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lbl_month.Font = New System.Drawing.Font("IBM Plex Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_month.Location = New System.Drawing.Point(3, 0)
+        Me.lbl_month.Name = "lbl_month"
+        Me.lbl_month.Size = New System.Drawing.Size(32, 45)
+        Me.lbl_month.TabIndex = 2
+        Me.lbl_month.Text = "Sep"
+        Me.lbl_month.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'CalanderView
         '

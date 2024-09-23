@@ -28,7 +28,7 @@
             Me.button_close = New System.Windows.Forms.Button()
             Me.btn_logout = New System.Windows.Forms.Button()
             Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-            Me.btn_profile = New System.Windows.Forms.Button()
+            Me.img_profile = New System.Windows.Forms.PictureBox()
             Me.txt_password = New System.Windows.Forms.TextBox()
             Me.txt_dailyLimit = New System.Windows.Forms.RichTextBox()
             Me.txt_number = New System.Windows.Forms.RichTextBox()
@@ -41,6 +41,7 @@
             Me.btn_delete = New System.Windows.Forms.Button()
             Me.panel_topbar.SuspendLayout()
             Me.TableLayoutPanel1.SuspendLayout()
+            CType(Me.img_profile, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             '
             'Label4
@@ -102,7 +103,7 @@
             Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
             Me.TableLayoutPanel1.ColumnCount = 1
             Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-            Me.TableLayoutPanel1.Controls.Add(Me.btn_profile, 0, 0)
+            Me.TableLayoutPanel1.Controls.Add(Me.img_profile, 0, 0)
             Me.TableLayoutPanel1.Controls.Add(Me.txt_password, 0, 4)
             Me.TableLayoutPanel1.Controls.Add(Me.txt_dailyLimit, 0, 8)
             Me.TableLayoutPanel1.Controls.Add(Me.txt_number, 0, 6)
@@ -123,24 +124,20 @@
             Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.436401!))
             Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.436401!))
             Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.466907!))
+            Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
             Me.TableLayoutPanel1.Size = New System.Drawing.Size(413, 404)
             Me.TableLayoutPanel1.TabIndex = 7
             '
-            'btn_profile
+            'img_profile
             '
-            Me.btn_profile.Anchor = System.Windows.Forms.AnchorStyles.None
-            Me.btn_profile.FlatAppearance.BorderSize = 0
-            Me.btn_profile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-            Me.btn_profile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-            Me.btn_profile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btn_profile.Image = Global.expense_Trackie.My.Resources.Resources.profileLight
-            Me.btn_profile.Location = New System.Drawing.Point(151, 0)
-            Me.btn_profile.Margin = New System.Windows.Forms.Padding(0)
-            Me.btn_profile.Name = "btn_profile"
-            Me.btn_profile.RightToLeft = System.Windows.Forms.RightToLeft.No
-            Me.btn_profile.Size = New System.Drawing.Size(110, 102)
-            Me.btn_profile.TabIndex = 11
-            Me.btn_profile.UseVisualStyleBackColor = True
+            Me.img_profile.Anchor = System.Windows.Forms.AnchorStyles.None
+            Me.img_profile.Image = Global.expense_Trackie.My.Resources.Resources.profileLight
+            Me.img_profile.Location = New System.Drawing.Point(166, 11)
+            Me.img_profile.Name = "img_profile"
+            Me.img_profile.Size = New System.Drawing.Size(80, 80)
+            Me.img_profile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+            Me.img_profile.TabIndex = 14
+            Me.img_profile.TabStop = False
             '
             'txt_password
             '
@@ -264,6 +261,7 @@
             Me.Controls.Add(Me.TableLayoutPanel1)
             Me.Controls.Add(Me.panel_topbar)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+            Me.KeyPreview = True
             Me.Name = "DisplayProfile"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
             Me.Text = "DisplayProfile"
@@ -271,6 +269,7 @@
             Me.panel_topbar.PerformLayout()
             Me.TableLayoutPanel1.ResumeLayout(False)
             Me.TableLayoutPanel1.PerformLayout()
+            CType(Me.img_profile, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
 
         End Sub
@@ -288,8 +287,8 @@
         Friend WithEvents txt_number As RichTextBox
         Friend WithEvents txt_username As RichTextBox
         Friend WithEvents txt_password As TextBox
-        Friend WithEvents btn_profile As Button
         Friend WithEvents btn_update As Button
         Friend WithEvents btn_delete As Button
+        Friend WithEvents img_profile As PictureBox
     End Class
 End NameSpace

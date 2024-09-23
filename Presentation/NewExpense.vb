@@ -99,14 +99,26 @@ Namespace Presentation
 
             If expenseId > 0 Then
 
-                MsgBox("Expense added successfully")
 
                 ' updating information in dayView
-                dayView.DisplayInformation()
-                monthView.DisplayInformation()
-                calanderView.DisplayInformation()
+                'dayView.DisplayInformation()
+                'monthView.DisplayInformation()
                 ClearInputBox()
 
+
+                If MainWindow.panel_main.Controls(0) Is dayView Then
+
+                    dayView.DisplayInformation()
+
+                End If
+
+                If MainWindow.panel_main.Controls(0) Is monthView Then
+
+                    monthView.DisplayInformation()
+
+                End If
+
+                calanderView.DisplayInformation()
 
 
 
@@ -235,6 +247,20 @@ Namespace Presentation
                 e.Graphics.FillRectangle(brush, rect)
             End Using
         End Sub
+
+
+#Region " key events "
+
+        Private Sub EscPressed(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+
+            If e.KeyCode = Keys.Escape Then
+                Me.Close()
+            End If
+
+        End Sub
+
+#End Region
+
 
 
 #End Region

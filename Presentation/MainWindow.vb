@@ -1,4 +1,5 @@
-﻿Imports expense_Trackie.Application
+﻿Imports System.Drawing.Drawing2D
+Imports expense_Trackie.Application
 
 Namespace Presentation
 
@@ -54,11 +55,10 @@ Namespace Presentation
 
 
         Public Sub LoadUserInformation()
-            Me.lbl_username.Text = SessionManager.Instance.CurrentUsername
 
-
+            MakePictureBoxCircular(img_profile)
             If Not String.IsNullOrEmpty(SessionManager.Instance.CurrentProfileLink) Then
-                btn_profile.Image = Image.FromFile(SessionManager.Instance.CurrentProfileLink)
+                img_profile.Image = Image.FromFile(SessionManager.Instance.CurrentProfileLink)
             End If
 
 
@@ -89,6 +89,7 @@ Namespace Presentation
                 If radio_month_view.Checked Then
 
                     DisplayForm(_monthView)
+                    _monthView.loadDays()
                     radio_month_view.Image = My.Resources.monthDark
 
 
@@ -118,6 +119,7 @@ Namespace Presentation
                 If radio_day_view.Checked Then
 
                     DisplayForm(_dayView)
+                    _dayView.LoadExpenses()
                     radio_day_view.Image = My.Resources.dayDark
                 End If
 
@@ -146,6 +148,7 @@ Namespace Presentation
                 panel_main.Controls.Add(control)
                 .BringToFront()
                 .Show()
+
             End With
 
 
@@ -159,29 +162,33 @@ Namespace Presentation
 #Region "get selected category"
 
 
-        Private Sub btn_all_Click(sender As Object, e As EventArgs) Handles btn_all.Click
+        Private Sub check_all_CheckedChanged(sender As Object, e As EventArgs) Handles check_all.CheckedChanged
 
-            ' unchecking all the checks
-            For Each control As Control In flowPanelCategory.Controls
+            If check_all.Checked = True Then
 
-                If TypeOf control Is CheckBox Then
-                    Dim checkBox As CheckBox = DirectCast(control, CheckBox)
+                ' unchecking all the checks
+                For Each control As Control In flowPanelCategory.Controls
 
-                    checkBox.Checked = False
+                    If TypeOf control Is CheckBox Then
+                        Dim checkBox As CheckBox = DirectCast(control, CheckBox)
 
-                End If
+                        checkBox.Checked = False
 
-            Next
+                    End If
+
+                Next
 
 
 
-            ' clearning selectedCategoryIds
-            Dim selectedCategoryIds As New List(Of Integer)
+                ' clearning selectedCategoryIds
+                Dim selectedCategoryIds As New List(Of Integer)
 
-            ' if all is selected
-            selectedCategoryIds.Clear()
-            SessionManager.SelectedCategoryIds = selectedCategoryIds
+                ' if all is selected
+                selectedCategoryIds.Clear()
+                SessionManager.SelectedCategoryIds = selectedCategoryIds
 
+
+            End If
 
         End Sub
 
@@ -189,6 +196,8 @@ Namespace Presentation
 
         ' event handling
         Public Sub Checkbox_CheckChanged(sender As Object, e As EventArgs)
+
+            check_all.Checked = False
 
             Dim selectedCategoryIds As New List(Of Integer)
 
@@ -208,7 +217,14 @@ Namespace Presentation
 
             SessionManager.SelectedCategoryIds = selectedCategoryIds
 
-            _dayView.LoadExpenses()
+            If panel_main.Controls(0) Is _dayView Then
+                _dayView.LoadExpenses()
+
+            ElseIf panel_main.Controls(0) Is _monthView Then
+                _monthView.loadDays()
+
+            End If
+
 
         End Sub
 
@@ -261,13 +277,22 @@ Namespace Presentation
 
 
 #Region " profile "
-        Private Sub btn_profile_Click(sender As Object, e As EventArgs) Handles btn_profile.Click
+        'Private Sub btn_profile_Click(sender As Object, e As EventArgs)
 
 
+        '    Dim displayProfile As New DisplayProfile(_calanderView)
+        '    displayProfile.Show()
+
+        'End Sub
+
+
+        Private Sub img_profile_Click(sender As Object, e As EventArgs) Handles img_profile.Click
             Dim displayProfile As New DisplayProfile(_calanderView)
             displayProfile.Show()
-
         End Sub
+
+
+
 
 #End Region
 
@@ -347,7 +372,9 @@ Namespace Presentation
         ' close
         Private Sub ButtonCloseClick(sender As Object, e As EventArgs) Handles button_close.Click
             Me.Close()
+
             EraseSessionInformation()
+
 
         End Sub
 
@@ -428,43 +455,29 @@ Namespace Presentation
 
 
 
+
+
 #End Region
 
 
 #Region " gradient "
 
-        'Private Sub mainWindow_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
-        '    ' Get the client area of the form
-        '    Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
-
-        '    ' Define the start and end colors for the gradient
-        '    Dim startColor As Color = Color.Beige
-        '    Dim endColor As Color = Color.AliceBlue
-
-        '    ' Create a LinearGradientBrush
-        '    Using brush As New LinearGradientBrush(rect, startColor, endColor, LinearGradientMode.Horizontal)
-        '        ' Fill the rectangle with the gradient
-        '        e.Graphics.FillRectangle(brush, rect)
-        '    End Using
-        'End Sub
-
-        'Private Sub panel_topbar_Paint(sender As Object, e As PaintEventArgs) Handles panel_topbar.Paint
-
-        '    Dim p As New Pen(Color.DarkGray, 1)
-        '    Dim g As Graphics = Me.CreateGraphics
-
-        '    g.DrawLine(p, 0, panel_topbar.Size.Height - 2, panel_topbar.Size.Width, panel_topbar.Size.Height - 2)
 
 
-        'End Sub
+        Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
+            ' Get the client area of the form
+            Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
 
+            ' Define the start and end colors for the gradient
+            Dim startColor As Color = Color.Beige
+            Dim endColor As Color = Color.AliceBlue
 
-
-
-
-
-
-
+            ' Create a LinearGradientBrush
+            Using brush As New LinearGradientBrush(rect, startColor, endColor, LinearGradientMode.Horizontal)
+                ' Fill the rectangle with the gradient
+                e.Graphics.FillRectangle(brush, rect)
+            End Using
+        End Sub
 
 
 #End Region
@@ -520,6 +533,9 @@ Namespace Presentation
 
 
 #End Region
+#Region " key handling "
+#End Region
+
 
 
 

@@ -57,7 +57,7 @@ Namespace Presentation
 
                 ClearInputBox()
 
-                MsgBox("Category added successfully")
+                'MsgBox("Category added successfully")
 
             Else
                 MsgBox("Category insertion failed. Please try again.")
@@ -225,6 +225,28 @@ Namespace Presentation
 
 
 #End Region
+
+
+
+
+
+
+#Region " key events "
+
+        Private Sub EscPressed(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+
+            If e.KeyCode = Keys.Escape Then
+                Me.Close()
+            End If
+
+        End Sub
+
+#End Region
+
+
+
+
+
 
     End Class
 End NameSpace
