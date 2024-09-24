@@ -266,6 +266,7 @@ Namespace Presentation
 
 
 
+
 #Region "get selected category"
 
 
@@ -336,6 +337,23 @@ Namespace Presentation
         End Sub
 
 
+#End Region
+
+
+#Region " app settings "
+        Private Sub btn_appSetting_Click(sender As Object, e As EventArgs) Handles btn_appSetting.Click
+
+            If darkMode Then
+                btn_appSetting.Image = My.Resources.settingwhite32selected
+            Else
+                btn_appSetting.Image = My.Resources.setting32dark
+
+            End If
+
+            timer_reset_image.Start()
+
+            AppSetting.Show()
+        End Sub
 #End Region
 
 
@@ -682,19 +700,7 @@ Namespace Presentation
 
         End Sub
 
-        Private Sub btn_appSetting_Click(sender As Object, e As EventArgs) Handles btn_appSetting.Click
 
-            If darkMode Then
-                btn_appSetting.Image = My.Resources.settingwhite32selected
-            Else
-                btn_appSetting.Image = My.Resources.setting32dark
-
-            End If
-
-            timer_reset_image.Start()
-
-            AppSetting.Show()
-        End Sub
 
 
 #End Region

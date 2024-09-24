@@ -302,6 +302,7 @@
             '
             'btn_appSetting
             '
+            Me.btn_appSetting.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.btn_appSetting.FlatAppearance.BorderSize = 0
             Me.btn_appSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
             Me.btn_appSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent

@@ -97,6 +97,9 @@ Public Class AppSetting
         My.Settings.IsLightMode = isLightmode
         My.Settings.textColor = textColor
         My.Settings.Save()
+
+
+        System.Windows.Forms.Application.Restart()
     End Sub
 
 #End Region
