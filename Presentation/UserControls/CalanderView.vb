@@ -124,7 +124,7 @@ Public Class CalanderView
             Dim total As Decimal = GetTotal(currentDate)
             If total > SessionManager.Instance.CurrentDailyLimit Then
 
-                dateDisplay.lbl_date.BackColor = ColorTranslator.FromHtml("#fa5252")
+                dateDisplay.BackColor = ColorTranslator.FromHtml("#fa5252")
 
 
             End If

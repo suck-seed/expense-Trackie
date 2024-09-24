@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.WindowsAppSDK.1.6.240829007\build\Microsoft.WindowsAppSDK.props" Condition="Exists('packages\Microsoft.WindowsAppSDK.1.6.240829007\build\Microsoft.WindowsAppSDK.props')" />
+  <Import Project="packages\Microsoft.Windows.SDK.BuildTools.10.0.22621.756\build\Microsoft.Windows.SDK.BuildTools.props" Condition="Exists('packages\Microsoft.Windows.SDK.BuildTools.10.0.22621.756\build\Microsoft.Windows.SDK.BuildTools.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -30,6 +32,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -82,8 +86,14 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
-      <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.2651.64, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.2651.64\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.2651.64, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.2651.64\lib\net462\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.2651.64, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.2651.64\lib\net462\Microsoft.Web.WebView2.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -127,6 +137,12 @@
       <DependentUpon>monthExpense.vb</DependentUpon>
     </Compile>
     <Compile Include="Presentation\DynamicControls\monthExpense.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Exports\exportView.Designer.vb">
+      <DependentUpon>exportView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Exports\exportView.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Presentation\UserControls\CalanderView.Designer.vb">
@@ -242,6 +258,7 @@
     <Compile Include="Presentation\Category\UpdateCategory.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="temp.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Presentation\DynamicControls\ExpenseRemarksDisplay.resx">
@@ -249,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\DynamicControls\monthExpense.resx">
       <DependentUpon>monthExpense.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Exports\exportView.resx">
+      <DependentUpon>exportView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\UserControls\CalanderView.resx">
       <DependentUpon>CalanderView.vb</DependentUpon>
@@ -499,4 +519,17 @@
     <None Include="Resources\showpasswordDark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="packages\Microsoft.Web.WebView2.1.0.2651.64\build\Microsoft.Web.WebView2.targets" Condition="Exists('packages\Microsoft.Web.WebView2.1.0.2651.64\build\Microsoft.Web.WebView2.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.Web.WebView2.1.0.2651.64\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Web.WebView2.1.0.2651.64\build\Microsoft.Web.WebView2.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.Windows.SDK.BuildTools.10.0.22621.756\build\Microsoft.Windows.SDK.BuildTools.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Windows.SDK.BuildTools.10.0.22621.756\build\Microsoft.Windows.SDK.BuildTools.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.Windows.SDK.BuildTools.10.0.22621.756\build\Microsoft.Windows.SDK.BuildTools.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Windows.SDK.BuildTools.10.0.22621.756\build\Microsoft.Windows.SDK.BuildTools.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.WindowsAppSDK.1.6.240829007\build\Microsoft.WindowsAppSDK.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.WindowsAppSDK.1.6.240829007\build\Microsoft.WindowsAppSDK.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.WindowsAppSDK.1.6.240829007\build\Microsoft.WindowsAppSDK.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.WindowsAppSDK.1.6.240829007\build\Microsoft.WindowsAppSDK.targets'))" />
+  </Target>
+  <Import Project="packages\Microsoft.Windows.SDK.BuildTools.10.0.22621.756\build\Microsoft.Windows.SDK.BuildTools.targets" Condition="Exists('packages\Microsoft.Windows.SDK.BuildTools.10.0.22621.756\build\Microsoft.Windows.SDK.BuildTools.targets')" />
+  <Import Project="packages\Microsoft.WindowsAppSDK.1.6.240829007\build\Microsoft.WindowsAppSDK.targets" Condition="Exists('packages\Microsoft.WindowsAppSDK.1.6.240829007\build\Microsoft.WindowsAppSDK.targets')" />
 </Project>

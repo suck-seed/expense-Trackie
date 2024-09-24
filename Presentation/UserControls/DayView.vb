@@ -43,7 +43,6 @@ Namespace Presentation
             lbl_month.Text = _currentDate.ToString("MMM")
             lbl_day.Text = _currentDate.ToString("dd")
             lbl_total_amount.Text = GetTotal()
-            MsgBox(GetTotal())
             LoadExpenses()
 
             '            expenseManager.loadExpenses(mainWindow.flowPanelCategory, currentDate)
@@ -166,7 +165,7 @@ Namespace Presentation
 
 
 #Region "loading expense in form"
-
+        Private borderRadius As Integer = 31
         Public Sub LoadExpenses()
 
             Dim expenseManager As New ExpenseManager()
@@ -174,6 +173,9 @@ Namespace Presentation
             expenseManager.LoadDayExpenses(panel_expense_display, _currentDate, _filterCount, AddressOf DeleteOnExpenseClick)
 
         End Sub
+
+
+
 
 
 
@@ -203,6 +205,12 @@ Namespace Presentation
 
 
         End Sub
+
+
+
+
+
+
 
 
 

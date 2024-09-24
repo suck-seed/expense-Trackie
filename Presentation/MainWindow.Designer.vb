@@ -173,7 +173,7 @@
             Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.5446!))
             Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.96244!))
             Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.49296!))
-            Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33.0!))
+            Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
             Me.TableLayoutPanel8.Controls.Add(Me.btn_edit_category, 0, 0)
             Me.TableLayoutPanel8.Controls.Add(Me.btn_delete, 0, 0)
             Me.TableLayoutPanel8.Controls.Add(Me.Label8, 0, 0)
@@ -194,7 +194,7 @@
             Me.btn_edit_category.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
             Me.btn_edit_category.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btn_edit_category.Image = Global.expense_Trackie.My.Resources.Resources.edit
-            Me.btn_edit_category.Location = New System.Drawing.Point(183, 3)
+            Me.btn_edit_category.Location = New System.Drawing.Point(182, 3)
             Me.btn_edit_category.Name = "btn_edit_category"
             Me.btn_edit_category.Size = New System.Drawing.Size(27, 39)
             Me.btn_edit_category.TabIndex = 4
@@ -211,7 +211,7 @@
             Me.btn_delete.Image = Global.expense_Trackie.My.Resources.Resources.delete3
             Me.btn_delete.Location = New System.Drawing.Point(149, 3)
             Me.btn_delete.Name = "btn_delete"
-            Me.btn_delete.Size = New System.Drawing.Size(28, 39)
+            Me.btn_delete.Size = New System.Drawing.Size(27, 39)
             Me.btn_delete.TabIndex = 3
             Me.btn_delete.UseVisualStyleBackColor = True
             '
@@ -235,9 +235,9 @@
             Me.add_category.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
             Me.add_category.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.add_category.Image = Global.expense_Trackie.My.Resources.Resources.icons8_add_161
-            Me.add_category.Location = New System.Drawing.Point(216, 3)
+            Me.add_category.Location = New System.Drawing.Point(215, 3)
             Me.add_category.Name = "add_category"
-            Me.add_category.Size = New System.Drawing.Size(28, 39)
+            Me.add_category.Size = New System.Drawing.Size(29, 39)
             Me.add_category.TabIndex = 2
             Me.add_category.UseVisualStyleBackColor = True
             '
@@ -258,6 +258,7 @@
             '
             'img_profile
             '
+            Me.img_profile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.img_profile.Image = Global.expense_Trackie.My.Resources.Resources.profileLight
             Me.img_profile.Location = New System.Drawing.Point(1403, 5)
             Me.img_profile.Margin = New System.Windows.Forms.Padding(0)

@@ -102,6 +102,9 @@ Namespace Application
                 expenseInfo.Anchor = AnchorStyles.Top
                 expenseInfo.Dock = DockStyle.Top
 
+                'remove below if border rounding is removed
+                expenseInfo.BorderStyle = BorderStyle.None
+
 
 
 
