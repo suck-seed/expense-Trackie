@@ -20,7 +20,16 @@ Public Class CalanderView
     End Sub
 
 
+    Dim darkMode As Boolean = False
+
     Private Sub CalanderView_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+        If My.Settings.IsLightMode = False Then
+
+            darkMode = True
+        End If
+
+        ColorMode()
         DisplayInformation()
 
 
@@ -168,6 +177,27 @@ Public Class CalanderView
         _dayView.DisplayInformation()
 
     End Sub
+
+
+
+
+#Region " light / dark"
+
+    Public Sub ColorMode()
+
+        If My.Settings.IsLightMode = False Then
+            'lbl_category.ForeColor = foreColor
+
+            month_previous.Image = My.Resources.previousWhite
+            month_next.Image = My.Resources.nextWhite
+
+
+
+
+        End If
+
+    End Sub
+#End Region
 
 
 End Class

@@ -5,6 +5,7 @@ Namespace Presentation
     Public Class MonthView
 
         Dim _currentDate As DateTime = DateTime.Now
+        Dim darkMode As Boolean = False
 
 
 #Region " load form "
@@ -21,6 +22,13 @@ Namespace Presentation
 
 
         Private Sub monthView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+            If My.Settings.IsLightMode = False Then
+
+                darkMode = True
+            End If
+            ColorMode()
+
 
             ' setting display date
             DisplayInformation()
@@ -70,7 +78,14 @@ Namespace Presentation
 
         Private Sub btn_previous_Click(sender As Object, e As EventArgs) Handles btn_previous.Click
 
-            btn_previous.Image = My.Resources.leftDark
+            'visual cues
+            If darkMode Then
+                btn_previous.Image = My.Resources.leftWhiteSelected
+            Else
+
+                btn_previous.Image = My.Resources.leftDark
+
+            End If
 
             _currentDate = _currentDate.AddMonths(-1)
 
@@ -83,7 +98,13 @@ Namespace Presentation
 
         Private Sub btn_next_Click(sender As Object, e As EventArgs) Handles btn_next.Click
 
-            btn_next.Image = My.Resources.rightDark
+            If darkMode Then
+                btn_next.Image = My.Resources.rightwhiteselected
+            Else
+                btn_next.Image = My.Resources.rightDark
+
+
+            End If
 
             _currentDate = _currentDate.AddMonths(1)
 
@@ -198,16 +219,52 @@ Namespace Presentation
 #End Region
 
 
-#Region " visual cued for button "
+
+
+#Region " light / dark"
+
+        Public Sub ColorMode()
+
+            If My.Settings.IsLightMode = False Then
+                'lbl_category.ForeColor = foreColor
+
+
+                btn_next.Image = My.Resources.rightWhite
+                btn_previous.Image = My.Resources.leftWhite
+
+
+
+            End If
+
+
+        End Sub
+
+#End Region
+
+
+#Region " timer for buttons "
 
         Private Sub timer_revertImage_Tick(sender As Object, e As EventArgs) Handles timer_reset_image.Tick
-            ' Revert the image back to right
-            btn_next.Image = My.Resources.right
-            btn_previous.Image = My.Resources.left
+
+
+            If darkMode Then
+
+                btn_next.Image = My.Resources.rightWhite
+                btn_previous.Image = My.Resources.leftWhite
+
+            Else
+
+                btn_next.Image = My.Resources.right
+                btn_previous.Image = My.Resources.left
+
+
+
+            End If
 
             ' Stop the timer as the image has been reverted
             timer_reset_image.Stop()
         End Sub
+
 
 #End Region
 

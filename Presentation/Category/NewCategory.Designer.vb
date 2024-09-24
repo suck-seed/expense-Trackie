@@ -23,6 +23,7 @@
         'Do not modify it using the code editor.
         <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
+            Me.components = New System.ComponentModel.Container()
             Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
             Me.txt_description = New System.Windows.Forms.RichTextBox()
             Me.txt_name = New System.Windows.Forms.RichTextBox()
@@ -35,6 +36,7 @@
             Me.button_close = New System.Windows.Forms.Button()
             Me.button_create = New System.Windows.Forms.Button()
             Me.Label4 = New System.Windows.Forms.Label()
+            Me.timer_reset_image = New System.Windows.Forms.Timer(Me.components)
             Me.TableLayoutPanel1.SuspendLayout()
             Me.panel_topbar.SuspendLayout()
             Me.SuspendLayout()
@@ -170,7 +172,7 @@
             '
             'button_close
             '
-            Me.button_close.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Me.button_close.Dock = System.Windows.Forms.DockStyle.Left
             Me.button_close.FlatAppearance.BorderSize = 0
             Me.button_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
             Me.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -208,6 +210,10 @@
             Me.Label4.TabIndex = 2
             Me.Label4.Text = "New Category"
             '
+            'timer_reset_image
+            '
+            Me.timer_reset_image.Interval = 120
+            '
             'NewCategory
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -243,5 +249,6 @@
         Friend WithEvents txt_description As RichTextBox
         Friend WithEvents txt_name As RichTextBox
         Friend WithEvents panel_color As TableLayoutPanel
+        Friend WithEvents timer_reset_image As Timer
     End Class
 End NameSpace

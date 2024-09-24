@@ -19,5 +19,23 @@
     <Setting Name="IsRemembered" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="IsLightMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="lightModeStartColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#EEF4F9</Value>
+    </Setting>
+    <Setting Name="lightModeEndColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#F9F2E6</Value>
+    </Setting>
+    <Setting Name="darkModeStartColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#191D1C</Value>
+    </Setting>
+    <Setting Name="darkModeEndColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#251D18</Value>
+    </Setting>
+    <Setting Name="textColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Black</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

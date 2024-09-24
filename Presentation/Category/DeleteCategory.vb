@@ -34,7 +34,22 @@ Namespace Presentation
 
 
 #Region " load "
+        Dim darkMode As Boolean = False
+
+
         Private Sub deleteCategory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+            If My.Settings.IsLightMode = False Then
+                ForeColor = Color.White
+                darkMode = True
+                Me.BackColor = ColorTranslator.FromHtml("#191D1C")
+            Else
+                Me.BackColor = ColorTranslator.FromHtml("#EEF4F9")
+            End If
+
+            ColorMode()
+
 
             Dim categoryManager As New CategoryManager
             categoryManager.GenerateCategoryRadioButtons(flowPanel_category, AddressOf GetSelectedRadioCategoryId)
@@ -133,22 +148,45 @@ Namespace Presentation
 
 
 
+
 #Region " gradient "
 
+
+
         Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
-            ' Get the client area of the form
+
+
+            Dim startColor As Color
+            Dim endColor As Color
+
+            If My.Settings.IsLightMode = True Then
+
+                startColor = ColorTranslator.FromHtml(My.Settings.lightModeStartColor)
+                endColor = ColorTranslator.FromHtml(My.Settings.lightModeEndColor)
+
+            ElseIf My.Settings.IsLightMode = False Then
+
+                startColor = ColorTranslator.FromHtml(My.Settings.darkModeStartColor)
+                endColor = ColorTranslator.FromHtml(My.Settings.darkModeEndColor)
+
+            End If
+
+
+
             Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
 
-            ' Define the start and end colors for the gradient
-            Dim startColor As Color = Color.Beige
-            Dim endColor As Color = Color.AliceBlue
 
             ' Create a LinearGradientBrush
             Using brush As New LinearGradientBrush(rect, startColor, endColor, LinearGradientMode.Horizontal)
                 ' Fill the rectangle with the gradient
                 e.Graphics.FillRectangle(brush, rect)
             End Using
+
+
         End Sub
+
+
+
 
 #End Region
 
@@ -176,6 +214,23 @@ Namespace Presentation
 
 
 
+#Region " light / dark"
+
+        Public Sub ColorMode()
+
+            If My.Settings.IsLightMode = False Then
+                'lbl_category.ForeColor = foreColor
+
+                button_close.Image = My.Resources.crossWhite
+                button_delete.Image = My.Resources.checkwhite
+
+
+
+
+            End If
+
+        End Sub
+#End Region
 
     End Class
 End NameSpace

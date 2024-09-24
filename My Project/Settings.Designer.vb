@@ -100,6 +100,78 @@ Namespace My
                 Me("IsRemembered") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property IsLightMode() As Boolean
+            Get
+                Return CType(Me("IsLightMode"),Boolean)
+            End Get
+            Set
+                Me("IsLightMode") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("#EEF4F9")>  _
+        Public Property lightModeStartColor() As String
+            Get
+                Return CType(Me("lightModeStartColor"),String)
+            End Get
+            Set
+                Me("lightModeStartColor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("#F9F2E6")>  _
+        Public Property lightModeEndColor() As String
+            Get
+                Return CType(Me("lightModeEndColor"),String)
+            End Get
+            Set
+                Me("lightModeEndColor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("#191D1C")>  _
+        Public Property darkModeStartColor() As String
+            Get
+                Return CType(Me("darkModeStartColor"),String)
+            End Get
+            Set
+                Me("darkModeStartColor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("#251D18")>  _
+        Public Property darkModeEndColor() As String
+            Get
+                Return CType(Me("darkModeEndColor"),String)
+            End Get
+            Set
+                Me("darkModeEndColor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Black")>  _
+        Public Property textColor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("textColor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("textColor") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

@@ -6,6 +6,8 @@ Public Class ExpenseRemarksDisplay
 
     Private Sub ExpenseDetailDisplay_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+        lbl_remark.ForeColor = Color.Black
+
         Me.BorderStyle = BorderStyle.None
         SetRoundedShape(Me, borderRadius)
         Me.SetStyle(ControlStyles.ResizeRedraw, True)

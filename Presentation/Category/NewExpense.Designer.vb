@@ -23,6 +23,7 @@
         'Do not modify it using the code editor.
         <System.Diagnostics.DebuggerStepThrough()> _
         Private Sub InitializeComponent()
+            Me.components = New System.ComponentModel.Container()
             Me.Label4 = New System.Windows.Forms.Label()
             Me.panel_topbar = New System.Windows.Forms.Panel()
             Me.button_close = New System.Windows.Forms.Button()
@@ -36,6 +37,7 @@
             Me.txt_date_picker = New System.Windows.Forms.DateTimePicker()
             Me.panel_radio_category = New System.Windows.Forms.FlowLayoutPanel()
             Me.txt_Amount = New System.Windows.Forms.RichTextBox()
+            Me.timer_reset_image = New System.Windows.Forms.Timer(Me.components)
             Me.panel_topbar.SuspendLayout()
             Me.TableLayoutPanel1.SuspendLayout()
             Me.SuspendLayout()
@@ -203,6 +205,10 @@
             Me.txt_Amount.TabIndex = 10
             Me.txt_Amount.Text = ""
             '
+            'timer_reset_image
+            '
+            Me.timer_reset_image.Interval = 120
+            '
             'NewExpense
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -237,5 +243,6 @@
         Friend WithEvents panel_radio_category As FlowLayoutPanel
         Friend WithEvents txt_Remarks As RichTextBox
         Friend WithEvents txt_Amount As RichTextBox
+        Friend WithEvents timer_reset_image As Timer
     End Class
 End NameSpace

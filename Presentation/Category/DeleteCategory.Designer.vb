@@ -23,6 +23,7 @@
         'Do not modify it using the code editor.
         <System.Diagnostics.DebuggerStepThrough()> _
         Private Sub InitializeComponent()
+            Me.components = New System.ComponentModel.Container()
             Me.button_close = New System.Windows.Forms.Button()
             Me.Label4 = New System.Windows.Forms.Label()
             Me.panel_topbar = New System.Windows.Forms.Panel()
@@ -30,6 +31,7 @@
             Me.Label1 = New System.Windows.Forms.Label()
             Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
             Me.flowPanel_category = New System.Windows.Forms.FlowLayoutPanel()
+            Me.timer_reset_image = New System.Windows.Forms.Timer(Me.components)
             Me.panel_topbar.SuspendLayout()
             Me.TableLayoutPanel1.SuspendLayout()
             Me.SuspendLayout()
@@ -124,6 +126,10 @@
             Me.flowPanel_category.Size = New System.Drawing.Size(417, 322)
             Me.flowPanel_category.TabIndex = 10
             '
+            'timer_reset_image
+            '
+            Me.timer_reset_image.Interval = 120
+            '
             'DeleteCategory
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -151,5 +157,6 @@
         Friend WithEvents Label1 As Label
         Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
         Friend WithEvents flowPanel_category As FlowLayoutPanel
+        Friend WithEvents timer_reset_image As Timer
     End Class
 End NameSpace

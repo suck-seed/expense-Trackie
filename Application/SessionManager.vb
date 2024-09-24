@@ -17,6 +17,7 @@
         Public Property CurrentLoginTime As DateTime
         Public Property CurrentProfileLink As String
         Public Property CurrentDateJoined As DateTime
+        Public Property TextColor As Color = Color.White
 
 
 

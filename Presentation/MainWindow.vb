@@ -1,11 +1,14 @@
-﻿Imports System.Drawing.Drawing2D
+﻿
+Imports System.Drawing.Drawing2D
 Imports expense_Trackie.Application
-
 Namespace Presentation
 
     Public Class MainWindow
 
         Dim _categoryManager As New CategoryManager()
+
+
+
 
 
 #Region " predefined instance of userControls "
@@ -22,10 +25,22 @@ Namespace Presentation
 #Region " form load / calander load "
 
         Private borderRadius As Integer = 20
+        Dim darkMode As Boolean = False
 
         Private Sub MybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
 
             ' loading information to form
+
+            If My.Settings.IsLightMode = False Then
+                ForeColor = Color.White
+                darkMode = True
+                Me.BackColor = ColorTranslator.FromHtml("#191D1C")
+            Else
+                Me.BackColor = ColorTranslator.FromHtml("#EEF4F9")
+            End If
+
+            ColorMode()
+
             LoadInformation()
             LoadUserInformation()
 
@@ -38,6 +53,8 @@ Namespace Presentation
             SetRoundedShape(Me, borderRadius)
             Me.SetStyle(ControlStyles.ResizeRedraw, True)
             Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
+
+            _monthView.loadDays()
 
 
         End Sub
@@ -118,7 +135,7 @@ Namespace Presentation
 
 
 
-#Region "calander/day"
+#Region " month/day "
         Private Sub radio_month_view_CheckedChanged(sender As Object, e As EventArgs) Handles radio_month_view.CheckedChanged, radio_home.CheckedChanged
 
             If radio_home.Checked Then
@@ -127,7 +144,15 @@ Namespace Presentation
 
                     DisplayForm(_monthView)
                     '_monthView.loadDays()
-                    radio_month_view.Image = My.Resources.monthDark
+
+                    If darkMode Then
+
+                        radio_month_view.Image = My.Resources.monthwhiteSelected
+
+                    Else
+                        radio_month_view.Image = My.Resources.monthDark
+
+                    End If
 
 
 
@@ -138,9 +163,27 @@ Namespace Presentation
 
             'visual ques
             If radio_month_view.Checked Then
-                radio_month_view.Image = My.Resources.monthDark
+
+                If darkMode Then
+
+                    radio_month_view.Image = My.Resources.monthWhiteSelected
+
+                Else
+                    radio_month_view.Image = My.Resources.monthDark
+
+                End If
+
+
             Else
-                radio_month_view.Image = My.Resources.monthLight
+                If darkMode Then
+
+                    radio_month_view.Image = My.Resources.monthWhite
+
+                Else
+                    radio_month_view.Image = My.Resources.monthLight
+
+                End If
+
             End If
 
         End Sub
@@ -157,7 +200,16 @@ Namespace Presentation
 
                     DisplayForm(_dayView)
                     '_dayView.LoadExpenses()
-                    radio_day_view.Image = My.Resources.dayDark
+
+                    If darkMode Then
+
+                        radio_day_view.Image = My.Resources.dayViewWhiteSelected
+
+                    Else
+                        radio_day_view.Image = My.Resources.dayDark
+
+                    End If
+
                 End If
 
             End If
@@ -166,9 +218,27 @@ Namespace Presentation
             'visual ques
             'visual ques
             If radio_day_view.Checked Then
-                radio_day_view.Image = My.Resources.dayDark
+
+                If darkMode Then
+
+                    radio_day_view.Image = My.Resources.dayViewWhiteSelected
+
+                Else
+                    radio_day_view.Image = My.Resources.dayDark
+
+                End If
+
             Else
-                radio_day_view.Image = My.Resources.dayLight
+
+                If darkMode Then
+
+                    radio_day_view.Image = My.Resources.dayViewWhite
+
+                Else
+                    radio_day_view.Image = My.Resources.dayLight
+
+                End If
+
             End If
 
 
@@ -288,26 +358,62 @@ Namespace Presentation
 #Region "category"
         Private Sub AddCategoryClicked(sender As Object, e As EventArgs) Handles add_category.Click
 
+            If darkMode Then
+                add_category.Image = My.Resources.addwhiteselected
+            Else
+                add_category.Image = My.Resources.addDark
+
+            End If
+
             NewCategory.Show()
 
             'Presentation.NewCategory.button_create.PerformClick()
+            timer_reset_image.Start()
 
         End Sub
 
         Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
 
-            btn_delete.Image = My.Resources.delete3Red
+            If darkMode Then
+                btn_delete.Image = My.Resources.deletewhiteselected
+
+            Else
+
+                btn_delete.Image = My.Resources.delete3Red
+
+            End If
+
             'DeleteCategory.Show()
 
             Dim deleteCategory As New DeleteCategory(_dayView, _monthView, _calanderView)
             deleteCategory.Show()
 
+            timer_reset_image.Start()
+
+
         End Sub
 
         Private Sub btn_edit_category_Click(sender As Object, e As EventArgs) Handles btn_edit_category.Click
 
+            If darkMode Then
+                btn_edit_category.Image = My.Resources.editwhiteselected
+            Else
+
+                btn_edit_category.Image = My.Resources.editdark
+
+            End If
+
+            '
+
+            'Presentation.NewCategory.button_create.PerformClick()
+
+
             Dim editCategory As New UpdateCategory(_dayView, _monthView)
             editCategory.Show()
+
+
+            timer_reset_image.Start()
+
         End Sub
 
 #End Region
@@ -339,45 +445,74 @@ Namespace Presentation
 
             ' for home button
             If radio_home.Checked Then
-                radio_home.Image = My.Resources.homeDark
+
+                If darkMode Then
+                    radio_home.Image = My.Resources.homewhiteselected
+                Else
+                    radio_home.Image = My.Resources.homeDark
+
+                End If
             Else
-                radio_home.Image = My.Resources.homeLight
+                If darkMode Then
+                    radio_home.Image = My.Resources.homewhite
+                Else
+                    radio_home.Image = My.Resources.homeLight
+
+                End If
             End If
 
 
             ' for analytical button
             If radio_analytical.Checked Then
-                radio_analytical.Image = My.Resources.barDark
+                If darkMode Then
+                    radio_analytical.Image = My.Resources.barchartWhiteSelected
+
+                Else
+                    radio_analytical.Image = My.Resources.barDark
+
+                End If
             Else
-                radio_analytical.Image = My.Resources.barLight
+                If darkMode Then
+                    radio_analytical.Image = My.Resources.barchartWhite
+
+                Else
+                    radio_analytical.Image = My.Resources.barLight
+
+                End If
             End If
 
 
             ' for export button
             If radio_export.Checked Then
-                radio_export.Image = My.Resources.exportDark
+                If darkMode Then
+                    radio_export.Image = My.Resources.exportWhiteSelected
+
+                Else
+
+                    radio_export.Image = My.Resources.exportDark
+
+                End If
             Else
-                radio_export.Image = My.Resources.exportLight
+                If darkMode Then
+                    radio_export.Image = My.Resources.exportWhite
+
+                Else
+
+                    radio_export.Image = My.Resources.exportLight
+
+                End If
+
             End If
 
         End Sub
 
-
-        Private Sub btn_delete_MouseHover(sender As Object, e As EventArgs) Handles btn_delete.MouseHover
-            btn_delete.Image = My.Resources.delete3Red
-        End Sub
-
-
-        Private Sub btn_delete_MouseLeave(sender As Object, e As EventArgs) Handles btn_delete.MouseLeave
-            btn_delete.Image = My.Resources.delete3
-        End Sub
 
 
 #End Region
 
 
 #Region "min/max/close"
-        Private Sub ButtonMaxClick(sender As Object, e As EventArgs) Handles button_max.Click
+        Private Sub ButtonMaxClick(sender As Object, e As EventArgs) Handles btn_max.Click
 
             'panel_main.Refresh()
 
@@ -386,28 +521,43 @@ Namespace Presentation
 
                 Me.Size = New Size(1600, 1000)
                 Me.Location = New Point(160, 100)
-                button_max.Image = My.Resources.icons8_maximize_button_16
+
+                If darkMode Then
+                    btn_max.Image = My.Resources.maximizeWhite
+
+                Else
+                    btn_max.Image = My.Resources.maximize
+
+
+                End If
 
             Else
                 Me.Location = New Point(0, 0)
                 Me.Size = New Size(1920, 1200)
 
                 'Me.WindowState = FormWindowState.Maximized
-                button_max.Image = My.Resources.restore_down
+                If darkMode Then
+                    btn_max.Image = My.Resources.restoreDownWhite
+
+                Else
+                    btn_max.Image = My.Resources.restore_down
+
+
+                End If
             End If
 
         End Sub
 
 
         ' minimize on button click
-        Private Sub ButtonMinClick(sender As Object, e As EventArgs) Handles button_min.Click
+        Private Sub ButtonMinClick(sender As Object, e As EventArgs) Handles btn_min.Click
             Me.WindowState = FormWindowState.Minimized
 
             panel_main.Refresh()
         End Sub
 
         ' close
-        Private Sub ButtonCloseClick(sender As Object, e As EventArgs) Handles button_close.Click
+        Private Sub ButtonCloseClick(sender As Object, e As EventArgs) Handles btn_close.Click
             Me.Close()
 
             EraseSessionInformation()
@@ -478,7 +628,7 @@ Namespace Presentation
                     Me.Location = New Point(160, 5)
                     Me.Size = New Size(1600, 1000)
 
-                    button_max.Image = My.Resources.icons8_maximize_button_16
+                    btn_max.Image = My.Resources.maximize
                 End If
             End If
         End Sub
@@ -502,74 +652,56 @@ Namespace Presentation
 
 
         Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
-            ' Get the client area of the form
+
+
+            Dim startColor As Color
+            Dim endColor As Color
+
+            'MessageBox.Show("Is Light Mode: " & My.Settings.IsLightMode.ToString())
+
+            ' Force light or dark mode for testing
+            If My.Settings.IsLightMode Then
+                startColor = ColorTranslator.FromHtml(My.Settings.lightModeStartColor)
+                endColor = ColorTranslator.FromHtml(My.Settings.lightModeEndColor)
+            Else
+                startColor = ColorTranslator.FromHtml(My.Settings.darkModeStartColor)
+                endColor = ColorTranslator.FromHtml(My.Settings.darkModeEndColor)
+            End If
+
+
+
             Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
 
-            ' Define the start and end colors for the gradient
-            Dim startColor As Color = Color.Beige
-            Dim endColor As Color = Color.AliceBlue
 
             ' Create a LinearGradientBrush
             Using brush As New LinearGradientBrush(rect, startColor, endColor, LinearGradientMode.Horizontal)
                 ' Fill the rectangle with the gradient
                 e.Graphics.FillRectangle(brush, rect)
             End Using
+
+
+        End Sub
+
+        Private Sub btn_appSetting_Click(sender As Object, e As EventArgs) Handles btn_appSetting.Click
+
+            If darkMode Then
+                btn_appSetting.Image = My.Resources.settingwhite32selected
+            Else
+                btn_appSetting.Image = My.Resources.setting32dark
+
+            End If
+
+            timer_reset_image.Start()
+
+            AppSetting.Show()
         End Sub
 
 
 #End Region
 
 
-#Region "debug"
-
-        'Private Sub btn_debug_Click(sender As Object, e As EventArgs) Handles btn_debug.Click
-
-        '    Dim selectedCategoryIds As New List(Of Integer)
-
-        '    ' if all is selected
-        '    If radio_all.Checked() Then
-
-        '        selectedCategoryIds.Clear()
-
-        '    End If
 
 
-        '    If radio_custom.Checked Then
-        '        For Each control As Control In flowPanelCategory.Controls
-
-        '            If TypeOf control Is CheckBox Then
-        '                Dim checkBox As CheckBox = DirectCast(control, CheckBox)
-
-        '                If checkBox.Checked Then
-        '                    Dim categoryId As Integer = CInt(checkBox.Tag)
-        '                    selectedCategoryIds.Add(categoryId)
-        '                End If
-
-        '            End If
-
-        '        Next
-
-        '    End If
-
-        '    ' setting session manager ko ma value
-        '    SessionManager.SelectedCategoryIds = selectedCategoryIds
-
-
-
-        '    ' Display the selected category IDs
-        '    If SessionManager.SelectedCategoryIds.Count > 0 Then
-        '        ' Convert list of integers to a comma-separated string
-        '        Dim categoryIdString As String = String.Join(", ", SessionManager.SelectedCategoryIds)
-        '        MessageBox.Show("Selected Categories: " & categoryIdString)
-        '    Else
-        '        MessageBox.Show("No categories selected.")
-        '    End If
-
-        'End Sub
-
-
-
-#End Region
 #Region " key handling "
 #End Region
 
@@ -578,7 +710,80 @@ Namespace Presentation
 
 
 
+#Region " light / dark"
 
+        Public Sub ColorMode()
+
+            If My.Settings.IsLightMode = False Then
+                'lbl_category.ForeColor = foreColor
+
+                check_all.ForeColor = Color.Black
+
+                button_add_expense.BackColor = ColorTranslator.FromHtml("#282828")
+                button_add_expense.Image = My.Resources.addwhite1
+                'button_add_expense.ForeColor = foreColor
+
+                panel_main.BackColor = ColorTranslator.FromHtml("#282828")
+
+
+                radio_home.Image = My.Resources.homewhite
+                radio_analytical.Image = My.Resources.barchartWhite
+                radio_export.Image = My.Resources.exportWhite
+
+                radio_day_view.Image = My.Resources.dayViewWhite
+                radio_month_view.Image = My.Resources.monthWhite
+                btn_appSetting.Image = My.Resources.settingwhite32
+
+                btn_min.Image = My.Resources.minimizeWhite
+                btn_max.Image = My.Resources.maximizeWhite
+
+
+                btn_close.Image = My.Resources.crossWhite
+
+                btn_delete.Image = My.Resources.deleteWhite
+                btn_edit_category.Image = My.Resources.editWhite
+                add_category.Image = My.Resources.addWhite
+
+            Else
+                panel_main.BackColor = Color.WhiteSmoke
+
+            End If
+
+        End Sub
+#End Region
+
+
+
+#Region " timer for buttons "
+
+        Private Sub timer_revertImage_Tick(sender As Object, e As EventArgs) Handles timer_reset_image.Tick
+            ' Revert the image back to right
+            If darkMode Then
+                btn_edit_category.Image = My.Resources.editWhite
+                add_category.Image = My.Resources.addWhite
+                btn_delete.Image = My.Resources.deleteWhite
+                btn_appSetting.Image = My.Resources.settingwhite32
+
+
+
+            Else
+
+                btn_edit_category.Image = My.Resources.edit
+                add_category.Image = My.Resources.add
+                btn_delete.Image = My.Resources.delete3
+                btn_appSetting.Image = My.Resources.setting32
+
+            End If
+
+
+
+
+
+            ' Stop the timer as the image has been reverted
+            timer_reset_image.Stop()
+        End Sub
+
+#End Region
 
     End Class
-End NameSpace
+End Namespace

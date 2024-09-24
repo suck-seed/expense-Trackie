@@ -7,6 +7,10 @@ Namespace Presentation
 
         Private Sub ExpenseDetailDisplay_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+            lbl_amount.ForeColor = Color.Black
+            lbl_remarks.ForeColor = Color.Black
+            lbl_time.ForeColor = Color.Black
+
             SetRoundedShape(Me, borderRadius)
             Me.SetStyle(ControlStyles.ResizeRedraw, True)
             Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)

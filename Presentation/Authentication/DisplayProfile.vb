@@ -57,7 +57,21 @@ Namespace Presentation
 
 #Region " load "
 
+        Dim darkMode As Boolean = False
+
+
         Private Sub DisplayProfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+            If My.Settings.IsLightMode = False Then
+                ForeColor = Color.White
+                darkMode = True
+                Me.BackColor = ColorTranslator.FromHtml("#191D1C")
+            Else
+                Me.BackColor = ColorTranslator.FromHtml("#EEF4F9")
+            End If
+
+            ColorMode()
 
 
             lbl_info.Text = ""
@@ -330,23 +344,6 @@ Namespace Presentation
 
 
 
-        ' GRADIENT
-
-        Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
-            ' Get the client area of the form
-            Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
-
-            ' Define the start and end colors for the gradient
-            Dim startColor As Color = Color.Beige
-            Dim endColor As Color = Color.AliceBlue
-
-            ' Create a LinearGradientBrush
-            Using brush As New LinearGradientBrush(rect, startColor, endColor, LinearGradientMode.Horizontal)
-                ' Fill the rectangle with the gradient
-                e.Graphics.FillRectangle(brush, rect)
-            End Using
-        End Sub
-
         Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
             Me.Close()
         End Sub
@@ -388,11 +385,25 @@ Namespace Presentation
 
             If check_showPassword.Checked = True Then
                 txt_password1.PasswordChar = ""
-                check_showPassword.Image = My.Resources.showpasswordDark
+
+                If darkMode Then
+                    check_showPassword.Image = My.Resources.eyeWhiteSelected
+                Else
+
+                    check_showPassword.Image = My.Resources.showpasswordDark
+
+                End If
 
             Else
                 txt_password1.PasswordChar = "●"
-                check_showPassword.Image = My.Resources.showpassword
+
+                If darkMode Then
+                    check_showPassword.Image = My.Resources.eyeWhite
+                Else
+
+                    check_showPassword.Image = My.Resources.showpassword
+
+                End If
 
             End If
 
@@ -424,6 +435,73 @@ Namespace Presentation
 
         'clearing lbl_info and all
 
+#End Region
+
+
+
+
+#Region " gradient "
+
+
+
+        Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
+
+
+            Dim startColor As Color
+            Dim endColor As Color
+
+            If My.Settings.IsLightMode = True Then
+
+                startColor = ColorTranslator.FromHtml(My.Settings.lightModeStartColor)
+                endColor = ColorTranslator.FromHtml(My.Settings.lightModeEndColor)
+
+            ElseIf My.Settings.IsLightMode = False Then
+
+                startColor = ColorTranslator.FromHtml(My.Settings.darkModeStartColor)
+                endColor = ColorTranslator.FromHtml(My.Settings.darkModeEndColor)
+
+            End If
+
+
+
+            Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
+
+
+            ' Create a LinearGradientBrush
+            Using brush As New LinearGradientBrush(rect, startColor, endColor, LinearGradientMode.Horizontal)
+                ' Fill the rectangle with the gradient
+                e.Graphics.FillRectangle(brush, rect)
+            End Using
+
+
+        End Sub
+
+
+
+
+
+#End Region
+
+
+
+#Region " light / dark"
+
+        Public Sub ColorMode()
+
+            If My.Settings.IsLightMode = False Then
+                'lbl_category.ForeColor = foreColor
+
+                button_close.Image = My.Resources.crossWhite
+
+                btn_logout.Image = My.Resources.logoutwhite
+
+                check_showPassword.Image = My.Resources.eyeWhite
+
+                btn_update.ForeColor = Color.Black
+
+            End If
+
+        End Sub
 #End Region
 
     End Class

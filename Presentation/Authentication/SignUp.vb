@@ -224,34 +224,6 @@ Namespace Presentation
 
 
 
-#Region "gradient"
-        Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
-            ' Get the client area of the form
-            Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
-
-            ' Define the start and end colors for the gradient
-            Dim startColor As Color = Color.Beige
-            Dim endColor As Color = Color.AliceBlue
-
-            ' Create a LinearGradientBrush
-            Using brush As New LinearGradientBrush(rect, startColor, endColor, LinearGradientMode.Horizontal)
-                ' Fill the rectangle with the gradient
-                e.Graphics.FillRectangle(brush, rect)
-            End Using
-        End Sub
-
-        Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
-            ' Redraw the form when it is resized to update the gradient
-            Me.Invalidate()
-        End Sub
-
-        Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
-            Me.Close()
-        End Sub
-
-
-#End Region
-
 
 
 #Region " info board "
@@ -297,6 +269,49 @@ Namespace Presentation
         End Sub
 
 
+
+
+
+
+#End Region
+
+
+
+#Region " gradient "
+
+
+
+        Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
+
+
+            Dim startColor As Color
+            Dim endColor As Color
+
+            If My.Settings.IsLightMode = True Then
+
+                startColor = ColorTranslator.FromHtml(My.Settings.lightModeStartColor)
+                endColor = ColorTranslator.FromHtml(My.Settings.lightModeEndColor)
+
+            ElseIf My.Settings.IsLightMode = False Then
+
+                startColor = ColorTranslator.FromHtml(My.Settings.darkModeStartColor)
+                endColor = ColorTranslator.FromHtml(My.Settings.darkModeEndColor)
+
+            End If
+
+
+
+            Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
+
+
+            ' Create a LinearGradientBrush
+            Using brush As New LinearGradientBrush(rect, startColor, endColor, LinearGradientMode.Horizontal)
+                ' Fill the rectangle with the gradient
+                e.Graphics.FillRectangle(brush, rect)
+            End Using
+
+
+        End Sub
 
 
 

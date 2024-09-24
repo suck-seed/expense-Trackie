@@ -115,7 +115,7 @@ Namespace Application
                 radioButton.AutoSize = True
                 radioButton.TextAlign = ContentAlignment.MiddleCenter
                 radioButton.Font = New Font("Cascadia Mono SemiLight", 10, FontStyle.Regular)
-
+                radioButton.ForeColor = Color.Black
 
                 'radioButton.FlatStyle = FlatStyle.Popup
                 radioButton.FlatAppearance.BorderSize = 1
@@ -180,6 +180,7 @@ Namespace Application
                 checkButton.AutoSize = True
                 checkButton.TextAlign = ContentAlignment.MiddleCenter
                 checkButton.Font = New Font("IBM Plex Mono", 11, FontStyle.Regular)
+                checkButton.ForeColor = Color.Black
 
 
                 'checkButton.FlatStyle = FlatStyle.Flat

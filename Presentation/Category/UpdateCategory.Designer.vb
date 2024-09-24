@@ -23,6 +23,7 @@
         'Do not modify it using the code editor.
         <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
+            Me.components = New System.ComponentModel.Container()
             Me.button_close = New System.Windows.Forms.Button()
             Me.Label4 = New System.Windows.Forms.Label()
             Me.panel_topbar = New System.Windows.Forms.Panel()
@@ -37,6 +38,7 @@
             Me.Label1 = New System.Windows.Forms.Label()
             Me.Label5 = New System.Windows.Forms.Label()
             Me.panel_radio_category = New System.Windows.Forms.FlowLayoutPanel()
+            Me.timer_reset_image = New System.Windows.Forms.Timer(Me.components)
             Me.panel_topbar.SuspendLayout()
             Me.TableLayoutPanel1.SuspendLayout()
             Me.SuspendLayout()
@@ -234,6 +236,10 @@
             Me.panel_radio_category.Size = New System.Drawing.Size(401, 197)
             Me.panel_radio_category.TabIndex = 14
             '
+            'timer_reset_image
+            '
+            Me.timer_reset_image.Interval = 120
+            '
             'UpdateCategory
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -268,5 +274,6 @@
         Friend WithEvents btn_custom_color As Button
         Public WithEvents txt_description As RichTextBox
         Public WithEvents txt_name As RichTextBox
+        Friend WithEvents timer_reset_image As Timer
     End Class
 End NameSpace

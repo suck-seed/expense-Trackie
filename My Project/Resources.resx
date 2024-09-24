@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="profileLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\profileLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-minimize-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-minimize-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,6 +133,9 @@
   <data name="icons8-maximize-button-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-maximize-button-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="setting32dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setting32dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tickRound" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tickRound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,7 +145,7 @@
   <data name="icons8-add-161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-add-161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-horizontal-line-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-horizontal-line-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-add-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -157,7 +163,7 @@
   <data name="filterDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\filterDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-maximize-button-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="maximize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-maximize-button-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delete2Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -165,6 +171,9 @@
   </data>
   <data name="nextTight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nextTight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setting32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setting32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="barDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\barDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,17 +190,26 @@
   <data name="homeLight1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\homeLight1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="restore down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\restore down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="filter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\filter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="previousTight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\previousTight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-forward-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-forward-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dayDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dayDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="showpassword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\showpassword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="darkMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\darkMode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lightMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lightMode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="leftDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\leftDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,14 +217,23 @@
   <data name="barLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\barLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settingDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settingDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="darkmodeselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\darkmodeselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-forward-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-forward-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="homeLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\homeLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="showpasswordDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\showpasswordDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-tick-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-tick-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,8 +256,8 @@
   <data name="icons8-back-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-back-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dayDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dayDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lightModeSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lightModeSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-tick-16 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-tick-16 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -250,17 +277,17 @@
   <data name="rightDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rightDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="profileLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\profileLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-close-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-close-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-horizontal-line-16 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="minimize1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-horizontal-line-16 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-close-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-close-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="restore down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\restore down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exportLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exportLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -268,10 +295,151 @@
   <data name="delete3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="showpassword" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\showpassword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settingwhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settingwhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="showpasswordDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\showpasswordDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settingwhiteselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settingwhiteselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deleteWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deleteWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\editWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exportWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exportWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exportWhiteSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exportWhiteSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eyeWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eyeWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eyeWhiteSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eyeWhiteSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="homewhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\homewhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="homewhiteselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\homewhiteselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logoutwhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logoutwhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addwhiteselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addwhiteselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barchartWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barchartWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barchartWhiteSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barchartWhiteSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="checkwhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\checkwhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="checkWhiteSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\checkWhiteSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="crossWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\crossWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addwhite1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addwhite1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="batman" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\batman.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="batmanDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\batmanDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="batmanWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\batmanWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="batmanWhiteSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\batmanWhiteSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="darkmodeLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\darkmodeLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="darkmodelightselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\darkmodelightselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dayViewWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dayViewWhite .png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dayViewWhiteSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dayViewWhiteSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deletewhiteselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deletewhiteselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editdark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\editdark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editwhiteselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\editwhiteselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="filterWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filterWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="filterWhiteSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filterWhiteSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="leftWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\leftWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="leftWhiteSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\leftWhiteSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lightModeLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lightModeLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lightmodeLightSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lightmodeLightSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maximizeWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maximizeWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minimizeWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minimizeWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="monthWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\monthWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="monthWhiteSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\monthWhiteSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nextWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nextWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="previousWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\previousWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="restoreDownWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\restoreDownWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rightWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rightWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rightwhiteselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rightwhiteselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settingwhite32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settingwhite32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settingwhite32selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settingwhite32selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

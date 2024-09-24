@@ -238,7 +238,7 @@
             Me.btn_update.FlatAppearance.BorderSize = 0
             Me.btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Popup
             Me.btn_update.Font = New System.Drawing.Font("Cascadia Mono", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.btn_update.Location = New System.Drawing.Point(202, 530)
+            Me.btn_update.Location = New System.Drawing.Point(202, 531)
             Me.btn_update.Name = "btn_update"
             Me.btn_update.Size = New System.Drawing.Size(119, 36)
             Me.btn_update.TabIndex = 8
@@ -252,7 +252,7 @@
             Me.btn_delete.FlatAppearance.BorderSize = 0
             Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup
             Me.btn_delete.Font = New System.Drawing.Font("Cascadia Mono", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.btn_delete.Location = New System.Drawing.Point(202, 583)
+            Me.btn_delete.Location = New System.Drawing.Point(202, 584)
             Me.btn_delete.Name = "btn_delete"
             Me.btn_delete.Size = New System.Drawing.Size(119, 36)
             Me.btn_delete.TabIndex = 10
@@ -305,7 +305,7 @@
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-            Me.ClientSize = New System.Drawing.Size(536, 637)
+            Me.ClientSize = New System.Drawing.Size(536, 640)
             Me.Controls.Add(Me.check_showPassword)
             Me.Controls.Add(Me.TableLayoutPanel2)
             Me.Controls.Add(Me.btn_delete)

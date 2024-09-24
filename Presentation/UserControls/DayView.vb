@@ -7,7 +7,7 @@ Namespace Presentation
 
         Public _currentDate As DateTime = DateTime.Now
         Dim _filterCount As Integer = 1
-
+        Dim darkMode As Boolean = False
 
 #Region "initialization / load"
 
@@ -23,6 +23,12 @@ Namespace Presentation
 
         Private Sub dayView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+            If My.Settings.IsLightMode = False Then
+
+                darkMode = True
+            End If
+
+            ColorMode()
             DisplayInformation()
 
             Me.Focus()
@@ -60,7 +66,14 @@ Namespace Presentation
             ' 1 = default ( by time )
             ' 2 = ascending amount (small to large)
             ' 3 = descending amount ( large to small )
-            btn_filter.Image = My.Resources.filterDark
+            If darkMode Then
+                btn_filter.Image = My.Resources.filterWhiteSelected
+
+            Else
+                btn_filter.Image = My.Resources.filterDark
+
+
+            End If
 
             If _filterCount < 3 Then
                 _filterCount += 1
@@ -96,7 +109,14 @@ Namespace Presentation
         Public Sub btn_previous_Click(sender As Object, e As EventArgs) Handles btn_previous.Click
 
             'visual cues
-            btn_previous.Image = My.Resources.leftDark
+            If darkMode Then
+                btn_previous.Image = My.Resources.leftWhiteSelected
+            Else
+
+                btn_previous.Image = My.Resources.leftDark
+
+            End If
+
 
             panel_expense_display.Controls.Clear()
 
@@ -116,7 +136,13 @@ Namespace Presentation
 
         Public Sub btn_next_Click(sender As Object, e As EventArgs) Handles btn_next.Click
 
-            btn_next.Image = My.Resources.rightDark
+            If darkMode Then
+                btn_next.Image = My.Resources.rightwhiteselected
+            Else
+                btn_next.Image = My.Resources.rightDark
+
+
+            End If
 
             panel_expense_display.Controls.Clear()
 
@@ -135,19 +161,7 @@ Namespace Presentation
 #End Region
 
 
-#Region " visual cued for button "
 
-        Private Sub timer_revertImage_Tick(sender As Object, e As EventArgs) Handles timer_reset_image.Tick
-            ' Revert the image back to right
-            btn_next.Image = My.Resources.right
-            btn_previous.Image = My.Resources.left
-            btn_filter.Image = My.Resources.filter
-
-            ' Stop the timer as the image has been reverted
-            timer_reset_image.Stop()
-        End Sub
-
-#End Region
 
 
 #Region "getting total for a day"
@@ -224,6 +238,54 @@ Namespace Presentation
 
 
 
+
+#Region " light / dark"
+
+        Public Sub ColorMode()
+
+            If My.Settings.IsLightMode = False Then
+                'lbl_category.ForeColor = foreColor
+
+
+                btn_next.Image = My.Resources.rightWhite
+                btn_previous.Image = My.Resources.leftWhite
+                btn_filter.Image = My.Resources.filterWhite
+
+
+
+            End If
+
+        End Sub
+#End Region
+
+
+#Region " timer for buttons "
+
+        Private Sub timer_revertImage_Tick(sender As Object, e As EventArgs) Handles timer_reset_image.Tick
+
+
+            If darkMode Then
+
+                btn_next.Image = My.Resources.rightWhite
+                btn_previous.Image = My.Resources.leftWhite
+                btn_filter.Image = My.Resources.filterWhite
+
+            Else
+
+                btn_next.Image = My.Resources.right
+                btn_previous.Image = My.Resources.left
+                btn_filter.Image = My.Resources.filter
+
+
+
+            End If
+
+            ' Stop the timer as the image has been reverted
+            timer_reset_image.Stop()
+        End Sub
+
+
+#End Region
 
     End Class
 End NameSpace
