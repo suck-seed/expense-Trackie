@@ -116,35 +116,35 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Presentation\ExpenseRemarksDisplay.Designer.vb">
+    <Compile Include="Presentation\DynamicControls\ExpenseRemarksDisplay.Designer.vb">
       <DependentUpon>ExpenseRemarksDisplay.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\ExpenseRemarksDisplay.vb">
+    <Compile Include="Presentation\DynamicControls\ExpenseRemarksDisplay.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\monthExpense.Designer.vb">
+    <Compile Include="Presentation\DynamicControls\monthExpense.Designer.vb">
       <DependentUpon>monthExpense.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\monthExpense.vb">
+    <Compile Include="Presentation\DynamicControls\monthExpense.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\CalanderView.Designer.vb">
+    <Compile Include="Presentation\UserControls\CalanderView.Designer.vb">
       <DependentUpon>CalanderView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\CalanderView.vb">
+    <Compile Include="Presentation\UserControls\CalanderView.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\DisplayProfile.Designer.vb">
+    <Compile Include="Presentation\Authentication\DisplayProfile.Designer.vb">
       <DependentUpon>DisplayProfile.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\DisplayProfile.vb">
+    <Compile Include="Presentation\Authentication\DisplayProfile.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\Cleaner.vb" />
-    <Compile Include="Presentation\DeleteCategory.Designer.vb">
+    <Compile Include="Presentation\Modules\Cleaner.vb" />
+    <Compile Include="Presentation\Category\DeleteCategory.Designer.vb">
       <DependentUpon>DeleteCategory.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\DeleteCategory.vb">
+    <Compile Include="Presentation\Category\DeleteCategory.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Application\CategoryManager.vb" />
@@ -159,36 +159,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>expenseTrackieDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\DayView.Designer.vb">
+    <Compile Include="Presentation\UserControls\DayView.Designer.vb">
       <DependentUpon>DayView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\DayView.vb">
+    <Compile Include="Presentation\UserControls\DayView.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\ExpenseDetailDisplay.Designer.vb">
+    <Compile Include="Presentation\DynamicControls\ExpenseDetailDisplay.Designer.vb">
       <DependentUpon>ExpenseDetailDisplay.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\ExpenseDetailDisplay.vb">
+    <Compile Include="Presentation\DynamicControls\ExpenseDetailDisplay.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Loader.vb" />
-    <Compile Include="Presentation\monthDate.Designer.vb">
+    <Compile Include="Presentation\Modules\Loader.vb" />
+    <Compile Include="Presentation\DynamicControls\monthDate.Designer.vb">
       <DependentUpon>monthDate.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\monthDate.vb">
+    <Compile Include="Presentation\DynamicControls\monthDate.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\MonthView.Designer.vb">
+    <Compile Include="Presentation\UserControls\MonthView.Designer.vb">
       <DependentUpon>MonthView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\MonthView.vb">
+    <Compile Include="Presentation\UserControls\MonthView.vb">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Presentation\monthViewtext.Designer.vb">
-      <DependentUpon>monthViewtext.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\monthViewtext.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -206,28 +200,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Presentation\NewCategory.Designer.vb">
+    <Compile Include="Presentation\Category\NewCategory.Designer.vb">
       <DependentUpon>NewCategory.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\NewCategory.vb">
+    <Compile Include="Presentation\Category\NewCategory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\NewExpense.Designer.vb">
+    <Compile Include="Presentation\Category\NewExpense.Designer.vb">
       <DependentUpon>NewExpense.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\NewExpense.vb">
+    <Compile Include="Presentation\Category\NewExpense.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\SignIn.Designer.vb">
+    <Compile Include="Presentation\Authentication\SignIn.Designer.vb">
       <DependentUpon>SignIn.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\SignIn.vb">
+    <Compile Include="Presentation\Authentication\SignIn.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\SignUp.Designer.vb">
+    <Compile Include="Presentation\Authentication\SignUp.Designer.vb">
       <DependentUpon>SignUp.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\SignUp.vb">
+    <Compile Include="Presentation\Authentication\SignUp.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Resource1.Designer.vb">
@@ -241,43 +235,40 @@
     <Compile Include="Presentation\MainWindow.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\UpdateCategory.Designer.vb">
+    <Compile Include="Presentation\Category\UpdateCategory.Designer.vb">
       <DependentUpon>UpdateCategory.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\UpdateCategory.vb">
+    <Compile Include="Presentation\Category\UpdateCategory.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Presentation\ExpenseRemarksDisplay.resx">
+    <EmbeddedResource Include="Presentation\DynamicControls\ExpenseRemarksDisplay.resx">
       <DependentUpon>ExpenseRemarksDisplay.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\monthExpense.resx">
+    <EmbeddedResource Include="Presentation\DynamicControls\monthExpense.resx">
       <DependentUpon>monthExpense.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\CalanderView.resx">
+    <EmbeddedResource Include="Presentation\UserControls\CalanderView.resx">
       <DependentUpon>CalanderView.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\DayView.resx">
+    <EmbeddedResource Include="Presentation\UserControls\DayView.resx">
       <DependentUpon>DayView.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\DeleteCategory.resx">
+    <EmbeddedResource Include="Presentation\Category\DeleteCategory.resx">
       <DependentUpon>DeleteCategory.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\DisplayProfile.resx">
+    <EmbeddedResource Include="Presentation\Authentication\DisplayProfile.resx">
       <DependentUpon>DisplayProfile.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\ExpenseDetailDisplay.resx">
+    <EmbeddedResource Include="Presentation\DynamicControls\ExpenseDetailDisplay.resx">
       <DependentUpon>ExpenseDetailDisplay.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\monthDate.resx">
+    <EmbeddedResource Include="Presentation\DynamicControls\monthDate.resx">
       <DependentUpon>monthDate.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\MonthView.resx">
+    <EmbeddedResource Include="Presentation\UserControls\MonthView.resx">
       <DependentUpon>MonthView.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\monthViewtext.resx">
-      <DependentUpon>monthViewtext.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -285,19 +276,19 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\NewCategory.resx">
+    <EmbeddedResource Include="Presentation\Category\NewCategory.resx">
       <DependentUpon>NewCategory.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\NewExpense.resx">
+    <EmbeddedResource Include="Presentation\Category\NewExpense.resx">
       <DependentUpon>NewExpense.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\SignIn.resx">
+    <EmbeddedResource Include="Presentation\Authentication\SignIn.resx">
       <DependentUpon>SignIn.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\SignUp.resx">
+    <EmbeddedResource Include="Presentation\Authentication\SignUp.resx">
       <DependentUpon>SignUp.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\UpdateCategory.resx">
+    <EmbeddedResource Include="Presentation\Category\UpdateCategory.resx">
       <DependentUpon>UpdateCategory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource1.resx">

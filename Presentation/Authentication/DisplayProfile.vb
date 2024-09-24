@@ -241,9 +241,10 @@ Namespace Presentation
 
                 ClearSessionInfo()
 
+                SignIn.Show()
                 Me.Close()
                 MainWindow.Close()
-                SignIn.Show()
+
 
 
             End If

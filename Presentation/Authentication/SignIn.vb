@@ -16,7 +16,7 @@ Namespace Presentation
 
             ' 
             If String.IsNullOrEmpty(_username) Or String.IsNullOrEmpty(_password) Then
-                MsgBox("Please fill all details")
+                lbl_error.Text = "Please fill all information"
                 Return
 
             End If
@@ -41,13 +41,15 @@ Namespace Presentation
                 MsgBox(SessionManager.Instance.CurrentDateJoined)
                 MsgBox(SessionManager.Instance.CurrentProfileLink)
 
-                Me.Hide()
-
-                ClearInputFields()
                 MainWindow.Show()
 
+                Me.Close()
+
+                ClearInputFields()
+
             Else
-                MsgBox("User login failed. Please try again.")
+                lbl_error.Text = "Failed logging user in"
+
             End If
 
 
@@ -57,6 +59,7 @@ Namespace Presentation
 
 
 
+#Region " close / signup "
 
 
         ' other kura
@@ -66,64 +69,84 @@ Namespace Presentation
 
 
         Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles SignUpLL.LinkClicked
-            Dim form1 As New SignUp
-            form1.Show()
-            Me.Hide()
+            SignUp.Show()
+            Me.Close()
         End Sub
 
-        Private Sub PassTxt_Enter(sender As Object, e As EventArgs) Handles txt_password.Enter
-            UpdatePasswordVisibility()
-        End Sub
+#End Region
 
-        Private Sub PassTxt_Leave(sender As Object, e As EventArgs) Handles txt_password.Leave
-            If String.IsNullOrWhiteSpace(txt_password.Text) Then
-                txt_password.PasswordChar = ControlChars.NullChar ' Remove PasswordChar to show default text
-            End If
-        End Sub
+
+#Region " password visibility "
+
 
         Private Sub ShowPassCB_CheckedChanged(sender As Object, e As EventArgs) Handles ShowPassCB.CheckedChanged
-            UpdatePasswordVisibility()
-        End Sub
+            If ShowPassCB.Checked = True Then
+                txt_password.PasswordChar = ""
 
-        Private Sub UpdatePasswordVisibility()
-            If ShowPassCB.Checked Then
-                ' Show the password
-                txt_password.PasswordChar = ControlChars.NullChar
             Else
-                ' Hide the password, unless the TextBox is empty and showing default text
-                If txt_password.Text <> "Enter Password" Then
-                    txt_password.PasswordChar = "*"c
-                Else
-                    txt_password.PasswordChar = ControlChars.NullChar
-                End If
+                txt_password.PasswordChar = "●"
             End If
+
         End Sub
 
-        Private Sub ShowPassCB_GotFocus(sender As Object, e As EventArgs) Handles ShowPassCB.GotFocus
-            UpdatePasswordVisibility()
+
+        Private Sub txt_password_Leave(sender As Object, e As EventArgs) Handles txt_password.Leave
+            txt_password.PasswordChar = "●"
+            ShowPassCB.Checked = False
+
         End Sub
+
+
+        Private Sub txt_username_Enter(sender As Object, e As EventArgs) Handles txt_username.Enter
+            txt_password.PasswordChar = "●"
+            ShowPassCB.Checked = False
+        End Sub
+
+
+
+
+
+
+#End Region
+
+
+#Region " gradient "
 
 
         '---- gradient display ----'
         Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
-            ' Get the client area of the form
             Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
 
-            ' Define the start and end colors for the gradient
             Dim startColor As Color = Color.Beige
             Dim endColor As Color = Color.AliceBlue
 
-            ' Create a LinearGradientBrush
             Using brush As New LinearGradientBrush(rect, startColor, endColor, LinearGradientMode.Horizontal)
-                ' Fill the rectangle with the gradient
                 e.Graphics.FillRectangle(brush, rect)
             End Using
         End Sub
 
         Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
-            ' Redraw the form when it is resized to update the gradient
             Me.Invalidate()
         End Sub
+
+
+
+#End Region
+
+
+#Region "error display"
+        Private Sub txt_username_TextChanged(sender As Object, e As EventArgs) Handles txt_username.TextChanged
+            lbl_error_log.Text = ""
+        End Sub
+
+        Private Sub txt_password_TextChanged(sender As Object, e As EventArgs) Handles txt_password.TextChanged
+            lbl_error_log.Text = ""
+        End Sub
+
+
+
+
+#End Region
 
 
     End Class

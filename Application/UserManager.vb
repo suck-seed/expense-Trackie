@@ -1,4 +1,5 @@
 ﻿Imports expense_Trackie.DataLayer
+Imports expense_Trackie.Presentation
 
 Namespace Application
 
@@ -59,6 +60,7 @@ Namespace Application
 
                 If _userId > 0 Then
 
+
                     SetUserSessionInformation(_userId)
 
 
@@ -68,7 +70,8 @@ Namespace Application
 
             Else
 
-                MsgBox("User under the username does not exists. ")
+                SignIn.lbl_error.Text = " User does not exist "
+                'MessageBox.Show(" User does not exist ", " Invalid username ")
                 Return -1
 
 
