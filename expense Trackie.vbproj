@@ -116,6 +116,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\Authentication\EncryptorDecryptor.vb" />
     <Compile Include="Presentation\DynamicControls\ExpenseRemarksDisplay.Designer.vb">
       <DependentUpon>ExpenseRemarksDisplay.vb</DependentUpon>
     </Compile>

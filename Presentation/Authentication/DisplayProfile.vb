@@ -142,10 +142,19 @@ Namespace Presentation
 
             If userManager.UpdateUserInfo(_username, _password, _number, _dailyLimit, _profileLink, _currentId, lbl_info) > 0 Then
 
-                'updating saved passwordId
-                My.Settings.SavedUsername = _username
-                My.Settings.SavedPassword = _password
-                My.Settings.Save()
+                ' if saved password strings arent empty
+                'If Not String.IsNullOrEmpty(My.Settings.SavedUsername) And Not String.IsNullOrEmpty(My.Settings.SavedPassword) Then
+
+                If My.Settings.IsRemembered = True Then
+
+                    'updating saved passwordId
+                    My.Settings.SavedUsername = _username
+                    My.Settings.SavedPassword = EncryptPassword(_password)
+                    My.Settings.Save()
+
+
+                End If
+
 
 
                 lbl_info.ForeColor = Color.Green
@@ -247,6 +256,7 @@ Namespace Presentation
         Private Sub btn_logout_Click(sender As Object, e As EventArgs) Handles btn_logout.Click
 
             If MessageBox.Show("Do you want to logout ?", "Logout", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+
 
                 ClearSessionInfo()
                 ClearSavedInfo()

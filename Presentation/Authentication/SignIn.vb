@@ -14,10 +14,12 @@ Namespace Presentation
         Private Sub SignIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             lbl_error.Text = ""
 
-            If Not String.IsNullOrEmpty(My.Settings.SavedUsername) And Not String.IsNullOrEmpty(My.Settings.SavedPassword) Then
+            'If Not String.IsNullOrEmpty(My.Settings.SavedUsername) And Not String.IsNullOrEmpty(My.Settings.SavedPassword) Then
+            If My.Settings.IsRemembered = True Then
 
                 _username = My.Settings.SavedUsername
-                _password = My.Settings.SavedPassword
+                _password = DecryptPassword(My.Settings.SavedPassword)
+                '_password = (My.Settings.SavedPassword)
 
                 txt_username.Text = _username
                 txt_password.Text = _password
@@ -69,12 +71,17 @@ Namespace Presentation
                 MsgBox(SessionManager.Instance.CurrentProfileLink)
 
 
-                If String.IsNullOrEmpty(My.Settings.SavedUsername) And String.IsNullOrEmpty(My.Settings.SavedPassword) Then
+                'If String.IsNullOrEmpty(My.Settings.SavedUsername) And String.IsNullOrEmpty(My.Settings.SavedPassword) Then
+
+                If My.Settings.IsRemembered = False Then
 
                     If MessageBox.Show(" Want to be remembered ?", "Remember Credentials", MessageBoxButtons.YesNo) = DialogResult.Yes Then
 
                         My.Settings.SavedUsername = _username
-                        My.Settings.SavedPassword = _password
+                        My.Settings.SavedPassword = EncryptPassword(_password)
+                        My.Settings.IsRemembered = True
+                        'My.Settings.SavedPassword = (_password)
+
                         My.Settings.Save()
 
                     End If

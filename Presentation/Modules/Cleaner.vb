@@ -46,6 +46,7 @@ Module Ui
     Sub ClearSavedInfo()
         My.Settings.SavedPassword = ""
         My.Settings.SavedUsername = ""
+        My.Settings.IsRemembered = False
         My.Settings.Save()
     End Sub
 
