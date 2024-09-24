@@ -135,12 +135,12 @@ Namespace Presentation
 
 
 #Region "error display"
-        Private Sub txt_username_TextChanged(sender As Object, e As EventArgs) Handles txt_username.TextChanged
-            lbl_error_log.Text = ""
+        Private Sub txt_username_TextChanged(sender As Object, e As EventArgs) Handles txt_username.Enter
+            lbl_error.Text = ""
         End Sub
 
-        Private Sub txt_password_TextChanged(sender As Object, e As EventArgs) Handles txt_password.TextChanged
-            lbl_error_log.Text = ""
+        Private Sub txt_password_TextChanged(sender As Object, e As EventArgs) Handles txt_password.Enter
+            lbl_error.Text = ""
         End Sub
 
 

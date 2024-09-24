@@ -1,10 +1,10 @@
 ﻿Namespace Presentation
-    <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+    <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
     Partial Class SignIn
         Inherits System.Windows.Forms.Form
 
         'Form overrides dispose to clean up the component list.
-        <System.Diagnostics.DebuggerNonUserCode()> _
+        <System.Diagnostics.DebuggerNonUserCode()>
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)
             Try
                 If disposing AndAlso components IsNot Nothing Then
@@ -21,7 +21,7 @@
         'NOTE: The following procedure is required by the Windows Form Designer
         'It can be modified using the Windows Form Designer.  
         'Do not modify it using the code editor.
-        <System.Diagnostics.DebuggerStepThrough()> _
+        <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
             Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SignIn))
             Me.FPassLL = New System.Windows.Forms.Label()
@@ -36,20 +36,21 @@
             Me.PictureBox1 = New System.Windows.Forms.PictureBox()
             Me.txt_password = New System.Windows.Forms.TextBox()
             Me.txt_username = New System.Windows.Forms.TextBox()
-            Me.lbl_error_log = New System.Windows.Forms.Label()
+            Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
             Me.lbl_error = New System.Windows.Forms.Label()
             CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+            Me.TableLayoutPanel1.SuspendLayout()
             Me.SuspendLayout()
             '
             'FPassLL
             '
             Me.FPassLL.AutoSize = True
             Me.FPassLL.BackColor = System.Drawing.Color.Transparent
-            Me.FPassLL.Font = New System.Drawing.Font("IBM Plex Mono", 10.0!)
+            Me.FPassLL.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
             Me.FPassLL.ForeColor = System.Drawing.Color.Blue
-            Me.FPassLL.Location = New System.Drawing.Point(644, 501)
+            Me.FPassLL.Location = New System.Drawing.Point(644, 503)
             Me.FPassLL.Name = "FPassLL"
-            Me.FPassLL.Size = New System.Drawing.Size(136, 18)
+            Me.FPassLL.Size = New System.Drawing.Size(119, 15)
             Me.FPassLL.TabIndex = 39
             Me.FPassLL.Text = "Forget Password?"
             '
@@ -94,7 +95,7 @@
             Me.SignInBtn.BackColor = System.Drawing.SystemColors.WindowText
             Me.SignInBtn.FlatAppearance.BorderSize = 0
             Me.SignInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.SignInBtn.Font = New System.Drawing.Font("IBM Plex Mono", 15.0!)
+            Me.SignInBtn.Font = New System.Drawing.Font("IBM Plex Mono", 15.0!, System.Drawing.FontStyle.Bold)
             Me.SignInBtn.ForeColor = System.Drawing.Color.Transparent
             Me.SignInBtn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
             Me.SignInBtn.Location = New System.Drawing.Point(573, 441)
@@ -186,27 +187,30 @@
             Me.txt_username.Size = New System.Drawing.Size(247, 28)
             Me.txt_username.TabIndex = 55
             '
-            'lbl_error_log
+            'TableLayoutPanel1
             '
-            Me.lbl_error_log.AutoSize = True
-            Me.lbl_error_log.BackColor = System.Drawing.Color.Transparent
-            Me.lbl_error_log.Font = New System.Drawing.Font("IBM Plex Mono", 10.0!)
-            Me.lbl_error_log.ForeColor = System.Drawing.Color.Red
-            Me.lbl_error_log.Location = New System.Drawing.Point(569, 419)
-            Me.lbl_error_log.Name = "lbl_error_log"
-            Me.lbl_error_log.Size = New System.Drawing.Size(0, 18)
-            Me.lbl_error_log.TabIndex = 57
+            Me.TableLayoutPanel1.ColumnCount = 1
+            Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+            Me.TableLayoutPanel1.Controls.Add(Me.lbl_error, 0, 0)
+            Me.TableLayoutPanel1.Location = New System.Drawing.Point(574, 411)
+            Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+            Me.TableLayoutPanel1.RowCount = 1
+            Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+            Me.TableLayoutPanel1.Size = New System.Drawing.Size(247, 24)
+            Me.TableLayoutPanel1.TabIndex = 84
             '
             'lbl_error
             '
             Me.lbl_error.AutoSize = True
             Me.lbl_error.BackColor = System.Drawing.Color.Transparent
+            Me.lbl_error.Dock = System.Windows.Forms.DockStyle.Fill
             Me.lbl_error.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
             Me.lbl_error.ForeColor = System.Drawing.Color.Red
-            Me.lbl_error.Location = New System.Drawing.Point(584, 417)
+            Me.lbl_error.Location = New System.Drawing.Point(3, 0)
             Me.lbl_error.Name = "lbl_error"
-            Me.lbl_error.Size = New System.Drawing.Size(0, 15)
-            Me.lbl_error.TabIndex = 58
+            Me.lbl_error.Size = New System.Drawing.Size(241, 24)
+            Me.lbl_error.TabIndex = 82
+            Me.lbl_error.Text = "error"
             Me.lbl_error.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
             '
             'SignIn
@@ -214,8 +218,7 @@
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.ClientSize = New System.Drawing.Size(917, 668)
-            Me.Controls.Add(Me.lbl_error)
-            Me.Controls.Add(Me.lbl_error_log)
+            Me.Controls.Add(Me.TableLayoutPanel1)
             Me.Controls.Add(Me.txt_password)
             Me.Controls.Add(Me.txt_username)
             Me.Controls.Add(Me.PictureBox1)
@@ -233,6 +236,8 @@
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
             Me.Text = "SIgnIn"
             CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+            Me.TableLayoutPanel1.ResumeLayout(False)
+            Me.TableLayoutPanel1.PerformLayout()
             Me.ResumeLayout(False)
             Me.PerformLayout()
 
@@ -250,7 +255,7 @@
         Friend WithEvents PictureBox1 As PictureBox
         Friend WithEvents txt_password As TextBox
         Friend WithEvents txt_username As TextBox
-        Friend WithEvents lbl_error_log As Label
+        Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
         Friend WithEvents lbl_error As Label
     End Class
 End NameSpace

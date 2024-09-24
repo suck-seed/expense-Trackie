@@ -141,16 +141,19 @@
             '
             'txt_password
             '
+            Me.txt_password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.txt_password.Dock = System.Windows.Forms.DockStyle.Fill
             Me.txt_password.Font = New System.Drawing.Font("Cascadia Mono", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.txt_password.Location = New System.Drawing.Point(3, 219)
             Me.txt_password.Name = "txt_password"
+            Me.txt_password.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
             Me.txt_password.Size = New System.Drawing.Size(407, 26)
             Me.txt_password.TabIndex = 8
             Me.txt_password.UseSystemPasswordChar = True
             '
             'txt_dailyLimit
             '
+            Me.txt_dailyLimit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.txt_dailyLimit.Dock = System.Windows.Forms.DockStyle.Fill
             Me.txt_dailyLimit.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.txt_dailyLimit.Location = New System.Drawing.Point(3, 371)
@@ -162,6 +165,7 @@
             '
             'txt_number
             '
+            Me.txt_number.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.txt_number.Dock = System.Windows.Forms.DockStyle.Fill
             Me.txt_number.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.txt_number.Location = New System.Drawing.Point(3, 295)
@@ -174,6 +178,7 @@
             'txt_username
             '
             Me.txt_username.BackColor = System.Drawing.SystemColors.Window
+            Me.txt_username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.txt_username.Dock = System.Windows.Forms.DockStyle.Fill
             Me.txt_username.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.txt_username.Location = New System.Drawing.Point(3, 143)

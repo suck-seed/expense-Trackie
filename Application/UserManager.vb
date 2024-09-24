@@ -14,14 +14,15 @@ Namespace Application
 
             ' if both username and number exists
             If _userRepository.IsDuplicateUser(username, "") Then
-                MsgBox(" Username already exists ")
+                SignUp.lbl_info.Text = " Username already exists "
                 Return -1
             End If
 
             If _userRepository.IsDuplicateUser("", number) Then
-                MsgBox(" Number already in use ")
+                SignUp.lbl_info.Text = (" Number already in use ")
                 Return -1
             End If
+
             'If _userRepository.IsDuplicateUser(username, number) Then
             '    MsgBox("A user with above information already exists "
             '    Return -1
