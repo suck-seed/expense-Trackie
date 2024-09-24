@@ -15,6 +15,9 @@ Namespace Presentation
 #Region " load "
 
         Private Sub Signup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+
             MakePictureBoxCircular(img_profile)
             lbl_info.Text = ""
         End Sub
@@ -100,16 +103,27 @@ Namespace Presentation
 
                 lbl_info.Text = ("User registered successfully")
 
-                MsgBox(SessionManager.Instance.CurrentUserId)
-                MsgBox(SessionManager.Instance.CurrentUsername)
-                MsgBox(SessionManager.Instance.CurrentPassword)
-                MsgBox(SessionManager.Instance.CurrentNumber)
-                MsgBox(SessionManager.Instance.CurrentDateJoined)
-                MsgBox(SessionManager.Instance.CurrentProfileLink)
+                If My.Settings.IsRemembered = False Then
 
-                Me.Hide()
+                    If MessageBox.Show(" Want to be remembered ?", "Remember Credentials", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+
+                        My.Settings.SavedUsername = username
+                        My.Settings.SavedPassword = EncryptPassword(password)
+                        My.Settings.IsRemembered = True
+                        'My.Settings.SavedPassword = (_password)
+
+                        My.Settings.Save()
+
+                    End If
+
+
+                End If
+
+
 
                 MainWindow.Show()
+                Me.Close()
+                ClearInputFields()
 
             Else
                 lbl_info.Text = "User registration failed"

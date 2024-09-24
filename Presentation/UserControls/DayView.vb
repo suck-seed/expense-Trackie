@@ -43,6 +43,7 @@ Namespace Presentation
             lbl_month.Text = _currentDate.ToString("MMM")
             lbl_day.Text = _currentDate.ToString("dd")
             lbl_total_amount.Text = GetTotal()
+            MsgBox(GetTotal())
             LoadExpenses()
 
             '            expenseManager.loadExpenses(mainWindow.flowPanelCategory, currentDate)

@@ -133,3 +133,11 @@ WHERE e.userId = 1 AND c.userId = 1 AND c.enabled = 1 AND c.catId IN (2,3)
 -- </connectionStrings>
 
 -- 
+
+SELECT * from userInfo
+
+-- SELECT SUM(amount)
+-- 	FROM expense e
+--     JOIN category c
+--     on e.catId = c.catId
+-- 	WHERE e.userId =1  AND e.dateAdded = '2024-09-24' AND e.enabled = 1  and c.enabled = 1

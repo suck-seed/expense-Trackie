@@ -89,7 +89,7 @@ Namespace Presentation
                 If radio_month_view.Checked Then
 
                     DisplayForm(_monthView)
-                    _monthView.loadDays()
+                    '_monthView.loadDays()
                     radio_month_view.Image = My.Resources.monthDark
 
 
@@ -119,7 +119,7 @@ Namespace Presentation
                 If radio_day_view.Checked Then
 
                     DisplayForm(_dayView)
-                    _dayView.LoadExpenses()
+                    '_dayView.LoadExpenses()
                     radio_day_view.Image = My.Resources.dayDark
                 End If
 

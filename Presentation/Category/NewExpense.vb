@@ -106,17 +106,13 @@ Namespace Presentation
                 ClearInputBox()
 
 
-                If MainWindow.panel_main.Controls(0) Is dayView Then
 
-                    dayView.DisplayInformation()
+                dayView.DisplayInformation()
 
-                End If
 
-                If MainWindow.panel_main.Controls(0) Is monthView Then
 
-                    monthView.DisplayInformation()
+                monthView.DisplayInformation()
 
-                End If
 
                 calanderView.DisplayInformation()
 

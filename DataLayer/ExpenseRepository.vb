@@ -121,6 +121,8 @@ Namespace DataLayer
 
                     ' creating output paremeter
                     Dim totalParemeter As New SqlParameter("@total", SqlDbType.Decimal)
+                    totalParemeter.Precision = 10
+                    totalParemeter.Scale = 2
                     totalParemeter.Direction = ParameterDirection.Output
 
                     command.Parameters.Add(totalParemeter)
@@ -172,6 +174,8 @@ Namespace DataLayer
 
                     ' creating output paremeter
                     Dim totalParemeter As New SqlParameter("@total", SqlDbType.Decimal)
+                    totalParemeter.Precision = 10
+                    totalParemeter.Scale = 2
                     totalParemeter.Direction = ParameterDirection.Output
 
                     command.Parameters.Add(totalParemeter)

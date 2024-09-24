@@ -77,7 +77,7 @@ Namespace Presentation
 #End Region
 
 
-#Region " update display "
+#Region " Refresh display "
 
 
         Public Sub RefreshDisplay()
@@ -91,17 +91,12 @@ Namespace Presentation
             MainWindow.LoadInformation()
 
             'reloading in dayView
-            If MainWindow.panel_main.Controls(0) Is _dayView Then
 
-                _dayView.DisplayInformation()
+            _dayView.DisplayInformation()
 
-            End If
 
-            If MainWindow.panel_main.Controls(0) Is _monthView Then
 
-                _calanderView.DisplayInformation()
-
-            End If
+            _calanderView.DisplayInformation()
             'refreshing calander
 
         End Sub
