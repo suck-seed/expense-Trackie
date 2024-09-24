@@ -43,5 +43,11 @@ Module Ui
     End Sub
 
 
+    Sub ClearSavedInfo()
+        My.Settings.SavedPassword = ""
+        My.Settings.SavedUsername = ""
+        My.Settings.Save()
+    End Sub
+
 
 End Module

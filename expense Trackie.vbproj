@@ -319,7 +319,7 @@
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
     <None Include="My Project\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
@@ -490,6 +490,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\filterDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\showpassword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\showpasswordDark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

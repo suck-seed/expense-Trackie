@@ -8,6 +8,33 @@ Namespace Presentation
         ' SIGN IN SYSTEM
         Dim _username As String
         Dim _password As String
+
+
+#Region " load "
+        Private Sub SignIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            lbl_error.Text = ""
+
+            If Not String.IsNullOrEmpty(My.Settings.SavedUsername) And Not String.IsNullOrEmpty(My.Settings.SavedPassword) Then
+
+                _username = My.Settings.SavedUsername
+                _password = My.Settings.SavedPassword
+
+                txt_username.Text = _username
+                txt_password.Text = _password
+
+                ' performing the click event on signin button
+                SignInBtn_Click(sender, e)
+
+            End If
+
+
+        End Sub
+
+#End Region
+
+
+#Region " sign in clicked "
+
         Private Sub SignInBtn_Click(sender As Object, e As EventArgs) Handles SignInBtn.Click
 
             _username = txt_username.Text
@@ -41,6 +68,21 @@ Namespace Presentation
                 MsgBox(SessionManager.Instance.CurrentDateJoined)
                 MsgBox(SessionManager.Instance.CurrentProfileLink)
 
+
+                If String.IsNullOrEmpty(My.Settings.SavedUsername) And String.IsNullOrEmpty(My.Settings.SavedPassword) Then
+
+                    If MessageBox.Show(" Want to be remembered ?", "Remember Credentials", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+
+                        My.Settings.SavedUsername = _username
+                        My.Settings.SavedPassword = _password
+                        My.Settings.Save()
+
+                    End If
+
+
+                End If
+
+
                 MainWindow.Show()
 
                 Me.Close()
@@ -56,6 +98,7 @@ Namespace Presentation
 
         End Sub
 
+#End Region
 
 
 
@@ -79,33 +122,37 @@ Namespace Presentation
 #Region " password visibility "
 
 
-        Private Sub ShowPassCB_CheckedChanged(sender As Object, e As EventArgs) Handles ShowPassCB.CheckedChanged
-            If ShowPassCB.Checked = True Then
+        Private Sub ShowPassCB_CheckedChanged(sender As Object, e As EventArgs) Handles check_showPassword.CheckedChanged
+            If check_showPassword.Checked = True Then
                 txt_password.PasswordChar = ""
+                check_showPassword.Image = My.Resources.showpasswordDark
 
             Else
                 txt_password.PasswordChar = "●"
+                check_showPassword.Image = My.Resources.showpassword
+
             End If
 
         End Sub
 
 
-        Private Sub txt_password_Leave(sender As Object, e As EventArgs) Handles txt_password.Leave
-            txt_password.PasswordChar = "●"
-            ShowPassCB.Checked = False
-
-        End Sub
-
 
         Private Sub txt_username_Enter(sender As Object, e As EventArgs) Handles txt_username.Enter
             txt_password.PasswordChar = "●"
-            ShowPassCB.Checked = False
+            check_showPassword.Checked = False
+            lbl_error.Text = ""
+        End Sub
+
+        Private Sub txt_password_Enter(sender As Object, e As EventArgs) Handles txt_password.Enter
+
+            lbl_error.Text = ""
         End Sub
 
 
-
-
-
+        Private Sub txt_password_Leave(sender As Object, e As EventArgs) Handles txt_password.Leave
+            txt_password.PasswordChar = "●"
+            check_showPassword.Checked = False
+        End Sub
 
 #End Region
 
@@ -129,19 +176,22 @@ Namespace Presentation
             Me.Invalidate()
         End Sub
 
+        Private Sub FPassLL_Click(sender As Object, e As EventArgs) Handles lbl_forget_password.Click
+
+        End Sub
+
+
+
 
 
 #End Region
 
 
 #Region "error display"
-        Private Sub txt_username_TextChanged(sender As Object, e As EventArgs) Handles txt_username.Enter
-            lbl_error.Text = ""
-        End Sub
 
-        Private Sub txt_password_TextChanged(sender As Object, e As EventArgs) Handles txt_password.Enter
-            lbl_error.Text = ""
-        End Sub
+
+
+
 
 
 

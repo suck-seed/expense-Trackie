@@ -14,11 +14,12 @@ Namespace Presentation
 
 #Region " load "
 
-        Private Sub onLoad(sender As Object, e As EventArgs) Handles MyBase.Load
+        Private Sub Signup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             MakePictureBoxCircular(img_profile)
             lbl_info.Text = ""
-
         End Sub
+
+
 
 #End Region
 
@@ -35,7 +36,7 @@ Namespace Presentation
                 Return
             End If
 
-            If txt_number.Text.Length > 10 Or txt_number.Text.Length Then
+            If txt_number.Text.Length > 10 Or txt_number.Text.Length < 10 Then
                 lbl_info.Text = ("Number should be 10 char long")
                 Return
             End If
@@ -108,7 +109,7 @@ Namespace Presentation
 
                 Me.Hide()
 
-                mainWindow.Show()
+                MainWindow.Show()
 
             Else
                 lbl_info.Text = "User registration failed"
@@ -122,6 +123,7 @@ Namespace Presentation
 #Region "fetching image"
 
         Private Sub profilePicture_Click(sender As Object, e As EventArgs) Handles img_profile.Click
+            lbl_info.Text = ""
 
             Dim fileDialog As New OpenFileDialog
 
@@ -149,7 +151,7 @@ Namespace Presentation
 
         ' other kura
         Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles SignInLL.LinkClicked
-            Dim form2 As New SIgnIn
+            Dim form2 As New SignIn
             form2.Show()
             Me.Hide()
         End Sub
@@ -161,37 +163,48 @@ Namespace Presentation
 
 #Region "other functionality"
 
-        Private Sub PassTxt_Enter(sender As Object, e As EventArgs) Handles txt_password.Enter
-            UpdatePasswordVisibility()
-        End Sub
+        Private Sub ShowPassCB_CheckedChanged(sender As Object, e As EventArgs) Handles check_showPassword.CheckedChanged
+            If check_showPassword.Checked = True Then
+                txt_password.PasswordChar = ""
+                check_showPassword.Image = My.Resources.showpasswordDark
 
-        Private Sub PassTxt_Leave(sender As Object, e As EventArgs) Handles txt_password.Leave
-            If String.IsNullOrWhiteSpace(txt_password.Text) Then
-                txt_password.PasswordChar = ControlChars.NullChar ' Remove PasswordChar to show default text
-            End If
-        End Sub
-
-        Private Sub ShowPassCB_CheckedChanged(sender As Object, e As EventArgs) Handles ShowPassCB.CheckedChanged
-            UpdatePasswordVisibility()
-        End Sub
-
-        Private Sub UpdatePasswordVisibility()
-            If ShowPassCB.Checked Then
-                ' Show the password
-                txt_password.PasswordChar = ControlChars.NullChar
             Else
-                ' Hide the password, unless the TextBox is empty and showing default text
-                If txt_password.Text <> "Enter Password" Then
-                    txt_password.PasswordChar = "*"c
-                Else
-                    txt_password.PasswordChar = ControlChars.NullChar
-                End If
+                txt_password.PasswordChar = "●"
+                check_showPassword.Image = My.Resources.showpassword
+
             End If
+
         End Sub
 
-        Private Sub ShowPassCB_GotFocus(sender As Object, e As EventArgs) Handles ShowPassCB.GotFocus
-            UpdatePasswordVisibility()
+
+        Private Sub txt_password_Leave(sender As Object, e As EventArgs) Handles txt_password.Leave
+            txt_password.PasswordChar = "●"
+            check_showPassword.Checked = False
+
         End Sub
+
+        Private Sub txt_password_Enter(sender As Object, e As EventArgs) Handles txt_password.Enter
+
+            lbl_info.Text = ""
+
+        End Sub
+
+
+        Private Sub txt_number_Enter(sender As Object, e As EventArgs) Handles txt_number.Enter
+            txt_password.PasswordChar = "●"
+            check_showPassword.Checked = False
+            lbl_info.Text = ""
+
+        End Sub
+
+        Private Sub txt_username_Enter(sender As Object, e As EventArgs) Handles txt_username.Enter
+            txt_password.PasswordChar = "●"
+            check_showPassword.Checked = False
+            lbl_info.Text = ""
+
+        End Sub
+
+
 
 #End Region
 
@@ -231,16 +244,16 @@ Namespace Presentation
 
         Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles infoTool.MouseHover
             ToolTip1.SetToolTip(infoTool, "Make sure your password is 
-        at least 8 characters and contains:
+        at least 8 characters and contains: 
 
         -> At least 1 Uppercase
         letter and 1 lowercase
         letter
         -> At least 1 number
         -> At least 1 special
-        character (like @#%^)
+        character(like @#%^)
 
-        Avoid common passwords or
+            Avoid common passwords or
         strings like ""password"",
         ""qwerty"" or ""123456789""")
 
@@ -262,12 +275,15 @@ Namespace Presentation
 
         Public Sub MakePictureBoxCircular(ByVal picBox As PictureBox)
             ' Create a circular path
-            Dim path As New GraphicsPath()
+            Dim path As New GraphicsPath
             path.AddEllipse(0, 0, picBox.Width, picBox.Height)
 
             ' Apply the circular region to the PictureBox
             picBox.Region = New Region(path)
         End Sub
+
+
+
 
 
 

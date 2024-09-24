@@ -24,48 +24,35 @@
         <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
             Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SignIn))
-            Me.FPassLL = New System.Windows.Forms.Label()
-            Me.ShowPassCB = New System.Windows.Forms.CheckBox()
+            Me.lbl_forget_password = New System.Windows.Forms.Label()
             Me.PromptL = New System.Windows.Forms.Label()
             Me.SignUpLL = New System.Windows.Forms.LinkLabel()
             Me.SignInBtn = New System.Windows.Forms.Button()
             Me.Label3 = New System.Windows.Forms.Label()
             Me.label_password = New System.Windows.Forms.Label()
             Me.Email = New System.Windows.Forms.Label()
-            Me.button_close = New System.Windows.Forms.Button()
-            Me.PictureBox1 = New System.Windows.Forms.PictureBox()
             Me.txt_password = New System.Windows.Forms.TextBox()
             Me.txt_username = New System.Windows.Forms.TextBox()
             Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
             Me.lbl_error = New System.Windows.Forms.Label()
-            CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+            Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+            Me.button_close = New System.Windows.Forms.Button()
+            Me.check_showPassword = New System.Windows.Forms.CheckBox()
             Me.TableLayoutPanel1.SuspendLayout()
+            CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             '
-            'FPassLL
+            'lbl_forget_password
             '
-            Me.FPassLL.AutoSize = True
-            Me.FPassLL.BackColor = System.Drawing.Color.Transparent
-            Me.FPassLL.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
-            Me.FPassLL.ForeColor = System.Drawing.Color.Blue
-            Me.FPassLL.Location = New System.Drawing.Point(644, 503)
-            Me.FPassLL.Name = "FPassLL"
-            Me.FPassLL.Size = New System.Drawing.Size(119, 15)
-            Me.FPassLL.TabIndex = 39
-            Me.FPassLL.Text = "Forget Password?"
-            '
-            'ShowPassCB
-            '
-            Me.ShowPassCB.AutoSize = True
-            Me.ShowPassCB.BackColor = System.Drawing.Color.Transparent
-            Me.ShowPassCB.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.ShowPassCB.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
-            Me.ShowPassCB.Location = New System.Drawing.Point(573, 369)
-            Me.ShowPassCB.Name = "ShowPassCB"
-            Me.ShowPassCB.Size = New System.Drawing.Size(114, 19)
-            Me.ShowPassCB.TabIndex = 36
-            Me.ShowPassCB.Text = "Show Password"
-            Me.ShowPassCB.UseVisualStyleBackColor = False
+            Me.lbl_forget_password.AutoSize = True
+            Me.lbl_forget_password.BackColor = System.Drawing.Color.Transparent
+            Me.lbl_forget_password.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
+            Me.lbl_forget_password.ForeColor = System.Drawing.Color.Blue
+            Me.lbl_forget_password.Location = New System.Drawing.Point(644, 503)
+            Me.lbl_forget_password.Name = "lbl_forget_password"
+            Me.lbl_forget_password.Size = New System.Drawing.Size(119, 15)
+            Me.lbl_forget_password.TabIndex = 39
+            Me.lbl_forget_password.Text = "Forget Password?"
             '
             'PromptL
             '
@@ -139,33 +126,6 @@
             Me.Email.Text = "Username"
             Me.Email.TextAlign = System.Drawing.ContentAlignment.BottomRight
             '
-            'button_close
-            '
-            Me.button_close.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-            Me.button_close.BackColor = System.Drawing.Color.Transparent
-            Me.button_close.FlatAppearance.BorderSize = 0
-            Me.button_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
-            Me.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.button_close.Image = Global.expense_Trackie.My.Resources.Resources.icons8_close_16
-            Me.button_close.Location = New System.Drawing.Point(867, 0)
-            Me.button_close.Margin = New System.Windows.Forms.Padding(0)
-            Me.button_close.Name = "button_close"
-            Me.button_close.RightToLeft = System.Windows.Forms.RightToLeft.No
-            Me.button_close.Size = New System.Drawing.Size(50, 46)
-            Me.button_close.TabIndex = 41
-            Me.button_close.UseVisualStyleBackColor = False
-            '
-            'PictureBox1
-            '
-            Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-            Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-            Me.PictureBox1.Location = New System.Drawing.Point(36, 60)
-            Me.PictureBox1.Name = "PictureBox1"
-            Me.PictureBox1.Size = New System.Drawing.Size(484, 529)
-            Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-            Me.PictureBox1.TabIndex = 42
-            Me.PictureBox1.TabStop = False
-            '
             'txt_password
             '
             Me.txt_password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -196,6 +156,7 @@
             Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
             Me.TableLayoutPanel1.RowCount = 1
             Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+            Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
             Me.TableLayoutPanel1.Size = New System.Drawing.Size(247, 24)
             Me.TableLayoutPanel1.TabIndex = 84
             '
@@ -213,18 +174,63 @@
             Me.lbl_error.Text = "error"
             Me.lbl_error.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
             '
+            'PictureBox1
+            '
+            Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+            Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+            Me.PictureBox1.Location = New System.Drawing.Point(36, 60)
+            Me.PictureBox1.Name = "PictureBox1"
+            Me.PictureBox1.Size = New System.Drawing.Size(484, 529)
+            Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+            Me.PictureBox1.TabIndex = 42
+            Me.PictureBox1.TabStop = False
+            '
+            'button_close
+            '
+            Me.button_close.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Me.button_close.BackColor = System.Drawing.Color.Transparent
+            Me.button_close.FlatAppearance.BorderSize = 0
+            Me.button_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
+            Me.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.button_close.Image = Global.expense_Trackie.My.Resources.Resources.icons8_close_16
+            Me.button_close.Location = New System.Drawing.Point(867, 0)
+            Me.button_close.Margin = New System.Windows.Forms.Padding(0)
+            Me.button_close.Name = "button_close"
+            Me.button_close.RightToLeft = System.Windows.Forms.RightToLeft.No
+            Me.button_close.Size = New System.Drawing.Size(50, 46)
+            Me.button_close.TabIndex = 41
+            Me.button_close.UseVisualStyleBackColor = False
+            '
+            'check_showPassword
+            '
+            Me.check_showPassword.Appearance = System.Windows.Forms.Appearance.Button
+            Me.check_showPassword.BackColor = System.Drawing.Color.Transparent
+            Me.check_showPassword.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter
+            Me.check_showPassword.FlatAppearance.BorderSize = 0
+            Me.check_showPassword.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
+            Me.check_showPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.check_showPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.check_showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.check_showPassword.Image = Global.expense_Trackie.My.Resources.Resources.showpassword
+            Me.check_showPassword.Location = New System.Drawing.Point(817, 326)
+            Me.check_showPassword.Name = "check_showPassword"
+            Me.check_showPassword.Size = New System.Drawing.Size(26, 34)
+            Me.check_showPassword.TabIndex = 86
+            Me.check_showPassword.TextAlign = System.Drawing.ContentAlignment.TopLeft
+            Me.check_showPassword.UseVisualStyleBackColor = False
+            '
             'SignIn
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.ClientSize = New System.Drawing.Size(917, 668)
+            Me.Controls.Add(Me.check_showPassword)
             Me.Controls.Add(Me.TableLayoutPanel1)
             Me.Controls.Add(Me.txt_password)
             Me.Controls.Add(Me.txt_username)
             Me.Controls.Add(Me.PictureBox1)
             Me.Controls.Add(Me.button_close)
-            Me.Controls.Add(Me.FPassLL)
-            Me.Controls.Add(Me.ShowPassCB)
+            Me.Controls.Add(Me.lbl_forget_password)
             Me.Controls.Add(Me.PromptL)
             Me.Controls.Add(Me.SignUpLL)
             Me.Controls.Add(Me.SignInBtn)
@@ -235,16 +241,15 @@
             Me.Name = "SignIn"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
             Me.Text = "SIgnIn"
-            CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
             Me.TableLayoutPanel1.ResumeLayout(False)
             Me.TableLayoutPanel1.PerformLayout()
+            CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
             Me.PerformLayout()
 
         End Sub
 
-        Friend WithEvents FPassLL As Label
-        Friend WithEvents ShowPassCB As CheckBox
+        Friend WithEvents lbl_forget_password As Label
         Friend WithEvents PromptL As Label
         Friend WithEvents SignUpLL As LinkLabel
         Friend WithEvents SignInBtn As Button
@@ -257,5 +262,6 @@
         Friend WithEvents txt_username As TextBox
         Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
         Friend WithEvents lbl_error As Label
+        Friend WithEvents check_showPassword As CheckBox
     End Class
 End NameSpace

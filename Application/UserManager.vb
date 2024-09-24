@@ -84,7 +84,7 @@ Namespace Application
 
 #Region " update "
 
-        Function UpdateUserInfo(ByVal _username As String, ByVal _password As String, ByVal _number As String, ByVal _dailyLimit As Decimal, ByVal _profileLink As String, ByVal userId As Integer) As Integer
+        Public Function UpdateUserInfo(ByVal _username As String, ByVal _password As String, ByVal _number As String, ByVal _dailyLimit As Decimal, ByVal _profileLink As String, ByVal userId As Integer, ByRef lbl_info As Label) As Integer
 
             Dim currentUsername As String = SessionManager.Instance.CurrentUsername
             Dim currentNumber As String = SessionManager.Instance.CurrentNumber
@@ -93,13 +93,14 @@ Namespace Application
             ' different username number but already exists to other
 
             If _userRepository.IsDuplicateUser(_username, "") And _username <> currentUsername Then
-                MsgBox(" Username already exists ")
+                lbl_info.Text = " Username already exists "
+
                 Return -1
             End If
 
             If _userRepository.IsDuplicateUser("", _number) And _number <> currentNumber Then
 
-                MsgBox(" Number already is in use ")
+                lbl_info.Text = (" Number already is in use ")
                 Return -1
             End If
 

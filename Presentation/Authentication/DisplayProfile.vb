@@ -60,13 +60,14 @@ Namespace Presentation
         Private Sub DisplayProfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
+            lbl_info.Text = ""
             ' loading
             MakePictureBoxCircular(img_profile)
 
             LoadCurrentUserInformation()
 
             txt_username.Text = _currentUsername
-            txt_password.Text = _currentPassword
+            txt_password1.Text = _currentPassword
             txt_number.Text = _currentNumber
             txt_dailyLimit.Text = _currentDailyLimit
 
@@ -100,7 +101,7 @@ Namespace Presentation
         Private Sub btn_Update_Clicked(sender As Object, e As EventArgs) Handles btn_update.Click
 
 
-            MsgBox("Button pressed")
+            'MsgBox("Button pressed")
 
 
             If _profileLink <> _currentProfilePictureLink Then
@@ -110,19 +111,19 @@ Namespace Presentation
             End If
 
 
-            If String.IsNullOrEmpty(txt_username.Text) Or String.IsNullOrEmpty(txt_password.Text) Or String.IsNullOrEmpty(txt_number.Text) Then
-                MsgBox(" Fill all the required information.")
+            If String.IsNullOrEmpty(txt_username.Text) Or String.IsNullOrEmpty(txt_password1.Text) Or String.IsNullOrEmpty(txt_number.Text) Then
+                lbl_info.Text = (" Fill all the required information.")
                 Return
             End If
 
             ' is info changed or not
             If Not _usernameChanged And Not _passwordChanged And Not _numberChanged And Not _dailyLimitChanged And Not _profileLinkChanged Then
-                MsgBox("Please change atleast one information")
+                lbl_info.Text = ("Please change atleast one information")
                 Return
             End If
 
             If Not Decimal.TryParse(txt_dailyLimit.Text, _dailyLimit) Then
-                MsgBox("Amount should be Decimal ")
+                lbl_info.Text = ("Amount should be Decimal ")
                 Return
             Else
                 _dailyLimit = CDec(txt_dailyLimit.Text)
@@ -133,13 +134,22 @@ Namespace Presentation
             'is the formatting correct?
             'make changes in db
             _username = txt_username.Text
-            _password = txt_password.Text
+            _password = txt_password1.Text
             _number = txt_number.Text
 
 
             Dim userManager As New UserManager
 
-            If userManager.UpdateUserInfo(_username, _password, _number, _dailyLimit, _profileLink, _currentId) > 0 Then
+            If userManager.UpdateUserInfo(_username, _password, _number, _dailyLimit, _profileLink, _currentId, lbl_info) > 0 Then
+
+                'updating saved passwordId
+                My.Settings.SavedUsername = _username
+                My.Settings.SavedPassword = _password
+                My.Settings.Save()
+
+
+                lbl_info.ForeColor = Color.Green
+                lbl_info.Text = (" Updated successfully ")
 
                 LoadCurrentUserInformation()
 
@@ -151,13 +161,12 @@ Namespace Presentation
 
                 End If
 
-
             End If
 
 
-
-
         End Sub
+
+
 
 #End Region
 
@@ -175,8 +184,8 @@ Namespace Presentation
 
         End Sub
 
-        Private Sub txt_password_TextChanged(sender As Object, e As EventArgs) Handles txt_password.TextChanged
-            If txt_password.Text <> _currentPassword Then
+        Private Sub txt_password_TextChanged(sender As Object, e As EventArgs) Handles txt_password1.TextChanged
+            If txt_password1.Text <> _currentPassword Then
                 _passwordChanged = True
 
             Else
@@ -240,6 +249,7 @@ Namespace Presentation
             If MessageBox.Show("Do you want to logout ?", "Logout", MessageBoxButtons.YesNo) = DialogResult.Yes Then
 
                 ClearSessionInfo()
+                ClearSavedInfo()
 
                 SignIn.Show()
                 Me.Close()
@@ -267,9 +277,12 @@ Namespace Presentation
                 If userManager.DeleteUser(_currentId) > 0 Then
 
                     ClearSessionInfo()
+                    ClearSavedInfo()
+
+                    SignIn.Show()
                     Me.Close()
                     MainWindow.Close()
-                    SignIn.Show()
+
 
 
                 End If
@@ -353,10 +366,55 @@ Namespace Presentation
 
         End Sub
 
+
+
+
+
 #End Region
 
 
+#Region " password show / clearning label info"
+        Private Sub check_showPassword_CheckedChanged(sender As Object, e As EventArgs) Handles check_showPassword.CheckedChanged
 
+            If check_showPassword.Checked = True Then
+                txt_password1.PasswordChar = ""
+                check_showPassword.Image = My.Resources.showpasswordDark
+
+            Else
+                txt_password1.PasswordChar = "●"
+                check_showPassword.Image = My.Resources.showpassword
+
+            End If
+
+        End Sub
+
+        Private Sub txt_username_Enter(sender As Object, e As EventArgs) Handles txt_username.Enter
+            lbl_info.Text = ""
+            txt_password1.PasswordChar = "●"
+            check_showPassword.Checked = False
+        End Sub
+
+        Private Sub txt_number_Enter(sender As Object, e As EventArgs) Handles txt_number.Enter
+            lbl_info.Text = ""
+            txt_password1.PasswordChar = "●"
+            check_showPassword.Checked = False
+        End Sub
+
+        Private Sub txt_dailyLimit_Enter(sender As Object, e As EventArgs) Handles txt_dailyLimit.Enter
+            lbl_info.Text = ""
+            txt_password1.PasswordChar = "●"
+            check_showPassword.Checked = False
+        End Sub
+
+        Private Sub txt_password1_Enter(sender As Object, e As EventArgs) Handles txt_password1.Enter
+            lbl_info.Text = ""
+        End Sub
+
+
+
+        'clearing lbl_info and all
+
+#End Region
 
     End Class
 End NameSpace
