@@ -17,6 +17,7 @@ Namespace DataLayer
 #Region "check duplicate user"
 
         Public Function IsDuplicateUser(ByVal username As String, ByVal number As String) As Boolean
+            Dim exists As Boolean = False
 
             Using connection As New SqlConnection(_connectionString)
 
@@ -44,10 +45,11 @@ Namespace DataLayer
 
 
                     ' fetching and converting output to boolean
-                    Dim exists As Boolean = Convert.ToBoolean(existsParemeter.Value)
+                    exists = Convert.ToBoolean(existsParemeter.Value)
 
 
                     ' returns true if its duplicate
+                    MessageBox.Show("Dulicate " & username & " " & number & " " & exists)
                     Return exists
 
 
@@ -203,6 +205,7 @@ Namespace DataLayer
                         userId = Convert.ToInt32(userIdParemeter.Value)
                     End If
 
+                    Return userId
 
                 End Using
 
@@ -210,7 +213,7 @@ Namespace DataLayer
             End Using
 
             ' if no match returns 0, if match returns userId
-            Return userId
+
 
         End Function
 #End Region
@@ -261,7 +264,7 @@ Namespace DataLayer
 
 
 #Region " delete "
-        Function DeleteUserInfo(ByVal userId As Integer) As Integer
+        Function DeleteUserInfo(ByVal userId As Integer, ByVal username As String) As Integer
 
             Dim result As Integer = 0
 
@@ -275,6 +278,7 @@ Namespace DataLayer
 
                     ' linking paremeter
                     command.Parameters.AddWithValue("@userId", userId)
+                    command.Parameters.AddWithValue("@username", username)
 
 
                     'output paremeter

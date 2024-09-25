@@ -18,10 +18,10 @@ CREATE TABLE userInfo(
 
 );
 
-ALTER TABLE userInfo
-ADD dailyLimit DECIMAL(10,2) NULL;
+-- ALTER TABLE userInfo
+-- ADD dailyLimit DECIMAL(10,2) NULL;
 
-select * from userInfo
+-- select * from userInfo
 
 
 --  insertion testing
@@ -74,8 +74,8 @@ CREATE TABLE category(
 
 
 --  DO NOT RUN THIS
--- ALTER TABLE category
--- ALTER COLUMN color varchar(7);
+ALTER TABLE category
+ALTER userId ON DELETE ;
 
 -- DELETE FROM category
 -- WHERE catId = 4
@@ -134,10 +134,18 @@ WHERE e.userId = 1 AND c.userId = 1 AND c.enabled = 1 AND c.catId IN (2,3)
 
 -- 
 
-SELECT * from userInfo
+
 
 -- SELECT SUM(amount)
 -- 	FROM expense e
 --     JOIN category c
 --     on e.catId = c.catId
 -- 	WHERE e.userId =1  AND e.dateAdded = '2024-09-24' AND e.enabled = 1  and c.enabled = 1
+
+
+
+
+UPDATE userInfo
+    SET enabled = 0, username = 'random11DELETED'
+    WHERE id = 13
+    SELECT * from userInfo

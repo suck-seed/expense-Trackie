@@ -149,6 +149,7 @@
             '
             'TableLayoutPanel1
             '
+            Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
             Me.TableLayoutPanel1.ColumnCount = 1
             Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
             Me.TableLayoutPanel1.Controls.Add(Me.lbl_error, 0, 0)
@@ -212,7 +213,7 @@
             Me.check_showPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
             Me.check_showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.check_showPassword.Image = Global.expense_Trackie.My.Resources.Resources.showpassword
-            Me.check_showPassword.Location = New System.Drawing.Point(786, 331)
+            Me.check_showPassword.Location = New System.Drawing.Point(815, 332)
             Me.check_showPassword.Name = "check_showPassword"
             Me.check_showPassword.Size = New System.Drawing.Size(26, 22)
             Me.check_showPassword.TabIndex = 86

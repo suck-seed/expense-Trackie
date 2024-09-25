@@ -292,6 +292,9 @@
             Me.check_showPassword.BackColor = System.Drawing.Color.Transparent
             Me.check_showPassword.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter
             Me.check_showPassword.FlatAppearance.BorderSize = 0
+            Me.check_showPassword.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
+            Me.check_showPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.check_showPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
             Me.check_showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.check_showPassword.Image = Global.expense_Trackie.My.Resources.Resources.showpassword
             Me.check_showPassword.Location = New System.Drawing.Point(476, 298)

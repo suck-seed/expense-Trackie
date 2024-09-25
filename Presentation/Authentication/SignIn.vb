@@ -63,12 +63,12 @@ Namespace Presentation
 
 
 
-                'MsgBox(SessionManager.Instance.CurrentUserId)
-                'MsgBox(SessionManager.Instance.CurrentUsername)
-                'MsgBox(SessionManager.Instance.CurrentPassword)
-                'MsgBox(SessionManager.Instance.CurrentNumber)
-                'MsgBox(SessionManager.Instance.CurrentDateJoined)
-                'MsgBox(SessionManager.Instance.CurrentProfileLink)
+                MsgBox(SessionManager.Instance.CurrentUserId)
+                MsgBox(SessionManager.Instance.CurrentUsername)
+                MsgBox(SessionManager.Instance.CurrentPassword)
+                MsgBox(SessionManager.Instance.CurrentNumber)
+                MsgBox(SessionManager.Instance.CurrentDateJoined)
+                MsgBox(SessionManager.Instance.CurrentProfileLink)
 
 
                 'If String.IsNullOrEmpty(My.Settings.SavedUsername) And String.IsNullOrEmpty(My.Settings.SavedPassword) Then

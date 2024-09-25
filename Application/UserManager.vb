@@ -66,6 +66,7 @@ Namespace Application
 
 
                 End If
+
                 Return _userId
 
 
@@ -80,6 +81,7 @@ Namespace Application
 
 
         End Function
+
 #End Region
 
 #Region " update "
@@ -92,16 +94,23 @@ Namespace Application
 
             ' different username number but already exists to other
 
-            If _userRepository.IsDuplicateUser(_username, "") And _username <> currentUsername Then
-                lbl_info.Text = " Username already exists "
 
+            ' !!!!!!!!!!!!!!!!!!!!!!!!! only checked for username who is enabled = 1,    so if enabled = 0, can change and error aaucha
+
+            If _userRepository.IsDuplicateUser(_username, "") And _username <> currentUsername Then
+
+                lbl_info.Text = " Username already exists "
                 Return -1
+
             End If
+
+
 
             If _userRepository.IsDuplicateUser("", _number) And _number <> currentNumber Then
 
                 lbl_info.Text = (" Number already is in use ")
                 Return -1
+
             End If
 
 
@@ -124,7 +133,7 @@ Namespace Application
             End If
 
 
-            ' anything else bhaye ma
+            'anything Else bhaye ma
             If _userRepository.UpdateUser(_username, _password, _number, _dailyLimit, _profileLink, userId) > 0 Then
 
 
@@ -146,9 +155,12 @@ Namespace Application
 
 #Region "delete user"
 
-        Public Function DeleteUser(ByVal currentId As Integer) As Integer
+        Public Function DeleteUser(ByVal currentId As Integer, ByVal currentUsername As String) As Integer
 
-            If _userRepository.DeleteUserInfo(currentId) Then
+            'DELETED to flag user as deleted
+            currentUsername = String.Concat(currentUsername, "DELETED")
+
+            If _userRepository.DeleteUserInfo(currentId, currentUsername) Then
                 Return 1
             Else
                 Return -1

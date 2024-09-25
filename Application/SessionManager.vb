@@ -9,11 +9,11 @@
 
 
         ' user Info
-        Public Property CurrentUserId As Integer = 1
-        Public Property CurrentUsername As String = "johnDoe"
-        Public Property CurrentNumber As String = "9844210296"
+        Public Property CurrentUserId As Integer
+        Public Property CurrentUsername As String
+        Public Property CurrentNumber As String
         Public Property CurrentPassword As String
-        Public Property CurrentDailyLimit As Decimal = 10000
+        Public Property CurrentDailyLimit As Decimal
         Public Property CurrentLoginTime As DateTime
         Public Property CurrentProfileLink As String
         Public Property CurrentDateJoined As DateTime

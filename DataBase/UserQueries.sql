@@ -1,30 +1,30 @@
 
 ------------------------------------------ ----------------------------------------------------------------DUPLICATE USER CHECK
 
-CREATE PROCEDURE checkDuplicateUser
-(
-	@username VARCHAR(255),
-	@number VARCHAR(10),
-	@exists BIT OUTPUT
-)
-AS
-BEGIN
-	-- Check if row exists with the given username or number, where enabled is 1
-	IF EXISTS (
-		SELECT 1
-		FROM userInfo
-		WHERE (username = @username OR number = @number)
-		AND enabled = 1
-	)
-	BEGIN	
-		SET @exists = 1;
-	END
-	-- Else condition
-	ELSE 
-	BEGIN	
-		SET @exists = 0;
-	END 
-END
+-- CREATE PROCEDURE checkDuplicateUser
+-- (
+-- 	@username VARCHAR(255),
+-- 	@number VARCHAR(10),
+-- 	@exists BIT OUTPUT
+-- )
+-- AS
+-- BEGIN
+-- 	-- Check if row exists with the given username or number, where enabled is 1
+-- 	IF EXISTS (
+-- 		SELECT 1
+-- 		FROM userInfo
+-- 		WHERE (username = @username OR number = @number)
+-- 		AND enabled = 1
+-- 	)
+-- 	BEGIN	
+-- 		SET @exists = 1;
+-- 	END
+-- 	-- Else condition
+-- 	ELSE 
+-- 	BEGIN	
+-- 		SET @exists = 0;
+-- 	END 
+-- END
 
 
 ------------------------------------------ ----------------------------------------------------------------ADD USER
@@ -96,30 +96,31 @@ END
 
 
 ------------------------------------------ ----------------------------------------------------------------delete user inf
--- CREATE PROCEDURE deleteUserInfo
--- (
---     @userId INTEGER,
---     @result INTEGER OUTPUT
--- )
--- AS
--- BEGIN
---     -- Update category to disable it (set enabled to 0)
---     UPDATE userInfo
---     SET enabled = 0
---     WHERE id = @userId
+ALTER PROCEDURE deleteUserInfo
+(
+    @userId INTEGER,
+	@username 	VARCHAR(255),
+    @result INTEGER OUTPUT
+)
+AS
+BEGIN
+    -- Update category to disable it (set enabled to 0)
+    UPDATE userInfo
+    SET enabled = 0, username = @username
+    WHERE id = @userId
 
---     -- Check if the update was successful
---     IF @@ROWCOUNT > 0
---     BEGIN
---         -- If a row was affected, return success
---         SET @result = 1
---     END
---     ELSE
---     BEGIN
---         -- If no rows were affected, return failure
---         SET @result = 0
---     END
--- END
+    -- Check if the update was successful
+    IF @@ROWCOUNT > 0
+    BEGIN
+        -- If a row was affected, return success
+        SET @result = 1
+    END
+    ELSE
+    BEGIN
+        -- If no rows were affected, return failure
+        SET @result = 0
+    END
+END
 
 
 ------------------------------------------ ---------------------------------------------------------------- fetch user info

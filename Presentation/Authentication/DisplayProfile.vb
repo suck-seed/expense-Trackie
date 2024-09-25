@@ -293,12 +293,14 @@ Namespace Presentation
 #Region " delete account "
         Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
 
+            _username = txt_username.Text
+
             If MessageBox.Show("Do you want to delete account ?", "Delete Account", MessageBoxButtons.YesNo) = DialogResult.Yes Then
 
                 '
                 Dim userManager As New UserManager
 
-                If userManager.DeleteUser(_currentId) > 0 Then
+                If userManager.DeleteUser(_currentId, _username) > 0 Then
 
                     ClearSessionInfo()
                     ClearSavedInfo()
