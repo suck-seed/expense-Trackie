@@ -45,7 +45,7 @@ Namespace Presentation
         Public Sub DisplayInformation()
 
             lbl_year.Text = _currentDate.ToString("yyyy")
-            lbl_year.Text = _currentDate.ToString("MMM")
+            lbl_month.Text = _currentDate.ToString("MMM")
             lbl_total_amount.Text = GetTotal()
             loadDays()
 

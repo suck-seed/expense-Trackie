@@ -204,6 +204,68 @@ Namespace Application
 
         End Sub
 
+        Public Sub GenerateCategoryCheckButtonsExport(ByVal panel As FlowLayoutPanel, handler As EventHandler)
+
+            ' loading a dataTable
+            Dim categoryTable As DataTable = _categoryrepository.GetUserCategory()
+
+
+            'panel work
+            panel.SuspendLayout()
+            panel.Controls.Clear()
+
+
+            For Each row As DataRow In categoryTable.Rows
+
+
+                'variable for easy use
+                Dim catId As Integer = row("catId")
+                Dim catName As String = row("catName").ToString
+
+                Dim colorHex As String = row("Color").ToString()
+                Dim backColor As Color = ColorTranslator.FromHtml(colorHex)
+
+
+
+                ' assigning to radioButton
+                Dim checkButton As New CheckBox
+
+                checkButton.Text = catName
+                checkButton.Tag = catId
+                checkButton.BackColor = backColor
+
+
+
+                'button cosmetics
+                checkButton.Appearance = Appearance.Button
+                checkButton.AutoSize = True
+                checkButton.TextAlign = ContentAlignment.MiddleCenter
+                checkButton.Font = New Font("IBM Plex Mono", 11, FontStyle.Regular)
+                checkButton.ForeColor = Color.Black
+
+
+                'checkButton.FlatStyle = FlatStyle.Flat
+
+                checkButton.FlatAppearance.BorderSize = 1
+                checkButton.Margin = New Padding(5, 8, 5, 8)
+                'checkButton.Padding = New Padding(2)
+
+
+
+                ' adding handler for checkChanged event
+                AddHandler checkButton.CheckedChanged, handler
+
+                'adding to panel
+                panel.Controls.Add(checkButton)
+
+
+            Next
+
+            panel.ResumeLayout(True)
+
+        End Sub
+
+
 #End Region
 
 

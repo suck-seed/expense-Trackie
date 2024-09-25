@@ -34,10 +34,10 @@
             Me.txt_password = New System.Windows.Forms.TextBox()
             Me.txt_username = New System.Windows.Forms.TextBox()
             Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-            Me.lbl_error = New System.Windows.Forms.Label()
             Me.PictureBox1 = New System.Windows.Forms.PictureBox()
             Me.button_close = New System.Windows.Forms.Button()
             Me.check_showPassword = New System.Windows.Forms.CheckBox()
+            Me.lbl_error = New System.Windows.Forms.Label()
             Me.TableLayoutPanel1.SuspendLayout()
             CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
@@ -161,20 +161,6 @@
             Me.TableLayoutPanel1.Size = New System.Drawing.Size(247, 24)
             Me.TableLayoutPanel1.TabIndex = 84
             '
-            'lbl_error
-            '
-            Me.lbl_error.AutoSize = True
-            Me.lbl_error.BackColor = System.Drawing.Color.Transparent
-            Me.lbl_error.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.lbl_error.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
-            Me.lbl_error.ForeColor = System.Drawing.Color.Red
-            Me.lbl_error.Location = New System.Drawing.Point(3, 0)
-            Me.lbl_error.Name = "lbl_error"
-            Me.lbl_error.Size = New System.Drawing.Size(241, 24)
-            Me.lbl_error.TabIndex = 82
-            Me.lbl_error.Text = "error"
-            Me.lbl_error.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-            '
             'PictureBox1
             '
             Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
@@ -220,6 +206,20 @@
             Me.check_showPassword.TextAlign = System.Drawing.ContentAlignment.TopLeft
             Me.check_showPassword.UseVisualStyleBackColor = False
             '
+            'lbl_error
+            '
+            Me.lbl_error.AutoSize = True
+            Me.lbl_error.BackColor = System.Drawing.Color.Transparent
+            Me.lbl_error.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.lbl_error.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
+            Me.lbl_error.ForeColor = System.Drawing.Color.Red
+            Me.lbl_error.Location = New System.Drawing.Point(3, 0)
+            Me.lbl_error.Name = "lbl_error"
+            Me.lbl_error.Size = New System.Drawing.Size(241, 24)
+            Me.lbl_error.TabIndex = 82
+            Me.lbl_error.Text = "error"
+            Me.lbl_error.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+            '
             'SignIn
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -262,7 +262,7 @@
         Friend WithEvents txt_password As TextBox
         Friend WithEvents txt_username As TextBox
         Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-        Friend WithEvents lbl_error As Label
         Friend WithEvents check_showPassword As CheckBox
+        Friend WithEvents lbl_error As Label
     End Class
 End NameSpace

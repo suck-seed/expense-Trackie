@@ -63,6 +63,9 @@ Namespace Presentation
 
         End Sub
 
+
+#Region " round shaping "
+
         Private Sub SetRoundedShape(ctrl As Control, radius As Integer)
             Dim rPath As New GraphicsPath()
 
@@ -95,6 +98,7 @@ Namespace Presentation
             SetRoundedShape(Me, borderRadius)
         End Sub
 
+#End Region
 
 
         Sub LoadCalander()
@@ -268,6 +272,7 @@ Namespace Presentation
 
 #End Region
 
+
 #Region " export "
 
         Private Sub exportRadioClicked(sender As Object, e As EventArgs) Handles radio_export.CheckedChanged
@@ -317,7 +322,10 @@ Namespace Presentation
                     If TypeOf control Is CheckBox Then
                         Dim checkBox As CheckBox = DirectCast(control, CheckBox)
 
-                        checkBox.Checked = False
+
+                        If checkBox.Checked = True Then
+                            checkBox.Checked = False
+                        End If
 
                     End If
 
@@ -340,7 +348,7 @@ Namespace Presentation
 
 
         ' event handling
-        Public Sub Checkbox_CheckChanged(sender As Object, e As EventArgs)
+        Private Sub Checkbox_CheckChanged(sender As Object, e As EventArgs)
 
             check_all.Checked = False
 
@@ -362,13 +370,15 @@ Namespace Presentation
 
             SessionManager.SelectedCategoryIds = selectedCategoryIds
 
-            If panel_main.Controls(0) Is _dayView Then
-                _dayView.LoadExpenses()
+            'If panel_main.Controls(0) Is _dayView Then
 
-            ElseIf panel_main.Controls(0) Is _monthView Then
-                _monthView.loadDays()
+            _dayView.LoadExpenses()
 
-            End If
+            'ElseIf panel_main.Controls(0) Is _monthView Then
+
+            _monthView.loadDays()
+
+            'End If
 
 
         End Sub

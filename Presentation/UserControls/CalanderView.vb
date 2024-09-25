@@ -155,6 +155,8 @@ Public Class CalanderView
 
 
 
+#Region " get total "
+
 
     Private Function GetTotal(ByVal currentdate As DateTime) As Decimal
 
@@ -164,33 +166,38 @@ Public Class CalanderView
 
     End Function
 
+#End Region
 
+
+#Region " dateClicked "
 
     Public Sub DateClicked(ByVal currentDate As DateTime)
 
 
         'MainWindow.panel_main.Controls.Clear()
-        If MainWindow.radio_home.Checked = True Then
-            MainWindow.radio_day_view.Checked = True
-            MainWindow.radio_month_view.Checked = False
-            MainWindow.radio_home.Checked = True
+        'If MainWindow.radio_home.Checked = True Then
 
-            _dayView._currentDate = currentDate
-            _dayView.DisplayInformation()
+        MainWindow.radio_day_view.Checked = True
+        MainWindow.radio_month_view.Checked = False
+        MainWindow.radio_home.Checked = True
 
-        End If
+        _dayView._currentDate = currentDate
+        _dayView.DisplayInformation()
+
+        'End If
 
 
-        If MainWindow.radio_export.Checked = True Then
+        'If MainWindow.radio_export.Checked = True Then
 
-            _exportView.selectedDate = currentDate
+        '    _exportView.selectedDate = currentDate
 
-        End If
+        'End If
 
 
     End Sub
 
 
+#End Region
 
 
 #Region " light / dark"

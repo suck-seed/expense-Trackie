@@ -10,6 +10,7 @@ Namespace DataLayer
         ReadOnly _connectionString As String = ConfigurationManager.ConnectionStrings("expenseTrackie").ConnectionString
         ReadOnly _userId As Integer = SessionManager.Instance.CurrentUserId
         ReadOnly _selectedCategory As List(Of Integer) = SessionManager.SelectedCategoryIds
+        ReadOnly _selectedCategory2 As List(Of Integer) = SessionManager.SelectedCategoryIds2
         ReadOnly _currentDate as DateTime = SessionManager.Instance.CurrentDate
 
 
@@ -310,6 +311,75 @@ Namespace DataLayer
 
 
         End Function
+
+
+
+
+
+        Public Function GetExpenseExport(ByVal startDate As DateTime, ByVal endDate As DateTime, ByVal selectedCategoryIds As List(Of Integer)) As DataTable
+
+
+            Dim query As String = "
+            
+            SELECT e.eId,e.amount ,e.remarks, c.catName  ,e.dateAdded ,e.timeAdded, c.color, c.[description]
+            FROM expense e
+            JOIN category c 
+            on e.catId = c.catId
+            WHERE e.userId = @userId 
+                    AND e.enabled = 1 
+                    AND c.enabled = 1
+                    AND (e.dateAdded BETWEEN @startDate AND @endDate )
+                            "
+
+
+
+
+            If selectedCategoryIds IsNot Nothing AndAlso selectedCategoryIds.Count > 0 Then
+                ' Add category filter dynamically
+
+                query &= " AND c.catId IN ( " & String.Join(",", selectedCategoryIds) & " ) "
+
+
+            End If
+
+
+            'If _selectedCategory2 IsNot Nothing AndAlso _selectedCategory2.Count > 0 Then
+            '    ' Add category filter dynamically
+
+            '    query &= " AND c.catId IN ( " & String.Join(",", _selectedCategory2) & " ) "
+
+            'End If
+
+
+            Dim dataTable As New DataTable()
+
+            Using connection As New SqlConnection(_connectionString)
+                connection.Open()
+
+                Using command As New SqlCommand(query, connection)
+
+                    command.Parameters.AddWithValue("@userId", _userId)
+                    command.Parameters.AddWithValue("@startDate", startDate)
+                    command.Parameters.AddWithValue("@endDate", endDate)
+
+
+                    Using dataReader As SqlDataReader = command.ExecuteReader()
+
+                        dataTable.Load(dataReader)
+
+                    End Using
+
+
+                End Using
+
+            End Using
+
+            Return dataTable
+
+
+        End Function
+
+
 
     End Class
 

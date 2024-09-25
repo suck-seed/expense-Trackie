@@ -55,6 +55,23 @@
 
 
 
+
+        Private Shared _selectedCategoryIds2 As List(Of Integer)
+
+        Public Shared Property SelectedCategoryIds2 As List(Of Integer)
+            Get
+                If _selectedCategoryIds2 Is Nothing Then
+                    _selectedCategoryIds2 = New List(Of Integer)
+                End If
+                Return _selectedCategoryIds2
+            End Get
+            Set(value As List(Of Integer))
+                _selectedCategoryIds2 = value
+            End Set
+        End Property
+
+
+
     End Class
 
 

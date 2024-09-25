@@ -86,6 +86,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.2651.64, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Web.WebView2.1.0.2651.64\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath>
     </Reference>
@@ -718,6 +722,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\infoWhiteSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exportFilter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exportFilterDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exportFilterWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exportFilterWhiteSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\csv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\csvWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excelWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlWhite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="packages\Microsoft.Web.WebView2.1.0.2651.64\build\Microsoft.Web.WebView2.targets" Condition="Exists('packages\Microsoft.Web.WebView2.1.0.2651.64\build\Microsoft.Web.WebView2.targets')" />

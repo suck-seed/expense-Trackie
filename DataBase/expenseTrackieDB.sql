@@ -24,9 +24,9 @@ CREATE TABLE userInfo(
 -- select * from userInfo
 
 
---  insertion testing
-INSERT INTO userInfo (username, password, number, dateJoined, enabled)
-VALUES ('johndoe', '1234', '1234567890', '2024-09-14', 1);
+-- --  insertion testing
+-- INSERT INTO userInfo (username, password, number, dateJoined, enabled)
+-- VALUES ('johndoe', '1234', '1234567890', '2024-09-14', 1);
 
 
 
@@ -73,13 +73,13 @@ CREATE TABLE category(
 );
 
 
---  DO NOT RUN THIS
-ALTER TABLE category
-ALTER userId ON DELETE ;
+-- --  DO NOT RUN THIS
+-- ALTER TABLE category
+-- ALTER userId ON DELETE ;
 
--- DELETE FROM category
--- WHERE catId = 4
-SELECT * from category
+-- -- DELETE FROM category
+-- -- WHERE catId = 4
+-- SELECT * from category
 
 
 
@@ -110,14 +110,14 @@ CREATE TABLE expense(
 
 
 
-SELECT * from   expense
+-- SELECT * from   expense
 
--- for tyo custom expense button jasto
-SELECT eId,remarks,timeAdded,color,amount
-from expense e
-JOIN category c
-on e.catId = c.catId
-WHERE e.userId = 1 AND c.userId = 1 AND c.enabled = 1 AND c.catId IN (2,3)
+-- -- for tyo custom expense button jasto
+-- SELECT eId,remarks,timeAdded,color,amount
+-- from expense e
+-- JOIN category c
+-- on e.catId = c.catId
+-- WHERE e.userId = 1 AND c.userId = 1 AND c.enabled = 1 AND c.catId IN (2,3)
 
 
 
@@ -145,7 +145,15 @@ WHERE e.userId = 1 AND c.userId = 1 AND c.enabled = 1 AND c.catId IN (2,3)
 
 
 
-UPDATE userInfo
-    SET enabled = 0, username = 'random11DELETED'
-    WHERE id = 13
-    SELECT * from userInfo
+-- UPDATE userInfo
+--     SET enabled = 0, username = 'random11DELETED'
+--     WHERE id = 13
+--     SELECT * from userInfo
+
+
+
+SELECT e.eId,e.amount ,e.remarks, c.catName  ,e.dateAdded ,e.timeAdded, c.color, c.[description]
+FROM expense e
+JOIN category c 
+on e.catId = c.catId
+WHERE e.userId = 1 AND e.enabled = 1 AND c.enabled = 1 AND (e.dateAdded BETWEEN '2024-09-20' AND '2024-09-25' ) 

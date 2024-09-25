@@ -27,7 +27,8 @@ END
 
 
 ---------------------------------------------------------------------------------------------------------- delete expense
-ALTER PROCEDURE deleteExpense
+
+CREATE PROCEDURE deleteExpense
 (
 	@eId INTEGER,
 	@userId INTEGER,
@@ -56,66 +57,66 @@ END
 
 ------------------------------------------ ---------------------------------------------------------------- getTotalOfDayAllCategory
 
--- CREATE PROCEDURE getTotalOfDayAllCategory
--- (
--- 	@userId INTEGER,
--- 	@dateAdded DATE,
--- 	@total DECIMAL(10,2) OUTPUT
--- )
--- AS
--- BEGIN
+CREATE PROCEDURE getTotalOfDayAllCategory
+(
+	@userId INTEGER,
+	@dateAdded DATE,
+	@total DECIMAL(10,2) OUTPUT
+)
+AS
+BEGIN
 
--- 	SELECT @total = SUM(amount)
--- 	FROM expense e
---     JOIN category c
---     on e.catId = c.catId
--- 	WHERE e.userId = @userId AND e.dateAdded = @dateAdded AND e.enabled = 1  and c.enabled = 1
+	SELECT @total = SUM(amount)
+	FROM expense e
+    JOIN category c
+    on e.catId = c.catId
+	WHERE e.userId = @userId AND e.dateAdded = @dateAdded AND e.enabled = 1  and c.enabled = 1
 
 
--- END
+END
 
 
 ------------------------------------------ ---------------------------------------------------------------- getTotalOfMonthAllCategory
 
--- CREATE PROCEDURE getTotalOfMonth
--- (
--- 	@userId INTEGER,
--- 	@startingDate DATE,
--- 	@endingDate DATE,
--- 	@total DECIMAL(10,2) OUTPUT
--- )
--- AS
--- BEGIN
+CREATE PROCEDURE getTotalOfMonth
+(
+	@userId INTEGER,
+	@startingDate DATE,
+	@endingDate DATE,
+	@total DECIMAL(10,2) OUTPUT
+)
+AS
+BEGIN
 
--- 	SELECT @total = SUM(amount)
---     FROM expense
---     WHERE userId = @userId 
---     AND (dateAdded BETWEEN @startingDate AND @endingDate)
---     AND enabled = 1;
+	SELECT @total = SUM(amount)
+    FROM expense
+    WHERE userId = @userId 
+    AND (dateAdded BETWEEN @startingDate AND @endingDate)
+    AND enabled = 1;
 
--- END
+END
 
 
 
 ------------------------------------------ ---------------------------------------------------------------- getUserExpenseAllCategory
 
--- CREATE PROCEDURE getUserExpenseAllCategory
--- (
--- 	@userId INTEGER,
--- 	@dateAdded DATE
--- )
--- AS
--- BEGIN
+CREATE PROCEDURE getUserExpenseAllCategory
+(
+	@userId INTEGER,
+	@dateAdded DATE
+)
+AS
+BEGIN
 
--- 		SELECT eId,remarks,timeAdded,amount,color
--- 		FROM expense e
--- 		JOIN category c
--- 		on e.catId = c.catId
--- 		WHERE e.userId = @userId 
--- 			AND e.enabled = 1
--- 			AND c.enabled = 1 
--- 			AND e.dateAdded = @dateAdded
+		SELECT eId,remarks,timeAdded,amount,color
+		FROM expense e
+		JOIN category c
+		on e.catId = c.catId
+		WHERE e.userId = @userId 
+			AND e.enabled = 1
+			AND c.enabled = 1 
+			AND e.dateAdded = @dateAdded
 
--- END
+END
 
 

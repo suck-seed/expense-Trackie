@@ -56,6 +56,7 @@ Namespace Application
         End Function
 
 
+#Region " dayView expense "
 
 
         ' load expense into panel
@@ -137,6 +138,7 @@ Namespace Application
 
 
 
+#End Region
 
 
 #Region " load expense in monthView "
@@ -211,6 +213,18 @@ Namespace Application
 #End Region
 
 
+
+#Region " expense in dataGridView in export "
+
+        Public Sub GetExpenseForExport(ByRef dataGrid As DataGridView, ByVal startDate As DateTime, ByVal endDate As DateTime, ByVal selectedCategoryIds As List(Of Integer))
+
+            Dim dataTable As DataTable = _expenseRepository.GetExpenseExport(startDate, endDate, selectedCategoryIds)
+
+            dataGrid.DataSource = dataTable
+
+        End Sub
+
+#End Region
 
     End Class
 
