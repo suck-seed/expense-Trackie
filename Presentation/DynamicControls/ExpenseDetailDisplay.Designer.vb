@@ -112,6 +112,7 @@
             Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.Controls.Add(Me.TableLayoutPanel2)
             Me.Controls.Add(Me.generalTable)
+            Me.DoubleBuffered = True
             Me.MinimumSize = New System.Drawing.Size(900, 90)
             Me.Name = "ExpenseDetailDisplay"
             Me.Size = New System.Drawing.Size(926, 88)

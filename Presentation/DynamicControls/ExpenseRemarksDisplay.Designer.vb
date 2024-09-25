@@ -61,6 +61,7 @@ Partial Class ExpenseRemarksDisplay
         Me.BackColor = System.Drawing.Color.Transparent
         Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.DoubleBuffered = True
         Me.Name = "ExpenseRemarksDisplay"
         Me.Size = New System.Drawing.Size(234, 34)
         Me.TableLayoutPanel1.ResumeLayout(False)

@@ -49,7 +49,7 @@ Namespace DataLayer
 
 
                     ' returns true if its duplicate
-                    MessageBox.Show("Dulicate " & username & " " & number & " " & exists)
+                    'MessageBox.Show("Dulicate " & username & " " & number & " " & exists)
                     Return exists
 
 

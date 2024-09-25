@@ -96,31 +96,31 @@
 
 
 ------------------------------------------ ----------------------------------------------------------------delete user inf
-ALTER PROCEDURE deleteUserInfo
-(
-    @userId INTEGER,
-	@username 	VARCHAR(255),
-    @result INTEGER OUTPUT
-)
-AS
-BEGIN
-    -- Update category to disable it (set enabled to 0)
-    UPDATE userInfo
-    SET enabled = 0, username = @username
-    WHERE id = @userId
+-- ALTER PROCEDURE deleteUserInfo
+-- (
+--     @userId INTEGER,
+-- 	@username 	VARCHAR(255),
+--     @result INTEGER OUTPUT
+-- )
+-- AS
+-- BEGIN
+--     -- Update category to disable it (set enabled to 0)
+--     UPDATE userInfo
+--     SET enabled = 0, username = @username
+--     WHERE id = @userId
 
-    -- Check if the update was successful
-    IF @@ROWCOUNT > 0
-    BEGIN
-        -- If a row was affected, return success
-        SET @result = 1
-    END
-    ELSE
-    BEGIN
-        -- If no rows were affected, return failure
-        SET @result = 0
-    END
-END
+--     -- Check if the update was successful
+--     IF @@ROWCOUNT > 0
+--     BEGIN
+--         -- If a row was affected, return success
+--         SET @result = 1
+--     END
+--     ELSE
+--     BEGIN
+--         -- If no rows were affected, return failure
+--         SET @result = 0
+--     END
+-- END
 
 
 ------------------------------------------ ---------------------------------------------------------------- fetch user info

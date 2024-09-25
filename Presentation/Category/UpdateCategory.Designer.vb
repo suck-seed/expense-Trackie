@@ -39,6 +39,7 @@
             Me.Label5 = New System.Windows.Forms.Label()
             Me.panel_radio_category = New System.Windows.Forms.FlowLayoutPanel()
             Me.timer_reset_image = New System.Windows.Forms.Timer(Me.components)
+            Me.panel_back = New System.Windows.Forms.Panel()
             Me.panel_topbar.SuspendLayout()
             Me.TableLayoutPanel1.SuspendLayout()
             Me.SuspendLayout()
@@ -54,7 +55,7 @@
             Me.button_close.Margin = New System.Windows.Forms.Padding(0)
             Me.button_close.Name = "button_close"
             Me.button_close.RightToLeft = System.Windows.Forms.RightToLeft.No
-            Me.button_close.Size = New System.Drawing.Size(50, 46)
+            Me.button_close.Size = New System.Drawing.Size(50, 44)
             Me.button_close.TabIndex = 11
             Me.button_close.UseVisualStyleBackColor = True
             '
@@ -71,6 +72,7 @@
             'panel_topbar
             '
             Me.panel_topbar.BackColor = System.Drawing.Color.Transparent
+            Me.panel_topbar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.panel_topbar.Controls.Add(Me.button_close)
             Me.panel_topbar.Controls.Add(Me.button_create)
             Me.panel_topbar.Controls.Add(Me.Label4)
@@ -88,11 +90,11 @@
             Me.button_create.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(125, Byte), Integer))
             Me.button_create.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.button_create.Image = Global.expense_Trackie.My.Resources.Resources.tickRound
-            Me.button_create.Location = New System.Drawing.Point(446, 0)
+            Me.button_create.Location = New System.Drawing.Point(444, 0)
             Me.button_create.Margin = New System.Windows.Forms.Padding(0)
             Me.button_create.Name = "button_create"
             Me.button_create.RightToLeft = System.Windows.Forms.RightToLeft.No
-            Me.button_create.Size = New System.Drawing.Size(50, 46)
+            Me.button_create.Size = New System.Drawing.Size(50, 44)
             Me.button_create.TabIndex = 10
             Me.button_create.UseVisualStyleBackColor = True
             '
@@ -240,6 +242,16 @@
             '
             Me.timer_reset_image.Interval = 120
             '
+            'panel_back
+            '
+            Me.panel_back.BackColor = System.Drawing.Color.Transparent
+            Me.panel_back.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.panel_back.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.panel_back.Location = New System.Drawing.Point(0, 0)
+            Me.panel_back.Name = "panel_back"
+            Me.panel_back.Size = New System.Drawing.Size(496, 609)
+            Me.panel_back.TabIndex = 6
+            '
             'UpdateCategory
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -247,6 +259,8 @@
             Me.ClientSize = New System.Drawing.Size(496, 609)
             Me.Controls.Add(Me.TableLayoutPanel1)
             Me.Controls.Add(Me.panel_topbar)
+            Me.Controls.Add(Me.panel_back)
+            Me.DoubleBuffered = True
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.KeyPreview = True
             Me.Name = "UpdateCategory"
@@ -275,5 +289,6 @@
         Public WithEvents txt_description As RichTextBox
         Public WithEvents txt_name As RichTextBox
         Friend WithEvents timer_reset_image As Timer
+        Friend WithEvents panel_back As Panel
     End Class
 End NameSpace

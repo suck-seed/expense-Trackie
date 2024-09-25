@@ -32,6 +32,7 @@
             Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
             Me.flowPanel_category = New System.Windows.Forms.FlowLayoutPanel()
             Me.timer_reset_image = New System.Windows.Forms.Timer(Me.components)
+            Me.panel_back = New System.Windows.Forms.Panel()
             Me.panel_topbar.SuspendLayout()
             Me.TableLayoutPanel1.SuspendLayout()
             Me.SuspendLayout()
@@ -43,7 +44,7 @@
             Me.button_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
             Me.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.button_close.Image = Global.expense_Trackie.My.Resources.Resources.icons8_close_16
-            Me.button_close.Location = New System.Drawing.Point(0, 0)
+            Me.button_close.Location = New System.Drawing.Point(-2, 0)
             Me.button_close.Margin = New System.Windows.Forms.Padding(0)
             Me.button_close.Name = "button_close"
             Me.button_close.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -64,6 +65,7 @@
             'panel_topbar
             '
             Me.panel_topbar.BackColor = System.Drawing.Color.Transparent
+            Me.panel_topbar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.panel_topbar.Controls.Add(Me.button_close)
             Me.panel_topbar.Controls.Add(Me.button_delete)
             Me.panel_topbar.Controls.Add(Me.Label4)
@@ -81,7 +83,7 @@
             Me.button_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(125, Byte), Integer))
             Me.button_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.button_delete.Image = Global.expense_Trackie.My.Resources.Resources.tickRound
-            Me.button_delete.Location = New System.Drawing.Point(481, 0)
+            Me.button_delete.Location = New System.Drawing.Point(479, 0)
             Me.button_delete.Margin = New System.Windows.Forms.Padding(0)
             Me.button_delete.Name = "button_delete"
             Me.button_delete.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -130,6 +132,16 @@
             '
             Me.timer_reset_image.Interval = 120
             '
+            'panel_back
+            '
+            Me.panel_back.BackColor = System.Drawing.Color.Transparent
+            Me.panel_back.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.panel_back.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.panel_back.Location = New System.Drawing.Point(0, 0)
+            Me.panel_back.Name = "panel_back"
+            Me.panel_back.Size = New System.Drawing.Size(531, 482)
+            Me.panel_back.TabIndex = 7
+            '
             'DeleteCategory
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -137,6 +149,8 @@
             Me.ClientSize = New System.Drawing.Size(531, 482)
             Me.Controls.Add(Me.panel_topbar)
             Me.Controls.Add(Me.TableLayoutPanel1)
+            Me.Controls.Add(Me.panel_back)
+            Me.DoubleBuffered = True
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.KeyPreview = True
             Me.Name = "DeleteCategory"
@@ -158,5 +172,6 @@
         Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
         Friend WithEvents flowPanel_category As FlowLayoutPanel
         Friend WithEvents timer_reset_image As Timer
+        Friend WithEvents panel_back As Panel
     End Class
 End NameSpace

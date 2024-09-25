@@ -76,6 +76,7 @@ Partial Class monthExpense
         Me.BackColor = System.Drawing.Color.Transparent
         Me.Controls.Add(Me.tpanel_expense)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.DoubleBuffered = True
         Me.Margin = New System.Windows.Forms.Padding(2, 0, 1, 0)
         Me.Name = "monthExpense"
         Me.Size = New System.Drawing.Size(190, 190)

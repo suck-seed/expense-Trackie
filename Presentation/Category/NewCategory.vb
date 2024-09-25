@@ -295,7 +295,7 @@ Namespace Presentation
                 button_close.Image = My.Resources.crossWhite
                 button_create.Image = My.Resources.checkwhite
 
-
+                btn_custom_color.ForeColor = Color.Black
 
 
             End If

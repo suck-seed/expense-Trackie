@@ -17,6 +17,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,13 +29,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -126,6 +126,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\UserControls\analyticalView.Designer.vb">
+      <DependentUpon>analyticalView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UserControls\analyticalView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Presentation\AppSetting.Designer.vb">
       <DependentUpon>AppSetting.vb</DependentUpon>
     </Compile>
@@ -278,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Exports\exportView.resx">
       <DependentUpon>exportView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\UserControls\analyticalView.resx">
+      <DependentUpon>analyticalView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\UserControls\CalanderView.resx">
       <DependentUpon>CalanderView.vb</DependentUpon>
@@ -697,6 +706,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lightModeLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infoDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infoWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infoWhiteSelected.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="packages\Microsoft.Web.WebView2.1.0.2651.64\build\Microsoft.Web.WebView2.targets" Condition="Exists('packages\Microsoft.Web.WebView2.1.0.2651.64\build\Microsoft.Web.WebView2.targets')" />

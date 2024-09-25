@@ -203,6 +203,7 @@
             Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.Controls.Add(Me.panel_expense_display)
             Me.Controls.Add(Me.generalTable)
+            Me.DoubleBuffered = True
             Me.Name = "DayView"
             Me.Size = New System.Drawing.Size(1109, 892)
             Me.generalTable.ResumeLayout(False)

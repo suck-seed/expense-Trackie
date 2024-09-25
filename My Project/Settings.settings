@@ -37,5 +37,11 @@
     <Setting Name="textColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Black</Value>
     </Setting>
+    <Setting Name="darkPanelColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#282828</Value>
+    </Setting>
+    <Setting Name="lightPanelColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#eef4f9</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

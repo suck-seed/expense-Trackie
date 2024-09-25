@@ -240,6 +240,7 @@ Partial Class CalanderView
         Me.Controls.Add(Me.fpanel_dates)
         Me.Controls.Add(Me.TableLayoutPanel3)
         Me.Controls.Add(Me.table_calander_control)
+        Me.DoubleBuffered = True
         Me.Name = "CalanderView"
         Me.Size = New System.Drawing.Size(247, 295)
         Me.TableLayoutPanel3.ResumeLayout(False)

@@ -17,7 +17,9 @@ Namespace Presentation
         ' this makes object defined here available in other forms too
         Dim _dayView As New DayView()
         Dim _monthView As New MonthView(_dayView)
-        Dim _calanderView As New CalanderView(_dayView)
+        Dim _exportView As New exportView()
+        Dim _analyticalView As New analyticalView()
+        Dim _calanderView As New CalanderView(_dayView, _exportView)
 
 #End Region
 
@@ -35,8 +37,10 @@ Namespace Presentation
                 ForeColor = Color.White
                 darkMode = True
                 Me.BackColor = ColorTranslator.FromHtml("#191D1C")
+                panel_main.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
             Else
                 Me.BackColor = ColorTranslator.FromHtml("#EEF4F9")
+                panel_main.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
             End If
 
             ColorMode()
@@ -264,7 +268,40 @@ Namespace Presentation
 
 #End Region
 
+#Region " export "
 
+        Private Sub exportRadioClicked(sender As Object, e As EventArgs) Handles radio_export.CheckedChanged
+
+            If radio_export.Checked = True Then
+
+
+                DisplayForm(_exportView)
+                '_dayView.LoadExpenses()
+
+
+
+
+
+            End If
+
+        End Sub
+
+#End Region
+
+
+#Region " analytical view "
+
+        Private Sub analyticalViewClicked(sender As Object, e As EventArgs) Handles radio_analytical.CheckedChanged
+
+
+            If radio_analytical.Checked = True Then
+
+                DisplayForm(_analyticalView)
+            End If
+
+        End Sub
+
+#End Region
 
 
 #Region "get selected category"

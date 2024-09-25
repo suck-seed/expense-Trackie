@@ -172,6 +172,30 @@ Namespace My
                 Me("textColor") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("#282828")>  _
+        Public Property darkPanelColor() As String
+            Get
+                Return CType(Me("darkPanelColor"),String)
+            End Get
+            Set
+                Me("darkPanelColor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("#eef4f9")>  _
+        Public Property lightPanelColor() As String
+            Get
+                Return CType(Me("lightPanelColor"),String)
+            End Get
+            Set
+                Me("lightPanelColor") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

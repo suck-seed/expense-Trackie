@@ -9,12 +9,14 @@ Public Class CalanderView
 #Region " new / load"
 
     Dim _dayView As DayView
+    Dim _exportView As exportView
 
-    Public Sub New(ByRef dayViewInst As DayView)
+    Public Sub New(ByRef dayViewInst As DayView, ByRef exportViewInst As exportView)
 
         InitializeComponent()
 
         _dayView = dayViewInst
+        _exportView = exportViewInst
         DisplayInformation()
 
     End Sub
@@ -168,13 +170,23 @@ Public Class CalanderView
 
 
         'MainWindow.panel_main.Controls.Clear()
+        If MainWindow.radio_home.Checked = True Then
+            MainWindow.radio_day_view.Checked = True
+            MainWindow.radio_month_view.Checked = False
+            MainWindow.radio_home.Checked = True
 
-        MainWindow.radio_day_view.Checked = True
-        MainWindow.radio_month_view.Checked = False
-        MainWindow.radio_home.Checked = True
+            _dayView._currentDate = currentDate
+            _dayView.DisplayInformation()
 
-        _dayView._currentDate = currentDate
-        _dayView.DisplayInformation()
+        End If
+
+
+        If MainWindow.radio_export.Checked = True Then
+
+            _exportView.selectedDate = currentDate
+
+        End If
+
 
     End Sub
 

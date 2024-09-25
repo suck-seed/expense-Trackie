@@ -23,10 +23,7 @@ Namespace Presentation
 
         Private Sub monthView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-            If My.Settings.IsLightMode = False Then
 
-                darkMode = True
-            End If
             ColorMode()
 
 

@@ -11,8 +11,22 @@ Namespace Presentation
 
 
 #Region " load "
+
+        Private borderRadius As Integer = 20
+
+        Dim darkMode As Boolean = False
         Private Sub SignIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             lbl_error.Text = ""
+
+            If My.Settings.IsLightMode = False Then
+                ForeColor = Color.White
+                darkMode = True
+                Me.BackColor = ColorTranslator.FromHtml("#191D1C")
+            Else
+                Me.BackColor = ColorTranslator.FromHtml("#EEF4F9")
+            End If
+
+            ColorMode()
 
             'If Not String.IsNullOrEmpty(My.Settings.SavedUsername) And Not String.IsNullOrEmpty(My.Settings.SavedPassword) Then
             If My.Settings.IsRemembered = True Then
@@ -29,7 +43,43 @@ Namespace Presentation
 
             End If
 
+            'rounded
+            SetRoundedShape(Me, borderRadius)
+            Me.SetStyle(ControlStyles.ResizeRedraw, True)
+            Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
 
+        End Sub
+
+        Private Sub SetRoundedShape(ctrl As Control, radius As Integer)
+            Dim rPath As New GraphicsPath()
+
+            ' Create a new rectangle that exactly fits the control's size
+            Dim rect As New Rectangle(0, 0, ctrl.Width, ctrl.Height)
+
+            ' Create rounded corners with arcs and straight lines
+            rPath.AddArc(New Rectangle(rect.X, rect.Y, radius, radius), 180, 90) ' Top-left corner
+            rPath.AddArc(New Rectangle(rect.Width - radius, rect.Y, radius, radius), -90, 90) ' Top-right corner
+            rPath.AddArc(New Rectangle(rect.Width - radius, rect.Height - radius, radius, radius), 0, 90) ' Bottom-right corner
+            rPath.AddArc(New Rectangle(rect.X, rect.Height - radius, radius, radius), 90, 90) ' Bottom-left corner
+            rPath.CloseFigure()
+
+            ' Apply the smooth path to the control's region
+            ctrl.Region = New Region(rPath)
+        End Sub
+
+
+        Protected Overrides Sub OnPaint(e As PaintEventArgs)
+            MyBase.OnPaint(e)
+
+            ' Enable anti-aliasing for smoother edges
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias
+
+            ' You can add additional painting code here for custom effects if needed
+        End Sub
+
+
+        Private Sub ExpenseDetailDisplay_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+            SetRoundedShape(Me, borderRadius)
         End Sub
 
 #End Region
@@ -63,12 +113,12 @@ Namespace Presentation
 
 
 
-                MsgBox(SessionManager.Instance.CurrentUserId)
-                MsgBox(SessionManager.Instance.CurrentUsername)
-                MsgBox(SessionManager.Instance.CurrentPassword)
-                MsgBox(SessionManager.Instance.CurrentNumber)
-                MsgBox(SessionManager.Instance.CurrentDateJoined)
-                MsgBox(SessionManager.Instance.CurrentProfileLink)
+                'MsgBox(SessionManager.Instance.CurrentUserId)
+                'MsgBox(SessionManager.Instance.CurrentUsername)
+                'MsgBox(SessionManager.Instance.CurrentPassword)
+                'MsgBox(SessionManager.Instance.CurrentNumber)
+                'MsgBox(SessionManager.Instance.CurrentDateJoined)
+                'MsgBox(SessionManager.Instance.CurrentProfileLink)
 
 
                 'If String.IsNullOrEmpty(My.Settings.SavedUsername) And String.IsNullOrEmpty(My.Settings.SavedPassword) Then
@@ -132,11 +182,25 @@ Namespace Presentation
         Private Sub ShowPassCB_CheckedChanged(sender As Object, e As EventArgs) Handles check_showPassword.CheckedChanged
             If check_showPassword.Checked = True Then
                 txt_password.PasswordChar = ""
-                check_showPassword.Image = My.Resources.showpasswordDark
+
+                If darkMode Then
+                    check_showPassword.Image = My.Resources.eyeWhiteSelected
+                Else
+
+                    check_showPassword.Image = My.Resources.showpasswordDark
+
+                End If
 
             Else
                 txt_password.PasswordChar = "●"
-                check_showPassword.Image = My.Resources.showpassword
+
+                If darkMode Then
+                    check_showPassword.Image = My.Resources.eyeWhite
+                Else
+
+                    check_showPassword.Image = My.Resources.showpassword
+
+                End If
 
             End If
 
@@ -219,5 +283,24 @@ Namespace Presentation
 #End Region
 
 
+
+
+#Region " light / dark"
+
+        Public Sub ColorMode()
+
+            If My.Settings.IsLightMode = False Then
+                'lbl_category.ForeColor = foreColor
+
+                button_close.Image = My.Resources.crossWhite
+
+
+                check_showPassword.Image = My.Resources.eyeWhite
+
+
+            End If
+
+        End Sub
+#End Region
     End Class
 End NameSpace

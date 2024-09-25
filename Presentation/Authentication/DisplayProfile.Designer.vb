@@ -42,6 +42,7 @@
             Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
             Me.lbl_info = New System.Windows.Forms.Label()
             Me.check_showPassword = New System.Windows.Forms.CheckBox()
+            Me.panel_back = New System.Windows.Forms.Panel()
             Me.panel_topbar.SuspendLayout()
             Me.TableLayoutPanel1.SuspendLayout()
             CType(Me.img_profile, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,7 +54,7 @@
             Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
             Me.Label4.AutoSize = True
             Me.Label4.Font = New System.Drawing.Font("Cascadia Mono", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.Label4.Location = New System.Drawing.Point(224, 11)
+            Me.Label4.Location = New System.Drawing.Point(223, 10)
             Me.Label4.Name = "Label4"
             Me.Label4.Size = New System.Drawing.Size(73, 21)
             Me.Label4.TabIndex = 2
@@ -62,6 +63,7 @@
             'panel_topbar
             '
             Me.panel_topbar.BackColor = System.Drawing.Color.Transparent
+            Me.panel_topbar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.panel_topbar.Controls.Add(Me.button_close)
             Me.panel_topbar.Controls.Add(Me.btn_logout)
             Me.panel_topbar.Controls.Add(Me.Label4)
@@ -83,7 +85,7 @@
             Me.button_close.Margin = New System.Windows.Forms.Padding(0)
             Me.button_close.Name = "button_close"
             Me.button_close.RightToLeft = System.Windows.Forms.RightToLeft.No
-            Me.button_close.Size = New System.Drawing.Size(50, 46)
+            Me.button_close.Size = New System.Drawing.Size(50, 44)
             Me.button_close.TabIndex = 11
             Me.button_close.UseVisualStyleBackColor = True
             '
@@ -94,11 +96,11 @@
             Me.btn_logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(125, Byte), Integer))
             Me.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btn_logout.Image = Global.expense_Trackie.My.Resources.Resources.logout
-            Me.btn_logout.Location = New System.Drawing.Point(486, 0)
+            Me.btn_logout.Location = New System.Drawing.Point(484, 0)
             Me.btn_logout.Margin = New System.Windows.Forms.Padding(0)
             Me.btn_logout.Name = "btn_logout"
             Me.btn_logout.RightToLeft = System.Windows.Forms.RightToLeft.No
-            Me.btn_logout.Size = New System.Drawing.Size(50, 46)
+            Me.btn_logout.Size = New System.Drawing.Size(50, 44)
             Me.btn_logout.TabIndex = 10
             Me.btn_logout.UseVisualStyleBackColor = True
             '
@@ -304,6 +306,16 @@
             Me.check_showPassword.TextAlign = System.Drawing.ContentAlignment.TopLeft
             Me.check_showPassword.UseVisualStyleBackColor = False
             '
+            'panel_back
+            '
+            Me.panel_back.BackColor = System.Drawing.Color.Transparent
+            Me.panel_back.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.panel_back.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.panel_back.Location = New System.Drawing.Point(0, 0)
+            Me.panel_back.Name = "panel_back"
+            Me.panel_back.Size = New System.Drawing.Size(536, 640)
+            Me.panel_back.TabIndex = 86
+            '
             'DisplayProfile
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -315,6 +327,7 @@
             Me.Controls.Add(Me.btn_update)
             Me.Controls.Add(Me.TableLayoutPanel1)
             Me.Controls.Add(Me.panel_topbar)
+            Me.Controls.Add(Me.panel_back)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.KeyPreview = True
             Me.Name = "DisplayProfile"
@@ -350,5 +363,6 @@
         Public WithEvents lbl_info As Label
         Public WithEvents TableLayoutPanel2 As TableLayoutPanel
         Friend WithEvents check_showPassword As CheckBox
+        Friend WithEvents panel_back As Panel
     End Class
 End NameSpace

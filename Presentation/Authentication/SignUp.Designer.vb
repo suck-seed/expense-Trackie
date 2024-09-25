@@ -39,12 +39,12 @@
             Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
             Me.lbl_info = New System.Windows.Forms.Label()
             Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+            Me.check_showPassword = New System.Windows.Forms.CheckBox()
             Me.img_profile = New System.Windows.Forms.PictureBox()
             Me.infoTool = New System.Windows.Forms.PictureBox()
             Me.svgInfo = New System.Windows.Forms.PictureBox()
             Me.PictureBox1 = New System.Windows.Forms.PictureBox()
             Me.button_close = New System.Windows.Forms.Button()
-            Me.check_showPassword = New System.Windows.Forms.CheckBox()
             Me.TableLayoutPanel1.SuspendLayout()
             CType(Me.img_profile, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.infoTool, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -155,6 +155,7 @@
             'Label2
             '
             Me.Label2.AutoSize = True
+            Me.Label2.BackColor = System.Drawing.Color.Transparent
             Me.Label2.Font = New System.Drawing.Font("IBM Plex Mono", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.Label2.Location = New System.Drawing.Point(648, 62)
             Me.Label2.Name = "Label2"
@@ -189,6 +190,7 @@
             '
             'TableLayoutPanel1
             '
+            Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
             Me.TableLayoutPanel1.ColumnCount = 1
             Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
             Me.TableLayoutPanel1.Controls.Add(Me.lbl_info, 0, 0)
@@ -199,9 +201,28 @@
             Me.TableLayoutPanel1.Size = New System.Drawing.Size(305, 32)
             Me.TableLayoutPanel1.TabIndex = 83
             '
+            'check_showPassword
+            '
+            Me.check_showPassword.Appearance = System.Windows.Forms.Appearance.Button
+            Me.check_showPassword.BackColor = System.Drawing.Color.Transparent
+            Me.check_showPassword.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter
+            Me.check_showPassword.FlatAppearance.BorderSize = 0
+            Me.check_showPassword.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
+            Me.check_showPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.check_showPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.check_showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.check_showPassword.Image = Global.expense_Trackie.My.Resources.Resources.showpassword
+            Me.check_showPassword.Location = New System.Drawing.Point(593, 464)
+            Me.check_showPassword.Name = "check_showPassword"
+            Me.check_showPassword.Size = New System.Drawing.Size(26, 34)
+            Me.check_showPassword.TabIndex = 87
+            Me.check_showPassword.TextAlign = System.Drawing.ContentAlignment.TopLeft
+            Me.check_showPassword.UseVisualStyleBackColor = False
+            '
             'img_profile
             '
             Me.img_profile.Anchor = System.Windows.Forms.AnchorStyles.None
+            Me.img_profile.BackColor = System.Drawing.Color.Transparent
             Me.img_profile.Image = Global.expense_Trackie.My.Resources.Resources.profileLight
             Me.img_profile.Location = New System.Drawing.Point(702, 160)
             Me.img_profile.Name = "img_profile"
@@ -213,7 +234,7 @@
             'infoTool
             '
             Me.infoTool.BackColor = System.Drawing.Color.Transparent
-            Me.infoTool.Image = CType(resources.GetObject("infoTool.Image"), System.Drawing.Image)
+            Me.infoTool.Image = Global.expense_Trackie.My.Resources.Resources.info
             Me.infoTool.Location = New System.Drawing.Point(872, 470)
             Me.infoTool.Name = "infoTool"
             Me.infoTool.Size = New System.Drawing.Size(23, 23)
@@ -258,24 +279,6 @@
             Me.button_close.Size = New System.Drawing.Size(50, 46)
             Me.button_close.TabIndex = 42
             Me.button_close.UseVisualStyleBackColor = False
-            '
-            'check_showPassword
-            '
-            Me.check_showPassword.Appearance = System.Windows.Forms.Appearance.Button
-            Me.check_showPassword.BackColor = System.Drawing.Color.Transparent
-            Me.check_showPassword.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter
-            Me.check_showPassword.FlatAppearance.BorderSize = 0
-            Me.check_showPassword.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
-            Me.check_showPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-            Me.check_showPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-            Me.check_showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.check_showPassword.Image = Global.expense_Trackie.My.Resources.Resources.showpassword
-            Me.check_showPassword.Location = New System.Drawing.Point(593, 464)
-            Me.check_showPassword.Name = "check_showPassword"
-            Me.check_showPassword.Size = New System.Drawing.Size(26, 34)
-            Me.check_showPassword.TabIndex = 87
-            Me.check_showPassword.TextAlign = System.Drawing.ContentAlignment.TopLeft
-            Me.check_showPassword.UseVisualStyleBackColor = False
             '
             'SignUp
             '

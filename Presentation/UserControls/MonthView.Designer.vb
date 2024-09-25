@@ -311,6 +311,7 @@
             Me.Controls.Add(Me.tpanel_day)
             Me.Controls.Add(Me.TableLayoutPanel3)
             Me.Controls.Add(Me.generalTable)
+            Me.DoubleBuffered = True
             Me.Margin = New System.Windows.Forms.Padding(20)
             Me.Name = "MonthView"
             Me.Size = New System.Drawing.Size(1121, 913)

@@ -24,8 +24,11 @@ Namespace Presentation
         Private Sub dayView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
             If My.Settings.IsLightMode = False Then
-
+                ForeColor = Color.White
                 darkMode = True
+                Me.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+            Else
+                Me.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
             End If
 
             ColorMode()
