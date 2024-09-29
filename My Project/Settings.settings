@@ -38,7 +38,7 @@
       <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="darkPanelColor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">#282828</Value>
+      <Value Profile="(Default)">#121212</Value>
     </Setting>
     <Setting Name="lightPanelColor" Type="System.String" Scope="User">
       <Value Profile="(Default)">#eef4f9</Value>

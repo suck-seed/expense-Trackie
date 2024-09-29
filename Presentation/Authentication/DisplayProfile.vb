@@ -31,6 +31,8 @@ Namespace Presentation
         Dim _dailyLimit As Decimal
         Dim _profileLink As String = ""
 
+        Dim number1 As Long
+
 
         'for refreshing or not calander
         Dim _enteredLimit As Decimal
@@ -130,11 +132,21 @@ Namespace Presentation
                 Return
             End If
 
+
+
             ' is info changed or not
             If Not _usernameChanged And Not _passwordChanged And Not _numberChanged And Not _dailyLimitChanged And Not _profileLinkChanged Then
                 lbl_info.Text = ("Please change atleast one information")
                 Return
             End If
+
+
+
+            If Not Long.TryParse(txt_number.Text, number1) Then
+                lbl_info.Text = "Number cannot contain string characters"
+                Return
+            End If
+
 
             If Not Decimal.TryParse(txt_dailyLimit.Text, _dailyLimit) Then
                 lbl_info.Text = ("Amount should be Decimal ")
@@ -179,10 +191,9 @@ Namespace Presentation
                 'reflect changes in mainwindow
                 MainWindow.LoadUserInformation()
 
-                If _enteredLimit <> _lastSessionLimit Then
-                    _calanderView.DisplayInformation()
 
-                End If
+                _calanderView.DisplayInformation()
+
 
             End If
 

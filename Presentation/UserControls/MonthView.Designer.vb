@@ -279,6 +279,7 @@
             '
             'tpanel_day
             '
+            Me.tpanel_day.BackColor = System.Drawing.Color.Transparent
             Me.tpanel_day.ColumnCount = 7
             Me.tpanel_day.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
             Me.tpanel_day.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
@@ -301,12 +302,13 @@
             '
             'timer_reset_image
             '
-            Me.timer_reset_image.Interval = 360
+            Me.timer_reset_image.Interval = 120
             '
             'MonthView
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+            Me.BackColor = System.Drawing.Color.Transparent
             Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.Controls.Add(Me.tpanel_day)
             Me.Controls.Add(Me.TableLayoutPanel3)

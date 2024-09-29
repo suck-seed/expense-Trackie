@@ -33,8 +33,12 @@
             Me.flowPanel_category = New System.Windows.Forms.FlowLayoutPanel()
             Me.timer_reset_image = New System.Windows.Forms.Timer(Me.components)
             Me.panel_back = New System.Windows.Forms.Panel()
+            Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+            Me.lbl_info = New System.Windows.Forms.Label()
             Me.panel_topbar.SuspendLayout()
             Me.TableLayoutPanel1.SuspendLayout()
+            Me.panel_back.SuspendLayout()
+            Me.TableLayoutPanel2.SuspendLayout()
             Me.SuspendLayout()
             '
             'button_close
@@ -136,11 +140,40 @@
             '
             Me.panel_back.BackColor = System.Drawing.Color.Transparent
             Me.panel_back.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.panel_back.Controls.Add(Me.TableLayoutPanel2)
             Me.panel_back.Dock = System.Windows.Forms.DockStyle.Fill
             Me.panel_back.Location = New System.Drawing.Point(0, 0)
             Me.panel_back.Name = "panel_back"
             Me.panel_back.Size = New System.Drawing.Size(531, 482)
             Me.panel_back.TabIndex = 7
+            '
+            'TableLayoutPanel2
+            '
+            Me.TableLayoutPanel2.BackColor = System.Drawing.Color.Transparent
+            Me.TableLayoutPanel2.ColumnCount = 1
+            Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+            Me.TableLayoutPanel2.Controls.Add(Me.lbl_info, 0, 0)
+            Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom
+            Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 453)
+            Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+            Me.TableLayoutPanel2.RowCount = 1
+            Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+            Me.TableLayoutPanel2.Size = New System.Drawing.Size(529, 27)
+            Me.TableLayoutPanel2.TabIndex = 85
+            '
+            'lbl_info
+            '
+            Me.lbl_info.AutoSize = True
+            Me.lbl_info.BackColor = System.Drawing.Color.Transparent
+            Me.lbl_info.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.lbl_info.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
+            Me.lbl_info.ForeColor = System.Drawing.Color.Red
+            Me.lbl_info.Location = New System.Drawing.Point(3, 0)
+            Me.lbl_info.Name = "lbl_info"
+            Me.lbl_info.Size = New System.Drawing.Size(523, 27)
+            Me.lbl_info.TabIndex = 82
+            Me.lbl_info.Text = "error"
+            Me.lbl_info.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
             '
             'DeleteCategory
             '
@@ -160,6 +193,9 @@
             Me.panel_topbar.PerformLayout()
             Me.TableLayoutPanel1.ResumeLayout(False)
             Me.TableLayoutPanel1.PerformLayout()
+            Me.panel_back.ResumeLayout(False)
+            Me.TableLayoutPanel2.ResumeLayout(False)
+            Me.TableLayoutPanel2.PerformLayout()
             Me.ResumeLayout(False)
 
         End Sub
@@ -173,5 +209,7 @@
         Friend WithEvents flowPanel_category As FlowLayoutPanel
         Friend WithEvents timer_reset_image As Timer
         Friend WithEvents panel_back As Panel
+        Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+        Friend WithEvents lbl_info As Label
     End Class
 End NameSpace

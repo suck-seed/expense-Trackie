@@ -22,27 +22,27 @@ Partial Class monthExpense
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tpanelDate = New System.Windows.Forms.TableLayoutPanel()
         Me.lbl_day = New System.Windows.Forms.Label()
         Me.tpanel_expense = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.tpanelDate.SuspendLayout()
         Me.SuspendLayout()
         '
-        'TableLayoutPanel1
+        'tpanelDate
         '
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.TableLayoutPanel1.ColumnCount = 1
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.lbl_day, 0, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel1.Font = New System.Drawing.Font("IBM Plex Mono", 8.249999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(190, 31)
-        Me.TableLayoutPanel1.TabIndex = 0
+        Me.tpanelDate.BackColor = System.Drawing.SystemColors.Control
+        Me.tpanelDate.ColumnCount = 1
+        Me.tpanelDate.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tpanelDate.Controls.Add(Me.lbl_day, 0, 0)
+        Me.tpanelDate.Dock = System.Windows.Forms.DockStyle.Top
+        Me.tpanelDate.Font = New System.Drawing.Font("IBM Plex Mono", 8.249999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tpanelDate.Location = New System.Drawing.Point(0, 0)
+        Me.tpanelDate.Margin = New System.Windows.Forms.Padding(0)
+        Me.tpanelDate.Name = "tpanelDate"
+        Me.tpanelDate.RowCount = 1
+        Me.tpanelDate.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tpanelDate.Size = New System.Drawing.Size(190, 31)
+        Me.tpanelDate.TabIndex = 0
         '
         'lbl_day
         '
@@ -57,7 +57,7 @@ Partial Class monthExpense
         '
         'tpanel_expense
         '
-        Me.tpanel_expense.BackColor = System.Drawing.Color.Transparent
+        Me.tpanel_expense.BackColor = System.Drawing.SystemColors.Control
         Me.tpanel_expense.ColumnCount = 1
         Me.tpanel_expense.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.tpanel_expense.Dock = System.Windows.Forms.DockStyle.Fill
@@ -73,20 +73,20 @@ Partial Class monthExpense
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Transparent
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.Controls.Add(Me.tpanel_expense)
-        Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Controls.Add(Me.tpanelDate)
         Me.DoubleBuffered = True
         Me.Margin = New System.Windows.Forms.Padding(2, 0, 1, 0)
         Me.Name = "monthExpense"
         Me.Size = New System.Drawing.Size(190, 190)
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
+        Me.tpanelDate.ResumeLayout(False)
+        Me.tpanelDate.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents tpanelDate As TableLayoutPanel
     Friend WithEvents lbl_day As Label
     Friend WithEvents tpanel_expense As TableLayoutPanel
 End Class

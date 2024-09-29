@@ -5,15 +5,22 @@ Namespace Presentation
 
     Public Class DayView
 
-        Public _currentDate As DateTime = DateTime.Now
+        Public CurrentDate As DateTime = DateTime.Now
         Dim _filterCount As Integer = 1
-        Dim darkMode As Boolean = False
+        Dim _darkMode As Boolean = False
+
+        Dim totalExpenseToday As Decimal
+        Dim wasAboveLimit As Boolean = False
+
+        Dim _calenderView As CalanderView
 
 #Region "initialization / load"
 
         Public Sub New()
 
             ' This call is required by the designer.
+
+
             InitializeComponent()
             DisplayInformation()
 
@@ -25,10 +32,14 @@ Namespace Presentation
 
             If My.Settings.IsLightMode = False Then
                 ForeColor = Color.White
-                darkMode = True
+                _darkMode = True
                 Me.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+                panel_expense_display.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+
             Else
                 Me.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+                panel_expense_display.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+
             End If
 
             ColorMode()
@@ -49,12 +60,21 @@ Namespace Presentation
         Public Sub DisplayInformation()
 
 
-            lbl_month.Text = _currentDate.ToString("MMM")
-            lbl_day.Text = _currentDate.ToString("dd")
-            lbl_total_amount.Text = GetTotal()
             LoadExpenses()
 
+            lbl_month.Text = CurrentDate.ToString("MMM")
+            lbl_day.Text = CurrentDate.ToString("dd")
+
+            totalExpenseToday = GetTotal(CurrentDate)
+            lbl_total_amount.Text = totalExpenseToday
+
             '            expenseManager.loadExpenses(mainWindow.flowPanelCategory, currentDate)
+            ' checking if above limit or below limit
+            If totalExpenseToday > SessionManager.Instance.CurrentDailyLimit Then
+
+                wasAboveLimit = True
+
+            End If
 
 
         End Sub
@@ -69,7 +89,7 @@ Namespace Presentation
             ' 1 = default ( by time )
             ' 2 = ascending amount (small to large)
             ' 3 = descending amount ( large to small )
-            If darkMode Then
+            If _darkMode Then
                 btn_filter.Image = My.Resources.filterWhiteSelected
 
             Else
@@ -106,13 +126,14 @@ Namespace Presentation
         End Sub
 #End Region
 
+
 #Region "navigatio"
 
         ' date navigation
-        Public Sub btn_previous_Click(sender As Object, e As EventArgs) Handles btn_previous.Click
+        Private Sub btn_previous_Click(sender As Object, e As EventArgs) Handles btn_previous.Click
 
             'visual cues
-            If darkMode Then
+            If _darkMode Then
                 btn_previous.Image = My.Resources.leftWhiteSelected
             Else
 
@@ -124,8 +145,8 @@ Namespace Presentation
             panel_expense_display.Controls.Clear()
 
             'decreasing the date by 1
-            _currentDate = _currentDate.AddDays(-1)
-            SessionManager.Instance.CurrentDate = _currentDate
+            CurrentDate = CurrentDate.AddDays(-1)
+            SessionManager.Instance.CurrentDate = CurrentDate
 
             DisplayInformation()
 
@@ -136,10 +157,9 @@ Namespace Presentation
         End Sub
 
 
+        Private Sub btn_next_Click(sender As Object, e As EventArgs) Handles btn_next.Click
 
-        Public Sub btn_next_Click(sender As Object, e As EventArgs) Handles btn_next.Click
-
-            If darkMode Then
+            If _darkMode Then
                 btn_next.Image = My.Resources.rightwhiteselected
             Else
                 btn_next.Image = My.Resources.rightDark
@@ -149,8 +169,8 @@ Namespace Presentation
 
             panel_expense_display.Controls.Clear()
 
-            _currentDate = _currentDate.AddDays(1)
-            SessionManager.Instance.CurrentDate = _currentDate
+            CurrentDate = CurrentDate.AddDays(1)
+            SessionManager.Instance.CurrentDate = CurrentDate
 
 
             DisplayInformation()
@@ -169,10 +189,10 @@ Namespace Presentation
 
 #Region "getting total for a day"
 
-        Private Function GetTotal() As Decimal
+        Public Function GetTotal(ByVal currentDate As DateTime) As Decimal
 
             Dim expenseManager As New ExpenseManager()
-            Dim total As Decimal = expenseManager.GetTotalOfDay(_currentDate.ToString("yyyy-MM-dd"))
+            Dim total As Decimal = expenseManager.GetTotalOfDay(currentDate.ToString("yyyy-MM-dd"))
             Return total
 
         End Function
@@ -182,12 +202,12 @@ Namespace Presentation
 
 
 #Region "loading expense in form"
-        Private borderRadius As Integer = 31
+        Private _borderRadius As Integer = 31
         Public Sub LoadExpenses()
 
             Dim expenseManager As New ExpenseManager()
 
-            expenseManager.LoadDayExpenses(panel_expense_display, _currentDate, _filterCount, AddressOf DeleteOnExpenseClick)
+            expenseManager.LoadDayExpenses(panel_expense_display, CurrentDate, _filterCount, AddressOf DeleteOnExpenseClick)
 
         End Sub
 
@@ -204,7 +224,8 @@ Namespace Presentation
 
 
 #Region "expense delete functionality"
-        Public Sub DeleteOnExpenseClick(ByVal eId As Integer)
+
+        Private Sub DeleteOnExpenseClick(ByVal eId As Integer)
 
             If MessageBox.Show("Do you want to delete expense ?", "Delete Expense", MessageBoxButtons.YesNo) = DialogResult.Yes Then
 
@@ -212,7 +233,29 @@ Namespace Presentation
 
                 If expenseRepository.DeleteExpense(eId) > 0 Then
 
-                    LoadExpenses()
+
+                    ' change the total, and the expenses displayed
+
+
+
+                    ' refresh monthView
+                    MainWindow.UpdateMonth()
+
+
+
+
+                    'if aboveLimit is true and after deleting limit went below, then update calander display
+                    If wasAboveLimit = True And GetTotal(CurrentDate) < SessionManager.Instance.CurrentDailyLimit Then
+
+                        MainWindow.UpdateCalander()
+
+                    End If
+
+
+
+
+                    DisplayInformation()
+
 
                 Else
                     MessageBox.Show("Error deleting expense", "Error")
@@ -244,7 +287,7 @@ Namespace Presentation
 
 #Region " light / dark"
 
-        Public Sub ColorMode()
+        Private Sub ColorMode()
 
             If My.Settings.IsLightMode = False Then
                 'lbl_category.ForeColor = foreColor
@@ -267,7 +310,7 @@ Namespace Presentation
         Private Sub timer_revertImage_Tick(sender As Object, e As EventArgs) Handles timer_reset_image.Tick
 
 
-            If darkMode Then
+            If _darkMode Then
 
                 btn_next.Image = My.Resources.rightWhite
                 btn_previous.Image = My.Resources.leftWhite
@@ -288,7 +331,20 @@ Namespace Presentation
         End Sub
 
 
+
 #End Region
+
+
+        '#Region " to resolve flicker "
+        '        Protected Overrides ReadOnly Property CreateParams() As CreateParams
+        '            Get
+        '                Dim cp As CreateParams = MyBase.CreateParams
+        '                cp.ExStyle = cp.ExStyle Or &H2000000
+        '                Return cp
+        '            End Get
+        '        End Property
+
+        '#End Region
 
     End Class
 End NameSpace

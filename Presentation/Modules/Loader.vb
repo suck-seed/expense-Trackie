@@ -1,4 +1,5 @@
 ﻿Imports System.Drawing.Drawing2D
+Imports expense_Trackie.Application
 
 Module Loader
 
@@ -57,6 +58,12 @@ Module Loader
 #End Region
 
 
+    Public Function GetTotal(ByVal currentDate As DateTime) As Decimal
 
+        Dim expenseManager As New ExpenseManager()
+        Dim total As Decimal = expenseManager.GetTotalOfDay(currentDate.ToString("yyyy-MM-dd"))
+        Return total
+
+    End Function
 
 End Module

@@ -130,6 +130,24 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\Authentication\ForgotPassword.Designer.vb">
+      <DependentUpon>ForgotPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Authentication\ForgotPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Authentication\passUpdatedSplashScreen.Designer.vb">
+      <DependentUpon>passUpdatedSplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Authentication\passUpdatedSplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Authentication\UpdatePassword.Designer.vb">
+      <DependentUpon>UpdatePassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Authentication\UpdatePassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Presentation\UserControls\analyticalView.Designer.vb">
       <DependentUpon>analyticalView.vb</DependentUpon>
     </Compile>
@@ -279,6 +297,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Presentation\AppSetting.resx">
       <DependentUpon>AppSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Authentication\ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Authentication\passUpdatedSplashScreen.resx">
+      <DependentUpon>passUpdatedSplashScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Authentication\UpdatePassword.resx">
+      <DependentUpon>UpdatePassword.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\DynamicControls\ExpenseRemarksDisplay.resx">
       <DependentUpon>ExpenseRemarksDisplay.vb</DependentUpon>
@@ -752,6 +779,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\xmlWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forgot Password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Password Updated.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reset Password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sign In Page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sign Up Page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sign Up Success.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="packages\Microsoft.Web.WebView2.1.0.2651.64\build\Microsoft.Web.WebView2.targets" Condition="Exists('packages\Microsoft.Web.WebView2.1.0.2651.64\build\Microsoft.Web.WebView2.targets')" />

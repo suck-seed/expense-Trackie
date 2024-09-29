@@ -95,6 +95,33 @@ BEGIN
     END
 END
 
+------------------------------------------------------------------------------------------ updatebysuername
+CREATE PROCEDURE updatePasswordByUsername
+(
+	@username VARCHAR(255) ,
+	@password VARCHAR(255)  ,
+	@result INTEGER OUTPUT
+)
+AS
+BEGIN
+	UPDATE userInfo
+    SET [password] = @password
+    WHERE username = @username
+
+    -- Check if the update was successful
+    IF @@ROWCOUNT > 0
+    BEGIN
+        -- If a row was affected, return success
+        SET @result = 1
+    END
+    ELSE
+    BEGIN
+        -- If no rows were affected, return failure
+        SET @result = 0
+    END
+END
+
+
 
 ------------------------------------------ ----------------------------------------------------------------delete user inf
 CREATE PROCEDURE deleteUserInfo

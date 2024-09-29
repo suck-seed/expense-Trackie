@@ -5,7 +5,7 @@ Namespace Presentation
     Public Class MonthView
 
         Dim _currentDate As DateTime = DateTime.Now
-        Dim darkMode As Boolean = False
+        Dim _darkMode As Boolean = False
 
 
 #Region " load form "
@@ -23,6 +23,16 @@ Namespace Presentation
 
         Private Sub monthView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+            If My.Settings.IsLightMode = False Then
+                ForeColor = Color.White
+                _darkMode = True
+                Me.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+                tpanel_day.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+
+
+            Else
+                Me.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+            End If
 
             ColorMode()
 
@@ -47,7 +57,7 @@ Namespace Presentation
             lbl_year.Text = _currentDate.ToString("yyyy")
             lbl_month.Text = _currentDate.ToString("MMM")
             lbl_total_amount.Text = GetTotal()
-            loadDays()
+            LoadDays()
 
         End Sub
 
@@ -75,39 +85,41 @@ Namespace Presentation
 
         Private Sub btn_previous_Click(sender As Object, e As EventArgs) Handles btn_previous.Click
 
-            'visual cues
-            If darkMode Then
-                btn_previous.Image = My.Resources.leftWhiteSelected
-            Else
 
-                btn_previous.Image = My.Resources.leftDark
-
-            End If
 
             _currentDate = _currentDate.AddMonths(-1)
 
             'updating the date and total
 
             DisplayInformation()
+            'visual cues
+            If _darkMode Then
+                btn_previous.Image = My.Resources.leftWhiteSelected
+            Else
+
+                btn_previous.Image = My.Resources.leftDark
+
+            End If
             timer_reset_image.Start()
 
         End Sub
 
         Private Sub btn_next_Click(sender As Object, e As EventArgs) Handles btn_next.Click
 
-            If darkMode Then
-                btn_next.Image = My.Resources.rightwhiteselected
-            Else
-                btn_next.Image = My.Resources.rightDark
 
-
-            End If
 
             _currentDate = _currentDate.AddMonths(1)
 
             'updating the date and total
 
             DisplayInformation()
+            If _darkMode Then
+                btn_next.Image = My.Resources.rightwhiteselected
+            Else
+                btn_next.Image = My.Resources.rightDark
+
+
+            End If
             timer_reset_image.Start()
 
         End Sub
@@ -118,7 +130,7 @@ Namespace Presentation
 #Region " loading days and 3 top expense "
 
 
-        Public Sub loadDays()
+        Public Sub LoadDays()
 
             'clear previous controls
             tpanel_day.SuspendLayout()
@@ -129,18 +141,18 @@ Namespace Presentation
             Dim year As Integer = _currentDate.Year
             Dim month As Integer = _currentDate.Month
 
-            Dim StartOfTheMonth As New DateTime(year, month, 1)
-            Dim DaysInMonth As Integer = DateTime.DaysInMonth(year, month)
-            Dim StartDayOfWeek As Integer = Convert.ToInt32(StartOfTheMonth.DayOfWeek.ToString("d"))
+            Dim startOfTheMonth As New DateTime(year, month, 1)
+            Dim daysInMonth As Integer = DateTime.DaysInMonth(year, month)
+            Dim startDayOfWeek As Integer = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d"))
 
 
             Dim currentRow As Integer = 0
-            Dim currentColumn As Integer = StartDayOfWeek
+            Dim currentColumn As Integer = startDayOfWeek
             Dim expenseManager As New ExpenseManager()
 
 
             ' Add empty placeholders for the days before the first day of the month
-            For i As Integer = 1 To StartDayOfWeek - 1 Step 1
+            For i As Integer = 1 To startDayOfWeek - 1 Step 1
 
                 Dim md As New monthExpense("")
                 tpanel_day.Controls.Add(md)
@@ -149,7 +161,7 @@ Namespace Presentation
 
 
             ' Adding actual days with event
-            For i As Integer = 1 To DaysInMonth Step 1
+            For i As Integer = 1 To daysInMonth Step 1
 
 
                 Dim currentDate As New DateTime(year, month, i)
@@ -202,13 +214,13 @@ Namespace Presentation
 
 #Region " onClick go to dayView of that day"
 
-        Public Sub OnDateClick(ByVal pressedDate As DateTime)
+        Private Sub OnDateClick(ByVal pressedDate As DateTime)
 
             MainWindow.radio_day_view.Checked = True
             MainWindow.radio_month_view.Checked = False
             MainWindow.radio_home.Checked = True
 
-            _dayView._currentDate = pressedDate
+            _dayView.CurrentDate = pressedDate
             _dayView.DisplayInformation()
 
         End Sub
@@ -220,7 +232,7 @@ Namespace Presentation
 
 #Region " light / dark"
 
-        Public Sub ColorMode()
+        Private Sub ColorMode()
 
             If My.Settings.IsLightMode = False Then
                 'lbl_category.ForeColor = foreColor
@@ -244,7 +256,7 @@ Namespace Presentation
         Private Sub timer_revertImage_Tick(sender As Object, e As EventArgs) Handles timer_reset_image.Tick
 
 
-            If darkMode Then
+            If My.Settings.IsLightMode = False Then
 
                 btn_next.Image = My.Resources.rightWhite
                 btn_previous.Image = My.Resources.leftWhite
@@ -265,6 +277,16 @@ Namespace Presentation
 
 #End Region
 
+        '#Region " to resolve flicker "
+        '        Protected Overrides ReadOnly Property CreateParams() As CreateParams
+        '            Get
+        '                Dim cp As CreateParams = MyBase.CreateParams
+        '                cp.ExStyle = cp.ExStyle Or &H2000000
+        '                Return cp
+        '            End Get
+        '        End Property
+
+        '#End Region
 
     End Class
 End NameSpace

@@ -25,9 +25,6 @@
         Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
             Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SignUp))
-            Me.Label4 = New System.Windows.Forms.Label()
-            Me.Label3 = New System.Windows.Forms.Label()
-            Me.Label1 = New System.Windows.Forms.Label()
             Me.btn_signup = New System.Windows.Forms.Button()
             Me.txt_password = New System.Windows.Forms.TextBox()
             Me.txt_username = New System.Windows.Forms.TextBox()
@@ -35,7 +32,6 @@
             Me.SignInLL = New System.Windows.Forms.LinkLabel()
             Me.PromptL = New System.Windows.Forms.Label()
             Me.Label2 = New System.Windows.Forms.Label()
-            Me.Label5 = New System.Windows.Forms.Label()
             Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
             Me.lbl_info = New System.Windows.Forms.Label()
             Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
@@ -43,47 +39,21 @@
             Me.img_profile = New System.Windows.Forms.PictureBox()
             Me.infoTool = New System.Windows.Forms.PictureBox()
             Me.svgInfo = New System.Windows.Forms.PictureBox()
-            Me.PictureBox1 = New System.Windows.Forms.PictureBox()
             Me.button_close = New System.Windows.Forms.Button()
+            Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+            Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+            Me.Label6 = New System.Windows.Forms.Label()
+            Me.Label7 = New System.Windows.Forms.Label()
+            Me.Label8 = New System.Windows.Forms.Label()
+            Me.panel_topbar = New System.Windows.Forms.Panel()
             Me.TableLayoutPanel1.SuspendLayout()
             CType(Me.img_profile, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.infoTool, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.svgInfo, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+            Me.TableLayoutPanel2.SuspendLayout()
+            Me.panel_topbar.SuspendLayout()
             Me.SuspendLayout()
-            '
-            'Label4
-            '
-            Me.Label4.AutoSize = True
-            Me.Label4.BackColor = System.Drawing.Color.Transparent
-            Me.Label4.Font = New System.Drawing.Font("IBM Plex Mono", 10.0!)
-            Me.Label4.Location = New System.Drawing.Point(618, 447)
-            Me.Label4.Name = "Label4"
-            Me.Label4.Size = New System.Drawing.Size(72, 18)
-            Me.Label4.TabIndex = 36
-            Me.Label4.Text = "Password"
-            '
-            'Label3
-            '
-            Me.Label3.AutoSize = True
-            Me.Label3.BackColor = System.Drawing.Color.Transparent
-            Me.Label3.Font = New System.Drawing.Font("IBM Plex Mono", 10.0!)
-            Me.Label3.Location = New System.Drawing.Point(618, 350)
-            Me.Label3.Name = "Label3"
-            Me.Label3.Size = New System.Drawing.Size(72, 18)
-            Me.Label3.TabIndex = 35
-            Me.Label3.Text = "Username"
-            '
-            'Label1
-            '
-            Me.Label1.AutoSize = True
-            Me.Label1.BackColor = System.Drawing.Color.Transparent
-            Me.Label1.Font = New System.Drawing.Font("IBM Plex Mono", 10.0!)
-            Me.Label1.Location = New System.Drawing.Point(618, 247)
-            Me.Label1.Name = "Label1"
-            Me.Label1.Size = New System.Drawing.Size(56, 18)
-            Me.Label1.TabIndex = 34
-            Me.Label1.Text = "Number"
             '
             'btn_signup
             '
@@ -92,7 +62,7 @@
             Me.btn_signup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btn_signup.Font = New System.Drawing.Font("IBM Plex Mono", 15.0!, System.Drawing.FontStyle.Bold)
             Me.btn_signup.ForeColor = System.Drawing.Color.Transparent
-            Me.btn_signup.Location = New System.Drawing.Point(620, 579)
+            Me.btn_signup.Location = New System.Drawing.Point(712, 555)
             Me.btn_signup.Name = "btn_signup"
             Me.btn_signup.Size = New System.Drawing.Size(247, 48)
             Me.btn_signup.TabIndex = 27
@@ -102,39 +72,44 @@
             'txt_password
             '
             Me.txt_password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txt_password.Dock = System.Windows.Forms.DockStyle.Fill
             Me.txt_password.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.txt_password.Location = New System.Drawing.Point(620, 469)
+            Me.txt_password.Location = New System.Drawing.Point(3, 312)
             Me.txt_password.MaximumSize = New System.Drawing.Size(500, 500)
             Me.txt_password.MinimumSize = New System.Drawing.Size(20, 20)
             Me.txt_password.Name = "txt_password"
             Me.txt_password.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
-            Me.txt_password.Size = New System.Drawing.Size(247, 26)
+            Me.txt_password.Size = New System.Drawing.Size(265, 26)
             Me.txt_password.TabIndex = 26
             '
             'txt_username
             '
             Me.txt_username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txt_username.Dock = System.Windows.Forms.DockStyle.Fill
             Me.txt_username.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.txt_username.Location = New System.Drawing.Point(620, 371)
+            Me.txt_username.Location = New System.Drawing.Point(3, 152)
             Me.txt_username.Name = "txt_username"
-            Me.txt_username.Size = New System.Drawing.Size(247, 26)
+            Me.txt_username.Size = New System.Drawing.Size(265, 26)
             Me.txt_username.TabIndex = 25
             '
             'txt_number
             '
             Me.txt_number.BackColor = System.Drawing.SystemColors.Window
             Me.txt_number.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txt_number.Dock = System.Windows.Forms.DockStyle.Fill
             Me.txt_number.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.txt_number.Location = New System.Drawing.Point(620, 268)
+            Me.txt_number.Location = New System.Drawing.Point(3, 232)
             Me.txt_number.Name = "txt_number"
-            Me.txt_number.Size = New System.Drawing.Size(247, 26)
+            Me.txt_number.Size = New System.Drawing.Size(265, 26)
             Me.txt_number.TabIndex = 24
             '
             'SignInLL
             '
             Me.SignInLL.AutoSize = True
             Me.SignInLL.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
-            Me.SignInLL.Location = New System.Drawing.Point(800, 637)
+            Me.SignInLL.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline
+            Me.SignInLL.LinkColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(96, Byte), Integer), CType(CType(196, Byte), Integer))
+            Me.SignInLL.Location = New System.Drawing.Point(892, 613)
             Me.SignInLL.Name = "SignInLL"
             Me.SignInLL.Size = New System.Drawing.Size(56, 15)
             Me.SignInLL.TabIndex = 23
@@ -146,7 +121,7 @@
             Me.PromptL.AutoSize = True
             Me.PromptL.BackColor = System.Drawing.Color.Transparent
             Me.PromptL.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
-            Me.PromptL.Location = New System.Drawing.Point(627, 639)
+            Me.PromptL.Location = New System.Drawing.Point(719, 615)
             Me.PromptL.Name = "PromptL"
             Me.PromptL.Size = New System.Drawing.Size(175, 15)
             Me.PromptL.TabIndex = 22
@@ -157,22 +132,11 @@
             Me.Label2.AutoSize = True
             Me.Label2.BackColor = System.Drawing.Color.Transparent
             Me.Label2.Font = New System.Drawing.Font("IBM Plex Mono", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.Label2.Location = New System.Drawing.Point(648, 62)
+            Me.Label2.Location = New System.Drawing.Point(748, 80)
             Me.Label2.Name = "Label2"
             Me.Label2.Size = New System.Drawing.Size(167, 46)
             Me.Label2.TabIndex = 21
             Me.Label2.Text = "SIGN UP"
-            '
-            'Label5
-            '
-            Me.Label5.AutoSize = True
-            Me.Label5.BackColor = System.Drawing.Color.Transparent
-            Me.Label5.Font = New System.Drawing.Font("IBM Plex Mono", 10.0!)
-            Me.Label5.Location = New System.Drawing.Point(703, 124)
-            Me.Label5.Name = "Label5"
-            Me.Label5.Size = New System.Drawing.Size(64, 18)
-            Me.Label5.TabIndex = 43
-            Me.Label5.Text = "Profile"
             '
             'lbl_info
             '
@@ -194,7 +158,7 @@
             Me.TableLayoutPanel1.ColumnCount = 1
             Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
             Me.TableLayoutPanel1.Controls.Add(Me.lbl_info, 0, 0)
-            Me.TableLayoutPanel1.Location = New System.Drawing.Point(590, 541)
+            Me.TableLayoutPanel1.Location = New System.Drawing.Point(682, 517)
             Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
             Me.TableLayoutPanel1.RowCount = 1
             Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -212,7 +176,7 @@
             Me.check_showPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
             Me.check_showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.check_showPassword.Image = Global.expense_Trackie.My.Resources.Resources.showpassword
-            Me.check_showPassword.Location = New System.Drawing.Point(593, 464)
+            Me.check_showPassword.Location = New System.Drawing.Point(669, 447)
             Me.check_showPassword.Name = "check_showPassword"
             Me.check_showPassword.Size = New System.Drawing.Size(26, 34)
             Me.check_showPassword.TabIndex = 87
@@ -224,7 +188,7 @@
             Me.img_profile.Anchor = System.Windows.Forms.AnchorStyles.None
             Me.img_profile.BackColor = System.Drawing.Color.Transparent
             Me.img_profile.Image = Global.expense_Trackie.My.Resources.Resources.profileLight
-            Me.img_profile.Location = New System.Drawing.Point(702, 160)
+            Me.img_profile.Location = New System.Drawing.Point(100, 19)
             Me.img_profile.Name = "img_profile"
             Me.img_profile.Size = New System.Drawing.Size(70, 70)
             Me.img_profile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -235,7 +199,7 @@
             '
             Me.infoTool.BackColor = System.Drawing.Color.Transparent
             Me.infoTool.Image = Global.expense_Trackie.My.Resources.Resources.info
-            Me.infoTool.Location = New System.Drawing.Point(872, 470)
+            Me.infoTool.Location = New System.Drawing.Point(975, 451)
             Me.infoTool.Name = "infoTool"
             Me.infoTool.Size = New System.Drawing.Size(23, 23)
             Me.infoTool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -246,33 +210,22 @@
             '
             Me.svgInfo.BackColor = System.Drawing.Color.Transparent
             Me.svgInfo.Image = CType(resources.GetObject("svgInfo.Image"), System.Drawing.Image)
-            Me.svgInfo.Location = New System.Drawing.Point(890, 459)
+            Me.svgInfo.Location = New System.Drawing.Point(993, 440)
             Me.svgInfo.Name = "svgInfo"
             Me.svgInfo.Size = New System.Drawing.Size(45, 46)
             Me.svgInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
             Me.svgInfo.TabIndex = 80
             Me.svgInfo.TabStop = False
             '
-            'PictureBox1
-            '
-            Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-            Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-            Me.PictureBox1.Location = New System.Drawing.Point(41, 62)
-            Me.PictureBox1.Name = "PictureBox1"
-            Me.PictureBox1.Size = New System.Drawing.Size(529, 591)
-            Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-            Me.PictureBox1.TabIndex = 48
-            Me.PictureBox1.TabStop = False
-            '
             'button_close
             '
-            Me.button_close.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.button_close.BackColor = System.Drawing.Color.Transparent
+            Me.button_close.Dock = System.Windows.Forms.DockStyle.Right
             Me.button_close.FlatAppearance.BorderSize = 0
             Me.button_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
             Me.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.button_close.Image = Global.expense_Trackie.My.Resources.Resources.icons8_close_16
-            Me.button_close.Location = New System.Drawing.Point(917, 0)
+            Me.button_close.Location = New System.Drawing.Point(1019, 0)
             Me.button_close.Margin = New System.Windows.Forms.Padding(0)
             Me.button_close.Name = "button_close"
             Me.button_close.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -280,29 +233,99 @@
             Me.button_close.TabIndex = 42
             Me.button_close.UseVisualStyleBackColor = False
             '
+            'PictureBox1
+            '
+            Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+            Me.PictureBox1.Image = Global.expense_Trackie.My.Resources.Resources.Sign_Up_Page
+            Me.PictureBox1.Location = New System.Drawing.Point(-29, 15)
+            Me.PictureBox1.Name = "PictureBox1"
+            Me.PictureBox1.Size = New System.Drawing.Size(669, 614)
+            Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+            Me.PictureBox1.TabIndex = 48
+            Me.PictureBox1.TabStop = False
+            '
+            'TableLayoutPanel2
+            '
+            Me.TableLayoutPanel2.BackColor = System.Drawing.Color.Transparent
+            Me.TableLayoutPanel2.ColumnCount = 1
+            Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+            Me.TableLayoutPanel2.Controls.Add(Me.img_profile, 0, 0)
+            Me.TableLayoutPanel2.Controls.Add(Me.Label6, 0, 5)
+            Me.TableLayoutPanel2.Controls.Add(Me.Label7, 0, 1)
+            Me.TableLayoutPanel2.Controls.Add(Me.Label8, 0, 3)
+            Me.TableLayoutPanel2.Controls.Add(Me.txt_username, 0, 2)
+            Me.TableLayoutPanel2.Controls.Add(Me.txt_password, 0, 6)
+            Me.TableLayoutPanel2.Controls.Add(Me.txt_number, 0, 4)
+            Me.TableLayoutPanel2.Location = New System.Drawing.Point(699, 139)
+            Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+            Me.TableLayoutPanel2.RowCount = 7
+            Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.47828!))
+            Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.436401!))
+            Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.436401!))
+            Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.436401!))
+            Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.436401!))
+            Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.436401!))
+            Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.436401!))
+            Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+            Me.TableLayoutPanel2.Size = New System.Drawing.Size(271, 352)
+            Me.TableLayoutPanel2.TabIndex = 88
+            '
+            'Label6
+            '
+            Me.Label6.Dock = System.Windows.Forms.DockStyle.Bottom
+            Me.Label6.Font = New System.Drawing.Font("IBM Plex Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.Label6.Location = New System.Drawing.Point(3, 291)
+            Me.Label6.Name = "Label6"
+            Me.Label6.Size = New System.Drawing.Size(265, 18)
+            Me.Label6.TabIndex = 3
+            Me.Label6.Text = "Password"
+            '
+            'Label7
+            '
+            Me.Label7.Dock = System.Windows.Forms.DockStyle.Bottom
+            Me.Label7.Font = New System.Drawing.Font("IBM Plex Mono", 9.75!)
+            Me.Label7.Location = New System.Drawing.Point(3, 131)
+            Me.Label7.Name = "Label7"
+            Me.Label7.Size = New System.Drawing.Size(265, 18)
+            Me.Label7.TabIndex = 1
+            Me.Label7.Text = "Username"
+            '
+            'Label8
+            '
+            Me.Label8.Dock = System.Windows.Forms.DockStyle.Bottom
+            Me.Label8.Font = New System.Drawing.Font("IBM Plex Mono", 9.75!)
+            Me.Label8.Location = New System.Drawing.Point(3, 211)
+            Me.Label8.Name = "Label8"
+            Me.Label8.Size = New System.Drawing.Size(265, 18)
+            Me.Label8.TabIndex = 2
+            Me.Label8.Text = "Number"
+            '
+            'panel_topbar
+            '
+            Me.panel_topbar.BackColor = System.Drawing.Color.Transparent
+            Me.panel_topbar.Controls.Add(Me.button_close)
+            Me.panel_topbar.Dock = System.Windows.Forms.DockStyle.Top
+            Me.panel_topbar.Location = New System.Drawing.Point(0, 0)
+            Me.panel_topbar.Name = "panel_topbar"
+            Me.panel_topbar.Size = New System.Drawing.Size(1069, 46)
+            Me.panel_topbar.TabIndex = 89
+            '
             'SignUp
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-            Me.ClientSize = New System.Drawing.Size(969, 750)
+            Me.ClientSize = New System.Drawing.Size(1069, 650)
+            Me.Controls.Add(Me.TableLayoutPanel2)
             Me.Controls.Add(Me.check_showPassword)
             Me.Controls.Add(Me.TableLayoutPanel1)
-            Me.Controls.Add(Me.img_profile)
             Me.Controls.Add(Me.infoTool)
             Me.Controls.Add(Me.svgInfo)
             Me.Controls.Add(Me.PictureBox1)
-            Me.Controls.Add(Me.Label5)
-            Me.Controls.Add(Me.button_close)
-            Me.Controls.Add(Me.Label4)
-            Me.Controls.Add(Me.Label3)
-            Me.Controls.Add(Me.Label1)
             Me.Controls.Add(Me.btn_signup)
-            Me.Controls.Add(Me.txt_password)
-            Me.Controls.Add(Me.txt_username)
-            Me.Controls.Add(Me.txt_number)
             Me.Controls.Add(Me.SignInLL)
             Me.Controls.Add(Me.PromptL)
             Me.Controls.Add(Me.Label2)
+            Me.Controls.Add(Me.panel_topbar)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Name = "SignUp"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -313,14 +336,13 @@
             CType(Me.infoTool, System.ComponentModel.ISupportInitialize).EndInit()
             CType(Me.svgInfo, System.ComponentModel.ISupportInitialize).EndInit()
             CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+            Me.TableLayoutPanel2.ResumeLayout(False)
+            Me.TableLayoutPanel2.PerformLayout()
+            Me.panel_topbar.ResumeLayout(False)
             Me.ResumeLayout(False)
             Me.PerformLayout()
 
         End Sub
-
-        Friend WithEvents Label4 As Label
-        Friend WithEvents Label3 As Label
-        Friend WithEvents Label1 As Label
         Friend WithEvents btn_signup As Button
         Friend WithEvents txt_password As TextBox
         Friend WithEvents txt_username As TextBox
@@ -329,8 +351,6 @@
         Friend WithEvents PromptL As Label
         Friend WithEvents Label2 As Label
         Friend WithEvents button_close As Button
-        Friend WithEvents Label5 As Label
-        Friend WithEvents PictureBox1 As PictureBox
         Friend WithEvents infoTool As PictureBox
         Friend WithEvents svgInfo As PictureBox
         Friend WithEvents ToolTip1 As ToolTip
@@ -338,5 +358,11 @@
         Friend WithEvents lbl_info As Label
         Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
         Friend WithEvents check_showPassword As CheckBox
+        Friend WithEvents PictureBox1 As PictureBox
+        Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+        Friend WithEvents Label6 As Label
+        Friend WithEvents Label7 As Label
+        Friend WithEvents Label8 As Label
+        Friend WithEvents panel_topbar As Panel
     End Class
 End NameSpace

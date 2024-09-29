@@ -16,7 +16,7 @@ Namespace Application
 
             If added > 0 Then
                 'debug
-                MsgBox("Expense added successfully")
+                '                MsgBox("Expense added successfully")
 
                 Return added
             End If
@@ -146,7 +146,7 @@ Namespace Application
         Public Sub LoadMonthExpenses(ByRef panel As TableLayoutPanel, ByRef currentDate As DateTime)
 
 
-            Dim expenseTable As DataTable = _expenseRepository.GetExpensesDynamically(currentDate.ToString("yyyy-MM-dd"), 3)
+            Dim expenseTable As DataTable = _expenseRepository.GetTop3Month(currentDate.ToString("yyyy-MM-dd"))
 
             panel.SuspendLayout()
             panel.Controls.Clear()

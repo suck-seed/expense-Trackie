@@ -156,4 +156,42 @@ SELECT e.eId,e.amount ,e.remarks, c.catName  ,e.dateAdded ,e.timeAdded, c.color,
 FROM expense e
 JOIN category c 
 on e.catId = c.catId
-WHERE e.userId = 1 AND e.enabled = 1 AND c.enabled = 1 AND (e.dateAdded BETWEEN '2024-09-20' AND '2024-09-25' ) 
+WHERE e.userId = 1 AND e.enabled = 1 AND c.enabled = 1 
+AND (e.dateAdded BETWEEN '2024-09-20' AND '2024-09-25' )
+
+
+
+
+
+ SELECT TOP 3 e.eId, e.remarks, e.timeAdded, e.amount, c.color
+ FROM expense e
+ JOIN category c
+     ON e.catId = c.catId
+ WHERE e.userId = 1
+ AND e.enabled = 1
+ AND c.enabled = 1 
+ AND e.dateAdded = '2024-09-27'
+ ORDER BY e.amount DESC
+
+
+ select * from expense
+ where userId = 1
+
+ DELETE 
+ FROM expense
+ WHERE enabled =0
+
+
+
+
+ SELECT SUM(amount)
+    FROM expense
+    WHERE userId = 1
+    AND enabled = 1;
+
+
+SELECT * FROM expense
+WHERE userId = 1 AND enabled = 1
+
+DELETE FROM expense
+where eId = 41

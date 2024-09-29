@@ -9,8 +9,9 @@ Namespace Presentation
         Dim number As String
         Dim username As String
         Dim password As String
-        Dim _imageAddress As String
+        Dim _imageAddress As String = ""
         ReadOnly _dateJoined As DateTime = DateTime.Now.ToString("yyyy-MM-dd")
+        Dim number1 As Long
 
 #Region " load "
 
@@ -84,7 +85,7 @@ Namespace Presentation
         Private Sub btn_signup_Click(sender As Object, e As EventArgs) Handles btn_signup.Click
 
 
-            If Not Integer.TryParse(txt_number.Text, number) Then
+            If Not Long.TryParse(txt_number.Text, number1) Then
                 lbl_info.Text = "Number cannot contain string characters"
                 Return
             End If
@@ -151,6 +152,7 @@ Namespace Presentation
 
             If userId > 0 Then
 
+                lbl_info.ForeColor = Color.Green
                 lbl_info.Text = ("User registered successfully")
 
                 If My.Settings.IsRemembered = False Then
@@ -413,6 +415,19 @@ Namespace Presentation
                 check_showPassword.Image = My.Resources.eyeWhite
                 infoTool.Image = My.Resources.infoWhite
 
+
+
+                'txt box
+                txt_username.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+                txt_password.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+                txt_number.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+
+
+                txt_username.ForeColor = Color.White
+                txt_password.ForeColor = Color.White
+                txt_number.ForeColor = Color.White
+
+
             End If
 
         End Sub
@@ -421,5 +436,39 @@ Namespace Presentation
             Me.Close()
         End Sub
 #End Region
+
+
+#Region " to resolve flicker "
+        Protected Overrides ReadOnly Property CreateParams() As CreateParams
+            Get
+                Dim cp As CreateParams = MyBase.CreateParams
+                cp.ExStyle = cp.ExStyle Or &H2000000
+                Return cp
+            End Get
+        End Property
+
+#End Region
+
+
+#Region " topbar movement "
+        Dim _mouseMove As System.Drawing.Point
+
+
+        Private Sub topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseDown
+            _mouseMove = New Point(-e.X, -e.Y)
+        End Sub
+
+
+        Private Sub topbar_MouseMove(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseMove
+            If e.Button = Windows.Forms.MouseButtons.Left Then
+                Dim position As Point
+                position = Control.MousePosition
+                position.Offset(_mouseMove.X, _mouseMove.Y)
+                Me.Location = position
+            End If
+        End Sub
+
+#End Region
+
     End Class
 End NameSpace

@@ -298,9 +298,64 @@ Namespace Presentation
                 check_showPassword.Image = My.Resources.eyeWhite
 
 
+                txt_username.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+                txt_password.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+
+
+                txt_username.ForeColor = Color.White
+                txt_password.ForeColor = Color.White
+
             End If
 
         End Sub
 #End Region
+
+#Region " to resolve flicker "
+        Protected Overrides ReadOnly Property CreateParams() As CreateParams
+            Get
+                Dim cp As CreateParams = MyBase.CreateParams
+                cp.ExStyle = cp.ExStyle Or &H2000000
+                Return cp
+            End Get
+        End Property
+
+
+#End Region
+
+
+
+#Region " forgort password "
+        Private Sub lbl_forget_password_Click(sender As Object, e As EventArgs) Handles lbl_forget_password.Click
+            ForgotPassword.Show()
+            Me.Close()
+        End Sub
+
+#End Region
+
+
+#Region " topbar movement "
+        Dim _mouseMove As System.Drawing.Point
+
+
+        Private Sub topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseDown
+            _mouseMove = New Point(-e.X, -e.Y)
+        End Sub
+
+
+        Private Sub topbar_MouseMove(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseMove
+            If e.Button = Windows.Forms.MouseButtons.Left Then
+                Dim position As Point
+                position = Control.MousePosition
+                position.Offset(_mouseMove.X, _mouseMove.Y)
+                Me.Location = position
+            End If
+        End Sub
+
+#End Region
+
+
+
+
+
     End Class
 End NameSpace

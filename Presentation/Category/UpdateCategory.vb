@@ -46,6 +46,8 @@ Namespace Presentation
 
         Private Sub UpdateCategory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+            ClearInfo()
+
             If My.Settings.IsLightMode = False Then
                 ForeColor = Color.White
                 darkMode = True
@@ -66,6 +68,37 @@ Namespace Presentation
 
         End Sub
 
+#End Region
+
+#Region " info label"
+        Private Sub ClearInfo()
+            lbl_info.Text = ""
+        End Sub
+
+        Private Sub DisplayError(erroString As String)
+
+            lbl_info.ForeColor = Color.Red
+            lbl_info.Text = erroString
+
+        End Sub
+
+
+        Private Sub DisplaySucess(succString As String)
+
+            lbl_info.ForeColor = Color.Green
+            lbl_info.Text = succString
+
+        End Sub
+
+
+        Private Sub txt_name_Enter(sender As Object, e As EventArgs) Handles txt_name.Enter
+            ClearInfo()
+        End Sub
+
+        Private Sub txt_description_Enter(sender As Object, e As EventArgs) Handles txt_description.Enter
+            ClearInfo()
+
+        End Sub
 #End Region
 
 
@@ -147,7 +180,7 @@ Namespace Presentation
 
             ' fool proffing
             If String.IsNullOrEmpty(txt_name.Text) Or String.IsNullOrEmpty(txt_description.Text) Or String.IsNullOrEmpty(_catColor) Then
-                MsgBox("Please fill all the information.")
+                DisplayError("Please fill all the information.")
                 Return
             End If
 
@@ -156,7 +189,7 @@ Namespace Presentation
 
             If Not _nameChanged And Not _descriptionChanged And Not _colorChanged Then
 
-                MsgBox("Please change atleast one information")
+                DisplayError("Please change atleast one information")
                 Return
             End If
 
@@ -183,10 +216,14 @@ Namespace Presentation
                 categoryManager.GenerateCategoryRadioButtons(panel_radio_category, AddressOf LoadCategoryInfo)
 
 
-                ' 
+
+                DisplaySucess("Category updated sucessfully")
+
+
                 MainWindow.LoadInformation()
                 _dayView.DisplayInformation()
                 _monthView.DisplayInformation()
+                MainWindow.UpdateExport()
 
                 txt_name.Text = ""
                 txt_description.Text = ""
@@ -197,7 +234,7 @@ Namespace Presentation
 
             Else
 
-                MsgBox(" Failed updating category information ")
+                DisplayError(" Failed updating category information ")
 
             End If
 
@@ -399,12 +436,29 @@ Namespace Presentation
                 btn_custom_color.ForeColor = Color.Black
 
 
+                txt_name.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+                txt_description.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+
+                txt_name.ForeColor = Color.White
+                txt_description.ForeColor = Color.White
+
 
             End If
 
         End Sub
 #End Region
 
+
+#Region " to resolve flicker "
+        Protected Overrides ReadOnly Property CreateParams() As CreateParams
+            Get
+                Dim cp As CreateParams = MyBase.CreateParams
+                cp.ExStyle = cp.ExStyle Or &H2000000
+                Return cp
+            End Get
+        End Property
+
+#End Region
 
     End Class
 End Namespace

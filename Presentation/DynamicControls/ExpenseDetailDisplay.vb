@@ -5,11 +5,30 @@ Namespace Presentation
 
         Private borderRadius As Integer = 20
 
+
+        Public Sub New()
+
+            ' This call is required by the designer.
+            InitializeComponent()
+
+            ' Add any initialization after the InitializeComponent() call.
+
+            If My.Settings.IsLightMode = False Then
+
+                Me.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+            Else
+                Me.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+            End If
+        End Sub
+
+
         Private Sub ExpenseDetailDisplay_Load(sender As Object, e As EventArgs) Handles Me.Load
 
             lbl_amount.ForeColor = Color.Black
             lbl_remarks.ForeColor = Color.Black
             lbl_time.ForeColor = Color.Black
+
+
 
             SetRoundedShape(Me, borderRadius)
             Me.SetStyle(ControlStyles.ResizeRedraw, True)

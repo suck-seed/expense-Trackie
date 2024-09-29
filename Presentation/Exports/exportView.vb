@@ -1,18 +1,24 @@
-﻿Imports expense_Trackie.Application
+﻿Imports System.IO
+Imports expense_Trackie.Application
+Imports expense_Trackie.DataLayer
 'Imports Microsoft.Office.Interop.Excel
+
 Public Class exportView
 
 
-    Public selectedDate As DateTime
+    Public SelectedDate As DateTime
 
-    Dim startDate, endDate As DateTime
+    Dim _startDate, _endDate As DateTime
     Dim _selectedCategoryIds As New List(Of Integer)
     Dim _currentDate As DateTime = DateTime.Now
     Dim _userId As Integer = SessionManager.Instance.CurrentUserId
 
-    Dim filePath As String = "C:\Users\user\Downloads"
+    Dim _filePath As String = "C:\Users\user\Downloads"
 
-    Dim darkMode As Boolean = False
+
+    'Dim time As DateTime = startDatePicker.Value.ToString("hh-mm-ss-tt")
+
+    Dim _darkMode As Boolean = False
 
 
 #Region " load "
@@ -20,10 +26,11 @@ Public Class exportView
     Private Sub exportView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         lbl_info.Text = ""
+        dataGrid.ForeColor = Color.Black
 
         If My.Settings.IsLightMode = False Then
             ForeColor = Color.White
-            darkMode = True
+            _darkMode = True
             Me.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
         Else
             Me.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
@@ -44,14 +51,29 @@ Public Class exportView
 #End Region
 
 
+    Public Sub DisplayInformation()
+
+
+        lbl_month.Text = _currentDate.ToString("MMM")
+        lbl_year.Text = _currentDate.ToString("yyyy")
+
+
+        LoadCalander(AddressOf DateClicked)
+
+
+
+    End Sub
+
+
+
 #Region " category "
 
     Public Sub LoadInformation()
 
         'mainwindow category
 
-        Dim _categoryManager As New CategoryManager
-        _categoryManager.GenerateCategoryCheckButtonsExport(flowCategories, AddressOf Checkbox_CheckChanged)
+        Dim categoryManager As New CategoryManager
+        categoryManager.GenerateCategoryCheckButtonsExport(flowCategories, AddressOf Checkbox_CheckChanged)
 
 
         ' 
@@ -80,12 +102,11 @@ Public Class exportView
 
 
 
-            ' clearning selectedCategoryIds
-            'Dim selectedCategoryIds As New List(Of Integer)
 
-            ' if all is selected
+
+
             _selectedCategoryIds.Clear()
-            'SessionManager.SelectedCategoryIds = selectedCategoryIds
+
 
             LoadDataGridView()
 
@@ -99,7 +120,6 @@ Public Class exportView
 
     Private Sub Checkbox_CheckChanged(sender As Object, e As EventArgs)
 
-        MsgBox("hello")
 
         _selectedCategoryIds.Clear()
 
@@ -130,7 +150,6 @@ Public Class exportView
 
         LoadDataGridView()
 
-        MsgBox("hello")
 
     End Sub
 
@@ -153,13 +172,13 @@ Public Class exportView
         Dim year As Integer = _currentDate.Year
         Dim month As Integer = _currentDate.Month
 
-        Dim StartOfTheMonth As New DateTime(year, month, 1)
-        Dim DaysInMonth As Integer = DateTime.DaysInMonth(year, month)
-        Dim StartDayOfWeek As Integer = Convert.ToInt32(StartOfTheMonth.DayOfWeek.ToString("d"))
+        Dim startOfTheMonth As New DateTime(year, month, 1)
+        Dim daysInMonth As Integer = DateTime.DaysInMonth(year, month)
+        Dim startDayOfWeek As Integer = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d"))
 
 
         ' Add empty placeholders for the days before the first day of the month
-        For i As Integer = 1 To StartDayOfWeek - 1 Step 1
+        For i As Integer = 1 To startDayOfWeek - 1 Step 1
 
             Dim md As New monthDate("")
             exportPanelDays.Controls.Add(md)
@@ -167,7 +186,7 @@ Public Class exportView
         Next
 
         ' Adding actual days with event
-        For i As Integer = 1 To DaysInMonth Step 1
+        For i As Integer = 1 To daysInMonth Step 1
 
 
             Dim currentDate As New DateTime(year, month, i)
@@ -196,18 +215,6 @@ Public Class exportView
 
 
 
-    Public Sub DisplayInformation()
-
-
-        lbl_month.Text = _currentDate.ToString("MMM")
-        lbl_year.Text = _currentDate.ToString("yyyy")
-
-
-        LoadCalander(AddressOf DateClicked)
-
-
-
-    End Sub
 
 
 
@@ -259,12 +266,14 @@ Public Class exportView
 
     Private Sub radio_7days_CheckedChanged(sender As Object, e As EventArgs) Handles radio_7days.CheckedChanged
 
+        ClearLog()
+
         If radio_7days.Checked Then
 
-            startDate = _currentDate.AddDays(-7).ToString("yyyy-MM-dd")
-            endDate = _currentDate.ToString("yyyy-MM-dd")
+            _startDate = _currentDate.AddDays(-7).ToString("yyyy-MM-dd")
+            _endDate = _currentDate.ToString("yyyy-MM-dd")
 
-
+            ResetCalanderDateColor()
 
             LoadDataGridView()
         End If
@@ -273,12 +282,14 @@ Public Class exportView
 
     Private Sub radio_14days_CheckedChanged(sender As Object, e As EventArgs) Handles radio_14days.CheckedChanged
 
+        ClearLog()
+
         If radio_14days.Checked Then
 
-            startDate = _currentDate.AddDays(-14).ToString("yyyy-MM-dd")
-            endDate = _currentDate.ToString("yyyy-MM-dd")
+            _startDate = _currentDate.AddDays(-14).ToString("yyyy-MM-dd")
+            _endDate = _currentDate.ToString("yyyy-MM-dd")
 
-
+            ResetCalanderDateColor()
 
             LoadDataGridView()
 
@@ -288,10 +299,12 @@ Public Class exportView
 
     Private Sub radio_30days_CheckedChanged(sender As Object, e As EventArgs) Handles radio_30days.CheckedChanged
 
+        ClearLog()
+
         If radio_30days.Checked Then
 
-            startDate = _currentDate.AddDays(-30).ToString("yyyy-MM-dd")
-            endDate = _currentDate.ToString("yyyy-MM-dd")
+            _startDate = _currentDate.AddDays(-30).ToString("yyyy-MM-dd")
+            _endDate = _currentDate.ToString("yyyy-MM-dd")
 
 
             LoadDataGridView()
@@ -308,14 +321,15 @@ Public Class exportView
 
 #Region " selection 2 dates "
 
-    Dim startDateselected As Boolean = False
-    Dim endDateSelected As Boolean = False
+    Dim _startDateselected As Boolean = False
+    Dim _endDateSelected As Boolean = False
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles startDatePicker.ValueChanged
 
-        startDate = startDatePicker.Value.ToString("yyyy-MM-dd")
+        _startDate = startDatePicker.Value.ToString("yyyy-MM-dd")
 
-
+        ResetCalanderDateColor()
+        ClearLog()
 
         For Each control As Control In table_predefined.Controls
 
@@ -333,12 +347,12 @@ Public Class exportView
         Next
 
 
-        startDateselected = True
-        If startDateselected And endDateSelected Then
+        _startDateselected = True
+        If _startDateselected And _endDateSelected Then
             LoadDataGridView()
 
-            startDateselected = False
-            endDateSelected = False
+            _startDateselected = False
+            _endDateSelected = False
 
 
 
@@ -353,8 +367,10 @@ Public Class exportView
 
     Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles EndDatePicker.ValueChanged
 
-        endDate = EndDatePicker.Value.ToString("yyyy-MM-dd")
+        _endDate = EndDatePicker.Value.ToString("yyyy-MM-dd")
 
+        ResetCalanderDateColor()
+        ClearLog()
 
         For Each control As Control In table_predefined.Controls
 
@@ -371,12 +387,12 @@ Public Class exportView
 
         Next
 
-        endDateSelected = True
-        If startDateselected And endDateSelected Then
+        _endDateSelected = True
+        If _startDateselected And _endDateSelected Then
             LoadDataGridView()
 
-            startDateselected = False
-            endDateSelected = False
+            _startDateselected = False
+            _endDateSelected = False
 
 
 
@@ -394,7 +410,11 @@ Public Class exportView
 
 #Region " single date selected in calander "
 
+    Private previouslySelectedLabel As Label = Nothing
+
     Public Sub DateClicked(ByVal currentDate As DateTime)
+
+        ClearLog()
 
         ' unchecking predefined buttons
         For Each control As Control In table_predefined.Controls
@@ -413,11 +433,46 @@ Public Class exportView
         Next
 
 
+        ' Set font of previously selected date back to normal (if any)
+        If previouslySelectedLabel IsNot Nothing Then
+            previouslySelectedLabel.Font = New Font(previouslySelectedLabel.Font, FontStyle.Regular)
+            previouslySelectedLabel.Font = New Font(previouslySelectedLabel.Font.FontFamily, 8) ' Reset to default size (you can adjust)
+            previouslySelectedLabel.ForeColor = ForeColor
 
-        selectedDate = currentDate
+        End If
 
-        startDate = currentDate
-        endDate = currentDate
+
+        SelectedDate = currentDate
+
+        _startDate = currentDate
+        _endDate = currentDate
+
+
+        ' Find the label associated with the clicked date
+        For Each control As Control In exportPanelDays.Controls
+            If TypeOf control Is monthDate Then
+                Dim monthDateControl As monthDate = DirectCast(control, monthDate)
+
+                If CDate(monthDateControl.Tag) = currentDate Then
+                    ' Change the font of the selected label
+                    monthDateControl.lbl_date.Font = New Font(monthDateControl.lbl_date.Font, FontStyle.Bold)
+                    monthDateControl.lbl_date.Font = New Font(monthDateControl.lbl_date.Font.FontFamily, 11) ' Set to 13px
+
+                    If My.Settings.IsLightMode = False Then
+
+                        monthDateControl.lbl_date.ForeColor = ColorTranslator.FromHtml("#00af71")
+
+                    Else
+                        monthDateControl.lbl_date.ForeColor = ColorTranslator.FromHtml("#007c50")
+
+                    End If
+
+
+                    ' Store the currently selected label for future reference
+                    previouslySelectedLabel = monthDateControl.lbl_date
+                End If
+            End If
+        Next
 
 
 
@@ -427,20 +482,46 @@ Public Class exportView
 
     End Sub
 
+
+
+    Private Sub ResetCalanderDateColor()
+        For Each control As Control In exportPanelDays.Controls
+            If TypeOf control Is monthDate Then
+                Dim monthDateControl As monthDate = DirectCast(control, monthDate)
+
+
+                ' Change the font of the selected label
+                monthDateControl.lbl_date.Font = New Font(monthDateControl.lbl_date.Font, FontStyle.Regular)
+                monthDateControl.lbl_date.Font = New Font(monthDateControl.lbl_date.Font.FontFamily, 8) ' Set to 13px
+                monthDateControl.lbl_date.ForeColor = ForeColor
+
+
+
+            End If
+
+        Next
+    End Sub
+
 #End Region
 
 
 
 #Region " load datagridview "
 
+    Dim _dataTable As New Data.DataTable
+
     Private Sub LoadDataGridView()
 
         dataGrid.ClearSelection()
 
-        If startDate <> DateTime.MinValue AndAlso endDate <> DateTime.MinValue Then
+        If _startDate <> DateTime.MinValue AndAlso _endDate <> DateTime.MinValue Then
             Dim expenseManager As New ExpenseManager
 
-            expenseManager.GetExpenseForExport(dataGrid, startDate, endDate, _selectedCategoryIds)
+            expenseManager.GetExpenseForExport(dataGrid, _startDate, _endDate, _selectedCategoryIds)
+
+            Dim expenseRepository As New ExpenseRepository
+            _dataTable = expenseRepository.GetExpenseExport(_startDate, _endDate, _selectedCategoryIds)
+
         Else
 
             lbl_info.Text = "StartDate or EndDate is not set"
@@ -461,7 +542,7 @@ Public Class exportView
     Private Sub ColorMode()
 
 
-        If darkMode Then
+        If _darkMode Then
             radio_14days.ForeColor = Color.Black
             radio_30days.ForeColor = Color.Black
             radio_7days.ForeColor = Color.Black
@@ -476,8 +557,13 @@ Public Class exportView
 
 
 
+            dataGrid.BackgroundColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+
+
         Else
             check_all.ForeColor = Color.Black
+            dataGrid.BackgroundColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+
 
         End If
 
@@ -503,7 +589,7 @@ Public Class exportView
     Private Sub timer_revertImage_Tick(sender As Object, e As EventArgs) Handles timer_reset_image.Tick
 
 
-        If darkMode Then
+        If _darkMode Then
 
             btn_fiterShow.Image = My.Resources.exportFilterWhite
 
@@ -529,13 +615,99 @@ Public Class exportView
 
     Private Sub btn_csv_Click(sender As Object, e As EventArgs) Handles btn_csv.Click
 
+        Dim filePath As String = GetSaveFilePath("CSV Files|*.csv", "Save CSV File")
+
+        If Not String.IsNullOrEmpty(filePath) Then
+
+
+            Using writer As New StreamWriter(filePath)
+
+
+
+                For Each col As DataColumn In _dataTable.Columns
+                    writer.Write(col.ColumnName & ",")
+                Next
+                writer.WriteLine()
+
+
+
+
+                For Each row As DataRow In _dataTable.Rows
+                    For Each col As DataColumn In _dataTable.Columns
+                        writer.Write(row(col).ToString() & ",")
+                    Next
+                    writer.WriteLine()
+                Next
+
+
+
+            End Using
+
+            ExportLog(filePath)
+
+
+        End If
+
+
     End Sub
 
     Private Sub btn_xml_Click(sender As Object, e As EventArgs) Handles btn_xml.Click
+        Dim filePath As String = GetSaveFilePath("XML Files|*.xml", "Save XML File")
+
+        If Not String.IsNullOrEmpty(filePath) Then
+
+            If String.IsNullOrEmpty(_dataTable.TableName) Then
+                _dataTable.TableName = "ExpenseData" ' You can use any meaningful name here
+            End If
+
+            _dataTable.WriteXml(filePath, XmlWriteMode.WriteSchema)
+
+
+            ExportLog(filePath)
+
+        End If
 
     End Sub
 
+
+    Private Sub ExportLog(ByVal filepath As String)
+        lbl_info.ForeColor = ColorTranslator.FromHtml("#00af71")
+        lbl_info.Text = "Exported sucessfully to " & filepath
+    End Sub
+
+
+    Private Sub ClearLog()
+        lbl_info.Text = ""
+    End Sub
+
+    Private Function GetSaveFilePath(filter As String, title As String) As String
+        Dim sfd As New SaveFileDialog()
+
+        ' Set filter for file types
+        sfd.Filter = filter
+        sfd.Title = title
+
+        If sfd.ShowDialog() = DialogResult.OK Then
+            Return sfd.FileName
+        End If
+
+        Return Nothing
+    End Function
+
+
 #End Region
+
+
+    '#Region " to resolve flicker "
+    '    Protected Overrides ReadOnly Property CreateParams() As CreateParams
+    '        Get
+    '            Dim cp As CreateParams = MyBase.CreateParams
+    '            cp.ExStyle = cp.ExStyle Or &H2000000
+    '            Return cp
+    '        End Get
+    '    End Property
+
+    '#End Region
 
 
 

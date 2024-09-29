@@ -10,24 +10,26 @@ Namespace Presentation
         Dim _amount As Decimal
         Dim _remarks As String
         Dim _dateAdded As DateTime
-        ReadOnly _timeAdded As DateTime = DateTime.Now
+        Dim _timeAdded As DateTime
         Dim _selectedCategoryId As Integer = 0
+
+        Dim wasBelowLimit As Boolean = False
 
 
 #Region " New( dayView ) "
 
-        Dim dayView As DayView
-        Dim monthView As MonthView
-        Dim calanderView As CalanderView
+        Dim _dayView As DayView
+        Dim _monthView As MonthView
+        Dim _calanderView As CalanderView
 
         Public Sub New(ByRef dayViewInst As DayView, ByRef monthViewInst As MonthView, ByRef calanderViewInst As CalanderView)
 
             ' This call is required by the designer.
             InitializeComponent()
 
-            dayView = dayViewInst
-            monthView = monthViewInst
-            calanderView = calanderViewInst
+            _dayView = dayViewInst
+            _monthView = monthViewInst
+            _calanderView = calanderViewInst
 
 
             ' Add any initialization after the InitializeComponent() call.
@@ -40,21 +42,24 @@ Namespace Presentation
 
 #Region " loading categories "
 
-        Dim darkMode As Boolean = False
+        Dim _darkMode As Boolean = False
 
         ' Loading custom categories
         Private Sub New_Expense_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+            lbl_info.Text = ""
+
             If My.Settings.IsLightMode = False Then
                 ForeColor = Color.White
-                darkMode = True
-                Me.BackColor = ColorTranslator.FromHtml("#191D1C")
+                _darkMode = True
+
             Else
-                Me.BackColor = ColorTranslator.FromHtml("#EEF4F9")
+
             End If
 
             ColorMode()
 
+            txt_date_picker.Value = _dayView.CurrentDate
 
             'generating category on panel
             Dim categoryManager As New CategoryManager()
@@ -74,21 +79,29 @@ Namespace Presentation
         Private Sub button_create_Click(sender As Object, e As EventArgs) Handles button_create.Click
 
 
+
+
+
+
+            lbl_info.ForeColor = Color.Red
+
             ' Error proofing
 
             If Not Decimal.TryParse(txt_Amount.Text, _amount) Then
-                MsgBox("Amount should be Decimal ")
+                ErrorLog("Amount should be Decimal ")
                 Return
             End If
 
             If String.IsNullOrEmpty(txt_Amount.Text) Or String.IsNullOrEmpty(txt_Remarks.Text) Or _selectedCategoryId = 0 Then
-                MsgBox("Provide all the required information ")
+                ErrorLog("Provide all the required information ")
+
                 Return
             End If
 
 
             If txt_Remarks.Text.Length > 255 Then
-                MsgBox("Remarks cant be longer than 255 characters.")
+                ErrorLog("Remarks cant be longer than 255 chars")
+                Return
             End If
 
 
@@ -99,8 +112,16 @@ Namespace Presentation
             _amount = CDec(txt_Amount.Text)
             _remarks = txt_Remarks.Text
             _dateAdded = txt_date_picker.Value.ToString("yyyy-MM-dd")
+            _timeAdded = txt_time_picker.Value
 
 
+
+            'checking limit for calander
+            If GetTotal(_dateAdded) < SessionManager.Instance.CurrentDailyLimit Then
+
+                wasBelowLimit = True
+
+            End If
 
 
             ' Backend implementation
@@ -113,23 +134,42 @@ Namespace Presentation
                 ' updating information in dayView
                 'dayView.DisplayInformation()
                 'monthView.DisplayInformation()
+
+
+                ' If dayinview is = currentDate in dayView then only refresh DisplayInformation
+                If _dayView.CurrentDate.ToString("yyyy-MM-dd") = _dateAdded.ToString("yyyy-MM-dd") Then
+
+                    _dayView.DisplayInformation()
+
+                End If
+
                 ClearInputBox()
 
+                lbl_info.ForeColor = Color.ForestGreen
+                lbl_info.Text = " Added expense !"
 
 
-                dayView.DisplayInformation()
+
+                _monthView.DisplayInformation()
 
 
 
-                monthView.DisplayInformation()
 
+                ' if add gareko day ko total > dailyLimit, refresh it
 
-                calanderView.DisplayInformation()
+                If wasBelowLimit = True And GetTotal(_dateAdded) > SessionManager.Instance.CurrentDailyLimit Then
+
+                    _calanderView.DisplayInformation()
+
+                End If
+
 
 
 
             Else
-                MsgBox("Failed adding expense ")
+
+                ErrorLog("Failed Adding Expense")
+
             End If
 
 
@@ -137,13 +177,34 @@ Namespace Presentation
         End Sub
 
 
+        Private Sub ErrorLog(ByVal errorInfo As String)
+
+            lbl_info.ForeColor = Color.Red
+            lbl_info.Text = errorInfo
+
+        End Sub
+
+        Private Sub ClearLog()
+            lbl_info.Text = ""
+        End Sub
+
+
+
 #End Region
 
+#Region " clearning error "
+
+        Private Sub Clear_lbl_info(sender As Object, e As EventArgs) Handles txt_Amount.Enter, txt_Remarks.Enter
+
+            ClearLog()
+        End Sub
+
+#End Region
 
 
 #Region " clear inputs "
 
-        Public Sub ClearInputBox()
+        Private Sub ClearInputBox()
             txt_Amount.Text = ""
             txt_Remarks.Text = ""
 
@@ -185,6 +246,7 @@ Namespace Presentation
 
                     If radioButton.Checked Then
                         _selectedCategoryId = CInt(radioButton.Tag)
+                        ClearLog()
                         Return
                     Else
                         _selectedCategoryId = 0
@@ -243,6 +305,7 @@ Namespace Presentation
         Private Sub EscPressed(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
 
             If e.KeyCode = Keys.Escape Then
+                ClearLog()
                 Me.Close()
             End If
 
@@ -312,9 +375,30 @@ Namespace Presentation
 
 
 
+                txt_Amount.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+                txt_Remarks.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+
+                txt_Remarks.ForeColor = Color.White
+                txt_Amount.ForeColor = Color.White
+
+
+
             End If
 
         End Sub
+#End Region
+
+
+
+#Region " to resolve flicker "
+        Protected Overrides ReadOnly Property CreateParams() As CreateParams
+            Get
+                Dim cp As CreateParams = MyBase.CreateParams
+                cp.ExStyle = cp.ExStyle Or &H2000000
+                Return cp
+            End Get
+        End Property
+
 #End Region
 
     End Class

@@ -8,13 +8,13 @@ Namespace Presentation
 
         Dim _selectedCategoryId As Integer = 0
 
-
-
-#Region " New( dayView ) "
-
         Dim _dayView As DayView
         Dim _monthView As MonthView
         Dim _calanderView As CalanderView
+
+#Region " New( dayView ) "
+
+
 
         Public Sub New(ByRef dayViewInst As DayView, ByRef monthViewInst As MonthView, ByRef calanderViewInst As CalanderView)
 
@@ -39,6 +39,7 @@ Namespace Presentation
 
         Private Sub deleteCategory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+            ClearInfo()
 
             If My.Settings.IsLightMode = False Then
                 ForeColor = Color.White
@@ -61,13 +62,37 @@ Namespace Presentation
 
 
 
+#Region " info label"
+        Private Sub ClearInfo()
+            lbl_info.Text = ""
+        End Sub
+
+        Private Sub DisplayError(erroString As String)
+
+            lbl_info.ForeColor = Color.Red
+            lbl_info.Text = erroString
+
+        End Sub
+
+        Private Sub DisplaySucess(succString As String)
+
+            lbl_info.ForeColor = Color.Green
+            lbl_info.Text = succString
+
+        End Sub
+
+
+
+#End Region
+
+
 
 #Region " delete functionality "
 
         Private Sub button_delete_Click(sender As Object, e As EventArgs) Handles button_delete.Click
 
             If _selectedCategoryId = 0 Then
-                MsgBox("Select a category to delete")
+                DisplayError("Select a category to delete")
                 Return
             End If
 
@@ -77,12 +102,12 @@ Namespace Presentation
             If result > 0 Then
 
                 ' Refresh information
-
+                DisplaySucess("Category deleted sucessfully")
                 RefreshDisplay()
 
             Else
 
-                MsgBox("Failed deleting category")
+                DisplayError("Failed deleting category")
 
             End If
 
@@ -109,9 +134,11 @@ Namespace Presentation
 
             _dayView.DisplayInformation()
 
-
+            _monthView.DisplayInformation()
 
             _calanderView.DisplayInformation()
+
+            MainWindow.UpdateExport()
             'refreshing calander
 
         End Sub
@@ -230,6 +257,19 @@ Namespace Presentation
             End If
 
         End Sub
+#End Region
+
+
+#Region " to resolve flicker "
+        Protected Overrides ReadOnly Property CreateParams() As CreateParams
+            Get
+                Dim cp As CreateParams = MyBase.CreateParams
+                cp.ExStyle = cp.ExStyle Or &H2000000
+                Return cp
+            End Get
+        End Property
+
+
 #End Region
 
     End Class

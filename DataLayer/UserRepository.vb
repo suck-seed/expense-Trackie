@@ -264,7 +264,7 @@ Namespace DataLayer
 
 
 #Region " delete "
-        Function DeleteUserInfo(ByVal userId As Integer, ByVal username As String) As Integer
+        Public Function DeleteUserInfo(ByVal userId As Integer, ByVal username As String) As Integer
 
             Dim result As Integer = 0
 
@@ -302,6 +302,55 @@ Namespace DataLayer
 
 
         End Function
+#End Region
+
+
+
+
+#Region " forget password sign up reset "
+
+        Public Function updatePasswordByUsername(ByVal username As String, ByVal password As String) As Integer
+
+
+            Dim result As Integer = 0
+
+            Using connection As New SqlConnection(_connectionString)
+
+                connection.Open()
+
+                Using command As New SqlCommand("updatePasswordByUsername", connection)
+                    command.CommandType = CommandType.StoredProcedure
+
+
+                    ' linking paremeter
+                    command.Parameters.AddWithValue("@username", username)
+                    command.Parameters.AddWithValue("@password", password)
+
+
+
+                    'output paremeter
+                    Dim resultParameter As New SqlParameter("@result", SqlDbType.Int)
+                    resultParameter.Direction = ParameterDirection.Output
+
+                    command.Parameters.Add(resultParameter)
+
+
+                    command.ExecuteNonQuery()
+
+
+                    result = Convert.ToInt32(resultParameter.Value)
+
+
+                    Return result
+
+                End Using
+
+            End Using
+
+
+
+        End Function
+
 #End Region
 
     End Class

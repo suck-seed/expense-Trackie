@@ -18,6 +18,8 @@ Namespace Presentation
 
         Private Sub NewCategory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+            ClearInfo()
+
             If My.Settings.IsLightMode = False Then
                 ForeColor = Color.White
                 darkMode = True
@@ -32,7 +34,35 @@ Namespace Presentation
 
         End Sub
 
+
+
 #End Region
+
+
+
+#Region " info label"
+        Private Sub ClearInfo()
+            lbl_info.Text = ""
+        End Sub
+
+        Private Sub DisplayError(erroString As String)
+
+            lbl_info.ForeColor = Color.Red
+            lbl_info.Text = erroString
+
+        End Sub
+
+
+        Private Sub txt_name_Enter(sender As Object, e As EventArgs) Handles txt_name.Enter
+            ClearInfo()
+        End Sub
+
+        Private Sub txt_description_Enter(sender As Object, e As EventArgs) Handles txt_description.Enter
+            ClearInfo()
+
+        End Sub
+#End Region
+
 
 
 #Region "category creation"
@@ -43,7 +73,7 @@ Namespace Presentation
             ' Error proofing
 
             If String.IsNullOrEmpty(txt_name.Text) Or String.IsNullOrEmpty(txt_description.Text) Or String.IsNullOrEmpty(_catColor) Then
-                MsgBox("Please fill all the information.")
+                DisplayError("Please fill all the information.")
                 Return
             End If
 
@@ -62,17 +92,19 @@ Namespace Presentation
 
             If catAdded > 0 Then
 
-
+                lbl_info.ForeColor = Color.Green
+                lbl_info.Text = "Category added sucessfully !"
 
                 ' reloading category in mainwindow
                 MainWindow.LoadInformation()
+                MainWindow.UpdateExport()
 
                 ClearInputBox()
 
                 'MsgBox("Category added successfully")
 
             Else
-                MsgBox("Category insertion failed. Please try again.")
+                DisplayError("Category insertion failed. Please try again.")
             End If
 
 
@@ -83,7 +115,7 @@ Namespace Presentation
 #End Region
 
 
-#Region "color selection"
+
         ' Default color selection
 
 #Region " color selection "
@@ -165,10 +197,14 @@ Namespace Presentation
 
 
 
-#End Region
+
+
 
 
 #End Region
+
+
+
 
 
 #Region "clear inputs"
@@ -181,12 +217,12 @@ Namespace Presentation
 #End Region
 
 
+
 #Region "junk"
         ' CLOSING
 
         Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
             Me.Close()
-            MainWindow.btn_delete.Image = My.Resources.delete3
         End Sub
 
 
@@ -223,8 +259,6 @@ Namespace Presentation
 
 
 #End Region
-
-
 
 
 
@@ -285,6 +319,7 @@ Namespace Presentation
 #End Region
 
 
+
 #Region " light / dark"
 
         Public Sub ColorMode()
@@ -298,10 +333,37 @@ Namespace Presentation
                 btn_custom_color.ForeColor = Color.Black
 
 
+
+
+
+                txt_name.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+                txt_description.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+
+                txt_name.ForeColor = Color.White
+                txt_description.ForeColor = Color.White
+
             End If
 
         End Sub
 #End Region
 
+
+
+#Region " to resolve flicker "
+        Protected Overrides ReadOnly Property CreateParams() As CreateParams
+            Get
+                Dim cp As CreateParams = MyBase.CreateParams
+                cp.ExStyle = cp.ExStyle Or &H2000000
+                Return cp
+            End Get
+        End Property
+
+
+
+#End Region
+
+
+
+
     End Class
-End NameSpace
+End Namespace

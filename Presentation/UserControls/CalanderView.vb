@@ -1,42 +1,43 @@
 ﻿Imports expense_Trackie.Application
-Imports expense_Trackie.Presentation
 
-Public Class CalanderView
+Namespace Presentation
+
+    Public Class CalanderView
 
 
-    Dim _currentDate As DateTime = DateTime.Now
+        Dim _currentDate As DateTime = DateTime.Now
 
 #Region " new / load"
 
-    Dim _dayView As DayView
-    Dim _exportView As exportView
+        Dim _dayView As DayView
 
-    Public Sub New(ByRef dayViewInst As DayView, ByRef exportViewInst As exportView)
+        Public Sub New(ByRef dayViewInst As DayView)
 
-        InitializeComponent()
+            InitializeComponent()
 
-        _dayView = dayViewInst
-        _exportView = exportViewInst
-        DisplayInformation()
+            _dayView = dayViewInst
+            DisplayInformation()
 
-    End Sub
+        End Sub
 
 
-    Dim darkMode As Boolean = False
+        Dim _darkMode As Boolean = False
 
-    Private Sub CalanderView_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Private Sub CalanderView_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        If My.Settings.IsLightMode = False Then
+            If My.Settings.IsLightMode = False Then
 
-            darkMode = True
-        End If
+                _darkMode = True
+            Else
 
-        ColorMode()
-        DisplayInformation()
+            End If
+
+            ColorMode()
+            DisplayInformation()
 
 
 
-    End Sub
+        End Sub
 
 
 #End Region
@@ -44,18 +45,18 @@ Public Class CalanderView
 
 
 
-    Public Sub DisplayInformation()
+        Public Sub DisplayInformation()
 
 
-        lbl_month.Text = _currentDate.ToString("MMM")
-        lbl_year.Text = _currentDate.ToString("yyyy")
+            lbl_month.Text = _currentDate.ToString("MMM")
+            lbl_year.Text = _currentDate.ToString("yyyy")
 
 
-        ShowDays(AddressOf DateClicked)
+            ShowDays(AddressOf DateClicked)
 
 
 
-    End Sub
+        End Sub
 
 
 
@@ -63,25 +64,25 @@ Public Class CalanderView
 #Region " navigation "
 
 
-    Private Sub month_previous_Click(sender As Object, e As EventArgs) Handles month_previous.Click
+        Private Sub month_previous_Click(sender As Object, e As EventArgs) Handles month_previous.Click
 
-        fpanel_dates.Controls.Clear()
+            fpanel_dates.Controls.Clear()
 
-        'decreasing the date by 1
-        _currentDate = _currentDate.AddMonths(-1)
-        DisplayInformation()
+            'decreasing the date by 1
+            _currentDate = _currentDate.AddMonths(-1)
+            DisplayInformation()
 
 
-    End Sub
+        End Sub
 
-    Private Sub month_next_Click(sender As Object, e As EventArgs) Handles month_next.Click
+        Private Sub month_next_Click(sender As Object, e As EventArgs) Handles month_next.Click
 
-        fpanel_dates.Controls.Clear()
+            fpanel_dates.Controls.Clear()
 
-        _currentDate = _currentDate.AddMonths(1)
-        DisplayInformation()
+            _currentDate = _currentDate.AddMonths(1)
+            DisplayInformation()
 
-    End Sub
+        End Sub
 
 #End Region
 
@@ -91,64 +92,71 @@ Public Class CalanderView
 
 #Region " showing days "
 
-    Public Sub ShowDays(handler As Action(Of DateTime))
+        Private Sub ShowDays(handler As Action(Of DateTime))
 
 
-        'clear previous controls
-        fpanel_dates.SuspendLayout()
-        fpanel_dates.Controls.Clear()
+            'clear previous controls
+            fpanel_dates.SuspendLayout()
+            fpanel_dates.Controls.Clear()
 
 
-        ' seting values
-        Dim year As Integer = _currentDate.Year
-        Dim month As Integer = _currentDate.Month
+            ' seting values
+            Dim year As Integer = _currentDate.Year
+            Dim month As Integer = _currentDate.Month
 
-        Dim StartOfTheMonth As New DateTime(year, month, 1)
-        Dim DaysInMonth As Integer = DateTime.DaysInMonth(year, month)
-        Dim StartDayOfWeek As Integer = Convert.ToInt32(StartOfTheMonth.DayOfWeek.ToString("d"))
-
-
-
-        ' Add empty placeholders for the days before the first day of the month
-        For i As Integer = 1 To StartDayOfWeek - 1 Step 1
-
-            Dim md As New monthDate("")
-            fpanel_dates.Controls.Add(md)
-
-        Next
+            Dim startOfTheMonth As New DateTime(year, month, 1)
+            Dim daysInMonth As Integer = DateTime.DaysInMonth(year, month)
+            Dim startDayOfWeek As Integer = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d"))
 
 
-        ' Adding actual days with event
-        For i As Integer = 1 To DaysInMonth Step 1
+
+            ' Add empty placeholders for the days before the first day of the month
+            For i As Integer = 1 To startDayOfWeek - 1 Step 1
+
+                Dim md As New monthDate("")
+                fpanel_dates.Controls.Add(md)
+
+            Next
 
 
-            Dim currentDate As New DateTime(year, month, i)
+            ' Adding actual days with event
+            For i As Integer = 1 To daysInMonth Step 1
 
 
-            ' instance of dateDisplay usercontrol
-            Dim dateDisplay As New monthDate(i.ToString())
-
-            dateDisplay.Tag = currentDate
+                Dim currentDate As New DateTime(year, month, i)
 
 
-            ' setting back red if 
-            Dim total As Decimal = GetTotal(currentDate)
-            If total > SessionManager.Instance.CurrentDailyLimit Then
+                ' instance of dateDisplay usercontrol
+                Dim dateDisplay As New monthDate(i.ToString())
 
-                dateDisplay.BackColor = ColorTranslator.FromHtml("#fa5252")
+                dateDisplay.Tag = currentDate
 
+                If currentDate = DateTime.Now.ToString("yyyy-MM-dd") Then
+                    ' Change the font of the selected label
+                    dateDisplay.lbl_date.Font = New Font(dateDisplay.lbl_date.Font, FontStyle.Bold)
+                    dateDisplay.lbl_date.Font = New Font(dateDisplay.lbl_date.Font.FontFamily, 11) ' Set to 13px
 
-            End If
-
-            AddHandler dateDisplay.lbl_date.Click, Sub() handler(currentDate)
-            fpanel_dates.Controls.Add(dateDisplay)
-
-        Next
+                End If
 
 
-        fpanel_dates.ResumeLayout(True)
+                ' setting back red if 
+                Dim total As Decimal = GetTotal(currentDate)
+                If total > SessionManager.Instance.CurrentDailyLimit Then
 
-    End Sub
+                    dateDisplay.lbl_date.BackColor = ColorTranslator.FromHtml("#fa5252")
+
+
+                End If
+
+                AddHandler dateDisplay.lbl_date.Click, Sub() handler(currentDate)
+                fpanel_dates.Controls.Add(dateDisplay)
+
+            Next
+
+
+            fpanel_dates.ResumeLayout(True)
+
+        End Sub
 
 
 #End Region
@@ -158,43 +166,43 @@ Public Class CalanderView
 #Region " get total "
 
 
-    Private Function GetTotal(ByVal currentdate As DateTime) As Decimal
+        Private Function GetTotal(ByVal currentdate As DateTime) As Decimal
 
-        Dim expenseManager As New ExpenseManager()
-        Dim total As Decimal = expenseManager.GetTotalOfDay(currentdate.ToString("yyyy-MM-dd"))
-        Return total
+            Dim expenseManager As New ExpenseManager()
+            Dim total As Decimal = expenseManager.GetTotalOfDay(currentdate.ToString("yyyy-MM-dd"))
+            Return total
 
-    End Function
+        End Function
 
 #End Region
 
 
 #Region " dateClicked "
 
-    Public Sub DateClicked(ByVal currentDate As DateTime)
+        Private Sub DateClicked(ByVal currentDate As DateTime)
 
 
-        'MainWindow.panel_main.Controls.Clear()
-        'If MainWindow.radio_home.Checked = True Then
+            'MainWindow.panel_main.Controls.Clear()
+            'If MainWindow.radio_home.Checked = True Then
 
-        MainWindow.radio_day_view.Checked = True
-        MainWindow.radio_month_view.Checked = False
-        MainWindow.radio_home.Checked = True
+            MainWindow.radio_day_view.Checked = True
+            MainWindow.radio_month_view.Checked = False
+            MainWindow.radio_home.Checked = True
 
-        _dayView._currentDate = currentDate
-        _dayView.DisplayInformation()
+            _dayView.CurrentDate = currentDate
+            _dayView.DisplayInformation()
 
-        'End If
-
-
-        'If MainWindow.radio_export.Checked = True Then
-
-        '    _exportView.selectedDate = currentDate
-
-        'End If
+            'End If
 
 
-    End Sub
+            'If MainWindow.radio_export.Checked = True Then
+
+            '    _exportView.selectedDate = currentDate
+
+            'End If
+
+
+        End Sub
 
 
 #End Region
@@ -202,23 +210,35 @@ Public Class CalanderView
 
 #Region " light / dark"
 
-    Public Sub ColorMode()
+        Private Sub ColorMode()
 
-        If My.Settings.IsLightMode = False Then
-            'lbl_category.ForeColor = foreColor
+            If My.Settings.IsLightMode = False Then
+                'lbl_category.ForeColor = foreColor
 
-            month_previous.Image = My.Resources.previousWhite
-            month_next.Image = My.Resources.nextWhite
-
-
+                month_previous.Image = My.Resources.previousWhite
+                month_next.Image = My.Resources.nextWhite
 
 
-        End If
 
-    End Sub
+
+            End If
+
+        End Sub
 #End Region
 
 
-End Class
+        '#Region " to resolve flicker "
+        '        Protected Overrides ReadOnly Property CreateParams() As CreateParams
+        '            Get
+        '                Dim cp As CreateParams = MyBase.CreateParams
+        '                cp.ExStyle = cp.ExStyle Or &H2000000
+        '                Return cp
+        '            End Get
+        '        End Property
+
+        '#End Region
 
 
+    End Class
+
+End NameSpace

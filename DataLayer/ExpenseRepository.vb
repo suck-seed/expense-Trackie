@@ -343,12 +343,7 @@ Namespace DataLayer
             End If
 
 
-            'If _selectedCategory2 IsNot Nothing AndAlso _selectedCategory2.Count > 0 Then
-            '    ' Add category filter dynamically
 
-            '    query &= " AND c.catId IN ( " & String.Join(",", _selectedCategory2) & " ) "
-
-            'End If
 
 
             Dim dataTable As New DataTable()
@@ -379,6 +374,50 @@ Namespace DataLayer
 
         End Function
 
+
+
+        Public Function GetTop3Month(ByVal currentDate As DateTime) As DataTable
+
+
+            Dim query As String = "
+            
+            SELECT TOP 3 e.eId, e.remarks, e.timeAdded, e.amount, c.color
+            FROM expense e
+            JOIN category c
+                ON e.catId = c.catId
+            WHERE e.userId = @userId 
+            AND e.enabled = 1
+            AND c.enabled = 1 
+            AND e.dateAdded = @dateAdded
+            ORDER BY e.amount DESC  -- Or use e.amount DESC if you want to order by amount
+
+                            "
+
+            Dim dataTable As New DataTable()
+
+            Using connection As New SqlConnection(_connectionString)
+                connection.Open()
+
+                Using command As New SqlCommand(query, connection)
+
+                    command.Parameters.AddWithValue("@userId", _userId)
+                    command.Parameters.AddWithValue("@dateAdded", currentDate)
+
+
+                    Using dataReader As SqlDataReader = command.ExecuteReader()
+
+                        dataTable.Load(dataReader)
+
+                    End Using
+
+
+                End Using
+
+            End Using
+
+            Return dataTable
+
+        End Function
 
 
     End Class

@@ -184,7 +184,7 @@
             'panel_expense_display
             '
             Me.panel_expense_display.AutoScroll = True
-            Me.panel_expense_display.BackColor = System.Drawing.Color.Transparent
+            Me.panel_expense_display.BackColor = System.Drawing.SystemColors.Control
             Me.panel_expense_display.ColumnCount = 1
             Me.panel_expense_display.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
             Me.panel_expense_display.Dock = System.Windows.Forms.DockStyle.Fill
@@ -200,6 +200,7 @@
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+            Me.BackColor = System.Drawing.SystemColors.Control
             Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.Controls.Add(Me.panel_expense_display)
             Me.Controls.Add(Me.generalTable)

@@ -40,8 +40,12 @@
             Me.panel_radio_category = New System.Windows.Forms.FlowLayoutPanel()
             Me.timer_reset_image = New System.Windows.Forms.Timer(Me.components)
             Me.panel_back = New System.Windows.Forms.Panel()
+            Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+            Me.lbl_info = New System.Windows.Forms.Label()
             Me.panel_topbar.SuspendLayout()
             Me.TableLayoutPanel1.SuspendLayout()
+            Me.panel_back.SuspendLayout()
+            Me.TableLayoutPanel2.SuspendLayout()
             Me.SuspendLayout()
             '
             'button_close
@@ -126,7 +130,7 @@
             Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.805243!))
             Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.657948!))
             Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.450705!))
-            Me.TableLayoutPanel1.Size = New System.Drawing.Size(407, 506)
+            Me.TableLayoutPanel1.Size = New System.Drawing.Size(407, 513)
             Me.TableLayoutPanel1.TabIndex = 5
             '
             'btn_custom_color
@@ -135,7 +139,7 @@
             Me.btn_custom_color.BackColor = System.Drawing.SystemColors.ButtonFace
             Me.btn_custom_color.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btn_custom_color.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.btn_custom_color.Location = New System.Drawing.Point(146, 466)
+            Me.btn_custom_color.Location = New System.Drawing.Point(146, 474)
             Me.btn_custom_color.Margin = New System.Windows.Forms.Padding(0)
             Me.btn_custom_color.Name = "btn_custom_color"
             Me.btn_custom_color.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -157,11 +161,11 @@
             Me.panel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.7207!))
             Me.panel_color.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.47132!))
             Me.panel_color.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.panel_color.Location = New System.Drawing.Point(3, 413)
+            Me.panel_color.Location = New System.Drawing.Point(3, 422)
             Me.panel_color.Name = "panel_color"
             Me.panel_color.RowCount = 1
             Me.panel_color.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-            Me.panel_color.Size = New System.Drawing.Size(401, 41)
+            Me.panel_color.Size = New System.Drawing.Size(401, 42)
             Me.panel_color.TabIndex = 5
             '
             'Label3
@@ -169,7 +173,7 @@
             Me.Label3.AutoSize = True
             Me.Label3.Dock = System.Windows.Forms.DockStyle.Bottom
             Me.Label3.Font = New System.Drawing.Font("Cascadia Mono", 10.0!)
-            Me.Label3.Location = New System.Drawing.Point(3, 392)
+            Me.Label3.Location = New System.Drawing.Point(3, 401)
             Me.Label3.Name = "Label3"
             Me.Label3.Size = New System.Drawing.Size(401, 18)
             Me.Label3.TabIndex = 4
@@ -177,12 +181,13 @@
             '
             'txt_description
             '
+            Me.txt_description.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.txt_description.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.txt_description.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.txt_description.Location = New System.Drawing.Point(3, 350)
+            Me.txt_description.Font = New System.Drawing.Font("IBM Plex Mono", 11.0!)
+            Me.txt_description.Location = New System.Drawing.Point(3, 357)
             Me.txt_description.Multiline = False
             Me.txt_description.Name = "txt_description"
-            Me.txt_description.Size = New System.Drawing.Size(401, 29)
+            Me.txt_description.Size = New System.Drawing.Size(401, 30)
             Me.txt_description.TabIndex = 12
             Me.txt_description.Text = ""
             '
@@ -191,7 +196,7 @@
             Me.Label2.AutoSize = True
             Me.Label2.Dock = System.Windows.Forms.DockStyle.Bottom
             Me.Label2.Font = New System.Drawing.Font("Cascadia Mono", 10.0!)
-            Me.Label2.Location = New System.Drawing.Point(3, 329)
+            Me.Label2.Location = New System.Drawing.Point(3, 336)
             Me.Label2.Name = "Label2"
             Me.Label2.Size = New System.Drawing.Size(401, 18)
             Me.Label2.TabIndex = 2
@@ -199,12 +204,13 @@
             '
             'txt_name
             '
+            Me.txt_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.txt_name.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.txt_name.Font = New System.Drawing.Font("Cascadia Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.txt_name.Location = New System.Drawing.Point(3, 280)
+            Me.txt_name.Font = New System.Drawing.Font("IBM Plex Mono", 11.0!)
+            Me.txt_name.Location = New System.Drawing.Point(3, 285)
             Me.txt_name.Multiline = False
             Me.txt_name.Name = "txt_name"
-            Me.txt_name.Size = New System.Drawing.Size(401, 29)
+            Me.txt_name.Size = New System.Drawing.Size(401, 30)
             Me.txt_name.TabIndex = 11
             Me.txt_name.Text = ""
             '
@@ -213,7 +219,7 @@
             Me.Label1.AutoSize = True
             Me.Label1.Dock = System.Windows.Forms.DockStyle.Bottom
             Me.Label1.Font = New System.Drawing.Font("Cascadia Mono", 10.0!)
-            Me.Label1.Location = New System.Drawing.Point(3, 259)
+            Me.Label1.Location = New System.Drawing.Point(3, 264)
             Me.Label1.Name = "Label1"
             Me.Label1.Size = New System.Drawing.Size(401, 18)
             Me.Label1.TabIndex = 0
@@ -224,7 +230,7 @@
             Me.Label5.AutoSize = True
             Me.Label5.Dock = System.Windows.Forms.DockStyle.Bottom
             Me.Label5.Font = New System.Drawing.Font("Cascadia Mono", 10.0!)
-            Me.Label5.Location = New System.Drawing.Point(3, 17)
+            Me.Label5.Location = New System.Drawing.Point(3, 18)
             Me.Label5.Name = "Label5"
             Me.Label5.Size = New System.Drawing.Size(401, 18)
             Me.Label5.TabIndex = 13
@@ -233,9 +239,9 @@
             'panel_radio_category
             '
             Me.panel_radio_category.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.panel_radio_category.Location = New System.Drawing.Point(3, 38)
+            Me.panel_radio_category.Location = New System.Drawing.Point(3, 39)
             Me.panel_radio_category.Name = "panel_radio_category"
-            Me.panel_radio_category.Size = New System.Drawing.Size(401, 197)
+            Me.panel_radio_category.Size = New System.Drawing.Size(401, 200)
             Me.panel_radio_category.TabIndex = 14
             '
             'timer_reset_image
@@ -246,11 +252,40 @@
             '
             Me.panel_back.BackColor = System.Drawing.Color.Transparent
             Me.panel_back.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.panel_back.Controls.Add(Me.TableLayoutPanel2)
             Me.panel_back.Dock = System.Windows.Forms.DockStyle.Fill
             Me.panel_back.Location = New System.Drawing.Point(0, 0)
             Me.panel_back.Name = "panel_back"
             Me.panel_back.Size = New System.Drawing.Size(496, 609)
             Me.panel_back.TabIndex = 6
+            '
+            'TableLayoutPanel2
+            '
+            Me.TableLayoutPanel2.BackColor = System.Drawing.Color.Transparent
+            Me.TableLayoutPanel2.ColumnCount = 1
+            Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+            Me.TableLayoutPanel2.Controls.Add(Me.lbl_info, 0, 0)
+            Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom
+            Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 577)
+            Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+            Me.TableLayoutPanel2.RowCount = 1
+            Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+            Me.TableLayoutPanel2.Size = New System.Drawing.Size(494, 30)
+            Me.TableLayoutPanel2.TabIndex = 85
+            '
+            'lbl_info
+            '
+            Me.lbl_info.AutoSize = True
+            Me.lbl_info.BackColor = System.Drawing.Color.Transparent
+            Me.lbl_info.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.lbl_info.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
+            Me.lbl_info.ForeColor = System.Drawing.Color.Red
+            Me.lbl_info.Location = New System.Drawing.Point(3, 0)
+            Me.lbl_info.Name = "lbl_info"
+            Me.lbl_info.Size = New System.Drawing.Size(488, 30)
+            Me.lbl_info.TabIndex = 82
+            Me.lbl_info.Text = "error"
+            Me.lbl_info.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
             '
             'UpdateCategory
             '
@@ -270,6 +305,9 @@
             Me.panel_topbar.PerformLayout()
             Me.TableLayoutPanel1.ResumeLayout(False)
             Me.TableLayoutPanel1.PerformLayout()
+            Me.panel_back.ResumeLayout(False)
+            Me.TableLayoutPanel2.ResumeLayout(False)
+            Me.TableLayoutPanel2.PerformLayout()
             Me.ResumeLayout(False)
 
         End Sub
@@ -290,5 +328,7 @@
         Public WithEvents txt_name As RichTextBox
         Friend WithEvents timer_reset_image As Timer
         Friend WithEvents panel_back As Panel
+        Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+        Friend WithEvents lbl_info As Label
     End Class
 End NameSpace
