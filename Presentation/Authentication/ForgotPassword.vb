@@ -1,5 +1,6 @@
 ﻿Imports System.Drawing.Drawing2D
 Imports expense_Trackie.DataLayer
+Imports expense_Trackie.Presentation
 
 Public Class ForgotPassword
 
@@ -76,10 +77,8 @@ Public Class ForgotPassword
             button_close.Image = My.Resources.crossWhite
 
             txt_username.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
-            txt_securityCode.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
 
             txt_username.ForeColor = Color.White
-            txt_securityCode.ForeColor = Color.White
 
         End If
 
@@ -235,6 +234,13 @@ Public Class ForgotPassword
             Me.Location = position
         End If
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        SignIn.Show()
+        Me.Close()
+    End Sub
+
+
 
 #End Region
 

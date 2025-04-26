@@ -109,8 +109,8 @@ Partial Class exportView
         Me.table_predefined.Name = "table_predefined"
         Me.table_predefined.RowCount = 1
         Me.table_predefined.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.table_predefined.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66.0!))
-        Me.table_predefined.Size = New System.Drawing.Size(312, 66)
+        Me.table_predefined.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68.0!))
+        Me.table_predefined.Size = New System.Drawing.Size(314, 68)
         Me.table_predefined.TabIndex = 0
         '
         'radio_30days
@@ -125,7 +125,7 @@ Partial Class exportView
         Me.radio_30days.Location = New System.Drawing.Point(218, 13)
         Me.radio_30days.Margin = New System.Windows.Forms.Padding(10, 13, 10, 13)
         Me.radio_30days.Name = "radio_30days"
-        Me.radio_30days.Size = New System.Drawing.Size(84, 40)
+        Me.radio_30days.Size = New System.Drawing.Size(86, 42)
         Me.radio_30days.TabIndex = 2
         Me.radio_30days.TabStop = True
         Me.radio_30days.Text = "30 days"
@@ -144,7 +144,7 @@ Partial Class exportView
         Me.radio_7days.Location = New System.Drawing.Point(10, 13)
         Me.radio_7days.Margin = New System.Windows.Forms.Padding(10, 13, 10, 13)
         Me.radio_7days.Name = "radio_7days"
-        Me.radio_7days.Size = New System.Drawing.Size(84, 40)
+        Me.radio_7days.Size = New System.Drawing.Size(84, 42)
         Me.radio_7days.TabIndex = 0
         Me.radio_7days.TabStop = True
         Me.radio_7days.Text = "7 days"
@@ -163,7 +163,7 @@ Partial Class exportView
         Me.radio_14days.Location = New System.Drawing.Point(114, 13)
         Me.radio_14days.Margin = New System.Windows.Forms.Padding(10, 13, 10, 13)
         Me.radio_14days.Name = "radio_14days"
-        Me.radio_14days.Size = New System.Drawing.Size(84, 40)
+        Me.radio_14days.Size = New System.Drawing.Size(84, 42)
         Me.radio_14days.TabIndex = 1
         Me.radio_14days.TabStop = True
         Me.radio_14days.Text = "14 days"
@@ -182,7 +182,7 @@ Partial Class exportView
         Me.panel_filter.Location = New System.Drawing.Point(0, 0)
         Me.panel_filter.Margin = New System.Windows.Forms.Padding(0)
         Me.panel_filter.Name = "panel_filter"
-        Me.panel_filter.Size = New System.Drawing.Size(314, 892)
+        Me.panel_filter.Size = New System.Drawing.Size(314, 894)
         Me.panel_filter.TabIndex = 3
         '
         'Panel4
@@ -193,7 +193,7 @@ Partial Class exportView
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 528)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(314, 364)
+        Me.Panel4.Size = New System.Drawing.Size(314, 366)
         Me.Panel4.TabIndex = 9
         '
         'flowCategories
@@ -204,7 +204,7 @@ Partial Class exportView
         Me.flowCategories.Location = New System.Drawing.Point(33, 90)
         Me.flowCategories.Margin = New System.Windows.Forms.Padding(0)
         Me.flowCategories.Name = "flowCategories"
-        Me.flowCategories.Size = New System.Drawing.Size(247, 255)
+        Me.flowCategories.Size = New System.Drawing.Size(247, 257)
         Me.flowCategories.TabIndex = 14
         '
         'TableLayoutPanel8
@@ -213,7 +213,7 @@ Partial Class exportView
         Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.5446!))
         Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.96244!))
         Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.49296!))
-        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51.0!))
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65.0!))
         Me.TableLayoutPanel8.Controls.Add(Me.lbl_category, 0, 0)
         Me.TableLayoutPanel8.Location = New System.Drawing.Point(33, 3)
         Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
@@ -228,7 +228,7 @@ Partial Class exportView
         Me.lbl_category.Font = New System.Drawing.Font("IBM Plex Mono SemiBold", 14.0!, System.Drawing.FontStyle.Bold)
         Me.lbl_category.Location = New System.Drawing.Point(3, 0)
         Me.lbl_category.Name = "lbl_category"
-        Me.lbl_category.Size = New System.Drawing.Size(128, 45)
+        Me.lbl_category.Size = New System.Drawing.Size(118, 45)
         Me.lbl_category.TabIndex = 0
         Me.lbl_category.Text = "Category"
         Me.lbl_category.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -479,7 +479,6 @@ Partial Class exportView
         '
         'panel_custom_dates
         '
-        Me.panel_custom_dates.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.panel_custom_dates.Controls.Add(Me.TableLayoutPanel5)
         Me.panel_custom_dates.Dock = System.Windows.Forms.DockStyle.Top
         Me.panel_custom_dates.Location = New System.Drawing.Point(0, 119)
@@ -493,7 +492,7 @@ Partial Class exportView
         Me.TableLayoutPanel5.ColumnCount = 3
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.25605!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.74394!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19.0!))
         Me.TableLayoutPanel5.Controls.Add(Me.Label10, 0, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.Label9, 0, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.startDatePicker, 1, 0)
@@ -506,7 +505,7 @@ Partial Class exportView
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(312, 73)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(314, 75)
         Me.TableLayoutPanel5.TabIndex = 5
         '
         'Label10
@@ -514,9 +513,9 @@ Partial Class exportView
         Me.Label10.AutoSize = True
         Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label10.Font = New System.Drawing.Font("IBM Plex Mono", 10.0!)
-        Me.Label10.Location = New System.Drawing.Point(3, 36)
+        Me.Label10.Location = New System.Drawing.Point(3, 37)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(97, 37)
+        Me.Label10.Size = New System.Drawing.Size(95, 38)
         Me.Label10.TabIndex = 2
         Me.Label10.Text = "End Date"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -528,7 +527,7 @@ Partial Class exportView
         Me.Label9.Font = New System.Drawing.Font("IBM Plex Mono", 10.0!)
         Me.Label9.Location = New System.Drawing.Point(3, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(97, 36)
+        Me.Label9.Size = New System.Drawing.Size(95, 37)
         Me.Label9.TabIndex = 1
         Me.Label9.Text = "Start Date"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -537,23 +536,22 @@ Partial Class exportView
         '
         Me.startDatePicker.CalendarMonthBackground = System.Drawing.Color.Transparent
         Me.startDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.startDatePicker.Location = New System.Drawing.Point(106, 3)
+        Me.startDatePicker.Location = New System.Drawing.Point(104, 3)
         Me.startDatePicker.Name = "startDatePicker"
-        Me.startDatePicker.Size = New System.Drawing.Size(193, 20)
+        Me.startDatePicker.Size = New System.Drawing.Size(187, 20)
         Me.startDatePicker.TabIndex = 3
         '
         'EndDatePicker
         '
         Me.EndDatePicker.CalendarMonthBackground = System.Drawing.Color.Transparent
         Me.EndDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.EndDatePicker.Location = New System.Drawing.Point(106, 39)
+        Me.EndDatePicker.Location = New System.Drawing.Point(104, 40)
         Me.EndDatePicker.Name = "EndDatePicker"
-        Me.EndDatePicker.Size = New System.Drawing.Size(193, 20)
+        Me.EndDatePicker.Size = New System.Drawing.Size(187, 20)
         Me.EndDatePicker.TabIndex = 4
         '
         'Panel2
         '
-        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.table_predefined)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 51)
@@ -595,7 +593,7 @@ Partial Class exportView
         Me.panel_export_main.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panel_export_main.Location = New System.Drawing.Point(314, 0)
         Me.panel_export_main.Name = "panel_export_main"
-        Me.panel_export_main.Size = New System.Drawing.Size(899, 892)
+        Me.panel_export_main.Size = New System.Drawing.Size(901, 894)
         Me.panel_export_main.TabIndex = 4
         '
         'TableLayoutPanel2
@@ -610,7 +608,7 @@ Partial Class exportView
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(897, 740)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(899, 742)
         Me.TableLayoutPanel2.TabIndex = 4
         '
         'lbl_info
@@ -620,9 +618,9 @@ Partial Class exportView
         Me.lbl_info.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lbl_info.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
         Me.lbl_info.ForeColor = System.Drawing.Color.Red
-        Me.lbl_info.Location = New System.Drawing.Point(3, 720)
+        Me.lbl_info.Location = New System.Drawing.Point(3, 722)
         Me.lbl_info.Name = "lbl_info"
-        Me.lbl_info.Size = New System.Drawing.Size(891, 20)
+        Me.lbl_info.Size = New System.Drawing.Size(893, 20)
         Me.lbl_info.TabIndex = 83
         Me.lbl_info.Text = "error"
         Me.lbl_info.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -636,7 +634,7 @@ Partial Class exportView
         Me.dataGrid.Location = New System.Drawing.Point(40, 40)
         Me.dataGrid.Margin = New System.Windows.Forms.Padding(40)
         Me.dataGrid.Name = "dataGrid"
-        Me.dataGrid.Size = New System.Drawing.Size(817, 640)
+        Me.dataGrid.Size = New System.Drawing.Size(819, 642)
         Me.dataGrid.TabIndex = 1
         '
         'TableLayoutPanel1
@@ -649,32 +647,34 @@ Partial Class exportView
         Me.TableLayoutPanel1.Controls.Add(Me.btn_csv, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btn_excel, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 790)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 792)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(897, 100)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(899, 100)
         Me.TableLayoutPanel1.TabIndex = 3
         '
         'btn_xml
         '
-        Me.btn_xml.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btn_xml.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btn_xml.FlatAppearance.BorderSize = 0
         Me.btn_xml.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
         Me.btn_xml.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btn_xml.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btn_xml.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_xml.Image = Global.expense_Trackie.My.Resources.Resources.xml
-        Me.btn_xml.Location = New System.Drawing.Point(712, 22)
+        Me.btn_xml.Location = New System.Drawing.Point(598, 0)
         Me.btn_xml.Margin = New System.Windows.Forms.Padding(0, 0, 0, 2)
         Me.btn_xml.Name = "btn_xml"
         Me.btn_xml.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btn_xml.Size = New System.Drawing.Size(71, 54)
+        Me.btn_xml.Size = New System.Drawing.Size(71, 98)
         Me.btn_xml.TabIndex = 4
         Me.btn_xml.UseVisualStyleBackColor = True
         '
         'btn_csv
         '
         Me.btn_csv.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btn_csv.FlatAppearance.BorderSize = 0
         Me.btn_csv.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
         Me.btn_csv.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btn_csv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
@@ -690,17 +690,18 @@ Partial Class exportView
         '
         'btn_excel
         '
-        Me.btn_excel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btn_excel.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btn_excel.FlatAppearance.BorderSize = 0
         Me.btn_excel.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
         Me.btn_excel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btn_excel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btn_excel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_excel.Image = Global.expense_Trackie.My.Resources.Resources.excel
-        Me.btn_excel.Location = New System.Drawing.Point(114, 22)
+        Me.btn_excel.Location = New System.Drawing.Point(228, 0)
         Me.btn_excel.Margin = New System.Windows.Forms.Padding(0, 0, 0, 2)
         Me.btn_excel.Name = "btn_excel"
         Me.btn_excel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btn_excel.Size = New System.Drawing.Size(71, 54)
+        Me.btn_excel.Size = New System.Drawing.Size(71, 98)
         Me.btn_excel.TabIndex = 2
         Me.btn_excel.UseVisualStyleBackColor = True
         '
@@ -716,7 +717,7 @@ Partial Class exportView
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(897, 50)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(899, 50)
         Me.TableLayoutPanel4.TabIndex = 1
         '
         'btn_fiterShow
@@ -741,13 +742,12 @@ Partial Class exportView
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Controls.Add(Me.panel_export_main)
         Me.Controls.Add(Me.panel_filter)
         Me.DoubleBuffered = True
         Me.Margin = New System.Windows.Forms.Padding(0)
         Me.Name = "exportView"
-        Me.Size = New System.Drawing.Size(1213, 892)
+        Me.Size = New System.Drawing.Size(1215, 894)
         Me.table_predefined.ResumeLayout(False)
         Me.panel_filter.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)

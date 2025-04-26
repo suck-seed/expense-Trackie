@@ -460,5 +460,33 @@ Namespace Presentation
 
 #End Region
 
+
+
+#Region " mouse movement "
+
+
+        ' MOUSE MOVEMENT
+
+
+        Dim _mouseMove As System.Drawing.Point
+
+
+        Private Sub topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseDown
+            _mouseMove = New Point(-e.X, -e.Y)
+        End Sub
+
+
+        Private Sub topbar_MouseMove(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseMove
+            If e.Button = Windows.Forms.MouseButtons.Left Then
+                Dim position As Point
+                position = Control.MousePosition
+                position.Offset(_mouseMove.X, _mouseMove.Y)
+                Me.Location = position
+            End If
+        End Sub
+
+
+#End Region
+
     End Class
 End Namespace

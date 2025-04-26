@@ -71,7 +71,7 @@
             Me.generalTable.RowCount = 2
             Me.generalTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
             Me.generalTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-            Me.generalTable.Size = New System.Drawing.Size(1121, 86)
+            Me.generalTable.Size = New System.Drawing.Size(1123, 86)
             Me.generalTable.TabIndex = 7
             '
             'lbl_year
@@ -81,7 +81,7 @@
             Me.lbl_year.Font = New System.Drawing.Font("IBM Plex Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.lbl_year.Location = New System.Drawing.Point(121, 0)
             Me.lbl_year.Name = "lbl_year"
-            Me.lbl_year.Size = New System.Drawing.Size(58, 43)
+            Me.lbl_year.Size = New System.Drawing.Size(59, 43)
             Me.lbl_year.TabIndex = 0
             Me.lbl_year.Text = "2024"
             Me.lbl_year.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -94,7 +94,7 @@
             Me.btn_next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
             Me.btn_next.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btn_next.Image = Global.expense_Trackie.My.Resources.Resources.right
-            Me.btn_next.Location = New System.Drawing.Point(182, 43)
+            Me.btn_next.Location = New System.Drawing.Point(183, 43)
             Me.btn_next.Margin = New System.Windows.Forms.Padding(0)
             Me.btn_next.Name = "btn_next"
             Me.btn_next.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -125,7 +125,7 @@
             Me.lbl_month.Font = New System.Drawing.Font("IBM Plex Mono", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.lbl_month.Location = New System.Drawing.Point(121, 43)
             Me.lbl_month.Name = "lbl_month"
-            Me.lbl_month.Size = New System.Drawing.Size(58, 43)
+            Me.lbl_month.Size = New System.Drawing.Size(59, 43)
             Me.lbl_month.TabIndex = 1
             Me.lbl_month.Text = "Sep"
             Me.lbl_month.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -135,7 +135,7 @@
             Me.lbl_total_amount.AutoSize = True
             Me.lbl_total_amount.Dock = System.Windows.Forms.DockStyle.Fill
             Me.lbl_total_amount.Font = New System.Drawing.Font("IBM Plex Mono SemiBold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.lbl_total_amount.Location = New System.Drawing.Point(917, 43)
+            Me.lbl_total_amount.Location = New System.Drawing.Point(919, 43)
             Me.lbl_total_amount.Name = "lbl_total_amount"
             Me.lbl_total_amount.Size = New System.Drawing.Size(158, 43)
             Me.lbl_total_amount.TabIndex = 18
@@ -147,7 +147,7 @@
             Me.Label9.AutoSize = True
             Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
             Me.Label9.Font = New System.Drawing.Font("IBM Plex Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.Label9.Location = New System.Drawing.Point(917, 0)
+            Me.Label9.Location = New System.Drawing.Point(919, 0)
             Me.Label9.Name = "Label9"
             Me.Label9.Size = New System.Drawing.Size(158, 43)
             Me.Label9.TabIndex = 7
@@ -160,7 +160,7 @@
             Me.btn_refresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
             Me.btn_refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
             Me.btn_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btn_refresh.Location = New System.Drawing.Point(661, 3)
+            Me.btn_refresh.Location = New System.Drawing.Point(663, 3)
             Me.btn_refresh.Name = "btn_refresh"
             Me.btn_refresh.Size = New System.Drawing.Size(75, 23)
             Me.btn_refresh.TabIndex = 21
@@ -188,7 +188,7 @@
             Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
             Me.TableLayoutPanel3.RowCount = 1
             Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-            Me.TableLayoutPanel3.Size = New System.Drawing.Size(1121, 31)
+            Me.TableLayoutPanel3.Size = New System.Drawing.Size(1123, 31)
             Me.TableLayoutPanel3.TabIndex = 28
             '
             'Label7
@@ -224,7 +224,7 @@
             Me.Label5.ForeColor = System.Drawing.Color.IndianRed
             Me.Label5.Location = New System.Drawing.Point(963, 0)
             Me.Label5.Name = "Label5"
-            Me.Label5.Size = New System.Drawing.Size(155, 31)
+            Me.Label5.Size = New System.Drawing.Size(157, 31)
             Me.Label5.TabIndex = 6
             Me.Label5.Text = "SAT"
             Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -297,7 +297,7 @@
             Me.tpanel_day.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
             Me.tpanel_day.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
             Me.tpanel_day.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-            Me.tpanel_day.Size = New System.Drawing.Size(1121, 796)
+            Me.tpanel_day.Size = New System.Drawing.Size(1123, 798)
             Me.tpanel_day.TabIndex = 29
             '
             'timer_reset_image
@@ -309,14 +309,13 @@
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.BackColor = System.Drawing.Color.Transparent
-            Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.Controls.Add(Me.tpanel_day)
             Me.Controls.Add(Me.TableLayoutPanel3)
             Me.Controls.Add(Me.generalTable)
             Me.DoubleBuffered = True
             Me.Margin = New System.Windows.Forms.Padding(20)
             Me.Name = "MonthView"
-            Me.Size = New System.Drawing.Size(1121, 913)
+            Me.Size = New System.Drawing.Size(1123, 915)
             Me.generalTable.ResumeLayout(False)
             Me.generalTable.PerformLayout()
             Me.TableLayoutPanel3.ResumeLayout(False)

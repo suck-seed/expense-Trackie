@@ -36,6 +36,7 @@ Partial Class UpdatePassword
         Me.btn_reset = New System.Windows.Forms.Button()
         Me.notifyCode = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.panel_topbar.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -192,16 +193,33 @@ Partial Class UpdatePassword
         Me.PictureBox2.TabIndex = 99
         Me.PictureBox2.TabStop = False
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Image = Global.expense_Trackie.My.Resources.Resources.previousTight
+        Me.Button1.Location = New System.Drawing.Point(14, 16)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Button1.Size = New System.Drawing.Size(50, 46)
+        Me.Button1.TabIndex = 104
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'UpdatePassword
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(814, 553)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.btn_reset)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.panel_topbar)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "UpdatePassword"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -228,4 +246,5 @@ Partial Class UpdatePassword
     Friend WithEvents btn_reset As Button
     Friend WithEvents notifyCode As NotifyIcon
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Button1 As Button
 End Class

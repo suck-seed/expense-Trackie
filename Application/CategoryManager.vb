@@ -1,4 +1,5 @@
 ﻿Imports expense_Trackie.DataLayer
+Imports expense_Trackie.Presentation
 
 Namespace Application
     Public Class CategoryManager
@@ -15,7 +16,8 @@ Namespace Application
 
             '            checking is category already exists
             If _categoryrepository.IsDuplicateCategory(catName) Then
-                MsgBox("A category with provided name already exists")
+                NewCategory.lbl_info.ForeColor = Color.Red
+                NewCategory.lbl_info.Text = "A category with provided name already exists"
                 Return -1
             End If
 
@@ -269,6 +271,51 @@ Namespace Application
 #End Region
 
 
+
+#Region " generate category user control "
+
+        Public Sub GenerateCategoryUserControl(ByRef fpanel As FlowLayoutPanel, ByRef isYearly As Boolean, ByRef isMonthly As Boolean)
+
+            Dim expenseRepo As New ExpenseRepository
+            Dim categoryTable As DataTable = expenseRepo.GetExpenseOfCategories(isYearly, isMonthly)
+
+
+            fpanel.SuspendLayout()
+            fpanel.Controls.Clear()
+
+            For Each row As DataRow In categoryTable.Rows
+
+
+                Dim name As String = row("Categoryname").ToString()
+                Dim count As String = row("ExpenseCount").ToString()
+                Dim total As String = row("TotalSpent").ToString
+
+
+
+                'setting values
+                Dim categoryInfo As New CategoryInfo
+
+                categoryInfo.lbl_category_name.Text = name
+                categoryInfo.lbl_number.Text = count
+                categoryInfo.lbl_amount.Text = total
+
+
+                'setting baclcolor
+                categoryInfo.BackColor = ColorTranslator.FromHtml(row("CategoryColor").ToString())
+
+
+
+
+                'adding into panel
+                fpanel.Controls.Add(categoryInfo)
+
+            Next
+
+            fpanel.ResumeLayout(True)
+
+        End Sub
+
+#End Region
 
 
     End Class

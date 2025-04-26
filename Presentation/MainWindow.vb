@@ -18,7 +18,6 @@ Namespace Presentation
         Dim _dayView As New DayView()
         Dim _monthView As New MonthView(_dayView)
         Dim _exportView As New exportView()
-        Dim _analyticalView As New analyticalView()
         Dim _calanderView As New CalanderView(_dayView)
 
 
@@ -70,8 +69,11 @@ Namespace Presentation
 
             LoadCalander()
 
-            radio_home.Checked = True
-            radio_day_view.Checked = True
+            'radio_home.Checked = True
+            'radio_day_view.Checked = True
+
+            'hiding day / month view on load
+            'panel_day_month.Visible = False
 
             'rounded
             SetRoundedShape(Me, _borderRadius)
@@ -164,6 +166,36 @@ Namespace Presentation
 
 
 #Region " month/day "
+
+        Dim firstHomeClick As Boolean = True
+
+        Private Sub radio_home_view_clicked(sender As Object, e As EventArgs) Handles radio_home.CheckedChanged
+
+
+            ' if clicked home for the first time
+            If radio_home.Checked And firstHomeClick = True Then
+
+                firstHomeClick = False
+                panel_day_month.Visible = True
+                radio_day_view.Checked = True
+
+                panel_year_month.Visible = False
+
+
+            ElseIf radio_home.Checked = True Then
+
+
+                panel_day_month.Visible = True
+                panel_main.Controls.Clear()
+
+                panel_year_month.Visible = False
+
+
+            End If
+
+
+        End Sub
+
         Private Sub radio_month_view_CheckedChanged(sender As Object, e As EventArgs) Handles radio_month_view.CheckedChanged, radio_home.CheckedChanged
 
             If radio_home.Checked Then
@@ -274,6 +306,9 @@ Namespace Presentation
 #Region " export "
 
         Private Sub ExportRadioClicked(sender As Object, e As EventArgs) Handles radio_export.CheckedChanged
+            panel_day_month.Visible = False
+
+
 
             If radio_export.Checked = True Then
 
@@ -294,15 +329,99 @@ Namespace Presentation
 
 #Region " analytical view "
 
-        Private Sub AnalyticalViewClicked(sender As Object, e As EventArgs) Handles radio_analytical.CheckedChanged
+        Dim _analysisView As New analyticalView(0, 1)
+        Dim isFirstTimeAnalysis = True
+
+        Private Sub radionasas(sender As Object, e As EventArgs) Handles radio_analytical.CheckedChanged
+
+            panel_day_month.Visible = False
+            panel_year_month.Visible = True
 
 
-            If radio_analytical.Checked = True Then
+            If isFirstTimeAnalysis Then
+                DisplayForm(_analysisView)
+                radio_analyze_monthly.Checked = True
+            End If
 
-                DisplayForm(_analyticalView)
+
+
+        End Sub
+
+        Private Sub ausahsuahsas(sender As Object, e As EventArgs) Handles radio_analyze_monthly.CheckedChanged
+
+            If radio_analyze_monthly.Checked Then
+
+                Dim AnalysisViewMonth As New analyticalView(0, 1)
+                DisplayForm(AnalysisViewMonth)
+            End If
+
+
+        End Sub
+
+
+        Private Sub ausahsuhsas(sender As Object, e As EventArgs) Handles radio_analysis_year.CheckedChanged
+
+            If radio_analysis_year.Checked Then
+                Dim AnalysisViewMonth As New analyticalView(1, 0)
+                DisplayForm(AnalysisViewMonth)
+            End If
+
+
+
+        End Sub
+
+        Private Sub ashsuas(sender As Object, e As EventArgs) Handles radio_analyze_monthly.CheckedChanged, radio_analysis_year.CheckedChanged
+
+            If radio_analysis_year.Checked Then
+
+                If _darkMode = True Then
+
+                    radio_analysis_year.Image = My.Resources.YearAnalysisLightSelected
+                Else
+                    radio_analysis_year.Image = My.Resources.yearAnalysisDark
+
+                End If
+            Else
+                If _darkMode = True Then
+
+                    radio_analysis_year.Image = My.Resources.yearAnalysisWhite
+                Else
+                    radio_analysis_year.Image = My.Resources.yearAnalysis
+
+                End If
+
+            End If
+
+
+            If radio_analyze_monthly.Checked Then
+
+                If _darkMode = True Then
+
+                    radio_analyze_monthly.Image = My.Resources.monthWhiteSelected
+                Else
+                    radio_analyze_monthly.Image = My.Resources.monthDark
+
+                End If
+
+            Else
+                If _darkMode = True Then
+
+                    radio_analyze_monthly.Image = My.Resources.monthWhite
+                Else
+                    radio_analyze_monthly.Image = My.Resources.monthLight
+
+                End If
             End If
 
         End Sub
+
+
+
+        'by default it is monthly view
+
+
+
+
 
 #End Region
 
@@ -651,12 +770,12 @@ Namespace Presentation
         Dim _mouseMove As System.Drawing.Point
 
 
-        Private Sub topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseDown
+        Private Sub topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_top.MouseDown
             _mouseMove = New Point(-e.X, -e.Y)
         End Sub
 
 
-        Private Sub topbar_MouseMove(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseMove
+        Private Sub topbar_MouseMove(sender As Object, e As MouseEventArgs) Handles panel_top.MouseMove
 
             If e.Button = Windows.Forms.MouseButtons.Left Then
                 Dim position As Point
@@ -671,19 +790,19 @@ Namespace Presentation
         Private _isMouseDown As Boolean = False
 
 
-        Private Sub panel_topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseDown
+        Private Sub panel_topbar_MouseDown(sender As Object, e As MouseEventArgs) Handles panel_top.MouseDown
             If e.Button = MouseButtons.Left Then
                 _isMouseDown = True
             End If
         End Sub
 
 
-        Private Sub panel_topbar_MouseUp(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseUp
+        Private Sub panel_topbar_MouseUp(sender As Object, e As MouseEventArgs) Handles panel_top.MouseUp
             _isMouseDown = False
         End Sub
 
         ' Handle MouseMove event and check if the mouse is down
-        Private Sub panel_topbar_MouseMove(sender As Object, e As MouseEventArgs) Handles panel_topbar.MouseMove
+        Private Sub panel_topbar_MouseMove(sender As Object, e As MouseEventArgs) Handles panel_top.MouseMove
             If _isMouseDown Then
                 ' Your logic here
                 If Me.Size = New Size(1920, 1200) Then
@@ -801,6 +920,10 @@ Namespace Presentation
                 btn_edit_category.Image = My.Resources.editWhite
                 add_category.Image = My.Resources.addWhite
 
+
+                radio_analyze_monthly.Image = My.Resources.monthWhite
+                radio_analysis_year.Image = My.Resources.yearAnalysisWhite
+
             Else
                 panel_main.BackColor = Color.WhiteSmoke
 
@@ -853,6 +976,8 @@ Namespace Presentation
                 Return cp
             End Get
         End Property
+
+
 
 #End Region
 

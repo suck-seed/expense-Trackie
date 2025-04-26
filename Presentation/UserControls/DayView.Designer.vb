@@ -64,7 +64,7 @@
             Me.generalTable.RowCount = 2
             Me.generalTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
             Me.generalTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-            Me.generalTable.Size = New System.Drawing.Size(1109, 86)
+            Me.generalTable.Size = New System.Drawing.Size(1111, 86)
             Me.generalTable.TabIndex = 6
             '
             'lbl_month
@@ -128,7 +128,7 @@
             Me.lbl_total_amount.AutoSize = True
             Me.lbl_total_amount.Dock = System.Windows.Forms.DockStyle.Fill
             Me.lbl_total_amount.Font = New System.Drawing.Font("IBM Plex Mono SemiBold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.lbl_total_amount.Location = New System.Drawing.Point(909, 43)
+            Me.lbl_total_amount.Location = New System.Drawing.Point(912, 43)
             Me.lbl_total_amount.Name = "lbl_total_amount"
             Me.lbl_total_amount.Size = New System.Drawing.Size(155, 43)
             Me.lbl_total_amount.TabIndex = 18
@@ -140,7 +140,7 @@
             Me.Label9.AutoSize = True
             Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
             Me.Label9.Font = New System.Drawing.Font("IBM Plex Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.Label9.Location = New System.Drawing.Point(909, 0)
+            Me.Label9.Location = New System.Drawing.Point(912, 0)
             Me.Label9.Name = "Label9"
             Me.Label9.Size = New System.Drawing.Size(155, 43)
             Me.Label9.TabIndex = 7
@@ -169,7 +169,7 @@
             Me.btn_filter.Font = New System.Drawing.Font("IBM Plex Mono", 9.0!)
             Me.btn_filter.Image = Global.expense_Trackie.My.Resources.Resources.filter
             Me.btn_filter.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-            Me.btn_filter.Location = New System.Drawing.Point(857, 46)
+            Me.btn_filter.Location = New System.Drawing.Point(860, 46)
             Me.btn_filter.Name = "btn_filter"
             Me.btn_filter.Size = New System.Drawing.Size(46, 37)
             Me.btn_filter.TabIndex = 23
@@ -193,7 +193,7 @@
             Me.panel_expense_display.Name = "panel_expense_display"
             Me.panel_expense_display.RowCount = 1
             Me.panel_expense_display.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-            Me.panel_expense_display.Size = New System.Drawing.Size(1109, 806)
+            Me.panel_expense_display.Size = New System.Drawing.Size(1111, 808)
             Me.panel_expense_display.TabIndex = 7
             '
             'DayView
@@ -201,12 +201,11 @@
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.BackColor = System.Drawing.SystemColors.Control
-            Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.Controls.Add(Me.panel_expense_display)
             Me.Controls.Add(Me.generalTable)
             Me.DoubleBuffered = True
             Me.Name = "DayView"
-            Me.Size = New System.Drawing.Size(1109, 892)
+            Me.Size = New System.Drawing.Size(1111, 894)
             Me.generalTable.ResumeLayout(False)
             Me.generalTable.PerformLayout()
             Me.ResumeLayout(False)

@@ -103,6 +103,10 @@ Namespace Presentation
 
                 'MsgBox("Category added successfully")
 
+            ElseIf catAdded = -1 Then
+
+                DisplayError("Category with above name already exists !")
+
             Else
                 DisplayError("Category insertion failed. Please try again.")
             End If

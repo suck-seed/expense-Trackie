@@ -420,6 +420,71 @@ Namespace DataLayer
         End Function
 
 
+
+        Public Function GetExpenseOfCategories(ByRef isYearly As Boolean, ByRef isMonthly As Boolean) As DataTable
+
+            ' Get the current date for use in filtering
+            Dim currentDate As DateTime = DateTime.Now
+
+            ' Initialize the base query
+            Dim query As String = "
+                    SELECT 
+                    c.catName AS CategoryName, 
+                    c.color AS CategoryColor, 
+                    SUM(e.amount) AS TotalSpent, 
+                    COUNT(e.eId) AS ExpenseCount 
+                    FROM 
+                    category c
+                    LEFT JOIN 
+                    expense e ON c.catId = e.catId AND e.userId = @userId AND e.enabled = 1
+                    WHERE 
+                    c.enabled = 1"
+
+            ' Apply filters based on whether it's a yearly or monthly view
+            If isYearly Then
+                query &= " AND YEAR(e.dateAdded) = @currentYear"
+            ElseIf isMonthly Then
+                query &= " AND YEAR(e.dateAdded) = @currentYear AND MONTH(e.dateAdded) = @currentMonth"
+            End If
+
+            ' Complete the query
+            query &= "
+                    GROUP BY 
+                    c.catName, c.color 
+                    ORDER BY 
+                    TotalSpent DESC;  -- Order by the total amount spent"
+
+            Dim dataTable As New DataTable()
+
+            ' Open the connection and execute the query
+            Using connection As New SqlConnection(_connectionString)
+                connection.Open()
+
+                Using command As New SqlCommand(query, connection)
+
+                    ' Add the parameters for userId, currentYear, and currentMonth
+                    command.Parameters.AddWithValue("@userId", _userId)
+                    command.Parameters.AddWithValue("@currentYear", currentDate.Year)
+
+                    ' Add the current month parameter only if it's a monthly view
+                    If isMonthly Then
+                        command.Parameters.AddWithValue("@currentMonth", currentDate.Month)
+                    End If
+
+                    ' Execute the query and load the results into the DataTable
+                    Using dataReader As SqlDataReader = command.ExecuteReader()
+                        dataTable.Load(dataReader)
+                    End Using
+
+                End Using
+
+
+            End Using
+
+            Return dataTable
+
+        End Function
+
     End Class
 
 End NameSpace

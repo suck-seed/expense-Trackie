@@ -153,6 +153,12 @@ Namespace Presentation
                 Return
             Else
                 _dailyLimit = CDec(txt_dailyLimit.Text)
+
+                If _dailyLimit < 0 Then
+                    lbl_info.Text = "Limit cannot be negative"
+                    Return
+                End If
+
                 _enteredLimit = _dailyLimit
             End If
 
@@ -516,6 +522,18 @@ Namespace Presentation
 
         End Sub
 #End Region
+
+#Region " to resolve flicker "
+        Protected Overrides ReadOnly Property CreateParams() As CreateParams
+            Get
+                Dim cp As CreateParams = MyBase.CreateParams
+                cp.ExStyle = cp.ExStyle Or &H2000000
+                Return cp
+            End Get
+        End Property
+
+#End Region
+
 
     End Class
 End NameSpace

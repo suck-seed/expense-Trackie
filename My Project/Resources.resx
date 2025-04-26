@@ -502,4 +502,31 @@
   <data name="Sign Up Success" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sign Up Success.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="yearAnalysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yearAnalysis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yearAnalysisDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yearAnalysisDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YearAnalysisLightSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YearAnalysisLightSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yearAnalysisWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yearAnalysisWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="checkWhiteFilled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\checkWhiteFilled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="compareBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\compareBlack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="compareBlackFilled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\compareBlackFilled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="compareWhieFilled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\compareWhieFilled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="compareWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\compareWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

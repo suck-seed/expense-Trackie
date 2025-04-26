@@ -46,6 +46,10 @@ Public Class exportView
         DisplayInformation()
         LoadInformation()
 
+
+        'showing 7 day at first
+        radio_7days.Checked = True
+
     End Sub
 
 #End Region
@@ -136,8 +140,7 @@ Public Class exportView
                 If checkBox.Checked = True Then
                     Dim categoryId As Integer = CInt(checkBox.Tag)
 
-                    MsgBox(categoryId)
-                    MsgBox(CInt(checkBox.Tag))
+
 
                     _selectedCategoryIds.Add(categoryId)
                 End If
@@ -610,6 +613,17 @@ Public Class exportView
 
 #Region " main functionality "
     Private Sub btn_excel_Click(sender As Object, e As EventArgs) Handles btn_excel.Click
+        Dim filePath As String = GetSaveFilePath("Excel Files|*.xlsx", "Save Excel File")
+
+        ' Create a new Excel package
+        ' Create a new Excel workbook
+        Using workbook As New XLWorkbook()
+            ' Add a new worksheet with the DataTable data
+            Dim worksheet = workbook.Worksheets.Add(_dataTable, "Sheet1")
+
+            ' Save the Excel file
+            workbook.SaveAs(filePath)
+        End Using
 
     End Sub
 

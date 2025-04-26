@@ -30,12 +30,11 @@ Partial Class ForgotPassword
         Me.lbl_error = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.btn_sendCode = New System.Windows.Forms.Button()
-        Me.txt_securityCode = New System.Windows.Forms.TextBox()
-        Me.txt_username = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txt_secutiry_code = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.txt_username = New System.Windows.Forms.TextBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.panel_topbar.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -94,7 +93,7 @@ Partial Class ForgotPassword
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.lbl_error, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(445, 404)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(445, 344)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -109,77 +108,52 @@ Partial Class ForgotPassword
         Me.btn_sendCode.Font = New System.Drawing.Font("IBM Plex Mono", 15.0!, System.Drawing.FontStyle.Bold)
         Me.btn_sendCode.ForeColor = System.Drawing.Color.Transparent
         Me.btn_sendCode.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btn_sendCode.Location = New System.Drawing.Point(476, 350)
+        Me.btn_sendCode.Location = New System.Drawing.Point(476, 290)
         Me.btn_sendCode.Name = "btn_sendCode"
         Me.btn_sendCode.Size = New System.Drawing.Size(248, 48)
         Me.btn_sendCode.TabIndex = 96
         Me.btn_sendCode.Text = "Send Code"
         Me.btn_sendCode.UseVisualStyleBackColor = False
         '
-        'txt_securityCode
-        '
-        Me.txt_securityCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txt_securityCode.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txt_securityCode.Font = New System.Drawing.Font("IBM Plex Mono", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_securityCode.Location = New System.Drawing.Point(3, 129)
-        Me.txt_securityCode.Name = "txt_securityCode"
-        Me.txt_securityCode.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
-        Me.txt_securityCode.Size = New System.Drawing.Size(265, 28)
-        Me.txt_securityCode.TabIndex = 56
-        '
-        'txt_username
-        '
-        Me.txt_username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txt_username.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txt_username.Font = New System.Drawing.Font("IBM Plex Mono", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_username.Location = New System.Drawing.Point(3, 45)
-        Me.txt_username.MaximumSize = New System.Drawing.Size(3000, 3000)
-        Me.txt_username.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.txt_username.Name = "txt_username"
-        Me.txt_username.Size = New System.Drawing.Size(265, 28)
-        Me.txt_username.TabIndex = 55
-        '
         'Label7
         '
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Label7.Font = New System.Drawing.Font("IBM Plex Mono", 9.75!)
-        Me.Label7.Location = New System.Drawing.Point(3, 24)
+        Me.Label7.Location = New System.Drawing.Point(3, 21)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(265, 18)
         Me.Label7.TabIndex = 1
         Me.Label7.Text = "Username"
-        '
-        'txt_secutiry_code
-        '
-        Me.txt_secutiry_code.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.txt_secutiry_code.Font = New System.Drawing.Font("IBM Plex Mono", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_secutiry_code.Location = New System.Drawing.Point(3, 108)
-        Me.txt_secutiry_code.Name = "txt_secutiry_code"
-        Me.txt_secutiry_code.Size = New System.Drawing.Size(265, 18)
-        Me.txt_secutiry_code.TabIndex = 3
-        Me.txt_secutiry_code.Text = "Security Code"
         '
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel2.ColumnCount = 1
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.txt_secutiry_code, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.Label7, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.txt_username, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.txt_securityCode, 0, 3)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(465, 138)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(465, 171)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 4
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(271, 171)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(271, 78)
         Me.TableLayoutPanel2.TabIndex = 95
+        '
+        'txt_username
+        '
+        Me.txt_username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_username.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txt_username.Font = New System.Drawing.Font("IBM Plex Mono", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_username.Location = New System.Drawing.Point(3, 42)
+        Me.txt_username.MaximumSize = New System.Drawing.Size(3000, 3000)
+        Me.txt_username.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.txt_username.Name = "txt_username"
+        Me.txt_username.Size = New System.Drawing.Size(265, 28)
+        Me.txt_username.TabIndex = 55
         '
         'PictureBox2
         '
@@ -192,11 +166,27 @@ Partial Class ForgotPassword
         Me.PictureBox2.TabIndex = 93
         Me.PictureBox2.TabStop = False
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Image = Global.expense_Trackie.My.Resources.Resources.previousTight
+        Me.Button1.Location = New System.Drawing.Point(12, 16)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Button1.Size = New System.Drawing.Size(50, 46)
+        Me.Button1.TabIndex = 42
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'ForgotPassword
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(818, 508)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.btn_sendCode)
         Me.Controls.Add(Me.TableLayoutPanel2)
@@ -223,9 +213,8 @@ Partial Class ForgotPassword
     Friend WithEvents lbl_error As Label
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents btn_sendCode As Button
-    Friend WithEvents txt_securityCode As TextBox
-    Friend WithEvents txt_username As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents txt_secutiry_code As Label
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents Button1 As Button
+    Friend WithEvents txt_username As TextBox
 End Class

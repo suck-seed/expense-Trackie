@@ -87,15 +87,27 @@ Namespace Presentation
 
             ' Error proofing
 
-            If Not Decimal.TryParse(txt_Amount.Text, _amount) Then
-                ErrorLog("Amount should be Decimal ")
-                Return
-            End If
+
 
             If String.IsNullOrEmpty(txt_Amount.Text) Or String.IsNullOrEmpty(txt_Remarks.Text) Or _selectedCategoryId = 0 Then
                 ErrorLog("Provide all the required information ")
 
                 Return
+            End If
+
+            If Not Decimal.TryParse(txt_Amount.Text, _amount) Then
+                ErrorLog("Amount should be Decimal ")
+                Return
+            End If
+
+            If Decimal.TryParse(txt_Amount.Text, _amount) Then
+
+                _amount = CDec(txt_Amount.Text)
+                If _amount < 0 Then
+                    ErrorLog("Amount can not be negative.")
+                    Return
+                End If
+
             End If
 
 
