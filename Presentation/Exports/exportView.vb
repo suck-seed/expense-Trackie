@@ -617,13 +617,19 @@ Public Class exportView
 
         ' Create a new Excel package
         ' Create a new Excel workbook
-        Using workbook As New XLWorkbook()
-            ' Add a new worksheet with the DataTable data
-            Dim worksheet = workbook.Worksheets.Add(_dataTable, "Sheet1")
+        If Not String.IsNullOrEmpty(filePath) Then
 
-            ' Save the Excel file
-            workbook.SaveAs(filePath)
-        End Using
+
+            Using workbook As New XLWorkbook()
+                ' Add a new worksheet with the DataTable data
+                Dim worksheet = workbook.Worksheets.Add(_dataTable, "Sheet1")
+
+                ' Save the Excel file
+                workbook.SaveAs(filePath)
+            End Using
+
+        End If
+
 
     End Sub
 
