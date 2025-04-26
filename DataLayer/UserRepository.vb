@@ -1,12 +1,13 @@
-﻿Imports System.Configuration
-Imports System.Data.SqlClient
+﻿Imports System.Data.SQLite
 
 Namespace DataLayer
 
     Public Class UserRepository
 
         ' DATA MEMBERS
-        ReadOnly _connectionString As String = ConfigurationManager.ConnectionStrings("expenseTrackie").ConnectionString
+        'ReadOnly _connectionString As String = ConfigurationManager.ConnectionStrings("expenseTrackie").ConnectionString
+        Private ReadOnly _connectionString As String = DatabaseSetup.ConnectionString
+
 
         'Dim userId As Integer = SessionManager.Instance.currentUserId
 
@@ -17,45 +18,13 @@ Namespace DataLayer
 #Region "check duplicate user"
 
         Public Function IsDuplicateUser(ByVal username As String, ByVal number As String) As Boolean
-            Dim exists As Boolean = False
-
-            Using connection As New SqlConnection(_connectionString)
-
-                connection.Open()
-
-                Using command As New SqlCommand("checkDuplicateUser", connection)
-                    command.CommandType = CommandType.StoredProcedure
-
-
-                    ' adding input paremeters
-                    command.Parameters.AddWithValue("@username", username)
-                    command.Parameters.AddWithValue("@number", number)
-
-
-                    ' adding output paremeter
-                    Dim existsParemeter As New SqlParameter("@exists", SqlDbType.Bit)
-                    existsParemeter.Direction = ParameterDirection.Output
-
-                    command.Parameters.Add(existsParemeter)
-
-
-                    ' executing non query
-                    command.ExecuteNonQuery()
-
-
-
-                    ' fetching and converting output to boolean
-                    exists = Convert.ToBoolean(existsParemeter.Value)
-
-
-                    ' returns true if its duplicate
-                    'MessageBox.Show("Dulicate " & username & " " & number & " " & exists)
-                    Return exists
-
-
+            Using conn As New SQLiteConnection(_connectionString)
+                conn.Open()
+                Using cmd As New SQLiteCommand("SELECT COUNT(1) FROM userInfo WHERE (username = @u OR number = @n) AND enabled = 1;", conn)
+                    cmd.Parameters.AddWithValue("@u", username)
+                    cmd.Parameters.AddWithValue("@n", number)
+                    Return CInt(cmd.ExecuteScalar()) > 0
                 End Using
-
-
             End Using
 
         End Function
@@ -68,51 +37,19 @@ Namespace DataLayer
 
         Public Function AddUser(ByVal username As String, ByVal number As String, ByVal password As String, ByVal dateJoined As DateTime, ByVal profileImageLink As String) As Integer
 
-            Dim userId As Integer = 0
-
-            Using connection As New SqlConnection(_connectionString)
-
-                connection.Open()
-
-                Using command As New SqlCommand("addUser", connection)
-                    command.CommandType = CommandType.StoredProcedure
-
-
-                    ' adding input paremeter
-                    command.Parameters.AddWithValue("@username", username)
-                    command.Parameters.AddWithValue("@password", password)
-                    command.Parameters.AddWithValue("@number", number)
-                    command.Parameters.AddWithValue("@dateJoined", dateJoined)
-                    command.Parameters.AddWithValue("@profilePicturePath", profileImageLink)
-
-                    ' adding output paremeter
-                    Dim userIdParemeter As New SqlParameter("@userId", SqlDbType.Int)
-                    userIdParemeter.Direction = ParameterDirection.Output
-
-                    command.Parameters.Add(userIdParemeter)
-
-
-
-                    ' executing non query
-                    command.ExecuteNonQuery()
-
-                    ' converting from sqlDb to vbDatatype
-                    If Not IsDBNull(userIdParemeter.Value) Then
-                        userId = Convert.ToInt32(userIdParemeter.Value)
-                    End If
-
-
-
-
-
+            Using conn As New SQLiteConnection(_connectionString)
+                conn.Open()
+                Using cmd As New SQLiteCommand(
+          "INSERT INTO userInfo(username,password,number,dateJoined,profilePicturePath,enabled) " &
+          "VALUES(@u,@p,@n,@d,@pp,1); SELECT last_insert_rowid();", conn)
+                    cmd.Parameters.AddWithValue("@u", username)
+                    cmd.Parameters.AddWithValue("@p", password)
+                    cmd.Parameters.AddWithValue("@n", number)
+                    cmd.Parameters.AddWithValue("@d", dateJoined.ToString("yyyy-MM-dd"))
+                    cmd.Parameters.AddWithValue("@pp", profileImageLink)
+                    Return CInt(cmd.ExecuteScalar())
                 End Using
-
-                connection.Close()
             End Using
-
-
-            ' returns the fetched userId / 0
-            Return userId
 
         End Function
 
@@ -124,43 +61,18 @@ Namespace DataLayer
 #Region " update "
         Function UpdateUser(ByVal _username As String, ByVal _password As String, ByVal _number As String, ByVal _dailyLimit As Decimal, ByVal _profileLink As String, ByVal userId As Integer) As Integer
 
-            Dim result As Integer = 0
-
-            Using connection As New SqlConnection(_connectionString)
-
-                connection.Open()
-
-                Using command As New SqlCommand("updateUserInfo", connection)
-                    command.CommandType = CommandType.StoredProcedure
-
-
-                    ' linking paremeter
-                    command.Parameters.AddWithValue("@username", _username)
-                    command.Parameters.AddWithValue("@number", _number)
-                    command.Parameters.AddWithValue("@password", _password)
-
-                    command.Parameters.AddWithValue("@dailyLimit", _dailyLimit)
-                    command.Parameters.AddWithValue("@profilePicturePath", _profileLink)
-                    command.Parameters.AddWithValue("@userId", userId)
-
-
-                    'output paremeter
-                    Dim resultParameter As New SqlParameter("@result", SqlDbType.Int)
-                    resultParameter.Direction = ParameterDirection.Output
-
-                    command.Parameters.Add(resultParameter)
-
-
-                    command.ExecuteNonQuery()
-
-
-                    result = Convert.ToInt32(resultParameter.Value)
-
-
-                    Return result
-
+            Using conn As New SQLiteConnection(_connectionString)
+                conn.Open()
+                Using cmd As New SQLiteCommand(
+          "UPDATE userInfo SET username=@u, number=@n, password=@p, dailyLimit=@dl, profilePicturePath=@pp WHERE id=@id;", conn)
+                    cmd.Parameters.AddWithValue("@u", _username)
+                    cmd.Parameters.AddWithValue("@n", _number)
+                    cmd.Parameters.AddWithValue("@p", _password)
+                    cmd.Parameters.AddWithValue("@dl", _dailyLimit)
+                    cmd.Parameters.AddWithValue("@pp", _profileLink)
+                    cmd.Parameters.AddWithValue("@id", userId)
+                    Return cmd.ExecuteNonQuery()
                 End Using
-
             End Using
 
         End Function
@@ -173,45 +85,16 @@ Namespace DataLayer
 
         Public Function SignIn(ByVal username As String, ByVal password As String) As Integer
 
-            Dim userId As Integer = 0
-
-            Using connection As New SqlConnection(_connectionString)
-
-                connection.Open()
-
-                Using command As New SqlCommand("logUserIn", connection)
-                    command.CommandType = CommandType.StoredProcedure
-
-
-                    ' input paremeter linking
-                    command.Parameters.AddWithValue("@username", username)
-                    command.Parameters.AddWithValue("@password", password)
-
-
-                    ' output paremeter creating
-                    Dim userIdParemeter As New SqlParameter("@userId", SqlDbType.Int)
-                    userIdParemeter.Direction = ParameterDirection.Output
-
-                    command.Parameters.Add(userIdParemeter)
-
-
-
-                    'executing procedure
-                    command.ExecuteNonQuery()
-
-                    ' if tyo output paremeter isnt null, we retrive the value
-                    ' convert it to vb integer and assign to userId and return
-                    If Not IsDBNull(userIdParemeter.Value) Then
-                        userId = Convert.ToInt32(userIdParemeter.Value)
-                    End If
-
-                    Return userId
-
+            Using conn As New SQLiteConnection(_connectionString)
+                conn.Open()
+                Using cmd As New SQLiteCommand(
+                  "SELECT id FROM userInfo WHERE username = @u AND password = @p AND enabled = 1;", conn)
+                    cmd.Parameters.AddWithValue("@u", username)
+                    cmd.Parameters.AddWithValue("@p", password)
+                    Dim result = cmd.ExecuteScalar()
+                    Return If(result IsNot Nothing, Convert.ToInt32(result), 0)
                 End Using
-
-                connection.Close()
             End Using
-
             ' if no match returns 0, if match returns userId
 
 
@@ -225,37 +108,19 @@ Namespace DataLayer
 
         Public Function FetchUserInfo(ByVal userId As Integer) As DataTable
 
-            Dim dataTable As New DataTable()
-
-
-            Using connection As New SqlConnection(_connectionString)
-                connection.Open()
-
-
-                Using command As New SqlCommand("fetchUserInfo", connection)
-                    command.CommandType = CommandType.StoredProcedure
-
-
-                    'linking input paremeter
-                    command.Parameters.AddWithValue("@id", userId)
-
-
-
-                    ' building a sqlreader that reads the rows generated by procedure
-                    Using dataReader As SqlDataReader = command.ExecuteReader()
-
-                        ' loading the read rows into datatable
-                        dataTable.Load(dataReader)
+            Dim dt As New DataTable()
+            Using conn As New SQLiteConnection(_connectionString)
+                conn.Open()
+                Using cmd As New SQLiteCommand(
+          "SELECT username, password, number, dateJoined, profilePicturePath, dailyLimit " &
+          "FROM userInfo WHERE id=@id AND enabled=1;", conn)
+                    cmd.Parameters.AddWithValue("@id", userId)
+                    Using reader As SQLiteDataReader = cmd.ExecuteReader()
+                        dt.Load(reader)
                     End Using
-
-
-
                 End Using
-
             End Using
-
-
-            Return dataTable
+            Return dt
 
         End Function
 
@@ -266,38 +131,14 @@ Namespace DataLayer
 #Region " delete "
         Public Function DeleteUserInfo(ByVal userId As Integer, ByVal username As String) As Integer
 
-            Dim result As Integer = 0
-
-            Using connection As New SqlConnection(_connectionString)
-
-                connection.Open()
-
-                Using command As New SqlCommand("deleteUserInfo", connection)
-                    command.CommandType = CommandType.StoredProcedure
-
-
-                    ' linking paremeter
-                    command.Parameters.AddWithValue("@userId", userId)
-                    command.Parameters.AddWithValue("@username", username)
-
-
-                    'output paremeter
-                    Dim resultParameter As New SqlParameter("@result", SqlDbType.Int)
-                    resultParameter.Direction = ParameterDirection.Output
-
-                    command.Parameters.Add(resultParameter)
-
-
-                    command.ExecuteNonQuery()
-
-
-                    result = Convert.ToInt32(resultParameter.Value)
-
-
-                    Return result
-
+            Using conn As New SQLiteConnection(_connectionString)
+                conn.Open()
+                Using cmd As New SQLiteCommand(
+          "UPDATE userInfo SET enabled=0, username=@u WHERE id=@id;", conn)
+                    cmd.Parameters.AddWithValue("@u", username)
+                    cmd.Parameters.AddWithValue("@id", userId)
+                    Return cmd.ExecuteNonQuery()
                 End Using
-
             End Using
 
 
@@ -312,46 +153,22 @@ Namespace DataLayer
         Public Function updatePasswordByUsername(ByVal username As String, ByVal password As String) As Integer
 
 
-            Dim result As Integer = 0
-
-            Using connection As New SqlConnection(_connectionString)
-
-                connection.Open()
-
-                Using command As New SqlCommand("updatePasswordByUsername", connection)
-                    command.CommandType = CommandType.StoredProcedure
-
-
-                    ' linking paremeter
-                    command.Parameters.AddWithValue("@username", username)
-                    command.Parameters.AddWithValue("@password", password)
-
-
-
-                    'output paremeter
-                    Dim resultParameter As New SqlParameter("@result", SqlDbType.Int)
-                    resultParameter.Direction = ParameterDirection.Output
-
-                    command.Parameters.Add(resultParameter)
-
-
-                    command.ExecuteNonQuery()
-
-
-                    result = Convert.ToInt32(resultParameter.Value)
-
-
-                    Return result
-
+            Using conn As New SQLiteConnection(_connectionString)
+                conn.Open()
+                Using cmd As New SQLiteCommand(
+          "UPDATE userInfo SET password=@p WHERE username=@u;", conn)
+                    cmd.Parameters.AddWithValue("@u", username)
+                    cmd.Parameters.AddWithValue("@p", password)
+                    Return cmd.ExecuteNonQuery()
                 End Using
-
             End Using
 
 
 
         End Function
 
+
 #End Region
 
     End Class
-End NameSpace
+End Namespace

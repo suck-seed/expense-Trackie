@@ -1,5 +1,4 @@
-﻿Imports System.Configuration
-Imports System.Data.SqlClient
+﻿Imports System.Data.SQLite
 Imports expense_Trackie.Application
 
 Namespace DataLayer
@@ -7,56 +6,31 @@ Namespace DataLayer
     Public Class ExpenseRepository
 
 
-        ReadOnly _connectionString As String = ConfigurationManager.ConnectionStrings("expenseTrackie").ConnectionString
+        'ReadOnly _connectionString As String = ConfigurationManager.ConnectionStrings("expenseTrackie").ConnectionString
+        Private ReadOnly _connectionString As String = DatabaseSetup.ConnectionString
+
         ReadOnly _userId As Integer = SessionManager.Instance.CurrentUserId
         ReadOnly _selectedCategory As List(Of Integer) = SessionManager.SelectedCategoryIds
         ReadOnly _selectedCategory2 As List(Of Integer) = SessionManager.SelectedCategoryIds2
-        ReadOnly _currentDate as DateTime = SessionManager.Instance.CurrentDate
+        ReadOnly _currentDate As DateTime = SessionManager.Instance.CurrentDate
 
 
         Public Function InsertExpense(ByVal amount As Decimal, ByVal remarks As String, ByVal dateAdded As DateTime, ByVal timeAdded As DateTime, ByVal categoryId As Integer) As Integer
 
             Dim expenseId As Integer = 0
 
-            Using connection As New SqlConnection(_connectionString)
-                connection.Open()
-
-                Using command As New SqlCommand("addNewExpense", connection)
-                    command.CommandType = CommandType.StoredProcedure
-
-
-                    'paremeter linking
-                    command.Parameters.AddWithValue("@amount", amount)
-                    command.Parameters.AddWithValue("@remarks", remarks)
-                    command.Parameters.AddWithValue("@dateAdded", dateAdded)
-                    command.Parameters.AddWithValue("@timeAdded", timeAdded)
-                    command.Parameters.AddWithValue("@catId", categoryId)
-                    command.Parameters.AddWithValue("@userId", _userId)
-
-
-                    'output paremeter
-
-                    Dim expenseIdParemeter As New SqlParameter("@eId", SqlDbType.Int)
-                    expenseIdParemeter.Direction = ParameterDirection.Output
-
-                    command.Parameters.Add(expenseIdParemeter)
-
-
-                    command.ExecuteNonQuery()
-
-
-                    'fetching output paremeter
-                    expenseId = Convert.ToInt32(expenseIdParemeter.Value)
-
-
-                    Return expenseId
-
-
-
+            Using conn As New SQLiteConnection(_connectionString)
+                conn.Open()
+                Using cmd As New SQLiteCommand(
+          "INSERT INTO expense(userId,catId,amount,remarks,dateAdded,timeAdded,enabled) VALUES(@uid,@cid,@amt,@rm,@da,@ta,1); SELECT last_insert_rowid();", conn)
+                    cmd.Parameters.AddWithValue("@uid", _userId)
+                    cmd.Parameters.AddWithValue("@cid", categoryId)
+                    cmd.Parameters.AddWithValue("@amt", amount)
+                    cmd.Parameters.AddWithValue("@rm", remarks)
+                    cmd.Parameters.AddWithValue("@da", dateAdded.ToString("yyyy-MM-dd"))
+                    cmd.Parameters.AddWithValue("@ta", timeAdded.ToString())
+                    Return CInt(cmd.ExecuteScalar())
                 End Using
-
-                connection.Close()
-
             End Using
 
 
@@ -66,36 +40,15 @@ Namespace DataLayer
 
         Public Function DeleteExpense(ByVal eId As Integer) As Integer
 
-            Dim result As Integer = 0
+            'Dim result As Integer = 0
 
-            Using connection As New SqlConnection(_connectionString)
-                connection.Open()
-
-                Using command As New SqlCommand("deleteExpense", connection)
-                    command.CommandType = CommandType.StoredProcedure
-
-
-                    'linking paremeter
-                    command.Parameters.AddWithValue("@eId", eId)
-                    command.Parameters.AddWithValue("@userId", _userId)
-
-
-                    'linking output paremeter
-                    ' creating output paremeter
-                    Dim resultParemeter As New SqlParameter("@result", SqlDbType.Int)
-                    resultParemeter.Direction = ParameterDirection.Output
-
-                    command.Parameters.Add(resultParemeter)
-
-
-
-                    command.ExecuteNonQuery()
-
-                    result = Convert.ToInt32(resultParemeter.Value)
-
-
-                    Return result
-
+            Using conn As New SQLiteConnection(_connectionString)
+                conn.Open()
+                Using cmd As New SQLiteCommand(
+          "UPDATE expense SET enabled=0 WHERE eId=@eid AND userId=@uid;", conn)
+                    cmd.Parameters.AddWithValue("@eid", eId)
+                    cmd.Parameters.AddWithValue("@uid", _userId)
+                    Return cmd.ExecuteNonQuery()
                 End Using
             End Using
         End Function
@@ -104,49 +57,21 @@ Namespace DataLayer
 
         Public Function GetTotalOfDayAllCategory(ByVal currentDate As DateTime) As Decimal
             ' datetime format = "yyyy-MM-dd"
-
-            Dim total As Decimal = 0
-
-            Using connection As New SqlConnection(_connectionString)
-                connection.Open()
-
-                Using command As New SqlCommand("getTotalOfDayAllCategory", connection)
-                    command.CommandType = CommandType.StoredProcedure
-
-
-                    'linking input paremeter
-                    command.Parameters.AddWithValue("@userId", _userId)
-                    command.Parameters.AddWithValue("@dateAdded", currentDate)
-
-
-
-                    ' creating output paremeter
-                    Dim totalParemeter As New SqlParameter("@total", SqlDbType.Decimal)
-                    totalParemeter.Precision = 10
-                    totalParemeter.Scale = 2
-                    totalParemeter.Direction = ParameterDirection.Output
-
-                    command.Parameters.Add(totalParemeter)
-
-
-                    'executing query
-                    command.ExecuteNonQuery()
-
-
-
-                    'fetching total and assigning to total variable
-                    If Not IsDBNull(totalParemeter.Value) Then
-                        total = Convert.ToDecimal(totalParemeter.Value)
+            Dim total As Decimal = 0D
+            Using conn As New SQLiteConnection(_connectionString)
+                conn.Open()
+                Using cmd As New SQLiteCommand(
+          "SELECT IFNULL(ROUND(SUM(amount),2),0) FROM expense e JOIN category c ON e.catId=c.catId " &
+          "WHERE e.userId=@uid AND e.dateAdded=@da AND e.enabled=1 AND c.enabled=1;", conn)
+                    cmd.Parameters.AddWithValue("@uid", _userId)
+                    cmd.Parameters.AddWithValue("@da", currentDate.ToString("yyyy-MM-dd"))
+                    Dim result = cmd.ExecuteScalar()
+                    If result IsNot Nothing AndAlso Not IsDBNull(result) Then
+                        total = Convert.ToDecimal(result)
                     End If
-
-
-                    'returning 
-                    Return total
-
                 End Using
-
-
             End Using
+            Return total
 
 
         End Function
@@ -157,49 +82,22 @@ Namespace DataLayer
         Public Function GetTotalOfMonthAllCategory(ByVal startingDate As DateTime, ByVal endingDate As DateTime) As Decimal
             ' datetime format = "yyyy-MM-dd"
 
-            Dim total As Decimal = 0
-
-            Using connection As New SqlConnection(_connectionString)
-                connection.Open()
-
-                Using command As New SqlCommand("getTotalOfMonth", connection)
-                    command.CommandType = CommandType.StoredProcedure
-
-
-                    'linking input paremeter
-                    command.Parameters.AddWithValue("@userId", _userId)
-                    command.Parameters.AddWithValue("@startingDate", startingDate)
-                    command.Parameters.AddWithValue("@endingDate", endingDate)
-
-
-
-                    ' creating output paremeter
-                    Dim totalParemeter As New SqlParameter("@total", SqlDbType.Decimal)
-                    totalParemeter.Precision = 10
-                    totalParemeter.Scale = 2
-                    totalParemeter.Direction = ParameterDirection.Output
-
-                    command.Parameters.Add(totalParemeter)
-
-
-                    'executing query
-                    command.ExecuteNonQuery()
-
-
-
-                    'fetching total and assigning to total variable
-                    If Not IsDBNull(totalParemeter.Value) Then
-                        total = Convert.ToDecimal(totalParemeter.Value)
+            Dim total As Decimal = 0D
+            Using conn As New SQLiteConnection(_connectionString)
+                conn.Open()
+                Using cmd As New SQLiteCommand(
+          "SELECT IFNULL(ROUND(SUM(amount),2),0) FROM expense " &
+          "WHERE userId=@uid AND dateAdded BETWEEN @sd AND @ed AND enabled=1;", conn)
+                    cmd.Parameters.AddWithValue("@uid", _userId)
+                    cmd.Parameters.AddWithValue("@sd", startingDate.ToString("yyyy-MM-dd"))
+                    cmd.Parameters.AddWithValue("@ed", endingDate.ToString("yyyy-MM-dd"))
+                    Dim result = cmd.ExecuteScalar()
+                    If result IsNot Nothing AndAlso Not IsDBNull(result) Then
+                        total = Convert.ToDecimal(result)
                     End If
-
-
-                    'returning 
-                    Return total
-
                 End Using
-
-
             End Using
+            Return total
 
 
         End Function
@@ -258,6 +156,8 @@ Namespace DataLayer
 			                    AND e.dateAdded = @dateAdded  
                             "
 
+
+
             ' filtering by category selected
             If _selectedCategory.Count > 0 Then
 
@@ -285,29 +185,18 @@ Namespace DataLayer
 
 
 
-            Dim dataTable As New DataTable()
-
-            Using connection As New SqlConnection(_connectionString)
-                connection.Open()
-
-                Using command As New SqlCommand(query, connection)
-
-                    command.Parameters.AddWithValue("@userId", _userId)
-                    command.Parameters.AddWithValue("@dateAdded", currentDate)
-
-
-                    Using dataReader As SqlDataReader = command.ExecuteReader()
-
-                        dataTable.Load(dataReader)
-
+            Dim dt As New DataTable()
+            Using conn As New SQLiteConnection(_connectionString)
+                conn.Open()
+                Using cmd As New SQLiteCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@userId", _userId)
+                    cmd.Parameters.AddWithValue("@dateAdded", currentDate.ToString("yyyy-MM-dd"))
+                    Using reader As SQLiteDataReader = cmd.ExecuteReader()
+                        dt.Load(reader)
                     End Using
-
-
                 End Using
-
             End Using
-
-            Return dataTable
+            Return dt
 
 
         End Function
@@ -332,8 +221,6 @@ Namespace DataLayer
                             "
 
 
-
-
             If selectedCategoryIds IsNot Nothing AndAlso selectedCategoryIds.Count > 0 Then
                 ' Add category filter dynamically
 
@@ -342,34 +229,25 @@ Namespace DataLayer
 
             End If
 
+            Dim dt As New DataTable()
 
+            Using conn As New SQLiteConnection(_connectionString)
 
+                conn.Open()
 
-
-            Dim dataTable As New DataTable()
-
-            Using connection As New SqlConnection(_connectionString)
-                connection.Open()
-
-                Using command As New SqlCommand(query, connection)
-
-                    command.Parameters.AddWithValue("@userId", _userId)
-                    command.Parameters.AddWithValue("@startDate", startDate)
-                    command.Parameters.AddWithValue("@endDate", endDate)
-
-
-                    Using dataReader As SqlDataReader = command.ExecuteReader()
-
-                        dataTable.Load(dataReader)
-
+                Using cmd As New SQLiteCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@userId", _userId)
+                    cmd.Parameters.AddWithValue("@startDate", startDate.ToString("yyyy-MM-dd"))
+                    cmd.Parameters.AddWithValue("@endDate", endDate.ToString("yyyy-MM-dd"))
+                    Using reader As SQLiteDataReader = cmd.ExecuteReader()
+                        dt.Load(reader)
                     End Using
-
 
                 End Using
 
             End Using
 
-            Return dataTable
+            Return dt
 
 
         End Function
@@ -381,7 +259,7 @@ Namespace DataLayer
 
             Dim query As String = "
             
-            SELECT TOP 3 e.eId, e.remarks, e.timeAdded, e.amount, c.color
+            SELECT e.eId, e.remarks, e.timeAdded, e.amount, c.color
             FROM expense e
             JOIN category c
                 ON e.catId = c.catId
@@ -389,33 +267,21 @@ Namespace DataLayer
             AND e.enabled = 1
             AND c.enabled = 1 
             AND e.dateAdded = @dateAdded
-            ORDER BY e.amount DESC  -- Or use e.amount DESC if you want to order by amount
-
+            ORDER BY e.amount DESC LIMIT 3 
                             "
 
-            Dim dataTable As New DataTable()
-
-            Using connection As New SqlConnection(_connectionString)
-                connection.Open()
-
-                Using command As New SqlCommand(query, connection)
-
-                    command.Parameters.AddWithValue("@userId", _userId)
-                    command.Parameters.AddWithValue("@dateAdded", currentDate)
-
-
-                    Using dataReader As SqlDataReader = command.ExecuteReader()
-
-                        dataTable.Load(dataReader)
-
+            Dim dt As New DataTable()
+            Using conn As New SQLiteConnection(_connectionString)
+                conn.Open()
+                Using cmd As New SQLiteCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@userId", _userId)
+                    cmd.Parameters.AddWithValue("@dateAdded", currentDate.ToString("yyyy-MM-dd"))
+                    Using reader As SQLiteDataReader = cmd.ExecuteReader()
+                        dt.Load(reader)
                     End Using
-
-
                 End Using
-
             End Using
-
-            Return dataTable
+            Return dt
 
         End Function
 
@@ -431,7 +297,7 @@ Namespace DataLayer
                     SELECT 
                     c.catName AS CategoryName, 
                     c.color AS CategoryColor, 
-                    SUM(e.amount) AS TotalSpent, 
+                    IFNULL(ROUND(SUM(e.amount),2),0) AS TotalSpent, 
                     COUNT(e.eId) AS ExpenseCount 
                     FROM 
                     category c
@@ -440,11 +306,14 @@ Namespace DataLayer
                     WHERE 
                     c.enabled = 1"
 
+
+
+
             ' Apply filters based on whether it's a yearly or monthly view
             If isYearly Then
-                query &= " AND YEAR(e.dateAdded) = @currentYear"
+                query &= " AND STRFTIME('%Y', e.dateAdded) = @currentYear"
             ElseIf isMonthly Then
-                query &= " AND YEAR(e.dateAdded) = @currentYear AND MONTH(e.dateAdded) = @currentMonth"
+                query &= " AND STRFTIME('%Y', e.dateAdded) = @currentYear AND STRFTIME('%m', e.dateAdded) = @currentMonth"
             End If
 
             ' Complete the query
@@ -452,39 +321,31 @@ Namespace DataLayer
                     GROUP BY 
                     c.catName, c.color 
                     ORDER BY 
-                    TotalSpent DESC;  -- Order by the total amount spent"
+                    TotalSpent DESC; "
 
-            Dim dataTable As New DataTable()
+            Dim dt As New DataTable()
 
-            ' Open the connection and execute the query
-            Using connection As New SqlConnection(_connectionString)
-                connection.Open()
+            Using conn As New SQLiteConnection(_connectionString)
 
-                Using command As New SqlCommand(query, connection)
+                conn.Open()
 
-                    ' Add the parameters for userId, currentYear, and currentMonth
-                    command.Parameters.AddWithValue("@userId", _userId)
-                    command.Parameters.AddWithValue("@currentYear", currentDate.Year)
+                Using cmd As New SQLiteCommand(query, conn)
 
-                    ' Add the current month parameter only if it's a monthly view
-                    If isMonthly Then
-                        command.Parameters.AddWithValue("@currentMonth", currentDate.Month)
-                    End If
+                    cmd.Parameters.AddWithValue("@userId", _userId)
+                    cmd.Parameters.AddWithValue("@currentYear", currentDate.ToString("yyyy"))
 
-                    ' Execute the query and load the results into the DataTable
-                    Using dataReader As SqlDataReader = command.ExecuteReader()
-                        dataTable.Load(dataReader)
+                    If isMonthly Then cmd.Parameters.AddWithValue("@currentMonth", currentDate.ToString("MM"))
+
+                    Using reader As SQLiteDataReader = cmd.ExecuteReader()
+                        dt.Load(reader)
+
                     End Using
-
                 End Using
-
-
             End Using
-
-            Return dataTable
+            Return dt
 
         End Function
 
     End Class
 
-End NameSpace
+End Namespace
