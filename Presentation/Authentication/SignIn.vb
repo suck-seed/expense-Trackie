@@ -16,6 +16,12 @@ Namespace Presentation
 
         Dim darkMode As Boolean = False
         Private Sub SignIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+            ' iniatialize the db's 
+            DatabaseSetup.InitializeDatabase()
+
+
+            ' move on to the ui rendering
             lbl_error.Text = ""
 
             If My.Settings.IsLightMode = False Then
@@ -370,4 +376,4 @@ Namespace Presentation
 
 
     End Class
-End NameSpace
+End Namespace

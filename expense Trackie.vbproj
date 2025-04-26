@@ -264,6 +264,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="DataBase\DatabaseSetup.vb" />
     <Compile Include="Presentation\Authentication\ForgotPassword.Designer.vb">
       <DependentUpon>ForgotPassword.vb</DependentUpon>
@@ -439,7 +440,6 @@
     <Compile Include="Presentation\Category\UpdateCategory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="temp.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Presentation\AppSetting.resx">

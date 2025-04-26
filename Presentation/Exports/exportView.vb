@@ -25,7 +25,7 @@ Public Class exportView
 
     Private Sub exportView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        lbl_info.Text = ""
+        ClearLog()
         dataGrid.ForeColor = Color.Black
 
         If My.Settings.IsLightMode = False Then
