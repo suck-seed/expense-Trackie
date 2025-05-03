@@ -698,8 +698,10 @@ Namespace Presentation
 
             'panel_main.Refresh()
 
-            ' size( width, height )
-            If Me.Size = New Size(1920, 1200) Then
+            ' Get the working area
+            Dim workignArea As Rectangle = Screen.FromControl(Me).WorkingArea
+
+            If Me.Bounds = workignArea Then
                 'Me.WindowState = FormWindowState.Normal
 
                 Me.Size = New Size(1600, 1000)
@@ -711,12 +713,12 @@ Namespace Presentation
                 Else
                     btn_max.Image = My.Resources.maximize
 
-
                 End If
 
             Else
-                Me.Location = New Point(0, 0)
-                Me.Size = New Size(1920, 1200)
+                Me.Location = workignArea.Location
+                Me.Size = workignArea.Size
+                'Me.Size = New Size(My.Computer.Screen.Bounds.Size.Width, My.Computer.Screen.Bounds.Height - 40)
 
                 'Me.WindowState = FormWindowState.Maximized
                 If _darkMode Then
@@ -977,6 +979,8 @@ Namespace Presentation
                 Return cp
             End Get
         End Property
+
+
 
 
 

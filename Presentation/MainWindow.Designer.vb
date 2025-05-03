@@ -189,7 +189,7 @@
             Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.5446!))
             Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.96244!))
             Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.49296!))
-            Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43.0!))
+            Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
             Me.TableLayoutPanel8.Controls.Add(Me.btn_edit_category, 0, 0)
             Me.TableLayoutPanel8.Controls.Add(Me.btn_delete, 0, 0)
             Me.TableLayoutPanel8.Controls.Add(Me.lbl_category, 0, 0)
@@ -211,7 +211,7 @@
             Me.btn_edit_category.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
             Me.btn_edit_category.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btn_edit_category.Image = Global.expense_Trackie.My.Resources.Resources.edit
-            Me.btn_edit_category.Location = New System.Drawing.Point(171, 0)
+            Me.btn_edit_category.Location = New System.Drawing.Point(170, 0)
             Me.btn_edit_category.Margin = New System.Windows.Forms.Padding(0)
             Me.btn_edit_category.Name = "btn_edit_category"
             Me.btn_edit_category.Size = New System.Drawing.Size(31, 45)
@@ -227,7 +227,7 @@
             Me.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
             Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btn_delete.Image = Global.expense_Trackie.My.Resources.Resources.delete3
-            Me.btn_delete.Location = New System.Drawing.Point(139, 0)
+            Me.btn_delete.Location = New System.Drawing.Point(138, 0)
             Me.btn_delete.Margin = New System.Windows.Forms.Padding(0)
             Me.btn_delete.Name = "btn_delete"
             Me.btn_delete.Size = New System.Drawing.Size(32, 45)
@@ -237,10 +237,10 @@
             'lbl_category
             '
             Me.lbl_category.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.lbl_category.Font = New System.Drawing.Font("IBM Plex Mono SemiBold", 14.0!, System.Drawing.FontStyle.Bold)
+            Me.lbl_category.Font = New System.Drawing.Font("IBM Plex Mono SemiBold", 12.0!, System.Drawing.FontStyle.Bold)
             Me.lbl_category.Location = New System.Drawing.Point(3, 0)
             Me.lbl_category.Name = "lbl_category"
-            Me.lbl_category.Size = New System.Drawing.Size(133, 45)
+            Me.lbl_category.Size = New System.Drawing.Size(132, 45)
             Me.lbl_category.TabIndex = 0
             Me.lbl_category.Text = "My Category"
             Me.lbl_category.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -254,10 +254,10 @@
             Me.add_category.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
             Me.add_category.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.add_category.Image = Global.expense_Trackie.My.Resources.Resources.add
-            Me.add_category.Location = New System.Drawing.Point(202, 0)
+            Me.add_category.Location = New System.Drawing.Point(201, 0)
             Me.add_category.Margin = New System.Windows.Forms.Padding(0)
             Me.add_category.Name = "add_category"
-            Me.add_category.Size = New System.Drawing.Size(45, 45)
+            Me.add_category.Size = New System.Drawing.Size(46, 45)
             Me.add_category.TabIndex = 2
             Me.add_category.UseVisualStyleBackColor = True
             '
