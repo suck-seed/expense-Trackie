@@ -96,6 +96,7 @@ Namespace Presentation
 
         End Sub
 
+#End Region
 
 #Region " round shaping "
 
