@@ -50,6 +50,19 @@ Namespace Presentation
 
         Private Sub MybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
 
+            ' Loading the tutorial picture
+            If My.Settings.firstLoad = True Then
+                panel_main.BackgroundImage = My.Resources.addDark
+                My.Settings.firstLoad = False
+
+            Else
+
+                radio_home.Checked = True
+
+            End If
+
+
+
             ' loading information to form
 
             If My.Settings.IsLightMode = False Then
