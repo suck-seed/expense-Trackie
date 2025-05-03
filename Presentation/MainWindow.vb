@@ -698,6 +698,7 @@ Namespace Presentation
 
             'panel_main.Refresh()
 
+            ' size( width, height )
             If Me.Size = New Size(1920, 1200) Then
                 'Me.WindowState = FormWindowState.Normal
 
