@@ -41,7 +41,7 @@
       <Value Profile="(Default)">#121212</Value>
     </Setting>
     <Setting Name="lightPanelColor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">#eef4f9</Value>
+      <Value Profile="(Default)">#eaeaea</Value>
     </Setting>
     <Setting Name="firstLoad" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

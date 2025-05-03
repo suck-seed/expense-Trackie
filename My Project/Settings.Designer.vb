@@ -187,7 +187,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("#eef4f9")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("#eaeaea")>  _
         Public Property lightPanelColor() As String
             Get
                 Return CType(Me("lightPanelColor"),String)

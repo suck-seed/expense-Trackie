@@ -50,16 +50,19 @@ Namespace Presentation
 
         Private Sub MybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
 
-            ' Loading the tutorial picture
+
             If My.Settings.firstLoad = True Then
-                panel_main.BackgroundImage = My.Resources.addDark
-                My.Settings.firstLoad = False
+
+                panel_main.BackgroundImage = My.Resources.tutorial
+                panel_main.BackgroundImageLayout = ImageLayout.Stretch
 
             Else
 
                 radio_home.Checked = True
 
+
             End If
+
 
 
 
@@ -82,11 +85,6 @@ Namespace Presentation
 
             LoadCalander()
 
-            'radio_home.Checked = True
-            'radio_day_view.Checked = True
-
-            'hiding day / month view on load
-            'panel_day_month.Visible = False
 
             'rounded
             SetRoundedShape(Me, _borderRadius)
@@ -136,6 +134,7 @@ Namespace Presentation
 #End Region
 
 
+#Region "Load Calander"
         Sub LoadCalander()
 
             panel_calender.Controls.Add(_calanderView)
@@ -911,11 +910,14 @@ Namespace Presentation
 
                 check_all.ForeColor = Color.Black
 
-                button_add_expense.BackColor = ColorTranslator.FromHtml("#282828")
+                button_add_expense.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
                 button_add_expense.Image = My.Resources.addwhite1
-                'button_add_expense.ForeColor = foreColor
 
-                panel_main.BackColor = ColorTranslator.FromHtml("#282828")
+
+                ForeColor = Color.White
+                _darkMode = True
+                Me.BackColor = ColorTranslator.FromHtml("#191D1C")
+                panel_main.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
 
 
                 radio_home.Image = My.Resources.homewhite
@@ -941,7 +943,10 @@ Namespace Presentation
                 radio_analysis_year.Image = My.Resources.yearAnalysisWhite
 
             Else
-                panel_main.BackColor = Color.WhiteSmoke
+                Me.BackColor = ColorTranslator.FromHtml("#EEF4F9")
+                panel_main.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+                button_add_expense.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+
 
             End If
 

@@ -648,7 +648,6 @@
   <ItemGroup>
     <None Include="Resources\profileLight.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\delete.png" />
   </ItemGroup>
@@ -975,6 +974,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\compareWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tutorial.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
