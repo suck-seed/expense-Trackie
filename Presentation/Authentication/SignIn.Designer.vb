@@ -23,6 +23,7 @@
         'Do not modify it using the code editor.
         <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
+            Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SignIn))
             Me.lbl_forget_password = New System.Windows.Forms.Label()
             Me.PromptL = New System.Windows.Forms.Label()
             Me.SignUpLL = New System.Windows.Forms.LinkLabel()
@@ -272,6 +273,7 @@
             Me.Controls.Add(Me.Label3)
             Me.Controls.Add(Me.panel_topbar)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+            Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.Name = "SignIn"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
             Me.Text = "SIgnIn"

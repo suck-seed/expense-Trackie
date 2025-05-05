@@ -193,6 +193,7 @@ Partial Class ForgotPassword
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.panel_topbar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ForgotPassword"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ForgotPassword"

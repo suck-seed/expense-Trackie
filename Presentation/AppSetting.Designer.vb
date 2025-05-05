@@ -24,6 +24,7 @@
         <System.Diagnostics.DebuggerStepThrough()> _
         Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
+            Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AppSetting))
             Me.timer_reset_image = New System.Windows.Forms.Timer(Me.components)
             Me.panel_topbar = New System.Windows.Forms.Panel()
             Me.button_close = New System.Windows.Forms.Button()
@@ -105,7 +106,7 @@
             'TableLayoutPanel1
             '
             Me.TableLayoutPanel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                                                 Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
             Me.TableLayoutPanel1.ColumnCount = 1
             Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -228,6 +229,7 @@
             Me.Controls.Add(Me.panel_topbar)
             Me.Controls.Add(Me.panel_back)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+            Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.Name = "AppSetting"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
             Me.Text = "AppSetting"

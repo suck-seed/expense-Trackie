@@ -51,17 +51,17 @@ Namespace Presentation
         Private Sub MybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
-            If My.Settings.firstLoad = True Then
+            'If My.Settings.firstLoad = True Then
 
-                panel_main.BackgroundImage = My.Resources.tutorial
-                panel_main.BackgroundImageLayout = ImageLayout.Stretch
+            panel_main.BackgroundImage = My.Resources.tutorial
+            panel_main.BackgroundImageLayout = ImageLayout.Stretch
 
-            Else
+            'Else
 
-                radio_home.Checked = True
+            'radio_home.Checked = True
 
 
-            End If
+            'End If
 
 
 

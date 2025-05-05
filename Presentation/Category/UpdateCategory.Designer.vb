@@ -24,6 +24,7 @@
         <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
+            Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UpdateCategory))
             Me.button_close = New System.Windows.Forms.Button()
             Me.Label4 = New System.Windows.Forms.Label()
             Me.panel_topbar = New System.Windows.Forms.Panel()
@@ -297,6 +298,7 @@
             Me.Controls.Add(Me.panel_back)
             Me.DoubleBuffered = True
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+            Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.KeyPreview = True
             Me.Name = "UpdateCategory"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

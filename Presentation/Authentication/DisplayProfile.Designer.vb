@@ -23,6 +23,7 @@
         'Do not modify it using the code editor.
         <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
+            Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DisplayProfile))
             Me.Label4 = New System.Windows.Forms.Label()
             Me.panel_topbar = New System.Windows.Forms.Panel()
             Me.button_close = New System.Windows.Forms.Button()
@@ -329,6 +330,7 @@
             Me.Controls.Add(Me.panel_topbar)
             Me.Controls.Add(Me.panel_back)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+            Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.KeyPreview = True
             Me.Name = "DisplayProfile"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

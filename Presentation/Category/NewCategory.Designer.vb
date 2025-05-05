@@ -24,6 +24,7 @@
         <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
+            Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(NewCategory))
             Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
             Me.txt_description = New System.Windows.Forms.RichTextBox()
             Me.txt_name = New System.Windows.Forms.RichTextBox()
@@ -272,6 +273,7 @@
             Me.Controls.Add(Me.panel_back)
             Me.DoubleBuffered = True
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+            Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.KeyPreview = True
             Me.MaximumSize = New System.Drawing.Size(496, 427)
             Me.MinimizeBox = False
