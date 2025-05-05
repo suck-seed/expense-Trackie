@@ -33,8 +33,8 @@
             Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
             Me.lbl_colorMode = New System.Windows.Forms.Label()
             Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-            Me.lightMode = New System.Windows.Forms.RadioButton()
-            Me.darkMode = New System.Windows.Forms.RadioButton()
+            Me.lightModeSelector = New System.Windows.Forms.RadioButton()
+            Me.darkModeSelector = New System.Windows.Forms.RadioButton()
             Me.panel_back = New System.Windows.Forms.Panel()
             Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
             Me.lbl_info = New System.Windows.Forms.Label()
@@ -136,8 +136,8 @@
             Me.TableLayoutPanel2.ColumnCount = 2
             Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
             Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-            Me.TableLayoutPanel2.Controls.Add(Me.lightMode, 0, 0)
-            Me.TableLayoutPanel2.Controls.Add(Me.darkMode, 1, 0)
+            Me.TableLayoutPanel2.Controls.Add(Me.lightModeSelector, 0, 0)
+            Me.TableLayoutPanel2.Controls.Add(Me.darkModeSelector, 1, 0)
             Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
             Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 50)
             Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -146,41 +146,41 @@
             Me.TableLayoutPanel2.Size = New System.Drawing.Size(343, 41)
             Me.TableLayoutPanel2.TabIndex = 1
             '
-            'lightMode
+            'lightModeSelector
             '
-            Me.lightMode.Appearance = System.Windows.Forms.Appearance.Button
-            Me.lightMode.AutoSize = True
-            Me.lightMode.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.lightMode.FlatAppearance.BorderSize = 0
-            Me.lightMode.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
-            Me.lightMode.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-            Me.lightMode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-            Me.lightMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.lightMode.Image = Global.expense_Trackie.My.Resources.Resources.lightMode
-            Me.lightMode.Location = New System.Drawing.Point(3, 3)
-            Me.lightMode.Name = "lightMode"
-            Me.lightMode.Size = New System.Drawing.Size(165, 35)
-            Me.lightMode.TabIndex = 0
-            Me.lightMode.TabStop = True
-            Me.lightMode.UseVisualStyleBackColor = True
+            Me.lightModeSelector.Appearance = System.Windows.Forms.Appearance.Button
+            Me.lightModeSelector.AutoSize = True
+            Me.lightModeSelector.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.lightModeSelector.FlatAppearance.BorderSize = 0
+            Me.lightModeSelector.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
+            Me.lightModeSelector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.lightModeSelector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.lightModeSelector.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.lightModeSelector.Image = Global.expense_Trackie.My.Resources.Resources.lightMode
+            Me.lightModeSelector.Location = New System.Drawing.Point(3, 3)
+            Me.lightModeSelector.Name = "lightModeSelector"
+            Me.lightModeSelector.Size = New System.Drawing.Size(165, 35)
+            Me.lightModeSelector.TabIndex = 0
+            Me.lightModeSelector.TabStop = True
+            Me.lightModeSelector.UseVisualStyleBackColor = True
             '
-            'darkMode
+            'darkModeSelector
             '
-            Me.darkMode.Appearance = System.Windows.Forms.Appearance.Button
-            Me.darkMode.AutoSize = True
-            Me.darkMode.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.darkMode.FlatAppearance.BorderSize = 0
-            Me.darkMode.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
-            Me.darkMode.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-            Me.darkMode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-            Me.darkMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.darkMode.Image = Global.expense_Trackie.My.Resources.Resources.darkMode
-            Me.darkMode.Location = New System.Drawing.Point(174, 3)
-            Me.darkMode.Name = "darkMode"
-            Me.darkMode.Size = New System.Drawing.Size(166, 35)
-            Me.darkMode.TabIndex = 1
-            Me.darkMode.TabStop = True
-            Me.darkMode.UseVisualStyleBackColor = True
+            Me.darkModeSelector.Appearance = System.Windows.Forms.Appearance.Button
+            Me.darkModeSelector.AutoSize = True
+            Me.darkModeSelector.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.darkModeSelector.FlatAppearance.BorderSize = 0
+            Me.darkModeSelector.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
+            Me.darkModeSelector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+            Me.darkModeSelector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+            Me.darkModeSelector.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.darkModeSelector.Image = Global.expense_Trackie.My.Resources.Resources.darkMode
+            Me.darkModeSelector.Location = New System.Drawing.Point(174, 3)
+            Me.darkModeSelector.Name = "darkModeSelector"
+            Me.darkModeSelector.Size = New System.Drawing.Size(166, 35)
+            Me.darkModeSelector.TabIndex = 1
+            Me.darkModeSelector.TabStop = True
+            Me.darkModeSelector.UseVisualStyleBackColor = True
             '
             'panel_back
             '
@@ -253,8 +253,8 @@
         Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
         Friend WithEvents lbl_colorMode As Label
         Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-        Friend WithEvents lightMode As RadioButton
-        Friend WithEvents darkMode As RadioButton
+        Friend WithEvents lightModeSelector As RadioButton
+        Friend WithEvents darkModeSelector As RadioButton
         Friend WithEvents panel_back As Panel
         Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
         Friend WithEvents lbl_info As Label

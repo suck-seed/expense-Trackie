@@ -6,55 +6,61 @@ Namespace Presentation
 
 
         Dim _isLightmode As Boolean = True
-        
+
         Dim _isDarkMode As Boolean = False
 
 #Region " load "
 
         Private Sub AppSetting_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             lbl_info.Text = ""
-            ColorMode()
 
             If My.Settings.IsLightMode = False Then
+
+                'DARKMODE
+
                 ForeColor = Color.White
                 _isDarkMode = True
-                'Me.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+                darkModeSelector.Checked = True
 
             Else
-                'Me.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+
+                lightModeSelector.Checked = True
+
             End If
+
+            ColorMode()
+
 
         End Sub
 
 #End Region
 
 
-
-        Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
-            Me.Close()
-        End Sub
-
-
 #Region " checked changed "
 
-        Private Sub lightMode_CheckedChanged(sender As Object, e As EventArgs) Handles lightMode.CheckedChanged
+        Private Sub lightMode_CheckedChanged(sender As Object, e As EventArgs) Handles lightModeSelector.CheckedChanged
 
 
-            If lightMode.Checked = True Then
+            If lightModeSelector.Checked = True Then
 
                 If _isDarkMode Then
-                    lightMode.Image = My.Resources.lightmodeLightSelected
+                    lightModeSelector.Image = My.Resources.lightmodeLightSelected
+                    darkModeSelector.Image = My.Resources.darkmodeLight
                 Else
-                    lightMode.Image = My.Resources.lightModeSelected
+                    lightModeSelector.Image = My.Resources.lightModeSelected
+                    darkModeSelector.Image = My.Resources.darkMode
 
                 End If
 
                 _isLightmode = True
             Else
                 If _isDarkMode Then
-                    lightMode.Image = My.Resources.lightModeLight
+                    lightModeSelector.Image = My.Resources.lightModeLight
+                    darkModeSelector.Image = My.Resources.darkmodelightselected
                 Else
-                    lightMode.Image = My.Resources.lightMode
+                    lightModeSelector.Image = My.Resources.lightMode
+                    darkModeSelector.Image = My.Resources.darkmodeselected
+
 
                 End If
 
@@ -63,15 +69,15 @@ Namespace Presentation
             End If
         End Sub
 
-        Private Sub darkMode_CheckedChanged(sender As Object, e As EventArgs) Handles darkMode.CheckedChanged
+        Private Sub darkMode_CheckedChanged(sender As Object, e As EventArgs) Handles darkModeSelector.CheckedChanged
 
-            If darkMode.Checked = True Then
+            If darkModeSelector.Checked = True Then
 
                 If _isDarkMode Then
-                    darkMode.Image = My.Resources.darkmodelightselected
+                    darkModeSelector.Image = My.Resources.darkmodelightselected
 
                 Else
-                    darkMode.Image = My.Resources.darkmodeselected
+                    darkModeSelector.Image = My.Resources.darkmodeselected
 
                 End If
 
@@ -79,10 +85,10 @@ Namespace Presentation
             Else
 
                 If _isDarkMode Then
-                    darkMode.Image = My.Resources.darkmodeLight
+                    darkModeSelector.Image = My.Resources.darkmodeLight
 
                 Else
-                    darkMode.Image = My.Resources.darkMode
+                    darkModeSelector.Image = My.Resources.darkMode
 
                 End If
 
@@ -98,7 +104,7 @@ Namespace Presentation
 
         Private Sub button_create_Click(sender As Object, e As EventArgs) Handles button_create.Click
             My.Settings.IsLightMode = _isLightmode
-            
+
             My.Settings.Save()
 
 
@@ -133,7 +139,7 @@ Namespace Presentation
 
 
 
-            Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
+            Dim rect As New Rectangle(0, 0, panel_topbar.Width, panel_topbar.Height)
 
 
             ' Create a LinearGradientBrush
@@ -150,7 +156,6 @@ Namespace Presentation
 #End Region
 
 
-
 #Region " light / dark"
 
         Private Sub ColorMode()
@@ -159,11 +164,29 @@ Namespace Presentation
                 'lbl_category.ForeColor = foreColor
 
 
+                ' DARK MODE
+
                 button_close.Image = My.Resources.crossWhite
                 button_create.Image = My.Resources.checkwhite
 
-                lightMode.Image = My.Resources.lightModeLight
-                darkMode.Image = My.Resources.darkmodeLight
+                lightModeSelector.Image = My.Resources.lightModeLight
+                darkModeSelector.Image = My.Resources.darkmodelightselected
+
+
+
+
+
+                panel_back.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+                TableLayoutPanel1.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+
+            Else
+
+                panel_back.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+                TableLayoutPanel1.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+
+
+                lightModeSelector.Image = My.Resources.lightModeSelected
+                darkModeSelector.Image = My.Resources.darkMode
 
 
 
@@ -175,6 +198,7 @@ Namespace Presentation
 
 
 #End Region
+
 
 #Region " mouse Movement "
 
@@ -202,6 +226,11 @@ Namespace Presentation
 
 #End Region
 
+
+
+        Private Sub button_close_Click(sender As Object, e As EventArgs) Handles button_close.Click
+            Me.Close()
+        End Sub
 
     End Class
 End NameSpace

@@ -200,7 +200,7 @@ Namespace Presentation
 
 
 
-            Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
+            Dim rect As New Rectangle(0, 0, panel_topbar.Width, panel_topbar.Height)
 
 
             ' Create a LinearGradientBrush
@@ -250,6 +250,15 @@ Namespace Presentation
 
                 button_close.Image = My.Resources.crossWhite
                 button_delete.Image = My.Resources.checkwhite
+
+
+                panel_back.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+                TableLayoutPanel1.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+
+            Else
+
+                panel_back.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+                TableLayoutPanel1.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
 
 
 

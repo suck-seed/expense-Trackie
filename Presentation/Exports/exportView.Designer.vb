@@ -213,7 +213,7 @@ Partial Class exportView
         Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.5446!))
         Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.96244!))
         Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.49296!))
-        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 67.0!))
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69.0!))
         Me.TableLayoutPanel8.Controls.Add(Me.lbl_category, 0, 0)
         Me.TableLayoutPanel8.Location = New System.Drawing.Point(33, 3)
         Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
@@ -228,7 +228,7 @@ Partial Class exportView
         Me.lbl_category.Font = New System.Drawing.Font("IBM Plex Mono SemiBold", 14.0!, System.Drawing.FontStyle.Bold)
         Me.lbl_category.Location = New System.Drawing.Point(3, 0)
         Me.lbl_category.Name = "lbl_category"
-        Me.lbl_category.Size = New System.Drawing.Size(117, 45)
+        Me.lbl_category.Size = New System.Drawing.Size(116, 45)
         Me.lbl_category.TabIndex = 0
         Me.lbl_category.Text = "Category"
         Me.lbl_category.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -492,7 +492,7 @@ Partial Class exportView
         Me.TableLayoutPanel5.ColumnCount = 3
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.25605!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.74394!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
         Me.TableLayoutPanel5.Controls.Add(Me.Label10, 0, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.Label9, 0, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.startDatePicker, 1, 0)
@@ -538,7 +538,7 @@ Partial Class exportView
         Me.startDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
         Me.startDatePicker.Location = New System.Drawing.Point(103, 3)
         Me.startDatePicker.Name = "startDatePicker"
-        Me.startDatePicker.Size = New System.Drawing.Size(186, 20)
+        Me.startDatePicker.Size = New System.Drawing.Size(185, 20)
         Me.startDatePicker.TabIndex = 3
         '
         'EndDatePicker
@@ -547,7 +547,7 @@ Partial Class exportView
         Me.EndDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EndDatePicker.Location = New System.Drawing.Point(103, 40)
         Me.EndDatePicker.Name = "EndDatePicker"
-        Me.EndDatePicker.Size = New System.Drawing.Size(186, 20)
+        Me.EndDatePicker.Size = New System.Drawing.Size(185, 20)
         Me.EndDatePicker.TabIndex = 4
         '
         'Panel2

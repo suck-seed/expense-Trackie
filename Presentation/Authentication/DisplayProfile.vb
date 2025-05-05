@@ -41,6 +41,7 @@ Namespace Presentation
 
 #End Region
 
+
 #Region " new instance created "
 
         Dim _calanderView As CalanderView
@@ -129,7 +130,6 @@ Namespace Presentation
         End Sub
 
 #End Region
-
 
 
 #Region " update button clicked "
@@ -379,8 +379,6 @@ Namespace Presentation
 #End Region
 
 
-
-
 #Region " mouse movement / gradient "
 
         Dim _mouseMove As System.Drawing.Point
@@ -418,7 +416,6 @@ Namespace Presentation
 
 
 #End Region
-
 
 
 #Region " key events "
@@ -496,8 +493,6 @@ Namespace Presentation
 #End Region
 
 
-
-
 #Region " gradient "
 
 
@@ -522,7 +517,7 @@ Namespace Presentation
 
 
 
-            Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
+            Dim rect As New Rectangle(0, 0, panel_topbar.Width, panel_topbar.Height)
 
 
             ' Create a LinearGradientBrush
@@ -541,7 +536,6 @@ Namespace Presentation
 #End Region
 
 
-
 #Region " light / dark"
 
         Public Sub ColorMode()
@@ -557,10 +551,23 @@ Namespace Presentation
 
                 btn_update.ForeColor = Color.Black
 
+
+
+                panel_back.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+                TableLayoutPanel1.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+
+            Else
+
+                panel_back.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+                TableLayoutPanel1.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+
+
+
             End If
 
         End Sub
 #End Region
+
 
 #Region " to resolve flicker "
         Protected Overrides ReadOnly Property CreateParams() As CreateParams

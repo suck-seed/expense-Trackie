@@ -303,10 +303,7 @@ Namespace Presentation
 
             End If
 
-
-
-            Dim rect As New Rectangle(0, 0, Me.ClientSize.Width, Me.ClientSize.Height)
-
+            Dim rect As New Rectangle(0, 0, panel_topbar.Width, panel_topbar.Height)
 
             ' Create a LinearGradientBrush
             Using brush As New LinearGradientBrush(rect, startColor, endColor, LinearGradientMode.Horizontal)
@@ -329,22 +326,27 @@ Namespace Presentation
         Public Sub ColorMode()
 
             If My.Settings.IsLightMode = False Then
-                'lbl_category.ForeColor = foreColor
 
                 button_close.Image = My.Resources.crossWhite
                 button_create.Image = My.Resources.checkwhite
 
                 btn_custom_color.ForeColor = Color.Black
 
-
-
-
-
                 txt_name.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
                 txt_description.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
 
                 txt_name.ForeColor = Color.White
                 txt_description.ForeColor = Color.White
+
+                panel_back.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+                TableLayoutPanel1.BackColor = ColorTranslator.FromHtml(My.Settings.darkPanelColor)
+
+            Else
+
+                panel_back.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+                TableLayoutPanel1.BackColor = ColorTranslator.FromHtml(My.Settings.lightPanelColor)
+
+
 
             End If
 
