@@ -1,4 +1,5 @@
 ﻿Imports System.Drawing.Drawing2D
+Imports System.IO
 Imports expense_Trackie.Application
 
 Namespace Presentation
@@ -191,18 +192,34 @@ Namespace Presentation
         Private Sub profilePicture_Click(sender As Object, e As EventArgs) Handles img_profile.Click
             lbl_info.Text = ""
 
-            Dim fileDialog As New OpenFileDialog
+            Using fileDialog As New OpenFileDialog() With {
+      .Filter = ImageFilter
+    }
+                If fileDialog.ShowDialog() <> DialogResult.OK Then Return
 
+                ' making sure app data folder exists
+                Dim profileDir = Path.Combine(
+          Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+          "expenseTrackie")
 
-            fileDialog.Filter = ImageFilter
+                ' creating one if exist hudaina bhane
+                If Not Directory.Exists(profileDir) Then
+                    Directory.CreateDirectory(profileDir)
+                End If
 
-            If fileDialog.ShowDialog = DialogResult.OK Then
+                ' photo copy garne, write over existing
+                Dim destPath = Path.Combine(profileDir, "profile.jpg")
+                File.Copy(fileDialog.FileName, destPath, overwrite:=True)
 
-                _imageAddress = fileDialog.FileName
-                img_profile.Image = Image.FromFile(_imageAddress)
+                ' 3) store that new path for later registration / DB save
+                _imageAddress = destPath
 
-
-            End If
+                ' 4) load it into the PictureBox
+                If img_profile.Image IsNot Nothing Then
+                    img_profile.Image.Dispose()
+                End If
+                img_profile.Image = Image.FromFile(destPath)
+            End Using
 
         End Sub
 
@@ -480,6 +497,9 @@ Namespace Presentation
             End If
 
         End Sub
+
+
+
 
 #End Region
 

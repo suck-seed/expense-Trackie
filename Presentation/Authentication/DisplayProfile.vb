@@ -1,4 +1,5 @@
 ﻿Imports System.Drawing.Drawing2D
+Imports System.IO
 Imports expense_Trackie.Application
 
 Namespace Presentation
@@ -29,7 +30,7 @@ Namespace Presentation
         Dim _password As String
         Dim _number As String
         Dim _dailyLimit As Decimal
-        Dim _profileLink As String = ""
+        Dim _imageAddress As String = ""
 
         Dim number1 As Long
 
@@ -87,11 +88,6 @@ Namespace Presentation
             txt_number.Text = _currentNumber
             txt_dailyLimit.Text = _currentDailyLimit
 
-            If Not String.IsNullOrEmpty(_currentProfilePictureLink) Then
-
-                img_profile.Image = Image.FromFile(_currentProfilePictureLink)
-
-            End If
 
         End Sub
 
@@ -103,7 +99,32 @@ Namespace Presentation
             _currentNumber = SessionManager.Instance.CurrentNumber
             _currentDailyLimit = SessionManager.Instance.CurrentDailyLimit
             _currentProfilePictureLink = SessionManager.Instance.CurrentProfileLink
-            _profileLink = _currentProfilePictureLink
+            _imageAddress = _currentProfilePictureLink
+
+
+            ' non blocking way to load image
+
+            Dim path = _currentProfilePictureLink
+            If Not String.IsNullOrEmpty(path) AndAlso File.Exists(path) Then
+                ' 1) Dispose the old image (releases any handle if it existed)
+                If img_profile.Image IsNot Nothing Then
+                    img_profile.Image.Dispose()
+                    img_profile.Image = Nothing
+                End If
+
+                ' 2) Read the file into memory and load from a MemoryStream
+                Dim data() As Byte = File.ReadAllBytes(path)
+                Using ms As New MemoryStream(data)
+                    img_profile.Image = Image.FromStream(ms)
+                End Using
+            Else
+                ' fallback to your default resource
+                If img_profile.Image IsNot Nothing Then
+                    img_profile.Image.Dispose()
+                End If
+                img_profile.Image = My.Resources.defaultProfile
+            End If
+
 
         End Sub
 
@@ -115,16 +136,6 @@ Namespace Presentation
 
 
         Private Sub btn_Update_Clicked(sender As Object, e As EventArgs) Handles btn_update.Click
-
-
-            'MsgBox("Button pressed")
-
-
-            If _profileLink <> _currentProfilePictureLink Then
-                _profileLinkChanged = True
-            Else
-                _profileLinkChanged = False
-            End If
 
 
             If String.IsNullOrEmpty(txt_username.Text) Or String.IsNullOrEmpty(txt_password1.Text) Or String.IsNullOrEmpty(txt_number.Text) Then
@@ -172,7 +183,7 @@ Namespace Presentation
 
             Dim userManager As New UserManager
 
-            If userManager.UpdateUserInfo(_username, _password, _number, _dailyLimit, _profileLink, _currentId, lbl_info) > 0 Then
+            If userManager.UpdateUserInfo(_username, _password, _number, _dailyLimit, _imageAddress, _currentId, lbl_info) > 0 Then
 
                 ' if saved password strings arent empty
                 'If Not String.IsNullOrEmpty(My.Settings.SavedUsername) And Not String.IsNullOrEmpty(My.Settings.SavedPassword) Then
@@ -189,14 +200,18 @@ Namespace Presentation
 
 
 
+                ' now sync “current” to new state:
+                _currentProfilePictureLink = _imageAddress
+                _profileLinkChanged = False
+
                 lbl_info.ForeColor = Color.Green
                 lbl_info.Text = (" Updated successfully ")
 
                 LoadCurrentUserInformation()
 
-                'reflect changes in mainwindow
-                MainWindow.LoadUserInformation()
-
+                ' update session so MainWindow shows the new pic immediately
+                SessionManager.Instance.CurrentProfileLink = _imageAddress
+                My.Forms.MainWindow.LoadUserInformation()
 
                 _calanderView.DisplayInformation()
 
@@ -263,19 +278,43 @@ Namespace Presentation
 
 
         Private Sub ImageProfileClick(sender As Object, e As EventArgs) Handles img_profile.Click
-            Dim fileDialog As New OpenFileDialog
 
+            Using dlg As New OpenFileDialog() With {
+    .Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
+  }
+                If dlg.ShowDialog() <> DialogResult.OK Then Return
 
-            Const imageFilter As String = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
-            fileDialog.Filter = imageFilter
+                ' Prepare our app‐data folder
+                Dim profileDir = Path.Combine(
+      Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+      "expenseTrackie")
+                If Not Directory.Exists(profileDir) Then
+                    Directory.CreateDirectory(profileDir)
+                End If
 
-            If fileDialog.ShowDialog = DialogResult.OK Then
+                ' Where we keep our copy
+                Dim destPath = Path.Combine(profileDir, "profile.jpg")
 
-                _profileLink = fileDialog.FileName
-                img_profile.Image = Image.FromFile(_profileLink)
+                ' 1) Dispose the old image (if any) to release its lock
+                If img_profile.Image IsNot Nothing Then
+                    img_profile.Image.Dispose()
+                    img_profile.Image = Nothing
+                End If
 
+                ' 2) Now overwrite the file on disk
+                File.Copy(dlg.FileName, destPath, overwrite:=True)
 
-            End If
+                ' 3) Load into memory so the file stays free
+                Dim raw = File.ReadAllBytes(destPath)
+                Using ms As New MemoryStream(raw)
+                    img_profile.Image = Image.FromStream(ms)
+                End Using
+
+                ' 4) Remember this for saving/updating your DB
+                _imageAddress = destPath
+                _profileLinkChanged = True
+            End Using
+
         End Sub
 
 
@@ -531,6 +570,8 @@ Namespace Presentation
                 Return cp
             End Get
         End Property
+
+
 
 #End Region
 

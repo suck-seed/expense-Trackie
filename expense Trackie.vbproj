@@ -984,6 +984,7 @@
   <ItemGroup>
     <Content Include="expenseTrackie.ico" />
     <Content Include="icon.ico" />
+    <None Include="Resources\defaultProfile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

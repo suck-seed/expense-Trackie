@@ -1,15 +1,12 @@
 ﻿
 Imports System.Drawing.Drawing2D
+Imports System.IO
 Imports expense_Trackie.Application
 Namespace Presentation
 
     Public Class MainWindow
 
         Dim _categoryManager As New CategoryManager()
-
-
-
-
 
 #Region " predefined instance of userControls "
 
@@ -98,6 +95,7 @@ Namespace Presentation
 
 #End Region
 
+
 #Region " round shaping "
 
         Private Sub SetRoundedShape(ctrl As Control, radius As Integer)
@@ -146,7 +144,6 @@ Namespace Presentation
 #End Region
 
 
-
 #Region " loadInformation() "
 
 
@@ -154,8 +151,31 @@ Namespace Presentation
         Public Sub LoadUserInformation()
 
             MakePictureBoxCircular(img_profile)
-            If Not String.IsNullOrEmpty(SessionManager.Instance.CurrentProfileLink) Then
-                img_profile.Image = Image.FromFile(SessionManager.Instance.CurrentProfileLink)
+
+
+            Dim path = SessionManager.Instance.CurrentProfileLink
+
+            If Not String.IsNullOrEmpty(path) AndAlso File.Exists(path) Then
+                ' Dispose old image (if any)
+                If img_profile.Image IsNot Nothing Then
+                    img_profile.Image.Dispose()
+                    img_profile.Image = Nothing
+                End If
+
+
+                Dim raw = File.ReadAllBytes(path)
+                Using ms As New MemoryStream(raw)
+                    img_profile.Image = Image.FromStream(ms)
+                End Using
+
+            Else
+
+                ' fallback to default
+                If img_profile.Image IsNot Nothing Then
+                    img_profile.Image.Dispose()
+                End If
+                img_profile.Image = My.Resources.defaultProfile
+
             End If
 
 
@@ -175,7 +195,6 @@ Namespace Presentation
         End Sub
 
 #End Region
-
 
 
 #Region " month/day "
@@ -614,14 +633,8 @@ Namespace Presentation
 #End Region
 
 
-#Region " profile "
-        'Private Sub btn_profile_Click(sender As Object, e As EventArgs)
+#Region " display/setting profile "
 
-
-        '    Dim displayProfile As New DisplayProfile(_calanderView)
-        '    displayProfile.Show()
-
-        'End Sub
 
 
         Private Sub img_profile_Click(sender As Object, e As EventArgs) Handles img_profile.Click
@@ -633,6 +646,7 @@ Namespace Presentation
 
 
 #End Region
+
 
 #Region "check / button visual cues"
         ' checked visual cues
@@ -892,14 +906,8 @@ Namespace Presentation
 #End Region
 
 
-
-
 #Region " key handling "
 #End Region
-
-
-
-
 
 
 #Region " light / dark"
@@ -955,7 +963,6 @@ Namespace Presentation
 #End Region
 
 
-
 #Region " timer for buttons "
 
         Private Sub timer_revertImage_Tick(sender As Object, e As EventArgs) Handles timer_reset_image.Tick
@@ -989,7 +996,6 @@ Namespace Presentation
 #End Region
 
 
-
 #Region " to resolve flicker "
         Protected Overrides ReadOnly Property CreateParams() As CreateParams
             Get
@@ -1004,6 +1010,7 @@ Namespace Presentation
 
 
 #End Region
+
 
     End Class
 End Namespace
