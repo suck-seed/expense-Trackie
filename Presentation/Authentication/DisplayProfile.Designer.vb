@@ -79,6 +79,7 @@
             '
             Me.button_close.Dock = System.Windows.Forms.DockStyle.Left
             Me.button_close.FlatAppearance.BorderSize = 0
+            Me.button_close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
             Me.button_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
             Me.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.button_close.Image = Global.expense_Trackie.My.Resources.Resources.icons8_close_16
@@ -94,6 +95,7 @@
             '
             Me.btn_logout.Dock = System.Windows.Forms.DockStyle.Right
             Me.btn_logout.FlatAppearance.BorderSize = 0
+            Me.btn_logout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
             Me.btn_logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(125, Byte), Integer))
             Me.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btn_logout.Image = Global.expense_Trackie.My.Resources.Resources.logout

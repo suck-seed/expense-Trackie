@@ -20,6 +20,9 @@ Namespace Presentation
         Dim _descriptionChanged As Boolean = False
         Dim _colorChanged As Boolean = False
 
+        ReadOnly _borderRadius As Integer = 22
+
+
 #Region " New( dayView ) "
 
         Dim _dayView As DayView
@@ -40,7 +43,6 @@ Namespace Presentation
 #End Region
 
 
-
 #Region " on load "
         Dim darkMode As Boolean = False
 
@@ -57,6 +59,10 @@ Namespace Presentation
             End If
 
             ColorMode()
+            'rounded
+            SetRoundedShape(Me, _borderRadius)
+            Me.SetStyle(ControlStyles.ResizeRedraw, True)
+            Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
 
             'generating category on panel
             Dim categoryManager As New CategoryManager()
@@ -69,6 +75,7 @@ Namespace Presentation
         End Sub
 
 #End Region
+
 
 #Region " info label"
         Private Sub ClearInfo()
@@ -460,6 +467,42 @@ Namespace Presentation
 #End Region
 
 
+#Region " round shaping "
+
+        Private Sub SetRoundedShape(ctrl As Control, radius As Integer)
+            Dim rPath As New GraphicsPath()
+
+            ' new rectangle
+            Dim rect As New Rectangle(0, 0, ctrl.Width, ctrl.Height)
+
+            ' roudning and arch for the corners
+            rPath.AddArc(New Rectangle(rect.X, rect.Y, radius, radius), 180, 90) ' Top-left corner
+            rPath.AddArc(New Rectangle(rect.Width - radius, rect.Y, radius, radius), -90, 90) ' Top-right corner
+            rPath.AddArc(New Rectangle(rect.Width - radius, rect.Height - radius, radius, radius), 0, 90) ' Bottom-right corner
+            rPath.AddArc(New Rectangle(rect.X, rect.Height - radius, radius, radius), 90, 90) ' Bottom-left corner
+            rPath.CloseFigure()
+
+            ' applying smooth path to controls region
+            ctrl.Region = New Region(rPath)
+        End Sub
+
+
+        Protected Overrides Sub OnPaint(e As PaintEventArgs)
+            MyBase.OnPaint(e)
+
+            ' Enable anti-aliasing for smoother edges
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias
+
+        End Sub
+
+
+        Private Sub ExpenseDetailDisplay_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+            SetRoundedShape(Me, _borderRadius)
+        End Sub
+
+#End Region
+
+
 #Region " to resolve flicker "
         Protected Overrides ReadOnly Property CreateParams() As CreateParams
             Get
@@ -470,7 +513,6 @@ Namespace Presentation
         End Property
 
 #End Region
-
 
 
 #Region " mouse movement "

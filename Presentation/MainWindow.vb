@@ -42,7 +42,7 @@ Namespace Presentation
 
 #Region " form load / calander load "
 
-        ReadOnly _borderRadius As Integer = 20
+        ReadOnly _borderRadius As Integer = 22
         Dim _darkMode As Boolean = False
 
         Private Sub MybaseLoad(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -101,17 +101,17 @@ Namespace Presentation
         Private Sub SetRoundedShape(ctrl As Control, radius As Integer)
             Dim rPath As New GraphicsPath()
 
-            ' Create a new rectangle that exactly fits the control's size
+            ' new rectangle
             Dim rect As New Rectangle(0, 0, ctrl.Width, ctrl.Height)
 
-            ' Create rounded corners with arcs and straight lines
+            ' roudning and arch for the corners
             rPath.AddArc(New Rectangle(rect.X, rect.Y, radius, radius), 180, 90) ' Top-left corner
             rPath.AddArc(New Rectangle(rect.Width - radius, rect.Y, radius, radius), -90, 90) ' Top-right corner
             rPath.AddArc(New Rectangle(rect.Width - radius, rect.Height - radius, radius, radius), 0, 90) ' Bottom-right corner
             rPath.AddArc(New Rectangle(rect.X, rect.Height - radius, radius, radius), 90, 90) ' Bottom-left corner
             rPath.CloseFigure()
 
-            ' Apply the smooth path to the control's region
+            ' applying smooth path to controls region
             ctrl.Region = New Region(rPath)
         End Sub
 
@@ -122,7 +122,6 @@ Namespace Presentation
             ' Enable anti-aliasing for smoother edges
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias
 
-            ' You can add additional painting code here for custom effects if needed
         End Sub
 
 

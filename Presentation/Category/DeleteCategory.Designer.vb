@@ -46,6 +46,7 @@
             '
             Me.button_close.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.button_close.FlatAppearance.BorderSize = 0
+            Me.button_close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
             Me.button_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
             Me.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.button_close.Image = Global.expense_Trackie.My.Resources.Resources.icons8_close_16
@@ -85,6 +86,7 @@
             '
             Me.button_delete.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.button_delete.FlatAppearance.BorderSize = 0
+            Me.button_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
             Me.button_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(125, Byte), Integer))
             Me.button_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.button_delete.Image = Global.expense_Trackie.My.Resources.Resources.tickRound

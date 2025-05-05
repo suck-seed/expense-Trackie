@@ -14,6 +14,8 @@ Namespace Presentation
         Dim _selectedCategoryId As Integer = 0
 
         Dim wasBelowLimit As Boolean = False
+        ReadOnly _borderRadius As Integer = 22
+
 
 
 #Region " New( dayView ) "
@@ -39,8 +41,7 @@ Namespace Presentation
 #End Region
 
 
-
-#Region " loading categories "
+#Region " LOAD "
 
         Dim _darkMode As Boolean = False
 
@@ -58,6 +59,10 @@ Namespace Presentation
             End If
 
             ColorMode()
+            'rounded
+            SetRoundedShape(Me, _borderRadius)
+            Me.SetStyle(ControlStyles.ResizeRedraw, True)
+            Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
 
             txt_date_picker.Value = _dayView.CurrentDate
 
@@ -68,7 +73,6 @@ Namespace Presentation
         End Sub
 
 #End Region
-
 
 
 #Region " expense creation "
@@ -204,6 +208,7 @@ Namespace Presentation
 
 #End Region
 
+
 #Region " clearning error "
 
         Private Sub Clear_lbl_info(sender As Object, e As EventArgs) Handles txt_Amount.Enter, txt_Remarks.Enter
@@ -240,11 +245,6 @@ Namespace Presentation
 #End Region
 
 
-
-
-
-        ' Fetching categoryId
-
 #Region " selected category "
 
 
@@ -271,10 +271,6 @@ Namespace Presentation
         End Sub
 
 #End Region
-
-
-
-
 
 
 #Region "junk"
@@ -311,7 +307,6 @@ Namespace Presentation
 #End Region
 
 
-
 #Region " key events "
 
         Private Sub EscPressed(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
@@ -324,9 +319,6 @@ Namespace Presentation
         End Sub
 
 #End Region
-
-
-
 
 
 #Region " gradient "
@@ -371,9 +363,6 @@ Namespace Presentation
 #End Region
 
 
-
-
-
 #Region " light / dark"
 
         Public Sub ColorMode()
@@ -409,6 +398,41 @@ Namespace Presentation
         End Sub
 #End Region
 
+
+#Region " round shaping "
+
+        Private Sub SetRoundedShape(ctrl As Control, radius As Integer)
+            Dim rPath As New GraphicsPath()
+
+            ' new rectangle
+            Dim rect As New Rectangle(0, 0, ctrl.Width, ctrl.Height)
+
+            ' roudning and arch for the corners
+            rPath.AddArc(New Rectangle(rect.X, rect.Y, radius, radius), 180, 90) ' Top-left corner
+            rPath.AddArc(New Rectangle(rect.Width - radius, rect.Y, radius, radius), -90, 90) ' Top-right corner
+            rPath.AddArc(New Rectangle(rect.Width - radius, rect.Height - radius, radius, radius), 0, 90) ' Bottom-right corner
+            rPath.AddArc(New Rectangle(rect.X, rect.Height - radius, radius, radius), 90, 90) ' Bottom-left corner
+            rPath.CloseFigure()
+
+            ' applying smooth path to controls region
+            ctrl.Region = New Region(rPath)
+        End Sub
+
+
+        Protected Overrides Sub OnPaint(e As PaintEventArgs)
+            MyBase.OnPaint(e)
+
+            ' Enable anti-aliasing for smoother edges
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias
+
+        End Sub
+
+
+        Private Sub ExpenseDetailDisplay_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+            SetRoundedShape(Me, _borderRadius)
+        End Sub
+
+#End Region
 
 
 #Region " to resolve flicker "

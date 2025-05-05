@@ -183,6 +183,7 @@
             '
             Me.button_close.Dock = System.Windows.Forms.DockStyle.Left
             Me.button_close.FlatAppearance.BorderSize = 0
+            Me.button_close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
             Me.button_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
             Me.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.button_close.Image = Global.expense_Trackie.My.Resources.Resources.icons8_close_16
@@ -198,6 +199,7 @@
             '
             Me.button_create.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.button_create.FlatAppearance.BorderSize = 0
+            Me.button_create.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
             Me.button_create.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(125, Byte), Integer))
             Me.button_create.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.button_create.Image = Global.expense_Trackie.My.Resources.Resources.tickRound
