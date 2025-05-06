@@ -4,3 +4,9 @@ Mixed with traditional expense listing designs and combined with the ease of use
 Making it easy for you to take A LOT of your expense plesently and not get OVERWHELMED by your over spending habits.
 
 This is expenseTrackie :)
+
+
+### Installing 
+Download the zip file from the release section, unzip it and then run the setup.exe.
+
+It will install all the needed dependency and will call the .msi installer itself.
