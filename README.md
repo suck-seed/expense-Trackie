@@ -37,18 +37,33 @@ It will install all the needed dependency and will call the .msi installer itsel
 - Can filter based on Asc, Desc Amount or by time.
 - Click on an expense to delete particular expense.
 - Navigate the dates using the arrows beside the current date.
+- Further click on particular categories to put filter on displayed expenses.
 
   1. Based on Time
-     
-   ![image](https://github.com/user-attachments/assets/af53b1a6-bafa-46e7-9d09-eac14f3daa20)
+
+   ![image](https://github.com/user-attachments/assets/0b2fbed8-cd42-4836-ba2f-a3da886b3a6d)
 
   2. Based on Ascending
  
-   ![image](https://github.com/user-attachments/assets/a86e9f37-2c90-4564-b493-175c51731da2)
+   ![image](https://github.com/user-attachments/assets/5ebed85b-fb98-4803-96f3-a28a705c7f00)
 
   3. Based on Descending
  
-   ![image](https://github.com/user-attachments/assets/e74dbffa-ce54-40d4-a32a-86bc285d664f)
+   ![image](https://github.com/user-attachments/assets/6402c3a3-1a1c-49f5-beb0-01bbb4c2556b)
+
+  4. Filter (only transportation selected)
+ 
+   ![image](https://github.com/user-attachments/assets/7e4d2245-113d-4859-acaa-3c61f4cbda95)
+
+
+## Month View
+- A calander like view, shows 3 top expense of a day.
+- Click on a date, to open that particular day in Day view.
+- Navigate around prior and upcoming months using the arrows beside the date.
+
+  ![image](https://github.com/user-attachments/assets/e2831ac0-6d7d-464a-b1f6-59573c265b5e)
+
+  
 
 
      
