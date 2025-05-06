@@ -28,6 +28,29 @@ It will install all the needed dependency and will call the .msi installer itsel
 ## First Load
 - You will be prompted to save the login details and auto login.
 - A simple tutorial guiding on where to get started from.
+  
   ![image](https://github.com/user-attachments/assets/27865a11-fed3-4280-99ba-309f92222fb4)
+
+
+## Day View
+- Shows you current dates expenses
+- Can filter based on Asc, Desc Amount or by time.
+- Click on an expense to delete particular expense.
+- Navigate the dates using the arrows beside the current date.
+
+  1. Based on Time
+     
+   ![image](https://github.com/user-attachments/assets/af53b1a6-bafa-46e7-9d09-eac14f3daa20)
+
+  2. Based on Ascending
+ 
+   ![image](https://github.com/user-attachments/assets/a86e9f37-2c90-4564-b493-175c51731da2)
+
+  3. Based on Descending
+ 
+   ![image](https://github.com/user-attachments/assets/e74dbffa-ce54-40d4-a32a-86bc285d664f)
+
+
+     
 
   
