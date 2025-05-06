@@ -82,8 +82,31 @@ It will install all the needed dependency and will call the .msi installer itsel
 
   ![image](https://github.com/user-attachments/assets/81c9883d-4e49-4f9c-8202-c79ff88e45bc)
 
+#### Instruction : Filter approptiately and click on any of 3 button below the table data view, as per your need.
+
   
+## Siderbar Calander View
+- Navigate around the calander using the arrow keys
+- Displays red background if particular day's expense goes overboard the daily limit.
+- Makes changes on the alert background, as soon as the daily limit is changed, providing a responsive feeling.
+- Click on a date to open that date in Day View, allowing for faster navigation.
 
-     
+  ![image](https://github.com/user-attachments/assets/86b16c8d-7efa-432f-ade8-76834aaa4872)
 
+
+## Profile Setting
+- Edit user informations
+- Log out user
+- Delete user account
+
+  ![image](https://github.com/user-attachments/assets/7212d764-3079-48b3-9a3d-3f96db6f6643)
+
+## Adding Expense
+- Make sure to have atleast 1 category made
+- Provided a category section, listing all the category available
+
+  ![image](https://github.com/user-attachments/assets/ee5d2bba-e332-461b-9591-2b150529638a)
+
+
+## Adding Category
   
