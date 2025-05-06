@@ -64,6 +64,12 @@ It will install all the needed dependency and will call the .msi installer itsel
   ![image](https://github.com/user-attachments/assets/e2831ac0-6d7d-464a-b1f6-59573c265b5e)
 
   
+## Analytical View
+- A custom made section from user control, to display the no of expense & total expense for a category
+- A pie chart showcasing the expense information , for each category
+- A bar chart displaying the amount of expense per category.
+
+  ![image](https://github.com/user-attachments/assets/5515eb25-89bf-4cf3-afff-4cf0bd5a0c67)
 
 
      
