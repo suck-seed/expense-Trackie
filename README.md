@@ -12,6 +12,11 @@ Download the zip file from the release section, unzip it and then run the setup.
 It will install all the needed dependency and will call the .msi installer itself.
 
 
+## Things utilized
+- Vb.net 4.8
+- SqLite for easy, light porting and no dependency ofc and ofc it is the best.
+
+
 ## Features
 1. Calander view in sidebar, days with limit exceeding expense have their backgound turn red.
 2. Filter expenses based on categories.
