@@ -109,4 +109,25 @@ It will install all the needed dependency and will call the .msi installer itsel
 
 
 ## Adding Category
-  
+
+  ![image](https://github.com/user-attachments/assets/3901b2c0-335c-4672-bec8-5234454bee59)
+
+
+## Updating Category
+
+  ![image](https://github.com/user-attachments/assets/0a5a8b47-5eae-40b8-828d-3c91b084bbce)
+
+
+## Delete Category
+
+  ![image](https://github.com/user-attachments/assets/58d14ed8-a448-44ac-9c64-edabb530b7ed)
+
+
+## App Setting
+- Switching from light mode and dark mode.
+- Does without closing the application and is fast with it too.
+
+  ![image](https://github.com/user-attachments/assets/9a881f8b-0a08-4ad1-95d3-d50801a8da8d)
+
+
+
