@@ -72,6 +72,18 @@ It will install all the needed dependency and will call the .msi installer itsel
   ![image](https://github.com/user-attachments/assets/5515eb25-89bf-4cf3-afff-4cf0bd5a0c67)
 
 
+## Export View
+- A filter section to be toggled, that brings out various ways to filter the information to be exported.
+- Supports filtering in 3 formats, xlxs, csv and xml for providing varying options.
+- 3 pre provided preset (7, 14 and 30 days)
+- A start date and end date section for user required timeline to export.
+- A month view to select a single date
+- A category section to further filter down based on category.
+
+  ![image](https://github.com/user-attachments/assets/81c9883d-4e49-4f9c-8202-c79ff88e45bc)
+
+  
+
      
 
   
